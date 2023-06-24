@@ -689,37 +689,36 @@ end
 function Total_message(Message)  
 local MsgText = ''  
 if tonumber(Message) < 100 then 
-MsgText = 'سايق مخده 😹' 
+MsgText = 'غير متفاعل☹️ '
 elseif tonumber(Message) < 200 then 
-MsgText = 'الله بالخير 👋'
+MsgText = 'متشدد شويه بالتفاعل'
 elseif tonumber(Message) < 400 then 
-MsgText = 'عفيه اتفاعل 😽' 
+MsgText ='يعني صار زين '
 elseif tonumber(Message) < 700 then 
-MsgText = 'بدأ يتحسن 😐' 
+MsgText = 'اريد بعد اقوه😍'
 elseif tonumber(Message) < 1200 then 
-MsgText = 'شكد تحجي 😒' 
+MsgText = 'بعد بعد اريد نار وشرار'
 elseif tonumber(Message) < 2000 then 
-MsgText = 'استمر بطل 😍' 
+MsgText = 'كفو نته رب التفاعل'
 elseif tonumber(Message) < 3500 then 
-MsgText = 'تفاعل غنبله 🙂'  
+MsgText = 'اسطوره التفاعل😍 '
 elseif tonumber(Message) < 4000 then 
-MsgText = 'استمر يعسل 🥳' 
+MsgText = 'امبراطور التفاعل حيلي😍'
 elseif tonumber(Message) < 4500 then 
-MsgText = 'جيد جدا ♥️' 
+MsgText = 'سيد التفاعل الاول'
 elseif tonumber(Message) < 5500 then 
-MsgText = 'ممتاز جدا 🥰' 
+MsgText = 'ماكو مثلك بالتفاعل حجي😍 '
 elseif tonumber(Message) < 7000 then 
-MsgText = 'مــلــک 💯😻' 
+MsgText = 'تفاعل مفاعل نووي '
 elseif tonumber(Message) < 9500 then 
-MsgText = 'اسطورة التفاعل❤️' 
+MsgText = 'تريد بعد اضيفلك رسائل😒'
 elseif tonumber(Message) < 10000000000 then 
-MsgText = 'ملك التلكرام 💖'  
+MsgText = 'تريد اضيفلك بعد رسايل😑 '
 end 
 return MsgText 
 end
 function Total_groups(Message)  
 local MsgText = ''  
-print(Message)
 if tonumber(Message) < 200 then 
 MsgText = 'سايق مخده 😹' 
 elseif tonumber(Message) < 400 then 
@@ -5419,12 +5418,12 @@ memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '◉︙ •⊱ { نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
-echo '*------------------------------\n*◉︙ •⊱ { الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
-echo '*------------------------------\n*◉︙ •⊱ { وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
-echo '*------------------------------\n*◉︙ •⊱ { الـمــعــالــج } ⊰•\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '*------------------------------\n*◉︙ •⊱ { الــدخــول } ⊰•\n*»» '`whoami`'*'
-echo '*------------------------------\n*◉︙ •⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
+echo '• •⊱ { نظام التشغيل } ⊰• \n*»» '"$linux_version"'*' 
+echo '*------------------------------\n*• •⊱ { الذاكره العشوائيه } ⊰• \n*»» '"$memUsedPrc"'*'
+echo '*------------------------------\n*• •⊱ { وحـده الـتـخـزيـن } ⊰• \n*»» '"$HardDisk"'*'
+echo '*------------------------------\n*• •⊱ { الـمــعــالــج } ⊰• \n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '*------------------------------\n*• •⊱ { الــدخــول } ⊰• \n*»» '`whoami`'*'
+echo '*------------------------------\n*• •⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰• \n*»» '"$uptime"'*'
 ]]):read('*all'),"md")
 end
 if text == "مسح تخزين البوت" and ChCheck(msg) or text == "مسح تخزين البوت ◉" and ChCheck(msg) then
