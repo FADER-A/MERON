@@ -19308,7 +19308,7 @@ merolua.sendText(msg_chat_id,msg_id,'◉︙تم مسح جميع جهاتك ال�
 elseif text == 'رسائلي' and ChCheck(msg) then
 
 
-merolua.sendText(msg_chat_id,msg_id,'◉︙عدد رسائلك هنا *~ '..(Redis:get(TheMERON..'MERON:Num:Msg:User'..msg.chat_id..':'..msg.sender_id.user_id) or 1)..'*',"md",true)  
+merolua.sendText(msg_chat_id,msg_id,'◉︙عدد رسائلك هنا *~ '..(Redis:get(TheMERON..'MERON:Num:Message:User'..msg.chat_id..':'..msg.sender_id.user_id) or 1)..'*',"md",true)  
 elseif text == 'سحكاتي' and ChCheck(msg) or text == 'سحكاتي' and ChCheck(msg) then
 
 
@@ -21170,8 +21170,7 @@ return merolua.sendText(msg_chat_id,msg_id,'*◉︙العدد الكلي { '..#l
 end
 end
 if text == 'تنظيف المجموعات' and ChCheck(msg) then
-if msg.sender_id.user_id ~= 1054308380 then 
-return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { مطور السورس }* ',"md",true)  
+return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
 
 
@@ -22481,8 +22480,7 @@ end
 end
 
 if text == 'تنظيف المشتركين ◉' and ChCheck(msg) then
-if msg.sender_id.user_id ~= 1054308380 then 
-return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { مطور السورس }* ',"md",true)  
+return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
 
 
