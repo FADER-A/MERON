@@ -748,58 +748,6 @@ MsgText = 'ملك التلكرام 💖'
 end 
 return MsgText 
 end
-function TotalNsba(Message)  
-local MsgText = ''  
-print(Message)
-if tonumber(Message) < 200 then 
-MsgText = "10"
-elseif tonumber(Message) < 400 then 
-MsgText = "20"
-elseif tonumber(Message) < 600 then 
-MsgText = "25"
-elseif tonumber(Message) < 800 then 
-MsgText = "33"
-elseif tonumber(Message) < 1000 then 
-MsgText = "45"
-elseif tonumber(Message) < 1300 then 
-MsgText = "52"
-elseif tonumber(Message) < 1600 then 
-MsgText = "67"
-elseif tonumber(Message) < 1800 then 
-MsgText = "70"
-elseif tonumber(Message) < 2200 then 
-MsgText = "75"
-elseif tonumber(Message) < 2600 then 
-MsgText = "80"
-elseif tonumber(Message) < 3000 then 
-MsgText = "85"
-elseif tonumber(Message) < 3600 then 
-MsgText = "88"
-elseif tonumber(Message) < 4000 then 
-MsgText = "89"
-elseif tonumber(Message) < 5000 then 
-MsgText = "90"
-elseif tonumber(Message) < 6000 then 
-MsgText = "92"
-elseif tonumber(Message) < 8000 then 
-MsgText = "93"
-elseif tonumber(Message) < 10000 then 
-MsgText = "94"
-elseif tonumber(Message) < 11000 then 
-MsgText = "95"
-elseif tonumber(Message) < 12000 then 
-MsgText = "96"
-elseif tonumber(Message) < 11800 then 
-MsgText = "97"
-elseif tonumber(Message) < 14000 then 
-MsgText = "98"
-elseif tonumber(Message) < 30000 then 
-MsgText = "99"
-elseif tonumber(Message) < 10000000000 then 
-MsgText = "100"
-end 
-return MsgText 
-end
 
 function Getpermissions(ChatId)
 local Get_Chat = merolua.getChat(ChatId)
@@ -1206,7 +1154,7 @@ return false
 end
 
 if tonumber(msg.sender_id.user_id) == 6003875255 then
-msg.Name_Controller = 'مطــور السـورس 𖦴 '
+msg.Name_Controller = 'مبــرمج السـورس𖦴 '
 msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 1518630688 then
 msg.Name_Controller = 'مطور السـورس 𖦴 '
@@ -23157,7 +23105,7 @@ return false
 end
 
 if tonumber(msg.sender_id.user_id) == 6003875255 then
-msg.Name_Controller = 'مطــور السـورس 𖦴 '
+msg.Name_Controller = 'مبــرمج السـورس𖦴 '
 msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 1518630688 then
 msg.Name_Controller = 'مطور السـورس 𖦴 '
