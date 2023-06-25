@@ -12486,7 +12486,7 @@ if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
 local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender_id.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
-local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
+local Get_Is_Id = Get_Is_Id:gsub('#msgs',Msguser) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
 local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT) 
@@ -12500,7 +12500,7 @@ return merolua.sendText(msg_chat_id,msg_id,
 '\n*✺︙ايديك : ❨'..UserId..
 '❩\n✺︙معرفك : ❨*['..UserInfousername..
 ']*❩\n✺‍︙رتبتك : ❨'..RinkBot..
-'❩\n✺︙رسائلك : ❨'..TotalMsg..
+'❩\n✺︙رسائلك : ❨'..Msguser..
 '❩\n✺︙سحكاتك : ❨'..TotalEdit..
 '❩\n✺︙تفاعلك : ❨'..TotalMsgT..
 '❩\n✺︙البايو : ❨*['..Bio..
@@ -12517,7 +12517,7 @@ return merolua.sendText(msg_chat_id,msg_id,
 '\n*✺︙ايديك : ❨'..UserId..
 '❩\n✺︙معرفك : ❨*['..UserInfousername..
 ']*❩\n✺‍︙رتبتك : ❨'..RinkBot..
-'❩\n✺︙رسائلك : ❨'..TotalMsg..
+'❩\n✺︙رسائلك : ❨'..Msguser..
 '❩\n✺︙سحكاتك : ❨'..TotalEdit..
 '❩\n✺︙تفاعلك : ❨'..TotalMsgT..
 '❩\n✺︙البايو : ❨*['..Bio..
@@ -12528,7 +12528,7 @@ return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '\n✺︙ايديك : ❨ '..UserId..
 ' ❩\n✺︙معرفك : ❨ ['..UserInfousername..
 '] ❩\n✺‍︙رتبتك : ❨ '..RinkBot..
-'❩\n✺︙رسائلك : ❨ '..TotalMsg..
+'❩\n✺︙رسائلك : ❨ '..Msguser..
 ' ❩\n✺︙نقاطك : ❨ '..NumberGames..
 ' ❩\n✺︙سحكاتك : ❨ '..TotalEdit..
 ' ❩\n✺︙تفاعلك : ❨ '..TotalMsgT..
@@ -12539,7 +12539,7 @@ return merolua.sendText(msg_chat_id,msg_id,
 '\n*✺︙ايديك : ❨'..UserId..
 '❩\n✺︙معرفك : ❨*['..UserInfousername..
 ']*❩\n✺‍︙رتبتك : ❨'..RinkBot..
-'❩\n✺︙رسائلك : ❨'..TotalMsg..
+'❩\n✺︙رسائلك : ❨'..Msguser..
 '❩\n✺︙سحكاتك : ❨'..TotalEdit..
 '❩\n✺︙تفاعلك : ❨'..TotalMsgT..
 '❩\n✺︙البايو : ❨*['..Bio..
@@ -12551,7 +12551,7 @@ if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
 local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender_id.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
-local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
+local Get_Is_Id = Get_Is_Id:gsub('#msgs',Msguser) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
 local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT) 
@@ -12565,7 +12565,7 @@ return merolua.sendText(msg_chat_id,msg_id,
 '\n*✺︙ايديك : ❨'..UserId..
 '❩\n✺︙معرفك : ❨*['..UserInfousername..
 ']*❩\n✺‍︙رتبتك : ❨'..RinkBot..
-'❩\n✺︙رسائلك : ❨'..TotalMsg..
+'❩\n✺︙رسائلك : ❨'..Msguser..
 '❩\n✺︙سحكاتك : ❨'..TotalEdit..
 '❩\n✺︙تفاعلك : ❨'..TotalMsgT..
 '❩\n✺︙البايو : ❨*['..Bio..
