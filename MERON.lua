@@ -6539,7 +6539,7 @@ if not msg.Addictive then
 return merolua.sendText(msg_chat_id,msg_id,"\n*✺︙هذا الامر يخص { "..Controller_Num(7).." }* ","md",true)  
 end
 Redis:del(TheMERON.."lock_zojne"..msg.chat_id) 
-return merolua.sendText(msg_chat_id,msg_id,GetByName(msg).."*✺︙تم تفعيل امر بيست*","md",true )
+return merolua.sendText(msg_chat_id,msg_id,GetByName(msg).."*✺︙تم تفعيل امر البيست*","md",true )
 end 
 if text == "تعطيل بيست" and ChCheck(msg) then
 
@@ -6548,7 +6548,7 @@ if not msg.Addictive then
 return merolua.sendText(msg_chat_id,msg_id,"\n*✺︙هذا الامر يخص { "..Controller_Num(7).." }* ","md",true)  
 end
 Redis:set(TheMERON.."lock_zojne"..msg.chat_id,true)  
-return merolua.sendText(msg_chat_id,msg_id,GetByName(msg).."*✺︙تم تعطيل امر بيست*","md",true )
+return merolua.sendText(msg_chat_id,msg_id,GetByName(msg).."*✺︙تم تعطيل امر البيست*","md",true )
 end   
 if text == "بيست" and ChCheck(msg) then
 if Redis:get(TheMERON.."lock_zojne"..msg.chat_id) then
@@ -6559,7 +6559,7 @@ local List_Members = Info_Members.members
 local NumRand1 = math.random(1, #List_Members); 
 local user1 = List_Members[NumRand1].member_id.user_id
 local UserInfo = merolua.getUser(user1)
-local listTow = "✺︙اخترت لك هاذ البيست😂 : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
+local listTow = "✺︙اخترت لك هاذ البيس معجبك كول حته اغيره : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
 end
 if text == "زوجني" and ChCheck(msg) then
@@ -6688,7 +6688,7 @@ if not msg.Originators then
 return merolua.sendText(msg_chat_id,msg_id,"\n*✺︙هذا الامر يخص { "..Controller_Num(5).." }* ","md",true)  
 end
 Redis:set(TheMERON.."lock_sharkk"..msg.chat_id,true)  
-return merolua.sendText(msg_chat_id,msg_id,GetByName(msg).."*✺︙تم تعطيل امر التحدي","md",true )
+return merolua.sendText(msg_chat_id,msg_id,GetByName(msg).."*✺︙تم تعطيل امر التحدي*","md",true )
 end   
 if text == "تفعيل الاضافات" and ChCheck(msg) then
 
@@ -12867,7 +12867,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendAnimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/LKKKKR/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 if text and (text == "ميمز" or text == "ميمزات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:memz:Abs'..msg.chat_id) then
@@ -12878,7 +12878,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/MemzDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 if text and (text == "ريمكس" or text == "ريمكسات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Remix:Abs'..msg.chat_id) then
@@ -12889,7 +12889,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/RemixDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 
@@ -12901,7 +12901,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/PhotosDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 
@@ -12913,7 +12913,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/lflflrofo/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 
@@ -12925,7 +12925,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/dldldldlgt/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -12937,7 +12937,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/gsgjituops/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -12949,7 +12949,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/fmgngoclr/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -12961,7 +12961,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/romansiaaa/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -12973,7 +12973,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/kibobg/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -12985,7 +12985,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/jahske/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 
@@ -12997,7 +12997,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/koksalt/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -13009,7 +13009,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/AnimesDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 
@@ -13021,7 +13021,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendVideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/kartonn220/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 
@@ -13033,7 +13033,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendvideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/editedl/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 
@@ -13045,7 +13045,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendvideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/edtinm/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 
@@ -13057,7 +13057,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/IIYIZ/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -13069,7 +13069,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/FPPPH/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -13081,7 +13081,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/javanev/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -13093,7 +13093,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/kabsjjwbs/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -13105,7 +13105,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/IIYIH/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -13117,21 +13117,21 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Lorebots6/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
 if text and (text == "BTS" or text == "بتس") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*✺︙تم اختيار صور BTS لك*'
-local msg_id = msg.id/2097152/0.5
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/xcososss/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
+
 
 if text and (text == "تطقيم" or text == "صور تطقيم") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
@@ -13141,7 +13141,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/zzuauwwuaisz/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -13153,7 +13153,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Lorebots9/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -13165,7 +13165,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/flflflgktl/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -13177,7 +13177,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Lorebots10/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
 
 
@@ -13189,7 +13189,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendVideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/RRRRRTQ/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 
@@ -13201,7 +13201,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendVideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/LKKKKT/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 if text and (text == "مسلسل" or text == "مسلسلات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Series:Abs'..msg.chat_id) then
@@ -13212,7 +13212,7 @@ keyboard.inline_keyboard = {
 {{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/SeriesDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 if text == 'كشف'  and msg.reply_to_message_id ~= 0 then
 
@@ -15195,6 +15195,96 @@ local Textbrj = text:match("^برج (.*)$")
 gk = io.popen('curl -s "https://apiabs.ml/brg.php?brg='..URL.escape(Textbrj)..'"'):read('*a')
 br = JSON.decode(gk)
 merolua.sendText(msg_chat_id,msg_id, br.ok.abs)
+end
+if text == "تخ" or text == "اقتلو" or text == "تخ تخ" then
+local Message_Reply = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
+local ban = bot.getUser(Message_Reply.sender_id.user_id)
+local bain = bot.getUser(msg.sender_id.user_id)
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(msg.sender_id.user_id) then
+return mero.sendText(msg_chat_id,msg_id,"*لول عوز يقتل نفسه العبيط 😹*","md",true)  
+end
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(1965534755) then
+return mero.sendText(msg_chat_id,msg_id,"*لا استطيع استخدام الأمر علي جابوا بيه*","md",true)  
+end
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(5417026180) then
+return mero.sendText(msg_chat_id,msg_id,"*لا استطيع استخدام الأمر علي المطور كئابه*","md",true)  
+end
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(TheMERON) then
+return mero.sendText(msg_chat_id,msg_id,"*لا استخدم الأمر علي نفسي يستا 😂*","md",true)  
+end
+if ban.first_name then
+baniusername = '*قتل ->* ['..UserInfo.first_name..'](tg://user?id='..bain.id..')\n*المجرم دا 😢 ->* ['..ban.first_name..'](tg://user?id='..ban.id..')\n*انـا لله وانـا اليـه راجعـون 😢\n*'
+else
+baniusername = 'لا يوجد'
+end
+ keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'المقتول 🔪', url = "https://t.me/"..ban.username..""},
+},
+}
+local msgg = msg_id/2097152/0.5
+return https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video=https://t.me/DEV_JABWA/176&caption=".. URL.escape(baniusername).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+if text == "تف" or text == "اتفو" or text == "تف تف" then
+local Message_Reply = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
+local ban = bot.getUser(Message_Reply.sender_id.user_id)
+local bain = bot.getUser(msg.sender_id.user_id)
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(msg.sender_id.user_id) then
+return mero.sendText(msg_chat_id,msg_id,"*اععع عوز يتف علي نفسه 😳*","md",true)  
+end
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(1965534755) then
+return mero.sendText(msg_chat_id,msg_id,"*لا استطيع استخدام الأمر علي جابوا بيه*","md",true)  
+end
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(5417026180) then
+return mero.sendText(msg_chat_id,msg_id,"*لا استطيع استخدام الأمر علي المطور كئابه*","md",true)  
+end
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(TheMERON) then
+return mero.sendText(msg_chat_id,msg_id,"*لا استخدم الأمر علي نفسي يستا 😂*","md",true)  
+end
+if ban.first_name then
+baniusername = '*تف ->* ['..UserInfo.first_name..'](tg://user?id='..bain.id..')\n*علي المجرم دا 😢 -> * ['..ban.first_name..'](tg://user?id='..ban.id..')\n*اععع اي القرف دا\n*'
+else
+baniusername = 'لا يوجد'
+end
+ keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'المجني عليه 😹', url = "https://t.me/"..ban.username..""},
+},
+}
+local msgg = msg_id/2097152/0.5
+return https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video=https://t.me/DEV_JABWA/175&caption=".. URL.escape(baniusername).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+if text == "مح" or text == "بوسه" or text == "مح فبؤقك" then
+local Message_Reply = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
+local ban = bot.getUser(Message_Reply.sender_id.user_id)
+local bain = bot.getUser(msg.sender_id.user_id)
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(msg.sender_id.user_id) then
+return mero.sendText(msg_chat_id,msg_id,"*اععع عوز يبوس نفسه 😳*","md",true)  
+end
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(1965534755) then
+return mero.sendText(msg_chat_id,msg_id,"*لا استطيع استخدام الأمر علي جابوا بيه*","md",true)  
+end
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(5417026180) then
+return mero.sendText(msg_chat_id,msg_id,"*لا استطيع استخدام الأمر علي المطور كئابه*","md",true)  
+end
+if tonumber(Message_Reply.sender_id.user_id) == tonumber(TheMERON) then
+return mero.sendText(msg_chat_id,msg_id,"*لا استخدم الأمر علي نفسي يستا 😂*","md",true)  
+end
+if ban.first_name then
+baniusername = '*💞 القميل ->* ['..UserInfo.first_name..'](tg://user?id='..bain.id..')\n*😉 بعتلك بوسه ->* ['..ban.first_name..'](tg://user?id='..ban.id..')\n*✧ تم القبله بنجاح 🥺♥\n*'
+else
+baniusername = 'لا يوجد'
+end
+ keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'المقبول 👻😹', url = "https://t.me/"..ban.username..""},
+},
+}
+local msgg = msg_id/2097152/0.5
+return https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video=https://t.me/DEV_JABWA/199&caption=".. URL.escape(baniusername).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text and (text == "غنيلي" or text == "↫ غنيلي ✺") and ChCheck(msg) and not Redis:get(TheMERON..'MERON:sh3ir:Abs'..msg.chat_id) then
