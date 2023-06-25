@@ -21009,26 +21009,7 @@ local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendPhoto?chat_id="..msg.chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 --     Source TheMERON     --
-if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg) or text == 'ياسورس' and ChCheck(msg) or text == 'يا سورس' and ChCheck(msg) then
 
-
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ قناة السورس ❳',url="t.me/AAPA1"}},
-{{text = '- قناة التحديثات .',url="t.me/AAPA1"}},
-{{text = '- لتنصيب السورس .',url="https://t.me/AAPA1"}},
-{{text = '- المطور .',url="t.me/cn22e"},
-{text = '- تواصل السورس .',url="https://t.me/t9as1bot"}},
-{{text = '❲ لتنصيب بوت ❳ .',url="https://t.me/cn22e"}},
-}
-local msg_id = msg.id/2097152/0.5
-return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/AAPA1/3&caption=' .. URL.escape([[
-*⦑ Welcome to Source ⦒
-◉ ⦑ SOURCE GHYM ⦒
-◉ Source version : 6.1* 
-— — — — — — — — —
-]]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-— — — — — — — — —
 elseif text == 'الاوامر' and ChCheck(msg) then
 if not msg.Addictive then
 return merolua.sendText(msg_chat_id,msg_id,'\n*✺︙هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
@@ -22541,7 +22522,7 @@ name = string.gsub(name,"⛈","🌨🌨🌨??🌨⛈??🌨🌨🌨")
 name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️⛅️⛅️⛅️")
 name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
 name = string.gsub(name,"👨‍🔬","👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍🔬👩‍🔬")
-name = string.gsub(name,"👨‍💻","👩‍💻👩‍??👩‍‍💻??‍‍??👩‍‍💻👨‍💻??‍💻👩‍💻👩‍💻")
+name = string.gsub(name,"👨‍💻","👩‍💻👩‍??👩‍‍💻👩‍‍??👩‍‍💻👨‍💻??‍💻👩‍💻👩‍💻")
 name = string.gsub(name,"👨‍🔧","??‍🔧👩‍🔧??‍🔧??‍🔧??‍🔧👩‍🔧👨‍🔧👩‍🔧")
 name = string.gsub(name,"👩‍??","👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳??‍🍳")
 name = string.gsub(name,"🧚‍♀","🧚‍♂🧚‍♂🧚‍♂??‍♂🧚‍♀🧚‍♂🧚‍♂")
