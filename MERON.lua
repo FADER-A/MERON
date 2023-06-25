@@ -15197,9 +15197,9 @@ br = JSON.decode(gk)
 merolua.sendText(msg_chat_id,msg_id, br.ok.abs)
 end
 if text == "تخ" or text == "اقتلو" or text == "تخ تخ" then
-local Message_Reply = (msg.chat_id, msg.reply_to_message_id)
-local ban = (Message_Reply.sender_id.user_id)
-local bain = (msg.sender_id.user_id)
+local Message_Reply = msg.chat_id, msg.reply_to_message_id
+local ban = Message_Reply.sender_id.user_id
+local bain = msg.sender_id.user_id
 if tonumber(Message_Reply.sender_id.user_id) == tonumber(msg.sender_id.user_id) then
 return mero.sendText(msg_chat_id,msg_id,"*لول عوز يقتل نفسه العبيط 😹*","md",true)  
 end
@@ -15227,9 +15227,9 @@ local msgg = msg_id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video=https://t.me/DEV_JABWA/176&caption=".. URL.escape(baniusername).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == "تف" or text == "اتفو" or text == "تف تف" then
-local Message_Reply = (msg.chat_id, msg.reply_to_message_id)
-local ban = (Message_Reply.sender_id.user_id)
-local bain = (msg.sender_id.user_id)
+local Message_Reply = msg.chat_id, msg.reply_to_message_id
+local ban = Message_Reply.sender_id.user_id
+local bain = msg.sender_id.user_id
 if tonumber(Message_Reply.sender_id.user_id) == tonumber(msg.sender_id.user_id) then
 return mero.sendText(msg_chat_id,msg_id,"*اععع عوز يتف علي نفسه 😳*","md",true)  
 end
@@ -15257,9 +15257,9 @@ local msgg = msg_id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video=https://t.me/DEV_JABWA/175&caption=".. URL.escape(baniusername).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == "مح" or text == "بوسه" or text == "مح فبؤقك" then
-local Message_Reply = msg.chat_id, msg.reply_to_message_id)
-local ban = (Message_Reply.sender_id.user_id)
-local bain = (msg.sender_id.user_id)
+local Message_Reply = msg.chat_id, msg.reply_to_message_id
+local ban = Message_Reply.sender_id.user_id
+local bain = msg.sender_id.user_id
 if tonumber(Message_Reply.sender_id.user_id) == tonumber(msg.sender_id.user_id) then
 return mero.sendText(msg_chat_id,msg_id,"*اععع عوز يبوس نفسه 😳*","md",true)  
 end
@@ -19761,7 +19761,7 @@ local List = {
 ➭- 𝒊𝒅 𓂅 #id 𓍯. 💕 
 ]], 
 [[ 
-⚕ 𓆰 𝑾𝒆𝒍??𝒐??𝒆 𝑻𝒐 𝑮𝒓𝒐𝒖𝒑 ★ 
+⚕ 𓆰 𝑾𝒆𝒍??𝒐𝒎𝒆 𝑻𝒐 𝑮𝒓𝒐𝒖𝒑 ★ 
 • 🖤 | 𝑼𝑬𝑺 : #username ‌‌‏★
 • 🖤 | 𝑺𝑻𝑨 : #stast ★ 
 • 🖤 | 𝑰𝑫 : #id ‌‌‏★
