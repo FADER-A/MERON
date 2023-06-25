@@ -15280,7 +15280,7 @@ keyboard.inline_keyboard = {
 local msgg = msg_id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=" .. msg_chat_id .. "&video=https://t.me/DEV_JABWA/199&caption=".. URL.escape(baniusername).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-
+end
 if text and (text == "غنيلي" or text == "↫ غنيلي ✺") and ChCheck(msg) and not Redis:get(TheMERON..'MERON:sh3ir:Abs'..msg.chat_id) then
 Abs = math.random(2,140); 
 local Text ='*✺‍︙تم اختيار الشعر الاغنيه فقط*'
