@@ -12551,9 +12551,9 @@ Get_Is_Id = Redis:get(TheMERON.."MERON:Set:Id:Groups") or Redis:get(TheMERON.."M
 if Redis:get(TheMERON.."MERON:Status:IdPhoto"..msg_chat_id) then
 if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
-local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender.user_id) 
+local Get_Is_Id = Get_Is_Id:gsub('#id',msg.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
-local Get_Is_Id = Get_Is_Id:gsub('#msgs',Totalmsg) 
+local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
 local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT) 
@@ -12561,64 +12561,64 @@ local Get_Is_Id = Get_Is_Id:gsub('#Description',Description)
 local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames) 
 local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto) 
 local Get_Is_Id = Get_Is_Id:gsub('#Bio',Bio) 
-if photo and photo.total_count and photo.total_count > 0 then
-if not msg.Distinguished and Redis:get(TheMERON..'idnotmem'..msg.chat_id)  then
-return merolua.sendText(msg_chat_id,msg_id,
-'\n*✯︙ايديك : ❨'..UserId..
-'❩\n✯︙معرفك : ❨*['..UserInfousername..
-']*❩\n✯‍︙رتبتك : ❨'..RinkBot..
-'❩\n✯︙رسائلك : ❨'..Totalmsg..
-'❩\n✯︙سحكاتك : ❨'..TotalEdit..
-'❩\n✯︙تفاعلك : ❨'..TotalMsgT..
-'❩\n✯︙البايو : ❨*['..Bio..
-']*❩*', "md")
+if photo.total_count > 0 then
+if not msg.Special and Redis:get(TheMERON..'idnotmem'..msg.chat_id)  then
+return send(msg_chat_id,msg_id,
+'\n*☆︙ايديك : ❪'..UserId..
+'❫\n☆︙معرفك : ❪*['..UserInfousername..
+']*❫\n☆︙رتبتك : ❪'..RinkBot..
+'❫\n☆︙رسائلك : ❪'..TotalMsg..
+'❫\n☆︙سحكاتك : ❪'..TotalEdit..
+'❫\n☆︙تفاعلك : ❪'..TotalMsgT..
+'❫\n☆︙البايو : ❪*['..Bio..
+']*❫*', "md")
 end
-return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
+return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
 else
-return merolua.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
+return send(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 end
 else
-if photo and photo.total_count and photo.total_count > 0 then
-if not msg.Distinguished and Redis:get(TheMERON..'idnotmem'..msg.chat_id)  then
-return merolua.sendText(msg_chat_id,msg_id,
-'\n*✯︙ايديك : ❨'..UserId..
-'❩\n✯︙معرفك : ❨*['..UserInfousername..
-']*❩\n✯‍︙رتبتك : ❨'..RinkBot..
-'❩\n✯︙رسائلك : ❨'..Totalmsg..
-'❩\n✯︙سحكاتك : ❨'..TotalEdit..
-'❩\n✯︙تفاعلك : ❨'..TotalMsgT..
-'❩\n✯︙البايو : ❨*['..Bio..
-']*❩*', "md")
+if photo.total_count > 0 then
+if not msg.Special and Redis:get(TheMERON..'idnotmem'..msg.chat_id)  then
+return send(msg_chat_id,msg_id,
+'\n*☆︙ايديك : ❪'..UserId..
+'❫\n☆︙معرفك : ❪*['..UserInfousername..
+']*❫\n☆︙رتبتك : ❪'..RinkBot..
+'❫\n☆︙رسائلك : ❪'..TotalMsg..
+'❫\n☆︙سحكاتك : ❪'..TotalEdit..
+'❫\n☆︙تفاعلك : ❪'..TotalMsgT..
+'❫\n☆︙البايو : ❪*['..Bio..
+']*❫*', "md")
 end
-return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
-'\n↫ '..Description..
-'\n✯︙ايديك : ❨ '..UserId..
-' ❩\n✯︙معرفك : ❨ ['..UserInfousername..
-'] ❩\n✯‍︙رتبتك : ❨ '..RinkBot..
-'❩\n✯︙رسائلك : ❨ '..TotalMsg..
-' ❩\n✯︙نقاطك : ❨ '..NumberGames..
-' ❩\n✯︙سحكاتك : ❨ '..TotalEdit..
-' ❩\n✯︙تفاعلك : ❨ '..TotalMsgT..
-'❩\n✯︙البايو : ❨ ['..Bio..
-']❩', "md")
+return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
+'\n☆︙التعليق : '..Description..
+'\n☆︙ايديك : ❪ '..UserId..
+' ❫\n☆︙معرفك : ❪ ['..UserInfousername..
+'] ❫\n☆︙رتبتك : ❪ '..RinkBot..
+'❫\n☆︙رسائلك : ❪ '..TotalMsg..
+' ❫\n☆︙نقاطك : ❪ '..NumberGames..
+' ❫\n☆︙سحكاتك : ❪ '..TotalEdit..
+' ❫\n☆︙تفاعلك : ❪ '..TotalMsgT..
+'❫\n☆︙البايو : ❪ ['..Bio..
+']❫', "md")
 else
-return merolua.sendText(msg_chat_id,msg_id,
-'\n*✯︙ايديك : ❨'..UserId..
-'❩\n✯︙معرفك : ❨*['..UserInfousername..
-']*❩\n✯‍︙رتبتك : ❨'..RinkBot..
-'❩\n✯︙رسائلك : ❨'..Totalmsg..
-'❩\n✯︙سحكاتك : ❨'..TotalEdit..
-'❩\n✯︙تفاعلك : ❨'..TotalMsgT..
-'❩\n✯︙البايو : ❨*['..Bio..
-']*❩*', "md")
+return send(msg_chat_id,msg_id,
+'\n*☆︙ايديك : ❪'..UserId..
+'❫\n☆︙معرفك : ❪*['..UserInfousername..
+']*❫\n☆︙رتبتك : ❪'..RinkBot..
+'❫\n☆︙رسائلك : ❪'..TotalMsg..
+'❫\n☆︙سحكاتك : ❪'..TotalEdit..
+'❫\n☆︙تفاعلك : ❪'..TotalMsgT..
+'❫\n☆︙البايو : ❪*['..Bio..
+']*❫*', "md")
 end
 end
 else
 if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
-local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender.user_id) 
+local Get_Is_Id = Get_Is_Id:gsub('#id',msg.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
-local Get_Is_Id = Get_Is_Id:gsub('#msgs',Totalmsg) 
+local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
 local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT) 
@@ -12626,20 +12626,21 @@ local Get_Is_Id = Get_Is_Id:gsub('#Description',Description)
 local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames) 
 local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto) 
 local Get_Is_Id = Get_Is_Id:gsub('#Bio',Bio) 
-return merolua.sendText(msg_chat_id,msg_id,'['..Get_Is_Id..']',"md",true) 
+return send(msg_chat_id,msg_id,'['..Get_Is_Id..']',"md",true) 
 else
-return merolua.sendText(msg_chat_id,msg_id,
-'\n*✯︙ايديك : ❨'..UserId..
-'❩\n✯︙معرفك : ❨*['..UserInfousername..
-']*❩\n✯‍︙رتبتك : ❨'..RinkBot..
-'❩\n✯︙رسائلك : ❨'..Totalmsg..
-'❩\n✯︙سحكاتك : ❨'..TotalEdit..
-'❩\n✯︙تفاعلك : ❨'..TotalMsgT..
-'❩\n✯︙البايو : ❨*['..Bio..
-']*❩*', "md")
+return send(msg_chat_id,msg_id,
+'\n*☆︙ايديك : ❪'..UserId..
+'❫\n☆︙معرفك : ❪*['..UserInfousername..
+']*❫\n☆︙رتبتك : ❪'..RinkBot..
+'❫\n☆︙رسائلك : ❪'..TotalMsg..
+'❫\n☆︙سحكاتك : ❪'..TotalEdit..
+'❫\n☆︙تفاعلك : ❪'..TotalMsgT..
+'❫\n☆︙البايو : ❪*['..Bio..
+']*❫*', "md")
 end
 end
 end 
+
 if text and text:match('^تحكم @(%S+)$') and ChCheck(msg) then
 local UserName = text:match('^تحكم @(%S+)$') 
 if not msg.Addictive then
