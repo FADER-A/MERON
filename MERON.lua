@@ -21035,7 +21035,6 @@ local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/xHIDARx/8&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 — — — — — — — — —
-]]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'الاوامر' and ChCheck(msg) then
 if not msg.Addictive then
 return merolua.sendText(msg_chat_id,msg_id,'\n*✺︙هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
