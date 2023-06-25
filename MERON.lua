@@ -12497,7 +12497,7 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',(NumberGames or 'لا يوجد'))
 local Get_Is_Id = Get_Is_Id:gsub('#photos',(TotalPhoto or 'لا يوجد')) 
 if photo and photo.total_count and photo.total_count > 0 then
 if not msg.VipMem and Redis:get(TheMERON..'idNotMemPic'..msg.chat_id)  then
-return LuaTele.sendText(msg.chat_id,msg.id,
+return merolua.sendText(msg.chat_id,msg.id,
 '\n◈ ⦂ ايديك : '..UserId..
 '\n◈ ⦂ معرفك : '..UserInfousername..
 '\n◈ ⦂ رتبتك : '..RinkBot..
@@ -12508,14 +12508,14 @@ return LuaTele.sendText(msg.chat_id,msg.id,
 '\n✓'
 ,"html",true) 
 end
-return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
+return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
 else
-return LuaTele.sendText(msg.chat_id,msg.id,Get_Is_Id,"html",true) 
+return merolua.sendText(msg.chat_id,msg.id,Get_Is_Id,"html",true) 
 end
 else
 if photo and photo.total_count and photo.total_count > 0 then
 if not msg.VipMem and Redis:get(TheMERON..'idNotMemPic'..msg.chat_id)  then
-return LuaTele.sendText(msg.chat_id,msg.id,
+return merolua.sendText(msg.chat_id,msg.id,
 '\n◈ ⦂ ايديك : '..UserId..
 '\n◈ ⦂ معرفك : '..UserInfousername..
 '\n◈ ⦂ رتبتك : '..RinkBot..
@@ -12526,7 +12526,7 @@ return LuaTele.sendText(msg.chat_id,msg.id,
 '\n✓'
 ,"html",true) 
 end
-return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
+return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
 '\n◈ ⦂ '..Description..
 '\n◈ ⦂ ايديك : '..UserId..
 '\n◈ ⦂ معرفك : '..UserInfousername..
@@ -12537,7 +12537,7 @@ return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '\n◈ ⦂ تفاعلك : '..TotalMsgT..
 '\n⩹━⊶ TheMERON TEAM⊷━⩺', "html")
 else
-return LuaTele.sendText(msg.chat_id,msg.id,
+return merolua.sendText(msg.chat_id,msg.id,
 '\n◈ ⦂ ايديك : '..UserId..
 '\n◈ ⦂ معرفك : '..UserInfousername..
 '\n◈ ⦂ رتبتك : '..RinkBot..
@@ -12563,9 +12563,9 @@ local Get_Is_Id = Get_Is_Id:gsub('#auto',(TotalMsgT or 'لا يوجد'))
 local Get_Is_Id = Get_Is_Id:gsub('#Description',Description) 
 local Get_Is_Id = Get_Is_Id:gsub('#game',(NumberGames or 'لا يوجد')) 
 local Get_Is_Id = Get_Is_Id:gsub('#photos',(TotalPhoto or 'لا يوجد')) 
-return LuaTele.sendText(msg.chat_id,msg.id,Get_Is_Id,"html",true) 
+return merolua.sendText(msg.chat_id,msg.id,Get_Is_Id,"html",true) 
 else
-return LuaTele.sendText(msg.chat_id,msg.id,
+return merolua.sendText(msg.chat_id,msg.id,
 '\n◈ ⦂ ايديك : '..UserId..
 '\n◈ ⦂ معرفك : '..UserInfousername..
 '\n◈ ⦂ رتبتك : '..RinkBot..
