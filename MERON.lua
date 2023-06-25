@@ -12465,7 +12465,7 @@ MyNumber = "≭︰رقمك موضوع لجهات اتصالك فقط"
 else
 MyNumber = "≭︰رقمك ↫ ❨ `"..UserInfo.phone_number.."+` ❩"
 end
-return return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
+ return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
 end
 if text ==("رقمه") and ChCheck(msg) and msg.reply_to_message_id ~= 0 or text ==("رقمة") and msg.reply_to_message_id ~= 0 and ChCheck(msg) then 
 local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
