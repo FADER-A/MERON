@@ -15198,7 +15198,6 @@ merolua.sendText(msg_chat_id,msg_id, br.ok.abs)
 end
 if text == "تخ" or text == "اقتلو" or text == "تخ تخ" then
 local Message_Reply = msg.chat_id, msg.reply_to_message_id
-local ban = Message_Reply.sender_id.user_id
 local bain = msg.sender_id.user_id
 if tonumber(Message_Reply.sender_id.user_id) == tonumber(msg.sender_id.user_id) then
 return mero.sendText(msg_chat_id,msg_id,"*لول عوز يقتل نفسه العبيط 😹*","md",true)  
@@ -15228,7 +15227,6 @@ return https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=
 end
 if text == "تف" or text == "اتفو" or text == "تف تف" then
 local Message_Reply = msg.chat_id, msg.reply_to_message_id
-local ban = Message_Reply.sender_id.user_id
 local bain = msg.sender_id.user_id
 if tonumber(Message_Reply.sender_id.user_id) == tonumber(msg.sender_id.user_id) then
 return mero.sendText(msg_chat_id,msg_id,"*اععع عوز يتف علي نفسه 😳*","md",true)  
@@ -15258,7 +15256,6 @@ return https.request("https://api.telegram.org/bot"..Token.."/sendvideo?chat_id=
 end
 if text == "مح" or text == "بوسه" or text == "مح فبؤقك" then
 local Message_Reply = msg.chat_id, msg.reply_to_message_id
-local ban = Message_Reply.sender_id.user_id
 local bain = msg.sender_id.user_id
 if tonumber(Message_Reply.sender_id.user_id) == tonumber(msg.sender_id.user_id) then
 return mero.sendText(msg_chat_id,msg_id,"*اععع عوز يبوس نفسه 😳*","md",true)  
