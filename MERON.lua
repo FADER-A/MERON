@@ -12528,7 +12528,7 @@ return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '\n✺︙ايديك : ❨ '..UserId..
 ' ❩\n✺︙معرفك : ❨ ['..UserInfousername..
 '] ❩\n✺‍︙رتبتك : ❨ '..RinkBot..
-'❩\n✺︙رسائلك : ❨ '..Msguser..
+'❩\n✺︙رسائلك : ❨ '..TotalMsg..
 ' ❩\n✺︙نقاطك : ❨ '..NumberGames..
 ' ❩\n✺︙سحكاتك : ❨ '..TotalEdit..
 ' ❩\n✺︙تفاعلك : ❨ '..TotalMsgT..
@@ -12539,7 +12539,7 @@ return merolua.sendText(msg_chat_id,msg_id,
 '\n*✺︙ايديك : ❨'..UserId..
 '❩\n✺︙معرفك : ❨*['..UserInfousername..
 ']*❩\n✺‍︙رتبتك : ❨'..RinkBot..
-'❩\n✺︙رسائلك : ❨'..Msguser..
+'❩\n✺︙رسائلك : ❨'..TotalMsg..
 '❩\n✺︙سحكاتك : ❨'..TotalEdit..
 '❩\n✺︙تفاعلك : ❨'..TotalMsgT..
 '❩\n✺︙البايو : ❨*['..Bio..
