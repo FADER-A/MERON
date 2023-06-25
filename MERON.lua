@@ -12470,7 +12470,7 @@ end
 if text ==("رقمه") and ChCheck(msg) and msg.reply_to_message_id ~= 0 or text ==("رقمة") and msg.reply_to_message_id ~= 0 and ChCheck(msg) then 
 local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
 if Message_Reply.merolua == "error" then
-return return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
 end
 local UserInfo = merolua.getUser(Message_Reply.sender.user_id)
 local nump = UserInfo.phone_number
@@ -12479,7 +12479,7 @@ MyNumber = "رقمه موضوع لجهات اتصالة فقط"
 else
 MyNumber = "≭︰رقمه ↫ ❨ `"..UserInfo.phone_number.."+` ❩"
 end
-return return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
+return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
 end
 if text and (text:match('^رقمه (%d+)$') or text:match('^رقمة (%d+)$')) and ChCheck(msg) then
 local UserId = (text:match('^رقمه (%d+)$') or text:match('^رقمة (%d+)$'))
@@ -12490,7 +12490,7 @@ MyNumber = "رقمه موضوع لجهات اتصالة فقط"
 else
 MyNumber = "≭︰رقمه ↫ ❨ `"..UserInfo.phone_number.."+` ❩"
 end
-return return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
+return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
 end
 if text and (text:match('^رقمه @(%S+)$') or text:match('^رقمة @(%S+)$')) and ChCheck(msg) then
 local UserName = (text:match('^رقمه @(%S+)$') or text:match('^رقمة @(%S+)$'))
@@ -12502,13 +12502,13 @@ MyNumber = "رقمه موضوع لجهات اتصالة فقط"
 else
 MyNumber = "≭︰رقمه ↫ ❨ `"..UserInfo.phone_number.."+` ❩"
 end
-return return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
+return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
 end
 --     Source TheMERON     --
 if text ==("جهاته") and msg.reply_to_message_id ~= 0 and ChCheck(msg) then 
 local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
 if Message_Reply.merolua == "error" then
-return return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
 end
 return merolua.sendText(msg.chat_id,msg.id,'≭︰عدد جهاته المضافه هنا *~ '..(Redis:get(TheMERON.."Num:Add:Memp"..msg.chat_id..":"..Message_Reply.sender.user_id) or 0)..'*',"md",true)  
 end
@@ -12544,7 +12544,7 @@ return false
 end
 local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
 if Message_Reply.merolua == "error" then
-return return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
 end
 local UserInfo = merolua.getUser(Message_Reply.sender.user_id)
 text ='≭︰اسمة ↫ firstname lastname'
@@ -12591,7 +12591,7 @@ end
 if text ==("معرفه") and ChCheck(msg) and msg.reply_to_message_id ~= 0 or text ==("معرفة") and msg.reply_to_message_id ~= 0 and ChCheck(msg) then 
 local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
 if Message_Reply.merolua == "error" then
-return return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
 end
 local UserInfo = merolua.getUser(Message_Reply.sender.user_id)
 if UserInfo.username then
@@ -12599,7 +12599,7 @@ UserInfousername = '@'..UserInfo.username..''
 else
 UserInfousername = 'لا يوجد'
 end
-return return merolua.sendText(msg.chat_id,msg.id,'≭︰معرفه ↫ ❨ `'..UserInfousername..'` ❩',"md",true) 
+return merolua.sendText(msg.chat_id,msg.id,'≭︰معرفه ↫ ❨ `'..UserInfousername..'` ❩',"md",true) 
 end
 if text and (text:match('^معرفه (%d+)$') or text:match('^معرفة (%d+)$')) and ChCheck(msg) then
 local UserId = (text:match('^معرفه (%d+)$') or text:match('^معرفة (%d+)$'))
@@ -12609,7 +12609,7 @@ UserName = '@'..UserInfo.username..''
 else
 UserName = 'لا يوجد'
 end
-return return merolua.sendText(msg.chat_id,msg.id,'≭︰معرفه ↫ ❨ `'..UserName..'` ❩',"md",true) 
+return merolua.sendText(msg.chat_id,msg.id,'≭︰معرفه ↫ ❨ `'..UserName..'` ❩',"md",true) 
 end
 
 if text == 'اسمي' and not Redis:get(TheMERON..'idnotmemname'..msg.chat_id)  then
@@ -16840,7 +16840,7 @@ return merolua.sendText(msg.chat_id,msg.id,'*≭︰الصوره معطله*',"md
 else
 local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
 if Message_Reply.merolua == "error" then
-return return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
 end
 local photo = merolua.getUserProfilePhotos(Message_Reply.sender.user_id)
 local UserInfo = merolua.getUser(Message_Reply.sender.user_id)
@@ -16849,7 +16849,7 @@ local Text = "≭︰عدد صوره هو ↫ "..photo.total_count.." صوره"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = '• '..UserInfo.first_name..' •', url = 't.me/'..UserInfo.username}, },{{text = '• سـوࢪس نـيـكن •', url = 't.me/hii3d'},},}}
 return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, Text, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-return return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
+return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
 end
 end
 end
@@ -16865,7 +16865,7 @@ local Text = "≭︰عدد صوره هو ↫ "..photo.total_count.." صوره"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = '• '..UserInfo.first_name..' •', url = 't.me/'..UserInfo.username}, },{{text = '• سـوࢪس نـيـكن •', url = 't.me/hii3d'},},}}
 return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, Text, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-return return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
+return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
 end
 end
 end
@@ -16882,7 +16882,7 @@ local Text = "≭︰عدد صوره هو ↫ "..photo.total_count.." صوره"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = '• '..UserInfo.first_name..' •', url = 't.me/'..UserInfo.username}, },{{text = '• سـوࢪس نـيـكن •', url = 't.me/hii3d'},},}}
 return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, Text, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-return return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
+return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
 end
 end
 end
@@ -16902,7 +16902,7 @@ keyboard.inline_keyboard = {
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&reply_to_message_id="..rep.."&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption="..URL.escape("≭︰عدد صورك هو ↫ "..photo.total_count.." صوره").."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-return return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
+return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
 end
 end
 end
@@ -19095,7 +19095,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
 {{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
 }}
-return return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
 elseif msg.SecondSudo then
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• مسح المطورين {"..ListSudoBot.."} •",data=msg.sender.user_id..'/'.."DelSudoBot"},{text="• مسح المالكين {"..ListOwner.."} •",data=msg.sender.user_id..'/'.."DelOwner"}},
@@ -19106,7 +19106,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
 {{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
 }}
-return return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
 elseif msg.SudoBot then
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• مسح جميع رتب المجموعة {"..listRainkGroups.."} •",data=msg.sender.user_id..'/'.. 'DelRainkGroups'}},
@@ -19117,7 +19117,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
 {{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
 }}
-return return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
 elseif msg.BasicConstructor then
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• مسح جميع رتب المجموعة {"..listRainkGroups.."} •",data=msg.sender.user_id..'/'.. 'DelRainkGroups'}},
@@ -19127,7 +19127,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
 {{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
 }}
-return return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
 elseif msg.BasicConstructor then
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• مسح المنشئين {"..ListConstructor.."} •",data=msg.sender.user_id..'/'.."DelConstructor"}},
@@ -19136,7 +19136,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
 {{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
 }}
-return return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
 elseif msg.Constructor then
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• مسح المدراء {"..ListManagers.."} •",data=msg.sender.user_id..'/'.."DelManager"},{text="• مسح الادمنيه {"..ListAdmins.."} •",data=msg.sender.user_id..'/'.."DelAdmins"}},
@@ -19144,7 +19144,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
 {{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
 }}
-return return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
 elseif msg.Manager then
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• مسح الادمنيه {"..ListAdmins.."} •",data=msg.sender.user_id..'/'.."DelAdmins"}},
@@ -19152,14 +19152,14 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
 {{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
 }}
-return return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
 elseif msg.Admin then
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text="• مسح المميزين {"..ListVipMem.."} •",data=msg.sender.user_id..'/'.."DelmMemm"}},
 {{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
 {{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
 }}
-return return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
 end
 end
 --     Source TheMERON     --
@@ -19227,7 +19227,7 @@ end
 --     Source TheMERON     --
 if text and text:match("^حذف جميع الرتب$") or text and text:match("^مسح جميع الرتب$") or text and text:match("^تنزيل جميع الرتب$") then
 if not msg.BasicConstructor then
-return return merolua.sendText(msg.chat_id, msg.id, '≭︰لمنشئ المجموعه فقط', 'md')
+return merolua.sendText(msg.chat_id, msg.id, '≭︰لمنشئ المجموعه فقط', 'md')
 else
 local basicconstructor = Redis:smembers(TheMERON..'HIDAR:BasicConstructor:'..msg.chat_id)
 local constructor = Redis:smembers(TheMERON..'HIDAR:Constructor:'..msg.chat_id)
