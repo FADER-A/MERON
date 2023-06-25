@@ -12496,7 +12496,7 @@ local Get_Is_Id = Get_Is_Id:gsub('#Description',Description)
 local Get_Is_Id = Get_Is_Id:gsub('#game',(NumberGames or 'لا يوجد')) 
 local Get_Is_Id = Get_Is_Id:gsub('#photos',(TotalPhoto or 'لا يوجد')) 
 if photo and photo.total_count and photo.total_count > 0 then
-if not msg.VipMem and Redis:get(Fast..'idNotMemPic'..msg.chat_id)  then
+if not msg.VipMem and Redis:get(TheMERON..'idNotMemPic'..msg.chat_id)  then
 return LuaTele.sendText(msg.chat_id,msg.id,
 '\n◈ ⦂ ايديك : '..UserId..
 '\n◈ ⦂ معرفك : '..UserInfousername..
@@ -12514,7 +12514,7 @@ return LuaTele.sendText(msg.chat_id,msg.id,Get_Is_Id,"html",true)
 end
 else
 if photo and photo.total_count and photo.total_count > 0 then
-if not msg.VipMem and Redis:get(Fast..'idNotMemPic'..msg.chat_id)  then
+if not msg.VipMem and Redis:get(TheMERON..'idNotMemPic'..msg.chat_id)  then
 return LuaTele.sendText(msg.chat_id,msg.id,
 '\n◈ ⦂ ايديك : '..UserId..
 '\n◈ ⦂ معرفك : '..UserInfousername..
@@ -12535,7 +12535,7 @@ return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '\n◈ ⦂ رسائلك : '..TotalMsg..
 '\n◈ ⦂ تعديلاتك : '..TotalEdit..
 '\n◈ ⦂ تفاعلك : '..TotalMsgT..
-'\n⩹━⊶ Fast TEAM⊷━⩺', "html")
+'\n⩹━⊶ TheMERON TEAM⊷━⩺', "html")
 else
 return LuaTele.sendText(msg.chat_id,msg.id,
 '\n◈ ⦂ ايديك : '..UserId..
@@ -12572,7 +12572,7 @@ return LuaTele.sendText(msg.chat_id,msg.id,
 '\n◈ ⦂ رسائلك : '..TotalMsg..
 '\n◈ ⦂ تعديلاتك : '..TotalEdit..
 '\n◈ ⦂ تفاعلك : '..TotalMsgT..
-'\n⩹━⊶ Fast TEAM⊷━⩺',"html",true) 
+'\n⩹━⊶ TheMERON TEAM⊷━⩺',"html",true) 
 end
 end
 end
