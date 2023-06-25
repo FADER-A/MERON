@@ -12448,7 +12448,7 @@ data = {
 return merolua.sendText(msg_chat_id, msg_id, '✺︙اختر نبذه حسب جنسك ', 'md', false, false, false, false, reply_markup)
 end
 
-if text == 'يوزري' and ChCheck(msg) then
+if text == 'معرفي' and ChCheck(msg) then
 local UserInfo = merolua.getUser(msg.sender_id.user_id)
 if UserInfo.username then
 UserInfousername = '@'..UserInfo.username..''
@@ -12456,160 +12456,6 @@ else
 UserInfousername = 'لا يوجد'
 end
 return merolua.sendText(msg_chat_id,msg_id,'\n✺︙معرفك : *❨'..UserInfousername..'❩*', "md")
-end
-if text =='رقمي' then
-local UserInfo = merolua.getUser(msg.sender.user_id)
-local nump = UserInfo.phone_number
-if #nump == 0 then
-MyNumber = "≭︰رقمك موضوع لجهات اتصالك فقط"
-else
-MyNumber = "≭︰رقمك ↫ ❨ `"..UserInfo.phone_number.."+` ❩"
-end
- return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
-end
-if text ==("رقمه") and ChCheck(msg) and msg.reply_to_message_id ~= 0 or text ==("رقمة") and msg.reply_to_message_id ~= 0 and ChCheck(msg) then 
-local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
-if Message_Reply.merolua == "error" then
-return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
-end
-local UserInfo = merolua.getUser(Message_Reply.sender.user_id)
-local nump = UserInfo.phone_number
-if #nump == 0 then
-MyNumber = "رقمه موضوع لجهات اتصالة فقط"
-else
-MyNumber = "≭︰رقمه ↫ ❨ `"..UserInfo.phone_number.."+` ❩"
-end
-return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
-end
-if text and (text:match('^رقمه (%d+)$') or text:match('^رقمة (%d+)$')) and ChCheck(msg) then
-local UserId = (text:match('^رقمه (%d+)$') or text:match('^رقمة (%d+)$'))
-local UserInfo = merolua.getUser(UserId)
-local nump = UserInfo.phone_number
-if #nump == 0 then
-MyNumber = "رقمه موضوع لجهات اتصالة فقط"
-else
-MyNumber = "≭︰رقمه ↫ ❨ `"..UserInfo.phone_number.."+` ❩"
-end
-return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
-end
-if text and (text:match('^رقمه @(%S+)$') or text:match('^رقمة @(%S+)$')) and ChCheck(msg) then
-local UserName = (text:match('^رقمه @(%S+)$') or text:match('^رقمة @(%S+)$'))
-local UserId_Info = merolua.searchPublicChat(UserName)
-local UserInfo = merolua.getUser(UserId_Info.id)
-local nump = UserInfo.phone_number
-if #nump == 0 then
-MyNumber = "رقمه موضوع لجهات اتصالة فقط"
-else
-MyNumber = "≭︰رقمه ↫ ❨ `"..UserInfo.phone_number.."+` ❩"
-end
-return merolua.sendText(msg.chat_id, msg.id,MyNumber,'md',true)
-end
---     Source TheMERON     --
-if text ==("جهاته") and msg.reply_to_message_id ~= 0 and ChCheck(msg) then 
-local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
-if Message_Reply.merolua == "error" then
-return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
-end
-return merolua.sendText(msg.chat_id,msg.id,'≭︰عدد جهاته المضافه هنا *~ '..(Redis:get(TheMERON.."Num:Add:Memp"..msg.chat_id..":"..Message_Reply.sender.user_id) or 0)..'*',"md",true)  
-end
-if text and (text:match('^جهاته (%d+)$') or text:match('^جهاتة (%d+)$')) and ChCheck(msg) then
-local UserId = (text:match('^جهاته (%d+)$') or text:match('^جهاتة (%d+)$'))
-return merolua.sendText(msg.chat_id,msg.id,'≭︰عدد جهاته المضافه هنا *~ '..(Redis:get(TheMERON.."Num:Add:Memp"..msg.chat_id..":"..UserId) or 0)..'*',"md",true)  
-end
-if text and (text:match('^جهاته @(%S+)$') or text:match('^جهاتة @(%S+)$')) and ChCheck(msg) then
-local UserName = (text:match('^جهاته @(%S+)$') or text:match('^جهاتة @(%S+)$'))
-local UserId_Info = merolua.searchPublicChat(UserName)
-return merolua.sendText(msg.chat_id,msg.id,'≭︰عدد جهاته المضافه هنا *~ '..(Redis:get(TheMERON.."Num:Add:Memp"..msg.chat_id..":"..UserId_Info.id) or 0)..'*',"md",true)  
-end
---     Source TheMERON     --
-if text == "اسميي" and ChCheck(msg) or text == "↫  اسمي ⌯" and ChCheck(msg) then
-if Redis:get(TheMERON..'My:Name:Chat'..msg.chat_id) then 
-if Redis:get(TheMERON..'Warning:Chat'..msg.chat_id)  then
-return merolua.sendText(msg.chat_id,msg.id,Reply_Status(msg.sender.user_id,"≭︰اسمي معطله من قبل الادمنيه \n•-› X").Warning,"md",true)
-end
-return false
-end
-local UserInfo = merolua.getUser(msg.sender.user_id)
-text ='≭︰اسمك ↫ firstname lastname'
-local text = text:gsub('firstname',(UserInfo.first_name or ''))
-local text = text:gsub('lastname',(UserInfo.last_name or ''))
-return merolua.sendText(msg.chat_id, msg.id, text, 'html',true)
-end
-if text ==("اسمه") and ChCheck(msg) and msg.reply_to_message_id ~= 0 or text ==("اسمة") and msg.reply_to_message_id ~= 0 and ChCheck(msg) then 
-if Redis:get(TheMERON..'My:Name:Chat'..msg.chat_id) then 
-if Redis:get(TheMERON..'Warning:Chat'..msg.chat_id)  then
-return merolua.sendText(msg.chat_id,msg.id,Reply_Status(msg.sender.user_id,"≭︰اسمه معطله من قبل الادمنيه \n•-› X").Warning,"md",true)
-end
-return false
-end
-local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
-if Message_Reply.merolua == "error" then
-return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
-end
-local UserInfo = merolua.getUser(Message_Reply.sender.user_id)
-text ='≭︰اسمة ↫ firstname lastname'
-local text = text:gsub('firstname',(UserInfo.first_name or ''))
-local text = text:gsub('lastname',(UserInfo.last_name or ''))
-return merolua.sendText(msg.chat_id, msg.id, text, 'html',true)
-end
-if text and (text:match('^اسمه (%d+)$') or text:match('^اسمة (%d+)$')) and ChCheck(msg) then
-if Redis:get(TheMERON..'My:Name:Chat'..msg.chat_id) then 
-if Redis:get(TheMERON..'Warning:Chat'..msg.chat_id)  then
-return merolua.sendText(msg.chat_id,msg.id,Reply_Status(msg.sender.user_id,"≭︰اسمه معطله من قبل الادمنيه \n•-› X").Warning,"md",true)
-end
-return false
-end
-local UserId = (text:match('^اسمه (%d+)$') or text:match('^اسمة (%d+)$'))
-local UserInfo = merolua.getUser(UserId)
-text ='≭︰اسمة ↫ firstname lastname'
-local text = text:gsub('firstname',(UserInfo.first_name or ''))
-local text = text:gsub('lastname',(UserInfo.last_name or ''))
-return merolua.sendText(msg.chat_id, msg.id, text, 'html',true)
-end
-if text and (text:match('^اسمه @(%S+)$') or text:match('^اسمة @(%S+)$')) and ChCheck(msg) then
-if Redis:get(TheMERON..'My:Name:Chat'..msg.chat_id) then 
-if Redis:get(TheMERON..'Warning:Chat'..msg.chat_id)  then
-return merolua.sendText(msg.chat_id,msg.id,Reply_Status(msg.sender.user_id,"≭︰اسمه معطله من قبل الادمنيه \n•-› X").Warning,"md",true)
-end
-return false
-end
-local UserName = (text:match('^اسمه @(%S+)$') or text:match('^اسمة @(%S+)$'))
-local UserId_Info = merolua.searchPublicChat(UserName)
-local UserInfo = merolua.getUser(UserId_Info.id)
-text ='≭︰اسمة ↫ firstname lastname'
-local text = text:gsub('firstname',(UserInfo.first_name or ''))
-local text = text:gsub('lastname',(UserInfo.last_name or ''))
-return merolua.sendText(msg.chat_id, msg.id, text, 'html',true)
-end
---     Source TheMERON     --
-if text == "معرفي" or text == "↫  معرفي ⌯" then
-local UserInfo = merolua.getUser(msg.sender.user_id)
-text ='≭︰معرفك ↫ ❨ User ❩'
-local text = text:gsub('User',('@'..UserInfo.username or ''))
-return merolua.sendText(msg.chat_id, msg.id, text, 'html',true)
-end
-if text ==("معرفه") and ChCheck(msg) and msg.reply_to_message_id ~= 0 or text ==("معرفة") and msg.reply_to_message_id ~= 0 and ChCheck(msg) then 
-local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
-if Message_Reply.merolua == "error" then
-return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
-end
-local UserInfo = merolua.getUser(Message_Reply.sender.user_id)
-if UserInfo.username then
-UserInfousername = '@'..UserInfo.username..''
-else
-UserInfousername = 'لا يوجد'
-end
-return merolua.sendText(msg.chat_id,msg.id,'≭︰معرفه ↫ ❨ `'..UserInfousername..'` ❩',"md",true) 
-end
-if text and (text:match('^معرفه (%d+)$') or text:match('^معرفة (%d+)$')) and ChCheck(msg) then
-local UserId = (text:match('^معرفه (%d+)$') or text:match('^معرفة (%d+)$'))
-local UserInfo = merolua.getUser(UserId)
-if UserInfo.username then
-UserName = '@'..UserInfo.username..''
-else
-UserName = 'لا يوجد'
-end
-return merolua.sendText(msg.chat_id,msg.id,'≭︰معرفه ↫ ❨ `'..UserName..'` ❩',"md",true) 
 end
 
 if text == 'اسمي' and not Redis:get(TheMERON..'idnotmemname'..msg.chat_id)  then
@@ -15351,6 +15197,7 @@ br = JSON.decode(gk)
 merolua.sendText(msg_chat_id,msg_id, br.ok.abs)
 end
 
+
 if text and (text == "غنيلي" or text == "↫ غنيلي ✺") and ChCheck(msg) and not Redis:get(TheMERON..'MERON:sh3ir:Abs'..msg.chat_id) then
 Abs = math.random(2,140); 
 local Text ='*✺‍︙تم اختيار الشعر الاغنيه فقط*'
@@ -16834,76 +16681,17 @@ return merolua.sendText(msg_chat_id,msg_id,' ✺︙عليك الاجابه اذ�
 end
 
 
-if text ==("صورته") and ChCheck(msg) and msg.reply_to_message_id ~= 0 or text ==("صورتة") and msg.reply_to_message_id ~= 0 and ChCheck(msg) then 
-if Redis:get(TheMERON.."hisphoto"..msg.chat_id) == "off" then
-return merolua.sendText(msg.chat_id,msg.id,'*≭︰الصوره معطله*',"md",true) 
-else
-local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
-if Message_Reply.merolua == "error" then
-return merolua.sendText(msg.chat_id,msg.id,"\n≭︰عذرا هذا المستخدم غير مدعوم ","md",true)  
+if text =="صورتي" and not Redis:get(TheMERON..'myphoto'..msg.chat_id)  then
+if not msg.Distinguished then
+return merolua.sendText(msg_chat_id,msg_id,'\n*✺︙هذا الامر يخص المميزين* ',"md",true)  
 end
-local photo = merolua.getUserProfilePhotos(Message_Reply.sender.user_id)
-local UserInfo = merolua.getUser(Message_Reply.sender.user_id)
+local photo = merolua.getUserProfilePhotos(msg.sender_id.user_id)
+local textrand = {"10%","20%","30%","40%","50%","60%","70%","80%","90%","100%",}
+local Text_Rand = textrand[math.random(#textrand)] 
 if photo and photo.total_count and photo.total_count > 0 then
-local Text = "≭︰عدد صوره هو ↫ "..photo.total_count.." صوره"
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = '• '..UserInfo.first_name..' •', url = 't.me/'..UserInfo.username}, },{{text = '• سـوࢪس نـيـكن •', url = 't.me/hii3d'},},}}
-return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, Text, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
+return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,"✺︙نسبه جمالك هي  : "..Text_Rand,"md")
 else
-return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
-end
-end
-end
-if text and (text:match('^صورته (%d+)$') or text:match('^صورتة (%d+)$')) and ChCheck(msg) then
-local UserId = (text:match('^صورته (%d+)$') or text:match('^صورتة (%d+)$'))
-if Redis:get(TheMERON.."hisphoto"..msg.chat_id) == "off" then
-return merolua.sendText(msg.chat_id,msg.id,'*≭︰الصوره معطله*',"md",true) 
-else
-local UserInfo = merolua.getUser(UserId)
-local photo = merolua.getUserProfilePhotos(UserId)
-if photo and photo.total_count and photo.total_count > 0 then
-local Text = "≭︰عدد صوره هو ↫ "..photo.total_count.." صوره"
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = '• '..UserInfo.first_name..' •', url = 't.me/'..UserInfo.username}, },{{text = '• سـوࢪس نـيـكن •', url = 't.me/hii3d'},},}}
-return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, Text, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
-else
-return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
-end
-end
-end
-if text and (text:match('^صورته @(%S+)$') or text:match('^صورتة @(%S+)$')) and ChCheck(msg) then
-local UserName = (text:match('^صورته @(%S+)$') or text:match('^صورتة @(%S+)$'))
-if Redis:get(TheMERON.."hisphoto"..msg.chat_id) == "off" then
-return merolua.sendText(msg.chat_id,msg.id,'*≭︰الصوره معطله*',"md",true) 
-else
-local UserId_Info = merolua.searchPublicChat(UserName)
-local photo = merolua.getUserProfilePhotos(UserId_Info.id)
-local UserInfo = merolua.getUser(UserId_Info.id)
-if photo and photo.total_count and photo.total_count > 0 then
-local Text = "≭︰عدد صوره هو ↫ "..photo.total_count.." صوره"
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = '• '..UserInfo.first_name..' •', url = 't.me/'..UserInfo.username}, },{{text = '• سـوࢪس نـيـكن •', url = 't.me/hii3d'},},}}
-return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, Text, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
-else
-return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
-end
-end
-end
---     Source TheMERON     --
-if text == "صورتي" and ChCheck(msg) then
-if Redis:get(TheMERON.."myphoto"..msg.chat_id) == "off" then
-return merolua.sendText(msg.chat_id,msg.id,'*≭︰الصوره معطله*',"md",true) 
-else
-local photo = merolua.getUserProfilePhotos(msg.sender.user_id)
-if photo and photo.total_count and photo.total_count > 0 then
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '• صورتك التاليه •', callback_data=msg.sender.user_id.."/sorty2"},
-},
-}
-local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&reply_to_message_id="..rep.."&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption="..URL.escape("≭︰عدد صورك هو ↫ "..photo.total_count.." صوره").."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-else
-return merolua.sendText(msg.chat_id,msg.id,'*≭︰لا توجد صوره ف حسابك*',"md",true) 
-end
+return merolua.sendText(msg_chat_id,msg_id,'لا يوجد صوره لك',"md",true) 
 end
 end
 if text and text:match("^معنى اسم (.*)$") and ChCheck(msg) then 
@@ -19065,231 +18853,6 @@ data = {
 }
 return merolua.sendText(msg_chat_id, msg_id, "✺︙ الصلاحيات - ", 'md', false, false, false, false, reply_markup)
 end
-if text == "مسح الرتب" and msg.Admin then
-local ListSecondSudo = Redis:scard(TheMERON.."HIDAR:SecondSudo:")
-local ListSudoBot = Redis:scard(TheMERON.."HIDAR:SudoBot:")
-local ListOwner = Redis:scard(TheMERON.."HIDAR:Owner:"..msg.chat_id)
-local ListBasicConstructor = Redis:scard(TheMERON.."HIDAR:BasicConstructor:"..msg.chat_id)
-local ListConstructor = Redis:scard(TheMERON.."HIDAR:Constructor:"..msg.chat_id)
-local ListManagers = Redis:scard(TheMERON.."HIDAR:Managers:"..msg.chat_id)
-local ListAdmins = Redis:scard(TheMERON.."HIDAR:Admins:"..msg.chat_id)
-local ListVipMem = Redis:scard(TheMERON.."HIDAR:VipMem:"..msg.chat_id)
-local listRainkBot = ListSecondSudo + ListSudoBot
-local listRainkGroups = ListBasicConstructor + ListConstructor + ListManagers + ListAdmins + ListVipMem
-local Text = [[
-≭︰اهلاً بك في قائمـة اوامر الرتب ↫ ⤈ 🪜
-ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ
-≭︰يمكنك مسح رتب المجموعـة من خلال الازرار اسفل ↫ ⤈ 
-ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ
-]] 
-
-if msg.DevMain then
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {
-{{text="• مسح جميع رتب البوت {"..listRainkBot.."} •",data=msg.sender.user_id..'/'.. 'DelRainkBot'}},
-{{text="• مسح الثانويين {"..ListSecondSudo.."} •",data=msg.sender.user_id..'/'.. 'DelSecondSudo'},{text="• مسح المطورين {"..ListSudoBot.."} •",data=msg.sender.user_id..'/'.."DelSudoBot"}},
-{{text="• مسح جميع رتب المجموعة {"..listRainkGroups.."} •",data=msg.sender.user_id..'/'.. 'DelRainkGroups'}},
-{{text="• مسح المنشئين الاساسيين {"..ListBasicConstructor.."} •",data=msg.sender.user_id..'/'.."DelBasicConstructor"}},
-{{text="• مسح المالكين {"..ListOwner.."} •",data=msg.sender.user_id..'/'.."DelOwner"},{text="• مسح المنشئين {"..ListConstructor.."} •",data=msg.sender.user_id..'/'.."DelConstructor"}},
-{{text="• مسح المدراء {"..ListManagers.."} •",data=msg.sender.user_id..'/'.."DelManager"},{text="• مسح الادمنيه {"..ListAdmins.."} •",data=msg.sender.user_id..'/'.."DelAdmins"}},
-{{text="• مسح المميزين {"..ListVipMem.."} •",data=msg.sender.user_id..'/'.."DelmMemm"}},
-{{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
-{{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
-}}
-return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
-elseif msg.SecondSudo then
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {
-{{text="• مسح المطورين {"..ListSudoBot.."} •",data=msg.sender.user_id..'/'.."DelSudoBot"},{text="• مسح المالكين {"..ListOwner.."} •",data=msg.sender.user_id..'/'.."DelOwner"}},
-{{text="• مسح جميع رتب المجموعة {"..listRainkGroups.."} •",data=msg.sender.user_id..'/'.. 'DelRainkGroups'}},
-{{text="• مسح المنشئين الاساسيين {"..ListBasicConstructor.."} •",data=msg.sender.user_id..'/'.."DelBasicConstructor"}},
-{{text="• مسح المنشئين {"..ListConstructor.."} •",data=msg.sender.user_id..'/'.."DelConstructor"},{text="• مسح المدراء {"..ListManagers.."} •",data=msg.sender.user_id..'/'.."DelManager"}},
-{{text="• مسح الادمنيه {"..ListAdmins.."} •",data=msg.sender.user_id..'/'.."DelAdmins"},{text="• مسح المميزين {"..ListVipMem.."} •",data=msg.sender.user_id..'/'.."DelmMemm"}},
-{{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
-{{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
-}}
-return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
-elseif msg.SudoBot then
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {
-{{text="• مسح جميع رتب المجموعة {"..listRainkGroups.."} •",data=msg.sender.user_id..'/'.. 'DelRainkGroups'}},
-{{text="• مسح المنشئين الاساسيين {"..ListBasicConstructor.."} •",data=msg.sender.user_id..'/'.."DelBasicConstructor"}},
-{{text="• مسح المالكين •",data="/DelOwner:"..msg.sender.user_id},{text="• مسح المنشئين {"..ListConstructor.."} •",data=msg.sender.user_id..'/'.."DelConstructor"}},
-{{text="• مسح المدراء {"..ListManagers.."} •",data=msg.sender.user_id..'/'.."DelManager"},{text="• مسح الادمنيه {"..ListAdmins.."} •",data=msg.sender.user_id..'/'.."DelAdmins"}},
-{{text="• مسح المميزين {"..ListVipMem.."} •",data=msg.sender.user_id..'/'.."DelmMemm"}},
-{{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
-{{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
-}}
-return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
-elseif msg.BasicConstructor then
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {
-{{text="• مسح جميع رتب المجموعة {"..listRainkGroups.."} •",data=msg.sender.user_id..'/'.. 'DelRainkGroups'}},
-{{text="• مسح المنشئين الاساسيين {"..ListBasicConstructor.."} •",data=msg.sender.user_id..'/'.."DelBasicConstructor"}},
-{{text="• مسح المنشئين {"..ListConstructor.."} •",data=msg.sender.user_id..'/'.."DelConstructor"},{text="• مسح المدراء {"..ListManagers.."} •",data=msg.sender.user_id..'/'.."DelManager"}},
-{{text="• مسح الادمنيه {"..ListAdmins.."} •",data=msg.sender.user_id..'/'.."DelAdmins"},{text="• مسح المميزين {"..ListVipMem.."} •",data=msg.sender.user_id..'/'.."DelmMemm"}},
-{{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
-{{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
-}}
-return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
-elseif msg.BasicConstructor then
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {
-{{text="• مسح المنشئين {"..ListConstructor.."} •",data=msg.sender.user_id..'/'.."DelConstructor"}},
-{{text="• مسح المدراء {"..ListManagers.."} •",data=msg.sender.user_id..'/'.."DelManager"},{text="• مسح الادمنيه {"..ListAdmins.."} •",data=msg.sender.user_id..'/'.."DelAdmins"}},
-{{text="• مسح المميزين {"..ListVipMem.."} •",data=msg.sender.user_id..'/'.."DelmMemm"}},
-{{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
-{{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
-}}
-return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
-elseif msg.Constructor then
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {
-{{text="• مسح المدراء {"..ListManagers.."} •",data=msg.sender.user_id..'/'.."DelManager"},{text="• مسح الادمنيه {"..ListAdmins.."} •",data=msg.sender.user_id..'/'.."DelAdmins"}},
-{{text="• مسح المميزين {"..ListVipMem.."} •",data=msg.sender.user_id..'/'.."DelmMemm"}},
-{{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
-{{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
-}}
-return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
-elseif msg.Manager then
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {
-{{text="• مسح الادمنيه {"..ListAdmins.."} •",data=msg.sender.user_id..'/'.."DelAdmins"}},
-{{text="• مسح المميزين {"..ListVipMem.."} •",data=msg.sender.user_id..'/'.."DelmMemm"}},
-{{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
-{{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
-}}
-return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
-elseif msg.Admin then
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {
-{{text="• مسح المميزين {"..ListVipMem.."} •",data=msg.sender.user_id..'/'.."DelmMemm"}},
-{{text="• اخفاء الكليشه •",data=msg.sender.user_id..'/'.. 'delAmr'}},
-{{text='• سـوࢪس نـيـكن •',url="t.me/hii3d"}}
-}}
-return merolua.sendText(msg.chat_id, msg.id, Text, 'md', true, false, false, false, reply_markup)
-end
-end
---     Source TheMERON     --
-
-if text and text:match("^حذف القوائم$") or text and text:match("^مسح القوائم$") then
-if not msg.BasicConstructor then
-return merolua.sendText(msg.chat_id, msg.id, '≭︰للمنشئ الاساسي فقط', 'md')
-else
-local Ban = Redis:smembers(TheMERON..'BanGroup:Group'..msg.chat_id)
-local Muted = Redis:smembers(TheMERON..'SilentGroup:Group'..msg.chat_id)
-local Tkeed = Redis:smembers(TheMERON..'Recent'..msg.chat_id)
-local Filters = Redis:smembers(TheMERON..'Filter:Group:'..msg.chat_id)
-local donky = Redis:smembers(TheMERON..'User:Donky:'..msg.chat_id)
-local HaTa = Redis:smembers(TheMERON..'User:HaTa:'..msg.chat_id)
-local hlo = Redis:smembers(TheMERON..'User:hlo:'..msg.chat_id)
-local Sakl = Redis:smembers(TheMERON..'User:Sakl:'..msg.chat_id)
-local Dog = Redis:smembers(TheMERON..'User:Dog:'..msg.chat_id)
-local Monkey = Redis:smembers(TheMERON..'User:Monkey:'..msg.chat_id)
-local Bakra = Redis:smembers(TheMERON..'User:Bakra:'..msg.chat_id)
-local Tale = Redis:smembers(TheMERON..'User:Tale:'..msg.chat_id)
-local Zahf = Redis:smembers(TheMERON..'User:Zahf:'..msg.chat_id)
-local Jred = Redis:smembers(TheMERON..'User:Jred:'..msg.chat_id)
-local Bro = Redis:smembers(TheMERON..'User:Bro:'..msg.chat_id)
-local Girl = Redis:smembers(TheMERON..'User:Bro:Girl'..msg.chat_id)
-if #Ban ~= 0 then Bant = 'المحظورين • ' else Bant = '' end
-if #Muted ~= 0 then Mutedt = 'المكتومين • ' else Mutedt = '' end
-if #Tkeed ~= 0 then Tkeedt = 'المقيدين • ' else Tkeedt = '' end
-if #Filters ~= 0 then Filterst = 'قائمة المنع • ' else Filterst = '' end
-if #donky ~= 0 then donkyt = 'المطايه • ' else donkyt = '' end
-if #HaTa ~= 0 then HaTat = 'الحاتات • ' else HaTat = '' end
-if #hlo ~= 0 then hlot = 'الصاكين • ' else hlot = '' end
-if #Sakl ~= 0 then Saklt = 'الصخوله • ' else Saklt = '' end
-if #Dog ~= 0 then Dogt = 'الجلاب • ' else Dogt = '' end
-if #Monkey ~= 0 then Monkeyt = 'القورده • ' else Monkeyt = '' end
-if #Bakra ~= 0 then Bakrat = 'البقرات • ' else Bakrat = '' end
-if #Tale ~= 0 then Talet = 'الطليان • ' else Talet = '' end
-if #Zahf ~= 0 then Zahft = 'الزواحف • ' else Zahft = '' end
-if #Jred ~= 0 then Jredt = 'الجريذيه • ' else Jredt = '' end
-if #Bro ~= 0 then Brot = 'الضلوع • ' else Brot = '' end
-if #Girl ~= 0 then Girlt = 'الضلعات • ' else Girlt = '' end
-if #Ban ~= 0 or #Muted ~= 0 or #Tkeed ~= 0 or #Filters ~= 0 or #donky ~= 0 or #HaTa ~= 0 or #hlo ~= 0 or #Sakl ~= 0 or #Dog ~= 0 or #Monkey ~= 0 or #Bakra ~= 0 or #Tale ~= 0 or #Zahf ~= 0 or #Jred ~= 0 or #Bro ~= 0 or #Girl ~= 0 then 
-Redis:del(TheMERON..'BanGroup:Group'..msg.chat_id) 
-Redis:del(TheMERON..'Filter:Group:'..msg.chat_id) 
-Redis:del(TheMERON..'SilentGroup:Group'..msg.chat_id)
-Redis:del(TheMERON..'Recent'..msg.chat_id)
-Redis:del(TheMERON..'HIDAR:Cleaner:'..msg.chat_id)
-Redis:del(TheMERON..'User:Donky:'..msg.chat_id)
-Redis:del(TheMERON..'User:HaTa:'..msg.chat_id)
-Redis:del(TheMERON..'User:hlo:'..msg.chat_id)
-Redis:del(TheMERON..'User:Sakl:'..msg.chat_id)
-Redis:del(TheMERON..'User:Dog:'..msg.chat_id)
-Redis:del(TheMERON..'User:Monkey:'..msg.chat_id)
-Redis:del(TheMERON..'User:Bakra:'..msg.chat_id)
-Redis:del(TheMERON..'User:Tale:'..msg.chat_id)
-Redis:del(TheMERON..'User:Zahf:'..msg.chat_id)
-Redis:del(TheMERON..'User:Jred:'..msg.chat_id)
-Redis:del(TheMERON..'User:Bro:'..msg.chat_id)
-Redis:del(TheMERON..'User:Bro:Girl'..msg.chat_id)
-return merolua.sendText(msg.chat_id, msg.id, "≭︰تم حذف جميع القوائم التاليه ↫ ❨ "..Bant..''..Mutedt..''..Tkeedt..''..Filterst..''..donkyt..''..HaTat..''..hlot..''..Saklt..''..Dogt..''..Monkeyt..''..Bakrat..''..Talet..''..Zahft..''..Jredt..''..Brot..''..Girlt.." ❩ بنجاح \n ✓", 'md')
-else
-return merolua.sendText(msg.chat_id, msg.id, "≭︰لاتوجد قوائم هنا", 'md')
-end 
-end
-end
---     Source TheMERON     --
-if text and text:match("^حذف جميع الرتب$") or text and text:match("^مسح جميع الرتب$") or text and text:match("^تنزيل جميع الرتب$") then
-if not msg.BasicConstructor then
-return merolua.sendText(msg.chat_id, msg.id, '≭︰لمنشئ المجموعه فقط', 'md')
-else
-local basicconstructor = Redis:smembers(TheMERON..'HIDAR:BasicConstructor:'..msg.chat_id)
-local constructor = Redis:smembers(TheMERON..'HIDAR:Constructor:'..msg.chat_id)
-local Managers = Redis:smembers(TheMERON..'HIDAR:Managers:'..msg.chat_id)
-local admins = Redis:smembers(TheMERON..'HIDAR:Admins:'..msg.chat_id)
-local vipmem = Redis:smembers(TheMERON..'HIDAR:VipMem:'..msg.chat_id)
-local cleaner = Redis:smembers(TheMERON..'HIDAR:Cleaner:'..msg.chat_id)
-local donky = Redis:smembers(TheMERON..'User:Donky:'..msg.chat_id)
-local HaTa = Redis:smembers(TheMERON..'User:HaTa:'..msg.chat_id)
-local hlo = Redis:smembers(TheMERON..'User:hlo:'..msg.chat_id)
-local Sakl = Redis:smembers(TheMERON..'User:Sakl:'..msg.chat_id)
-local Dog = Redis:smembers(TheMERON..'User:Dog:'..msg.chat_id)
-local Monkey = Redis:smembers(TheMERON..'User:Monkey:'..msg.chat_id)
-local Bakra = Redis:smembers(TheMERON..'User:Bakra:'..msg.chat_id)
-local Tale = Redis:smembers(TheMERON..'User:Tale:'..msg.chat_id)
-local Zahf = Redis:smembers(TheMERON..'User:Zahf:'..msg.chat_id)
-local Jred = Redis:smembers(TheMERON..'User:Jred:'..msg.chat_id)
-local Bro = Redis:smembers(TheMERON..'User:Bro:'..msg.chat_id)
-local Girl = Redis:smembers(TheMERON..'User:Bro:Girl'..msg.chat_id)
-if #basicconstructor ~= 0 then basicconstructort = 'المنشئين الاساسيين • ' else basicconstructort = '' end
-if #constructor ~= 0 then constructort = 'المنشئين • ' else constructort = '' end
-if #Managers ~= 0 then Managerst = 'المدراء • ' else Managerst = '' end
-if #admins ~= 0 then adminst = 'الادمنيه • ' else adminst = '' end
-if #vipmem ~= 0 then vipmemt = 'المميزين • ' else vipmemt = '' end
-if #cleaner ~= 0 then cleanert = 'المنظفين • ' else cleanert = '' end
-if #donky ~= 0 then donkyt = 'المطايه • ' else donkyt = '' end
-if #HaTa ~= 0 then HaTat = 'الحاتات • ' else HaTat = '' end
-if #hlo ~= 0 then hlot = 'الصاكين • ' else hlot = '' end
-if #Sakl ~= 0 then Saklt = 'الصخوله • ' else Saklt = '' end
-if #Dog ~= 0 then Dogt = 'الجلاب • ' else Dogt = '' end
-if #Monkey ~= 0 then Monkeyt = 'القورده • ' else Monkeyt = '' end
-if #Bakra ~= 0 then Bakrat = 'البقرات • ' else Bakrat = '' end
-if #Tale ~= 0 then Talet = 'الطليان • ' else Talet = '' end
-if #Zahf ~= 0 then Zahft = 'الزواحف • ' else Zahft = '' end
-if #Jred ~= 0 then Jredt = 'الجريذيه • ' else Jredt = '' end
-if #Bro ~= 0 then Brot = 'الضلوع • ' else Brot = '' end
-if #Girl ~= 0 then Girlt = 'الضلعات • ' else Girlt = '' end
-if #basicconstructor ~= 0 or #constructor ~= 0 or #Managers ~= 0 or #admins ~= 0 or #vipmem ~= 0 or #cleaner ~= 0 or #donky ~= 0 or #HaTa ~= 0 or #hlo ~= 0 or #Sakl ~= 0 or #Dog ~= 0 or #Monkey ~= 0 or #Bakra ~= 0 or #Tale ~= 0 or #Zahf ~= 0 or #Jred ~= 0 or #Bro ~= 0 or #Girl ~= 0 then 
-Redis:del(TheMERON..'HIDAR:BasicConstructor:'..msg.chat_id)
-Redis:del(TheMERON..'HIDAR:Constructor:'..msg.chat_id)
-Redis:del(TheMERON..'HIDAR:Managers:'..msg.chat_id)
-Redis:del(TheMERON..'HIDAR:Admins:'..msg.chat_id)
-Redis:del(TheMERON..'HIDAR:VipMem:'..msg.chat_id)
-Redis:del(TheMERON..'HIDAR:Cleaner:'..msg.chat_id)
-Redis:del(TheMERON..'User:Donky:'..msg.chat_id)
-Redis:del(TheMERON..'User:HaTa:'..msg.chat_id)
-Redis:del(TheMERON..'User:hlo:'..msg.chat_id)
-Redis:del(TheMERON..'User:Sakl:'..msg.chat_id)
-Redis:del(TheMERON..'User:Dog:'..msg.chat_id)
-Redis:del(TheMERON..'User:Monkey:'..msg.chat_id)
-Redis:del(TheMERON..'User:Bakra:'..msg.chat_id)
-Redis:del(TheMERON..'User:Tale:'..msg.chat_id)
-Redis:del(TheMERON..'User:Zahf:'..msg.chat_id)
-Redis:del(TheMERON..'User:Jred:'..msg.chat_id)
-Redis:del(TheMERON..'User:Bro:'..msg.chat_id)
-Redis:del(TheMERON..'User:Bro:Girl'..msg.chat_id)
-return merolua.sendText(msg.chat_id, msg.id, "≭︰تم حذف جميع الرتب التاليه ↫ ❨ "..basicconstructort..''..constructort..''..Managerst..''..adminst..''..vipmemt..''..cleanert..''..donkyt..''..HaTat..''..hlot..''..Saklt..''..Dogt..''..Monkeyt..''..Bakrat..''..Talet..''..Zahft..''..Jredt..''..Brot..''..Girlt.." ❩ بنجاح \n ✓", 'md')
-else
-return merolua.sendText(msg.chat_id, msg.id, "≭︰لاتوجد رتب هنا", 'md')
-end 
-end 
-end
 if text == 'تنزيل الكل' and ChCheck(msg) and msg.reply_to_message_id ~= 0 then
 if not msg.Addictive then
 return merolua.sendText(msg_chat_id,msg_id,'\n*✺︙هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
@@ -19880,7 +19443,7 @@ merolua.sendText(msg_chat_id,msg_id,'✺︙تم مسح جميع جهاتك ال�
 elseif text == 'رسائلي' and ChCheck(msg) then
 
 
-merolua.sendText(msg_chat_id,msg_id,'✺︙عدد رسائلك هنا *~ '..(Redis:get(TheMERON..'MERON:Num:Message:User'..msg.chat_id..':'..msg.sender_id.user_id) or 1)..'*',"md",true)  
+merolua.sendText(msg_chat_id,msg_id,'✺︙عدد رسائلك هنا *~ '..(Redis:get(TheMERON..'MERON:Num:Message:user'..msg.chat_id..':'..msg.sender_id.user_id) or 1)..'*',"md",true)  
 elseif text == 'سحكاتي' and ChCheck(msg) or text == 'سحكاتي' and ChCheck(msg) then
 
 
@@ -20982,9 +20545,6 @@ end
 Redis:del(TheMERON..'MERON:Texting:DevTheMERON')
 return merolua.sendText(msg_chat_id,msg_id,'✺︙ تم مسح كليشه المطور')
 end
-
-
-
 if text == "شبيهي" and ChCheck(msg) or txet == "يشبهني" and ChCheck(msg) then
 local t = "تصدك يخلق من الشبه اربعين🌚"
 Num = math.random(9,12)
@@ -21008,26 +20568,27 @@ local m = "https://t.me/DMmAR0/"..Rrr..""
 local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendPhoto?chat_id="..msg.chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
+
+
 if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg) or text == 'ياسورس' and ChCheck(msg) or text == 'يا سورس' and ChCheck(msg) then
 
 
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ قناة السورس ❳',url="t.me/AAPA1"}},
-{{text = '- قناة التحديثات .',url="t.me/AAPA1"}},
-{{text = '- لتنصيب السورس .',url="https://t.me/AAPA1"}},
-{{text = '- المطور .',url="t.me/cn22e"},
-{text = '- تواصل السورس .',url="https://t.me/t9as1bot"}},
-{{text = '❲ لتنصيب بوت ❳ .',url="https://t.me/cn22e"}},
+{{text = '❲ ЅᎾŪℛℂℰ ℂᎯℛℒᎾЅ ❳',url="t.me/l5l5III"}},
+{{text = '- قناة التحديثات .',url="t.me/lllEll0"}},
+{{text = '- لتنصيب السورس .',url="https://t.me/l5l5III"}},
+{{text = '- المطور .',url="t.me/M_Y_R_Q"},
+{text = '- تواصل السورس .',url="https://t.me/vxxsbot"}},
+{{text = '❲ لتنصيب بوت ❳ .',url="https://t.me/M_Y_R_Q"}},
 }
 local msg_id = msg.id/2097152/0.5
-return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/AAPA1/3&caption=' .. URL.escape([[
+return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/lllEll0/3&caption=' .. URL.escape([[
 *⦑ Welcome to Source ⦒
-◉ ⦑ SOURCE GHYM ⦒
-◉ Source version : 6.1* 
+✺ ⦑ SOURCE TNT ⦒
+✺ Source version : 6.1* 
 — — — — — — — — —
 ]]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-
 elseif text == 'الاوامر' and ChCheck(msg) then
 if not msg.Addictive then
 return merolua.sendText(msg_chat_id,msg_id,'\n*✺︙هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
@@ -25050,7 +24611,7 @@ local teex = "اشعار ايداع "..neews.."\nالمبلغ : "..F.." دينا
 merolua.sendText(msg.chat_id,msg.id,teex,"md",true)
 Redis:setex(TheMERON.."innoo" .. msg.sender_id.user_id,600, true)
 elseif sender == 3 then
-    K = ' معلم ??🏻‍🏫' 
+    K = ' معلم 👨🏻‍🏫' 
     F = '3800'
 Redis:incrby(TheMERON.."nool:flotysb"..msg.sender_id.user_id , F)
 local ballancee = Redis:get(TheMERON.."nool:flotysb"..msg.sender_id.user_id) or 0
@@ -29078,111 +28639,6 @@ Redis:hdel(TheMERON.."MERON:Spam:Group:User"..ChatId ,"Spam:User")
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = '- رجوع', data =UserId..'/'.. 'NoNextSeting'},},}}
 merolua.editMessageText(ChatId,Msg_id,Reply_Status(IdUser,"✺︙تم فتح التكرار").unLock, 'md', true, false, reply_markup)
 end
-end
-if Text and Text:match('(%d+)/sorty2') then
-local UserId = Text:match('(%d+)/sorty2')
-if tonumber(IdUser) == tonumber(UserId) then
-local photo = merolua.getUserProfilePhotos(IdUser)
-local ph = photo.photos[2].sizes[#photo.photos[1].sizes].photo.remote.id
-pph ={
-type = "photo",
-media = ph,
-caption = '≭︰عدد صورك هو ↫ '..photo.total_count..'\n≭︰وهذه صورتك رقم  ↫ 2\n•-› ✓',
-parse_mode = "Markdown"                                                                                                                                                               
-}     
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '• صورتك التاليه •', callback_data=IdUser.."/sorty3"},{text = '• صورتك السابقه •', callback_data=IdUser.."/sorty1"},
-},
-}
-local mm = msg_id/2097152/0.5
-https.request("http://api.telegram.org/bot"..Token.."/editmessagemedia?chat_id="..ChatId.."&message_id="..mm.."&media="..JSON.encode(pph).."&reply_markup="..JSON.encode(keyboard))
-end 
-end
-if Text and Text:match('(%d+)/sorty3') then
-local UserId = Text:match('(%d+)/sorty3') 
-if tonumber(IdUser) == tonumber(UserId) then
-local photo = merolua.getUserProfilePhotos(UserId)
-local ph = photo.photos[3].sizes[#photo.photos[1].sizes].photo.remote.id
-local pph ={
-type = "photo",
-media = ph,
-caption = '≭︰عدد صورك هو ↫ '..photo.total_count..'\n≭︰وهذه صورتك رقم  ↫ 3\n•-› ✓',
-parse_mode = "Markdown"                                                                                                                                                               
-}     
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '• صورتك التاليه •', callback_data=IdUser.."/sorty4"},{text = '• صورتك السابقه •', callback_data=IdUser.."/sorty2"},
-},
-}
-local mm = msg_id/2097152/0.5
-https.request("http://api.telegram.org/bot"..Token.."/editmessagemedia?chat_id="..ChatId.."&message_id="..mm.."&media="..JSON.encode(pph).."&reply_markup="..JSON.encode(keyboard))
-end 
-end
-if Text and Text:match('(%d+)/sorty1') then
-local UserId = Text:match('(%d+)/sorty1')
-if tonumber(IdUser) == tonumber(UserId) then
-local photo = merolua.getUserProfilePhotos(IdUser)
-local ph = photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id
-local pph ={
-type = "photo",
-media = ph,
-caption = '≭︰عدد صورك هو ↫ '..photo.total_count..'\n≭︰وهذه صورتك رقم  ↫ 1\n•-› ✓',
-parse_mode = "Markdown"                                                                                                                                                               
-}     
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '• صورتك التاليه •', callback_data=IdUser.."/sorty2"},
-},
-}
-local mm = msg_id/2097152/0.5
-https.request("http://api.telegram.org/bot"..Token.."/editmessagemedia?chat_id="..ChatId.."&message_id="..mm.."&media="..JSON.encode(pph).."&reply_markup="..JSON.encode(keyboard))
-end 
-end
-if Text and Text:match('(%d+)/sorty4') then
-local UserId = Text:match('(%d+)/sorty4')
-if tonumber(IdUser) == tonumber(UserId) then
-local photo = merolua.getUserProfilePhotos(IdUser)
-local ph = photo.photos[4].sizes[#photo.photos[1].sizes].photo.remote.id
-local pph ={
-type = "photo",
-media = ph,
-caption = '≭︰عدد صورك هو ↫ '..photo.total_count..'\n≭︰وهذه صورتك رقم  ↫ 4\n•-› ✓',
-parse_mode = "Markdown"                                                                                                                                                               
-}     
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '• صورتك التاليه •', callback_data=IdUser.."/sorty5"},{text = '• صورتك السابقه •', callback_data=IdUser.."/sorty3"},
-},
-}
-local mm = msg_id/2097152/0.5
-https.request("http://api.telegram.org/bot"..Token.."/editmessagemedia?chat_id="..ChatId.."&message_id="..mm.."&media="..JSON.encode(pph).."&reply_markup="..JSON.encode(keyboard))
-end 
-end
-if Text and Text:match('(%d+)/sorty5') then
-local UserId = Text:match('(%d+)/sorty5')
-if tonumber(IdUser) == tonumber(UserId) then
-local photo = merolua.getUserProfilePhotos(IdUser)
-local ph = photo.photos[5].sizes[#photo.photos[5].sizes].photo.remote.id
-local pph ={
-type = "photo",
-media = ph,
-caption = '≭︰عدد صورك هو ↫ '..photo.total_count..'\n≭︰وهذه صورتك رقم  ↫ 5\n•-› ✓',
-parse_mode = "Markdown"                                                                                                                                                               
-}     
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '• صورتك السابقه •', callback_data=IdUser.."/sorty4"},
-},
-}
-local mm = msg_id/2097152/0.5
-https.request("http://api.telegram.org/bot"..Token.."/editmessagemedia?chat_id="..ChatId.."&message_id="..mm.."&media="..JSON.encode(pph).."&reply_markup="..JSON.encode(keyboard))
-end 
 end
 if Text and Text:match('(%d+)/backbio') then
 local UserId = Text:match('(%d+)/backbio')
