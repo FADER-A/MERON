@@ -21009,31 +21009,25 @@ local rep = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendPhoto?chat_id="..msg.chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 --     Source TheMERON     --
-if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == '↫  السورس ⌯' then
-local Text =[[
-⦑ Welcome to Source ⦒
- ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ 
-≭︰[Source Channel](t.me/hii3d)
-≭︰[HIEDAR](t.me/IIIIIIGII) 
-≭︰[ALI](t.me/csssc0) 
-ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ 
-≭︰[TWS TheMERON](t.me/T9RABOT) 𓂅.
-]]
+if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg) or text == 'ياسورس' and ChCheck(msg) or text == 'يا سورس' and ChCheck(msg) then
+
+
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '• تحديثات سـوࢪس نـيـكن •', url = 't.me/e10ke'},
-},
-{
-{text = '• مبـرمج السـورس •', url = 't.me/IIIIIIGII'},{text = '• مطـور السـورس •', url = 't.me/csssc0'},
-},
-{
-{text = '• سـوࢪس نـيـكن •', url = 't.me/hii3d'},
-},
+{{text = '❲ قناة السورس ❳',url="t.me/AAPA1"}},
+{{text = '- قناة التحديثات .',url="t.me/AAPA1"}},
+{{text = '- لتنصيب السورس .',url="https://t.me/AAPA1"}},
+{{text = '- المطور .',url="t.me/cn22e"},
+{text = '- تواصل السورس .',url="https://t.me/t9as1bot"}},
+{{text = '❲ لتنصيب بوت ❳ .',url="https://t.me/cn22e"}},
 }
 local msg_id = msg.id/2097152/0.5
-return https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/xHIDARx/8&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
+return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/AAPA1/3&caption=' .. URL.escape([[
+*⦑ Welcome to Source ⦒
+◉ ⦑ SOURCE GHYM ⦒
+◉ Source version : 6.1* 
+— — — — — — — — —
+]]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 — — — — — — — — —
 elseif text == 'الاوامر' and ChCheck(msg) then
 if not msg.Addictive then
@@ -22547,7 +22541,7 @@ name = string.gsub(name,"⛈","🌨🌨🌨??🌨⛈??🌨🌨🌨")
 name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️⛅️⛅️⛅️")
 name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
 name = string.gsub(name,"👨‍🔬","👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍🔬👩‍🔬")
-name = string.gsub(name,"👨‍💻","👩‍💻👩‍??👩‍‍💻👩‍‍??👩‍‍💻👨‍💻??‍💻👩‍💻👩‍💻")
+name = string.gsub(name,"👨‍💻","👩‍💻👩‍??👩‍‍💻??‍‍??👩‍‍💻👨‍💻??‍💻👩‍💻👩‍💻")
 name = string.gsub(name,"👨‍🔧","??‍🔧👩‍🔧??‍🔧??‍🔧??‍🔧👩‍🔧👨‍🔧👩‍🔧")
 name = string.gsub(name,"👩‍??","👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳??‍🍳")
 name = string.gsub(name,"🧚‍♀","🧚‍♂🧚‍♂🧚‍♂??‍♂🧚‍♀🧚‍♂🧚‍♂")
