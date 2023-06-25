@@ -12595,7 +12595,7 @@ return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '\n✯︙ايديك : ❨ '..UserId..
 ' ❩\n✯︙معرفك : ❨ ['..UserInfousername..
 '] ❩\n✯‍︙رتبتك : ❨ '..RinkBot..
-'❩\n✯︙رسائلك : ❨ '..Totalmsg..
+'❩\n✯︙رسائلك : ❨ '..TotalMsg..
 ' ❩\n✯︙نقاطك : ❨ '..NumberGames..
 ' ❩\n✯︙سحكاتك : ❨ '..TotalEdit..
 ' ❩\n✯︙تفاعلك : ❨ '..TotalMsgT..
