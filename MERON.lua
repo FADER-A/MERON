@@ -12573,7 +12573,7 @@ return send(msg_chat_id,msg_id,
 '❫\n☆︙البايو : ❪*['..Bio..
 ']*❫*', "md")
 end
-return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
+return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
 else
 return send(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 end
@@ -12590,7 +12590,7 @@ return send(msg_chat_id,msg_id,
 '❫\n☆︙البايو : ❪*['..Bio..
 ']*❫*', "md")
 end
-return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
+return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
 '\n☆︙التعليق : '..Description..
 '\n☆︙ايديك : ❪ '..UserId..
 ' ❫\n☆︙معرفك : ❪ ['..UserInfousername..
