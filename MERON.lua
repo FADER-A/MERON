@@ -20492,7 +20492,7 @@ end
 Redis:set(TheMERON..'GHYM:GetTexting:DevTheMERON'..msg_chat_id..':'..msg.sender_id.user_id,true)
 return merolua.sendText(msg_chat_id,msg_id,[[
 ◉︙ارسل الكليشه الان ، 
-◉︙يمكنك اختيار كلايش من هنا @klaishsudo
+
 ◉︙يمكنك وضع : 
 ◉︙`#namemsudo` اسم المطور الاساسي مع الماركداون ،
 ◉︙`#namesudo` اسم المطور الاساسي بدون ماركداون ، 
@@ -22701,7 +22701,6 @@ end
 Redis:set(TheMERON..'GHYM:GetTexting:DevTheMERON'..msg_chat_id..':'..msg.sender_id.user_id,true)
 return merolua.sendText(msg_chat_id,msg_id,[[
 ◉︙ارسل الكليشه الان ،
-◉︙يمكنك اختيار كلايش من هنا @klaishsudo
 ◉︙يمكنك وضع : 
 ◉︙`#namemsudo` اسم المطور الاساسي مع الماركداون ،
 ◉︙`#namesudo` اسم المطور الاساسي بدون ماركداون ، 
