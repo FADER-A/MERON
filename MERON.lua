@@ -6740,10 +6740,31 @@ local NumRand1 = math.random(1, #List_Members);
 user1 = List_Members[3].member_id.user_id
 end
 local UserInfo = merolua.getUser(user1)
-local list = {"ماتشبع طمسسس دعوف صاحباتك وتعال","لشوكت تبقى نايم ؟ دتعال خل نسولف شوي","هاااااا شنهي نايم كاعد بصوت ايناس الخالدي 😂","دكعددددد ولك شني انت اشتاقينالك"}
+local list = {""تعترف له/ا بشي", "تكول له أو لها اسم امك", "تكول له او لها وين ساكن", "تكول كم عمرك", "تكول اسم ابوك", "تكول عمرك له", "تكول له كم مرا حبيت", "تكول له اسم سيارتك", "تكولين له اسم امك", "تكولين له انا احبك", "تكول له انت حيوان", "تكول اسمك الحقيقي له", "ترسله اخر صور", "تصور له وين جالس", "تعرف لها بشي", "ترسله كل فلوسك بالبوت", "تصور لها غرفتك", "تصور/ين عيونك وترسلها بالمجموعه", "ترسل سنابك او ترسلين سنابك"}
 local texting = list[math.random(#list)]
 local listTow = "✺︙"..texting.." : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
+end
+if text == 'تاك للمتفاعلين' or text == 'منشن للمتفاعلين' or text == 'المتفاعلين' then
+if not redis:get(bot_id.."taggg"..msg.chat_id) then
+returnmerolua.sendText(msg.chat_id,msg.id," ⌔ : امر المتفاعلين معطل من قبل المشرفين","md",true)
+end
+if not Administrator(msg) then
+returnmerolua.sendText(msg.chat_id,msg.id,'\n*⌔ : هذا الامر يخص الادمن * ',"md",true)  
+end
+
+local Info_Members = bot.searchChatMembers(msg.chat_id, "*", 25)
+local List_Members = Info_Members.members
+listall = '\n*⌔ : قائمه المتفاعلين في المجموعه \n ━━━━━━━━━━━*\n'
+for k, v in pairs(List_Members) do
+local UserInfo = bot.getUser(v.member_id.user_id)
+if UserInfo.username ~= "" then
+listall = listall.."*"..k.." - @"..UserInfo.username.."*\n"
+else
+listall = listall.."*"..k.." -* ["..UserInfo.id.."](tg://user?id="..UserInfo.id..")\n"
+end
+end
+return merolua.sendText(msg.chat_id,msg.id,listall,"md",true)  
 end
 if text == "تفعيل النداء التلقائي" and ChCheck(msg) then
 
@@ -9758,7 +9779,7 @@ local list = {
   "لو أغمضت عينيك الآن فما هو أول شيء ستفكر به؟ ",
 "كيف ينطق الطفل اسمك؟ ",
   "ما هي نقاط الضعف في شخصيتك؟ ",
-  "اكثر كذبة تقولها؟ ",
+  "اكثر كذبة تكولها؟ ",
   "تيكن ولا اضبطك؟ ",
   "اطول علاقة كنت فيها مع شخص؟ ",
   "قد ندمت على شخص؟ ",
@@ -9830,7 +9851,7 @@ local list = {
   "أخر مرة بكيت متى؟ وليش؟ ",
   "عندك الشخص اللي يقلب الدنيا عشان زعلك؟ ",
   "أفضل صفة تحبه بنفسك؟ ",
-  "كلمة تقولها للوالدين؟ ",
+  "كلمة تكولها للوالدين؟ ",
   "أنت من الناس اللي تنتقم وترد الاذى ولا تحتسب الأجر وتسامح؟ ",
   "كم عدد سنينك بالتليجرام؟ ",
   "تحب تعترف ولا تخبي؟ ",
@@ -9867,7 +9888,7 @@ local list = {
   "وش لون عيونك الجميلة؟ ",
   "من الناس اللي تتغزل بالكل ولا بالشخص اللي تحبه بس؟ ",
   "اذكر موقف ماتنساه بعمرك؟ ",
-  "وش حاب تقول للاشخاص اللي بيدخل حياتك؟ ",
+  "وش حاب تكول للاشخاص اللي بيدخل حياتك؟ ",
   "ألطف شخص مر عليك بحياتك؟ ",
    "هل باندا لطيف؟ ",
 "انت من الناس المؤدبة ولا نص نص؟ ",
@@ -9877,7 +9898,7 @@ local list = {
   "اكثر المتابعين عندك باي برنامج؟ ",
   "متى يوم ميلادك؟ ووش الهدية اللي نفسك فيه؟ ",
   "قد تمنيت شي وتحقق؟ ",
-  "قلبي على قلبك مهما صار لمين تقولها؟ ",
+  "قلبي على قلبك مهما صار لمين تكولها؟ ",
   "وش نوع جوالك؟ واذا بتغيره وش بتأخذ؟ ",
   "كم حساب عندك بالتليجرام؟ ",
   "متى اخر مرة كذبت؟ ",
@@ -9919,7 +9940,7 @@ local list = {
   "شيء مهما حطيت فيه فلوس بتكون مبسوط ؟ ",
   "مشاكلك بسبب ؟ ",
   "نسبه الندم عندك للي وثقت فيهم ؟ ",
-  "اول حرف من اسم شخص تقوله? بطل تفكر فيني ابي انام؟ ",
+  "اول حرف من اسم شخص تكوله? بطل تفكر فيني ابي انام؟ ",
   "اكثر شيء تحس انه مات ف مجتمعنا؟ ",
   "لو صار سوء فهم بينك وبين شخص هل تحب توضحه ولا تخليه كذا  لان مالك خلق توضح ؟ ",
   "كم عددكم بالبيت؟ ",
@@ -11501,6 +11522,45 @@ local UserInfoo = merolua.getUser(user2)
 local listTow = "✺︙ثنائي اليوم : \n ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") ~ ["..UserInfoo.first_name.."](tg://user?id="..UserInfoo.id..")\n"
 return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
 end
+if text == 'شخصيتي' or text == 'حددي شخصيتي' or text == 'حدد شخصيتي' then
+if not redis:get(bot_id.."shakse"..msg.chat_id) then
+return merolua.sendText(msg.chat_id,msg.id," ⌔ : شخصيتي معطلة من قبل المشرفين","md",true)
+end
+local texting = {"عنيده", 
+"متردده  ",
+"خبيثة  ", 
+"ايجابية ", 
+"غامضة  ", 
+"ضعيفة ", 
+"كلاسيكية  ", 
+"مسالمة  ", 
+"حماسية ", 
+"قيادية  ", 
+"شكاك  ", 
+"رومنسية  ",
+"محفزة  ",
+"متعاونة  ",
+"اجتماعية  ",
+"عصبية ",
+"نرجسية  ",
+"انطوائية  ",
+"مظلومة  ",
+} 
+zezee = texting[math.random(#texting)]
+local Jabwa = msg.sender.user_id
+local photo = msg.sender.user_id
+local news = 'شخصيتك : '..zezee
+if photo.total_count > 0 then
+data = {} 
+data.inline_keyboard = {
+{
+{text =news,url = "https://t.me/"..Jabwa.username..""}, 
+},
+}
+local msgg = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg.chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(news).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
+end
+end
 
 
 
@@ -12534,7 +12594,7 @@ local nameuser = FlterBio(UserInfo.first_name)
 local photo = merolua.getUserProfilePhotos(msg.sender_id.user_id)
 local UserId = msg.sender_id.user_id
 local RinkBot = msg.Name_Controller
-local TotalMsg = Redis:get(TheMERON..'MERON:Num:messageC:User'..msg_chat_id..':'..msg.sender_id.user_id) or 1
+local TotalMsg = Redis:get(TheMERON..'MERON:Num:Message:User'..msg_chat_id..':'..msg.sender_id.user_id) or 1
 local TotalPhoto = photo.total_count or 0
 local TotalEdit = Redis:get(TheMERON..'MERON:Num:Message:Edit'..msg_chat_id..msg.sender_id.user_id) or 0
 local TotalMsgT = Total_message(TotalmessageC) 
@@ -12553,7 +12613,7 @@ if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
 local Get_Is_Id = Get_Is_Id:gsub('#id',msg.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
-local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalmessageC) 
+local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
 local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT) 
@@ -12567,7 +12627,7 @@ return merolua.send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
-'❫\n☆︙رسائلك : ❪'..TotalmessageC..
+'❫\n☆︙رسائلك : ❪'..TotalMsg..
 '❫\n☆︙سحكاتك : ❪'..TotalEdit..
 '❫\n☆︙تفاعلك : ❪'..TotalMsgT..
 '❫\n☆︙البايو : ❪*['..Bio..
@@ -12584,7 +12644,7 @@ return merolua.send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
-'❫\n☆︙رسائلك : ❪'..TotalmessageC..
+'❫\n☆︙رسائلك : ❪'..TotalMsg..
 '❫\n☆︙سحكاتك : ❪'..TotalEdit..
 '❫\n☆︙تفاعلك : ❪'..TotalMsgT..
 '❫\n☆︙البايو : ❪*['..Bio..
@@ -12595,7 +12655,7 @@ return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '\n☆︙ايديك : ❪ '..UserId..
 ' ❫\n☆︙معرفك : ❪ ['..UserInfousername..
 '] ❫\n☆︙رتبتك : ❪ '..RinkBot..
-'❫\n☆︙رسائلك : ❪ '..TotalmessageC..
+'❫\n☆︙رسائلك : ❪ '..TotalMsg..
 ' ❫\n☆︙نقاطك : ❪ '..NumberGames..
 ' ❫\n☆︙سحكاتك : ❪ '..TotalEdit..
 ' ❫\n☆︙تفاعلك : ❪ '..TotalMsgT..
@@ -12606,7 +12666,7 @@ return merolua.send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
-'❫\n☆︙رسائلك : ❪'..TotalmessageC..
+'❫\n☆︙رسائلك : ❪'..TotalMsg..
 '❫\n☆︙سحكاتك : ❪'..TotalEdit..
 '❫\n☆︙تفاعلك : ❪'..TotalMsgT..
 '❫\n☆︙البايو : ❪*['..Bio..
@@ -12618,7 +12678,7 @@ if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
 local Get_Is_Id = Get_Is_Id:gsub('#id',msg.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
-local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalmessageC) 
+local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
 local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT) 
@@ -12632,7 +12692,7 @@ return merolua.send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
-'❫\n☆︙رسائلك : ❪'..TotalmessageC..
+'❫\n☆︙رسائلك : ❪'..TotalMsg..
 '❫\n☆︙سحكاتك : ❪'..TotalEdit..
 '❫\n☆︙تفاعلك : ❪'..TotalMsgT..
 '❫\n☆︙البايو : ❪*['..Bio..
@@ -13215,6 +13275,23 @@ keyboard.inline_keyboard = {
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/SeriesDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
+end
+if text == ("احصائياتي") and tonumber(msg.reply_to_message_id) == 0 then  
+local nummsg = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":message") or 1
+local edit = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":Editmessage")or 0
+local addmem = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":Addedmem") or 0
+local Num = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":game") or 0
+local reply_markup = {
+type = 'inline',
+data = {
+{{text = '⌔ الرسائل',data="iforme_"..msg.sender.user_id.."_1"},{text ="( "..nummsg.." )",data="iforme_"..msg.sender.user_id.."_1"}},
+{{text = '⌔ السحكات',data="iforme_"..msg.sender.user_id.."_2"},{text ="( "..edit.." )",data="iforme_"..msg.sender.user_id.."_2"}},
+{{text = '⌔ الجهات',data="iforme_"..msg.sender.user_id.."_3"},{text ="( "..addmem.." )",data="iforme_"..msg.sender.user_id.."_3"}},
+{{text = '⌔ المجوهرات',data="iforme_"..msg.sender.user_id.."_4"},{text ="( "..Num.." )",data="iforme_"..msg.sender.user_id.."_4"}},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,"*⌔︙اهلا بك احصائياتك هي ⬇️ .*","md", true, false, false, false, reply_markup)
+return false
 end
 if text == 'كشف'  and msg.reply_to_message_id ~= 0 then
 
