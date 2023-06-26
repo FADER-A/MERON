@@ -686,36 +686,36 @@ alkfr = alkfr,
 alphsar = alphsar
 }
 end
-function Total_message(msgs)  
-local message = ''  
-if tonumber(msgs) < 100 then 
-message = 'غير متفاعل' 
-elseif tonumber(msgs) < 200 then 
-message = 'بده يتحسن' 
-elseif tonumber(msgs) < 400 then 
-message = 'شبه متفاعل' 
-elseif tonumber(msgs) < 700 then 
-message = 'متفاعل' 
-elseif tonumber(msgs) < 1200 then 
-message = 'متفاعل قوي' 
-elseif tonumber(msgs) < 2000 then 
-message = 'متفاعل جدا' 
-elseif tonumber(msgs) < 3500 then 
-message = 'اقوى تفاعل'  
-elseif tonumber(msgs) < 4000 then 
-message = 'متفاعل نار' 
-elseif tonumber(msgs) < 4500 then 
-message = 'قمة التفاعل' 
-elseif tonumber(msgs) < 5500 then 
-message = 'اقوى متفاعل' 
-elseif tonumber(msgs) < 7000 then 
-message = 'ملك التفاعل' 
-elseif tonumber(msgs) < 9500 then 
-message = 'امبروطور التفاعل' 
-elseif tonumber(msgs) < 10000000000 then 
-message = 'رب التفاعل'  
+function Total_message(Message)  
+local MsgText = ''  
+if tonumber(Message) < 100 then 
+MsgText = 'غير متفاعل☹️ '
+elseif tonumber(Message) < 200 then 
+MsgText = 'متشدد شويه بالتفاعل'
+elseif tonumber(Message) < 400 then 
+MsgText ='يعني صار زين '
+elseif tonumber(Message) < 700 then 
+MsgText = 'اريد بعد اقوه😍'
+elseif tonumber(Message) < 1200 then 
+MsgText = 'بعد بعد اريد نار وشرار'
+elseif tonumber(Message) < 2000 then 
+MsgText = 'كفو نته رب التفاعل'
+elseif tonumber(Message) < 3500 then 
+MsgText = 'اسطوره التفاعل😍 '
+elseif tonumber(Message) < 4000 then 
+MsgText = 'امبراطور التفاعل حيلي😍'
+elseif tonumber(Message) < 4500 then 
+MsgText = 'سيد التفاعل الاول'
+elseif tonumber(Message) < 5500 then 
+MsgText = 'ماكو مثلك بالتفاعل حجي😍 '
+elseif tonumber(Message) < 7000 then 
+MsgText = 'تفاعل مفاعل نووي '
+elseif tonumber(Message) < 9500 then 
+MsgText = 'تريد بعد اضيفلك رسائل😒'
+elseif tonumber(Message) < 10000000000 then 
+MsgText = 'تريد اضيفلك بعد رسايل😑 '
 end 
-return message 
+return MsgText 
 end
 function Total_groups(Message)  
 local MsgText = ''  
