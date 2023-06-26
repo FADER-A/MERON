@@ -12183,9 +12183,9 @@ merolua.sendText(Sudo_Id,0,"◉︙هناك من بحاجه الى مساعده �
 end
 end
 if text == 'مبرمج السورس' then
-local UserId_Info = bot.searchPublicChat("m61gw")
+local UserId_Info = ("m61gw")
 if UserId_Info.id then
-local UserInfo = bot.getUser(UserId_Info.id)
+local UserInfo = (UserId_Info.id)
 if UserInfo.username and UserInfo.username ~= "" then
 t = '['..UserInfo.first_name..'](t.me/'..UserInfo.username..')'
 ban = ' '..UserInfo.first_name..' '
@@ -12675,7 +12675,7 @@ local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto)
 if photo.total_count > 0 then
 return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
 else
-return LuaTele.senText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
+return merolua.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 end
 else
 if photo.total_count > 0 then
