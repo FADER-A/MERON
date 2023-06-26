@@ -13339,7 +13339,7 @@ local nummsg = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":me
 local edit = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":Editmessage")or 0
 local addmem = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":Addedmem") or 0
 local Num = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":game") or 0
-local reply_markup = {
+local reply_markup = bot.replyMarkup{
 type = 'inline',
 data = {
 {{text = '⌔ الرسائل',data="iforme_"..msg.sender.user_id.."_1"},{text ="( "..nummsg.." )",data="iforme_"..msg.sender.user_id.."_1"}},
@@ -13348,8 +13348,50 @@ data = {
 {{text = '⌔ المجوهرات',data="iforme_"..msg.sender.user_id.."_4"},{text ="( "..Num.." )",data="iforme_"..msg.sender.user_id.."_4"}},
 }
 }
-return merolua.sendText(msg.chat_id,msg.id,"*⌔︙اهلا بك احصائياتك هي ⬇️ .*","md", true, false, false, false, reply_markup)
+bot.sendText(msg.chat_id,msg.id,"*⌔︙اهلا بك احصائياتك هي ⬇️ .*","md", true, false, false, false, reply_markup)
 return false
+end
+---------------------------------------
+if Text and Text:match("^delforme_(.*)_(.*)") then
+local infomsg = {Text:match("^delforme_(.*)_(.*)")}
+local userid = infomsg[1]
+local Type  = infomsg[2]
+if tonumber(data.sender_user_id) ~= tonumber(userid) then  
+return bot.answerCallbackQuery(data.id,"⌔ عذرا الامر لا يخصك ", true)
+end
+if Type == "1" then
+redis:del(bot_id..":"..chat_id..":"..user_id..":message")
+yrv = "رسائلك"
+elseif Type == "2" then
+redis:del(bot_id..":"..chat_id..":"..user_id..":Editmessage")
+yrv = "سحكاتك"
+elseif Type == "3" then
+redis:del(bot_id..":"..chat_id..":"..user_id..":Addedmem")
+yrv = "جهاتك"
+elseif Type == "4" then
+redis:del(bot_id..":"..chat_id..":"..user_id..":game")
+yrv = "نقاطك"
+end
+bot.answerCallbackQuery(data.id,"تم مسح "..yrv.." بنجاح .", true)
+end
+------------------------------------------
+if Text and Text:match("^iforme_(.*)_(.*)") then
+local infomsg = {Text:match("^iforme_(.*)_(.*)")}
+local userid = infomsg[1]
+local Type  = infomsg[2]
+if tonumber(data.sender_user_id) ~= tonumber(userid) then  
+return bot.answerCallbackQuery(data.id,"⌔ عذرا الامر لا يخصك ", true)
+end
+if Type == "1" then
+yrv = "رسائلك"
+elseif Type == "2" then
+yrv = "سحكاتك"
+elseif Type == "3" then
+yrv = "جهاتك"
+elseif Type == "4" then
+yrv = "نقاطك"
+end
+bot.answerCallbackQuery(data.id,"شستفاديت عود من شفت "..yrv.." بس كلي .", true)
 end
 if text == 'معلوماتي' and ChCheck(msg) or text == 'موقعي' and ChCheck(msg) then
 
