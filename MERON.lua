@@ -6560,7 +6560,7 @@ local List_Members = Info_Members.members
 local NumRand1 = math.random(1, #List_Members); 
 local user1 = List_Members[NumRand1].member_id.user_id
 local UserInfo = merolua.getUser(user1)
-local listTow = "✺︙اخترت لك هاذ البيس معجبك كول حته اغيره : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
+local listTow = "✺︙اخترت لك هاذ البيست معجبك كول حته اغيره : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
 end
 if text == "زوجني" and ChCheck(msg) then
@@ -9531,7 +9531,7 @@ if not Redis:get(TheMERON.."amrthshesh"..msg.chat_id) then
 local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
 local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 local FlterName = UserInfo.first_name
-local she = {"الكبـد مــال اني هيـه🥰","ختولـي محبهــه جنهه فخريـه🤣","خانتنـــي ويـــا صديقـــي 😔","بس لــو الكفها الا اعضهــا 💔","خــوش بنيــه بس عـدهه سوالــف  ماصخــه وهيـه تــدري بنفسها 😁🤪","جذابــه ومنافقــه سوتلـي مشكله ويـا الحـب مالتـي😑","اووووووووف امـــوت  عليهـه💖","ديــرو بالكــم منها تلعــب ع الشبـاب 😶 ضحكـت ع واحـد قطتــه ايفــون 11 بـــرو☹","صديقتـي واختـي وروحـــي وحياتـي??","فــد وحــده خبــله ولسانهه متبـري منهه😁","معـــدله ونازكــهه وعيونهـه تمــوت 😊","ام سحــوره سحـرت اخويــه وطيـرت عقلــه😭","حبيبــة كلبـي هايـه العشـق🥰","بلــه هـايـه هــم جهــره تسأل عليها ؟🤣","بربــك انت والله فــارغ وبطـــران ومعنـدك شي تسوي جـاي تسأل ع بنــات العالم ولــي يله ☹️","يااخــي بنيه حبوبــه وكلبهــه طيــب فديتهــه😍","هــاي البقـره مقدسـه مجرد ماتكلهه بس يجونـك بالتفـك منيـن ويـن ليـش بيـش عيـش طيـط طيـط طيـط 🤣🏃‍♂️",
+local she = {"الكبـد مــال اني هيـه🥰","ختولـي محبهــه جنهه فخريـه🤣","خانتنـــي ويـــا صديقـــي 😔","بس لــو الكفها الا اعضهــا 💔","خــوش بنيــه بس عـدهه سوالــف  ماصخــه وهيـه تــدري بنفسها 😁🤪","جذابــه ومنافقــه سوتلـي مشكله ويـا الحـب مالتـي😑","اووووووووف امـــوت  عليهـه💖","ديــرو بالكــم منها تلعــب ع الشبـاب 😶 ضحكـت ع واحـد قطتــه ايفــون 11 بـــرو☹","صديقتـي واختـي وروحـــي وحياتـي😊","فــد وحــده خبــله ولسانهه متبـري منهه😁","معـــدله ونازكــهه وعيونهـه تمــوت 😊","ام سحــوره سحـرت اخويــه وطيـرت عقلــه😭","حبيبــة كلبـي هايـه العشـق🥰","بلــه هـايـه هــم جهــره تسأل عليها ؟🤣","بربــك انت والله فــارغ وبطـــران ومعنـدك شي تسوي جـاي تسأل ع بنــات العالم ولــي يله ☹️","يااخــي بنيه حبوبــه وكلبهــه طيــب فديتهــه😍","هــاي البقـره مقدسـه مجرد ماتكلهه بس يجونـك بالتفـك منيـن ويـن ليـش بيـش عيـش طيـط طيـط طيـط 🤣🏃‍♂️",
 }
 local msg_id = msg.reply_to_message_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape('- ['..FlterName..'](tg://user?id='..Message_Reply.sender_id.user_id..')'..'\n'..she[math.random(#she)]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -12534,7 +12534,7 @@ local nameuser = FlterBio(UserInfo.first_name)
 local photo = merolua.getUserProfilePhotos(msg.sender_id.user_id)
 local UserId = msg.sender_id.user_id
 local RinkBot = msg.Name_Controller
-local TotalMsg = Redis:get(TheMERON..'MERON:Num:Message:User'..msg_chat_id..':'..msg.sender_id.user_id) or 1
+local TotalMsg = Redis:get(TheMERON..'MERON:Num:messageC:User'..msg_chat_id..':'..msg.sender_id.user_id) or 1
 local TotalPhoto = photo.total_count or 0
 local TotalEdit = Redis:get(TheMERON..'MERON:Num:Message:Edit'..msg_chat_id..msg.sender_id.user_id) or 0
 local TotalMsgT = Total_message(TotalmessageC) 
@@ -12563,7 +12563,7 @@ local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto)
 local Get_Is_Id = Get_Is_Id:gsub('#Bio',Bio) 
 if photo.total_count > 0 then
 if not msg.Special and Redis:get(TheMERON..'idnotmem'..msg.chat_id)  then
-return send(msg_chat_id,msg_id,
+return merolua.send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
@@ -12575,12 +12575,12 @@ return send(msg_chat_id,msg_id,
 end
 return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
 else
-return send(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
+return merolua.send(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 end
 else
 if photo.total_count > 0 then
 if not msg.Special and Redis:get(TheMERON..'idnotmem'..msg.chat_id)  then
-return send(msg_chat_id,msg_id,
+return merolua.send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
@@ -12602,7 +12602,7 @@ return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '❫\n☆︙البايو : ❪ ['..Bio..
 ']❫', "md")
 else
-return send(msg_chat_id,msg_id,
+return merolua.send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
@@ -12626,9 +12626,9 @@ local Get_Is_Id = Get_Is_Id:gsub('#Description',Description)
 local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames) 
 local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto) 
 local Get_Is_Id = Get_Is_Id:gsub('#Bio',Bio) 
-return send(msg_chat_id,msg_id,'['..Get_Is_Id..']',"md",true) 
+return merolua.send(msg_chat_id,msg_id,'['..Get_Is_Id..']',"md",true) 
 else
-return send(msg_chat_id,msg_id,
+return merolua.send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
@@ -19445,7 +19445,7 @@ merolua.sendText(msg_chat_id,msg_id,'✺︙تم مسح جميع جهاتك ال�
 elseif text == 'رسائلي' and ChCheck(msg) then
 
 
-merolua.sendText(msg.chat_id,msg.id,"*⌔ : عدد رسائلك ↤ *"..(Redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":message") or 1).." **","md",true)  
+merolua.sendText(msg_chat_id,msg_id,'✺︙عدد رسائلك هنا *~ '..(Redis:get(TheMERON..'MERON:Num:Message:user'..msg.chat_id..':'..msg.sender_id.user_id) or 1)..'*',"md",true)  
 elseif text == 'سحكاتي' and ChCheck(msg) or text == 'سحكاتي' and ChCheck(msg) then
 
 
@@ -28685,7 +28685,7 @@ local list = {
 
 "وأن كان بُعدك كـ بُعد نجمة سأحبّك .",
 
-"حيلي ؏ حيلك لو شفت التعب صابك??🤍!",
+"حيلي ؏ حيلك لو شفت التعب صابك🤍🤍!",
 
 "انتِ حكاية يستَحيل الانتِهَاء مِنهَا .",
 
