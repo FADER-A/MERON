@@ -13276,23 +13276,6 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/SeriesDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
-if text == ("احصائياتي") and tonumber(msg.reply_to_message_id) == 0 then  
-local nummsg = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":message") or 1
-local edit = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":Editmessage")or 0
-local addmem = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":Addedmem") or 0
-local Num = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":game") or 0
-local reply_markup = {
-type = 'inline',
-data = {
-{{text = '⌔ الرسائل',data="iforme_"..msg.sender.user_id.."_1"},{text ="( "..nummsg.." )",data="iforme_"..msg.sender.user_id.."_1"}},
-{{text = '⌔ السحكات',data="iforme_"..msg.sender.user_id.."_2"},{text ="( "..edit.." )",data="iforme_"..msg.sender.user_id.."_2"}},
-{{text = '⌔ الجهات',data="iforme_"..msg.sender.user_id.."_3"},{text ="( "..addmem.." )",data="iforme_"..msg.sender.user_id.."_3"}},
-{{text = '⌔ المجوهرات',data="iforme_"..msg.sender.user_id.."_4"},{text ="( "..Num.." )",data="iforme_"..msg.sender.user_id.."_4"}},
-}
-}
-return merolua.sendText(msg.chat_id,msg.id,"*⌔︙اهلا بك احصائياتك هي ⬇️ .*","md", true, false, false, false, reply_markup)
-return false
-end
 if text == 'كشف'  and msg.reply_to_message_id ~= 0 then
 
 
@@ -13350,6 +13333,23 @@ if text == 'رتبتي' and ChCheck(msg) then
 
 
 return merolua.sendText(msg_chat_id,msg_id,'\n✺︙رتبتك هي : '..msg.Name_Controller,"md",true)  
+end
+if text == ("احصائياتي") and tonumber(msg.reply_to_message_id) == 0 then  
+local nummsg = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":message") or 1
+local edit = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":Editmessage")or 0
+local addmem = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":Addedmem") or 0
+local Num = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":game") or 0
+local reply_markup = {
+type = 'inline',
+data = {
+{{text = '⌔ الرسائل',data="iforme_"..msg.sender.user_id.."_1"},{text ="( "..nummsg.." )",data="iforme_"..msg.sender.user_id.."_1"}},
+{{text = '⌔ السحكات',data="iforme_"..msg.sender.user_id.."_2"},{text ="( "..edit.." )",data="iforme_"..msg.sender.user_id.."_2"}},
+{{text = '⌔ الجهات',data="iforme_"..msg.sender.user_id.."_3"},{text ="( "..addmem.." )",data="iforme_"..msg.sender.user_id.."_3"}},
+{{text = '⌔ المجوهرات',data="iforme_"..msg.sender.user_id.."_4"},{text ="( "..Num.." )",data="iforme_"..msg.sender.user_id.."_4"}},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,"*⌔︙اهلا بك احصائياتك هي ⬇️ .*","md", true, false, false, false, reply_markup)
+return false
 end
 if text == 'معلوماتي' and ChCheck(msg) or text == 'موقعي' and ChCheck(msg) then
 
