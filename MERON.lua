@@ -6761,18 +6761,6 @@ end
 Redis:set(TheMERON.."lock_addnumber"..msg.chat_id,true)  
 return merolua.sendText(msg_chat_id,msg_id,GetByName(msg).."*◉︙تم تعطيل امر الاضافات*","md",true )
 end   
-if text == "نداء" and ChCheck(msg) then
-if Redis:get(TheMERON.."lock_sharkk"..msg.chat_id) then
-return false
-end
-local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
-local List_Members = Info_Members.members
-local NumRand1 = math.random(1, #List_Members); 
-local user1 = List_Members[NumRand1].member_id.user_id
-if tonumber(user1) == tonumber(TheMERON) then
-local NumRand1 = math.random(1, #List_Members); 
-user1 = List_Members[3].member_id.user_id
-end
 if text == "تحدي" and ChCheck(msg) then
 if Redis:get(TheMERON.."lock_sharkk"..msg.chat_id) then
 return false
@@ -6790,6 +6778,18 @@ local list = {"تعترف له/ا بشي", "تكول له أو لها اسم ا�
 local texting = list[math.random(#list)]
 local listTow = "✺︙"..texting.." : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
+end
+if text == "نداء" and ChCheck(msg) then
+if Redis:get(TheMERON.."lock_sharkk"..msg.chat_id) then
+return false
+end
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+if tonumber(user1) == tonumber(TheMERON) then
+local NumRand1 = math.random(1, #List_Members); 
+user1 = List_Members[3].member_id.user_id
 end
 local UserInfo = merolua.getUser(user1)
 local list = {"ماتشبع طمسسس دعوف صاحباتك وتعال","لشوكت تبقى نايم ؟ دتعال خل نسولف شوي","هاااااا شنهي نايم كاعد بصوت ايناس الخالدي 😂","دكعددددد ولك شني انت اشتاقينالك"}
