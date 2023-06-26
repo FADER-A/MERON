@@ -21249,7 +21249,7 @@ end
 end
 if text == 'تنظيف المشتركين' and ChCheck(msg) then
 if not msg.Asasy then 
-return send(msg_chat_id,msg_id,'\n*☆︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
+return merolua.send(msg_chat_id,msg_id,'\n*☆︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
 
 
@@ -21271,7 +21271,7 @@ end
 end
 if text == 'تنظيف المجموعات' and ChCheck(msg) then
 if not msg.Asasy then 
-return send(msg_chat_id,msg_id,'\n*☆︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
+return merolua.send(msg_chat_id,msg_id,'\n*☆︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
 
 
