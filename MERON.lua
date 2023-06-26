@@ -22581,8 +22581,8 @@ end
 end
 
 if text == 'تنظيف المشتركين ◉' and ChCheck(msg) then
-if msg.sender_id.user_id ~= 1054308380 then 
-return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { مطور السورس }* ',"md",true)  
+if not msg.ControllerBot then 
+return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
 
 
@@ -22603,8 +22603,8 @@ return merolua.sendText(msg_chat_id,msg_id,'*◉︙العدد الكلي { '..#l
 end
 end
 if text == 'تنظيف المجموعات ◉' and ChCheck(msg) then
-if msg.sender_id.user_id ~= 1054308380 then 
-return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { مطور السورس }* ',"md",true)  
+if not msg.ControllerBot then 
+return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
 
 
