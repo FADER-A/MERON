@@ -688,30 +688,30 @@ alphsar = alphsar
 end
 function Total_message(Message)  
 local MsgText = ''  
-if tonumber(Message) < 100 then 
-MsgText = 'غير متفاعل☹️ '
-elseif tonumber(Message) < 200 then 
-MsgText = 'متشدد شويه بالتفاعل'
+if tonumber(Message) < 200 then 
+MsgText = 'سايق مخده 😹' 
 elseif tonumber(Message) < 400 then 
-MsgText ='يعني صار زين '
-elseif tonumber(Message) < 700 then 
-MsgText = 'اريد بعد اقوه😍'
-elseif tonumber(Message) < 1200 then 
-MsgText = 'بعد بعد اريد نار وشرار'
-elseif tonumber(Message) < 2000 then 
-MsgText = 'كفو نته رب التفاعل'
-elseif tonumber(Message) < 3500 then 
-MsgText = 'اسطوره التفاعل😍 '
-elseif tonumber(Message) < 4000 then 
-MsgText = 'امبراطور التفاعل حيلي😍'
-elseif tonumber(Message) < 4500 then 
-MsgText = 'سيد التفاعل الاول'
-elseif tonumber(Message) < 5500 then 
-MsgText = 'ماكو مثلك بالتفاعل حجي😍 '
-elseif tonumber(Message) < 7000 then 
-MsgText = 'تفاعل مفاعل نووي '
-elseif tonumber(Message) < 9500 then 
-MsgText = 'تريد بعد اضيفلك رسائل😒'
+MsgText = 'الله بالخير 👋'
+elseif tonumber(Message) < 600 then 
+MsgText = 'عفيه اتفاعل 😽' 
+elseif tonumber(Message) < 800 then 
+MsgText = 'بدأ يتحسن 😐' 
+elseif tonumber(Message) < 1000 then 
+MsgText = 'شكد تحجي 😒' 
+elseif tonumber(Message) < 1300 then 
+MsgText = 'استمر بطل 😍' 
+elseif tonumber(Message) < 1600 then 
+MsgText = 'تفاعل غنبله 🙂'  
+elseif tonumber(Message) < 1800 then 
+MsgText = 'استمر يعسل 🥳' 
+elseif tonumber(Message) < 2200 then 
+MsgText = 'جيد جدا ♥️' 
+elseif tonumber(Message) < 2600 then 
+MsgText = 'ممتاز جدا 🥰' 
+elseif tonumber(Message) < 3000 then 
+MsgText = 'مــلــک 💯😻' 
+elseif tonumber(Message) < 3600 then 
+MsgText = 'اسطورة التفاعل❤️' 
 elseif tonumber(Message) < 10000000000 then 
 MsgText = 'تريد اضيفلك بعد رسايل😑 '
 end 
