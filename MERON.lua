@@ -686,36 +686,36 @@ alkfr = alkfr,
 alphsar = alphsar
 }
 end
-function Total_message(Message)  
-local MsgText = ''  
-if tonumber(Message) < 100 then 
-MsgText = 'غير متفاعل☹️ '
-elseif tonumber(Message) < 200 then 
-MsgText = 'متشدد شويه بالتفاعل'
-elseif tonumber(Message) < 400 then 
-MsgText ='يعني صار زين '
-elseif tonumber(Message) < 700 then 
-MsgText = 'اريد بعد اقوه😍'
-elseif tonumber(Message) < 1200 then 
-MsgText = 'بعد بعد اريد نار وشرار'
-elseif tonumber(Message) < 2000 then 
-MsgText = 'كفو نته رب التفاعل'
-elseif tonumber(Message) < 3500 then 
-MsgText = 'اسطوره التفاعل😍 '
-elseif tonumber(Message) < 4000 then 
-MsgText = 'امبراطور التفاعل حيلي😍'
-elseif tonumber(Message) < 4500 then 
-MsgText = 'سيد التفاعل الاول'
-elseif tonumber(Message) < 5500 then 
-MsgText = 'ماكو مثلك بالتفاعل حجي😍 '
-elseif tonumber(Message) < 7000 then 
-MsgText = 'تفاعل مفاعل نووي '
-elseif tonumber(Message) < 9500 then 
-MsgText = 'تريد بعد اضيفلك رسائل😒'
-elseif tonumber(Message) < 10000000000 then 
-MsgText = 'تريد اضيفلك بعد رسايل😑 '
+function Total_message(msgs)  
+local message = ''  
+if tonumber(msgs) < 100 then 
+message = 'غير متفاعل' 
+elseif tonumber(msgs) < 200 then 
+message = 'بده يتحسن' 
+elseif tonumber(msgs) < 400 then 
+message = 'شبه متفاعل' 
+elseif tonumber(msgs) < 700 then 
+message = 'متفاعل' 
+elseif tonumber(msgs) < 1200 then 
+message = 'متفاعل قوي' 
+elseif tonumber(msgs) < 2000 then 
+message = 'متفاعل جدا' 
+elseif tonumber(msgs) < 3500 then 
+message = 'اقوى تفاعل'  
+elseif tonumber(msgs) < 4000 then 
+message = 'متفاعل نار' 
+elseif tonumber(msgs) < 4500 then 
+message = 'قمة التفاعل' 
+elseif tonumber(msgs) < 5500 then 
+message = 'اقوى متفاعل' 
+elseif tonumber(msgs) < 7000 then 
+message = 'ملك التفاعل' 
+elseif tonumber(msgs) < 9500 then 
+message = 'امبروطور التفاعل' 
+elseif tonumber(msgs) < 10000000000 then 
+message = 'رب التفاعل'  
 end 
-return MsgText 
+return message 
 end
 function Total_groups(Message)  
 local MsgText = ''  
@@ -9531,7 +9531,7 @@ if not Redis:get(TheMERON.."amrthshesh"..msg.chat_id) then
 local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
 local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
 local FlterName = UserInfo.first_name
-local she = {"الكبـد مــال اني هيـه🥰","ختولـي محبهــه جنهه فخريـه🤣","خانتنـــي ويـــا صديقـــي 😔","بس لــو الكفها الا اعضهــا 💔","خــوش بنيــه بس عـدهه سوالــف  ماصخــه وهيـه تــدري بنفسها 😁🤪","جذابــه ومنافقــه سوتلـي مشكله ويـا الحـب مالتـي😑","اووووووووف امـــوت  عليهـه💖","ديــرو بالكــم منها تلعــب ع الشبـاب 😶 ضحكـت ع واحـد قطتــه ايفــون 11 بـــرو☹","صديقتـي واختـي وروحـــي وحياتـي😊","فــد وحــده خبــله ولسانهه متبـري منهه😁","معـــدله ونازكــهه وعيونهـه تمــوت 😊","ام سحــوره سحـرت اخويــه وطيـرت عقلــه😭","حبيبــة كلبـي هايـه العشـق🥰","بلــه هـايـه هــم جهــره تسأل عليها ؟🤣","بربــك انت والله فــارغ وبطـــران ومعنـدك شي تسوي جـاي تسأل ع بنــات العالم ولــي يله ☹️","يااخــي بنيه حبوبــه وكلبهــه طيــب فديتهــه😍","هــاي البقـره مقدسـه مجرد ماتكلهه بس يجونـك بالتفـك منيـن ويـن ليـش بيـش عيـش طيـط طيـط طيـط 🤣🏃‍♂️",
+local she = {"الكبـد مــال اني هيـه🥰","ختولـي محبهــه جنهه فخريـه🤣","خانتنـــي ويـــا صديقـــي 😔","بس لــو الكفها الا اعضهــا 💔","خــوش بنيــه بس عـدهه سوالــف  ماصخــه وهيـه تــدري بنفسها 😁🤪","جذابــه ومنافقــه سوتلـي مشكله ويـا الحـب مالتـي😑","اووووووووف امـــوت  عليهـه💖","ديــرو بالكــم منها تلعــب ع الشبـاب 😶 ضحكـت ع واحـد قطتــه ايفــون 11 بـــرو☹","صديقتـي واختـي وروحـــي وحياتـي??","فــد وحــده خبــله ولسانهه متبـري منهه😁","معـــدله ونازكــهه وعيونهـه تمــوت 😊","ام سحــوره سحـرت اخويــه وطيـرت عقلــه😭","حبيبــة كلبـي هايـه العشـق🥰","بلــه هـايـه هــم جهــره تسأل عليها ؟🤣","بربــك انت والله فــارغ وبطـــران ومعنـدك شي تسوي جـاي تسأل ع بنــات العالم ولــي يله ☹️","يااخــي بنيه حبوبــه وكلبهــه طيــب فديتهــه😍","هــاي البقـره مقدسـه مجرد ماتكلهه بس يجونـك بالتفـك منيـن ويـن ليـش بيـش عيـش طيـط طيـط طيـط 🤣🏃‍♂️",
 }
 local msg_id = msg.reply_to_message_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape('- ['..FlterName..'](tg://user?id='..Message_Reply.sender_id.user_id..')'..'\n'..she[math.random(#she)]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -12537,7 +12537,7 @@ local RinkBot = msg.Name_Controller
 local TotalMsg = Redis:get(TheMERON..'MERON:Num:Message:User'..msg_chat_id..':'..msg.sender_id.user_id) or 1
 local TotalPhoto = photo.total_count or 0
 local TotalEdit = Redis:get(TheMERON..'MERON:Num:Message:Edit'..msg_chat_id..msg.sender_id.user_id) or 0
-local TotalMsgT = Total_message(TotalMsg) 
+local TotalMsgT = Total_message(TotalmessageC) 
 local NumberGames = Redis:get(TheMERON.."MERON:Num:Add:Games"..msg.chat_id..msg.sender_id.user_id) or 0
 local NumAdd = Redis:get(TheMERON.."MERON:Num:Add:Memp"..msg.chat_id..":"..msg.sender_id.user_id) or 0
 local Texting = {'ملاك وناسيك بكروبنه😟',"حلغوم والله☹️ ","اطلق صوره🐼❤️","كيكك والله🥺","لازك بيها غيرها عاد😒",}
@@ -12553,7 +12553,7 @@ if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
 local Get_Is_Id = Get_Is_Id:gsub('#id',msg.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
-local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
+local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalmessageC) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
 local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT) 
@@ -12567,7 +12567,7 @@ return send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
-'❫\n☆︙رسائلك : ❪'..TotalMsg..
+'❫\n☆︙رسائلك : ❪'..TotalmessageC..
 '❫\n☆︙سحكاتك : ❪'..TotalEdit..
 '❫\n☆︙تفاعلك : ❪'..TotalMsgT..
 '❫\n☆︙البايو : ❪*['..Bio..
@@ -12584,7 +12584,7 @@ return send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
-'❫\n☆︙رسائلك : ❪'..TotalMsg..
+'❫\n☆︙رسائلك : ❪'..TotalmessageC..
 '❫\n☆︙سحكاتك : ❪'..TotalEdit..
 '❫\n☆︙تفاعلك : ❪'..TotalMsgT..
 '❫\n☆︙البايو : ❪*['..Bio..
@@ -12595,7 +12595,7 @@ return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 '\n☆︙ايديك : ❪ '..UserId..
 ' ❫\n☆︙معرفك : ❪ ['..UserInfousername..
 '] ❫\n☆︙رتبتك : ❪ '..RinkBot..
-'❫\n☆︙رسائلك : ❪ '..TotalMsg..
+'❫\n☆︙رسائلك : ❪ '..TotalmessageC..
 ' ❫\n☆︙نقاطك : ❪ '..NumberGames..
 ' ❫\n☆︙سحكاتك : ❪ '..TotalEdit..
 ' ❫\n☆︙تفاعلك : ❪ '..TotalMsgT..
@@ -12606,7 +12606,7 @@ return send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
-'❫\n☆︙رسائلك : ❪'..TotalMsg..
+'❫\n☆︙رسائلك : ❪'..TotalmessageC..
 '❫\n☆︙سحكاتك : ❪'..TotalEdit..
 '❫\n☆︙تفاعلك : ❪'..TotalMsgT..
 '❫\n☆︙البايو : ❪*['..Bio..
@@ -12618,7 +12618,7 @@ if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
 local Get_Is_Id = Get_Is_Id:gsub('#id',msg.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
-local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
+local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalmessageC) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
 local Get_Is_Id = Get_Is_Id:gsub('#stast',RinkBot) 
 local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT) 
@@ -12632,7 +12632,7 @@ return send(msg_chat_id,msg_id,
 '\n*☆︙ايديك : ❪'..UserId..
 '❫\n☆︙معرفك : ❪*['..UserInfousername..
 ']*❫\n☆︙رتبتك : ❪'..RinkBot..
-'❫\n☆︙رسائلك : ❪'..TotalMsg..
+'❫\n☆︙رسائلك : ❪'..TotalmessageC..
 '❫\n☆︙سحكاتك : ❪'..TotalEdit..
 '❫\n☆︙تفاعلك : ❪'..TotalMsgT..
 '❫\n☆︙البايو : ❪*['..Bio..
@@ -28685,7 +28685,7 @@ local list = {
 
 "وأن كان بُعدك كـ بُعد نجمة سأحبّك .",
 
-"حيلي ؏ حيلك لو شفت التعب صابك🤍🤍!",
+"حيلي ؏ حيلك لو شفت التعب صابك??🤍!",
 
 "انتِ حكاية يستَحيل الانتِهَاء مِنهَا .",
 
