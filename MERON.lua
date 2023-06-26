@@ -19445,7 +19445,7 @@ merolua.sendText(msg_chat_id,msg_id,'✺︙تم مسح جميع جهاتك ال�
 elseif text == 'رسائلي' and ChCheck(msg) then
 
 
-merolua.sendText(msg_chat_id,msg_id,'✺︙عدد رسائلك هنا *~ '..(Redis:get(TheMERON..'MERON:Num:Message:user'..msg.chat_id..':'..msg.sender_id.user_id) or 1)..'*',"md",true)  
+merolua.sendText(msg.chat_id,msg.id,"*⌔ : عدد رسائلك ↤ *"..(redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":message") or 1).." **","md",true)  
 elseif text == 'سحكاتي' and ChCheck(msg) or text == 'سحكاتي' and ChCheck(msg) then
 
 
