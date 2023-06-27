@@ -12072,7 +12072,7 @@ end
 
 
 
-if text == 'مبــرمج السـورس' and ChCheck(msg) or text == 'المطور' and ChCheck(msg) then  
+if text == 'مبــرمج السـورس' and ChCheck(msg) or text == 'مطور السورس' and ChCheck(msg) then  
 local UserId_Info = merolua.searchPublicChat("M_Y_R_Q")
 if UserId_Info.id then
 local UserInfo = merolua.getUser(UserId_Info.id)
@@ -12153,30 +12153,31 @@ else
 Bio = ''
 end
 local photo = merolua.getUserProfilePhotos(Sudo_Id)
-local TextingDevBot = Redis:get(TheMERON..'MERON:Texting:DevTheMERON')
+local TextingDevBot = Redis:get(TheMERON..'MERON:Texting:DevMERON')
 if TextingDevBot then
 local TextingDevBot = TextingDevBot:gsub('#namemsudo',"["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..")") 
 local TextingDevBot = TextingDevBot:gsub('#namesudo',"["..UserInfo.first_name.."]") 
 local TextingDevBot = TextingDevBot:gsub('#usernamesudo',"[@"..UserSudo.."]") 
 local TextingDevBot = TextingDevBot:gsub('#idsudo',Sudo_Id) 
 local TextingDevBot = TextingDevBot:gsub('#biosudo',"["..Bio.."]") 
-if photo and photo.total_count and photo.total_count > 0 then 
+if photo.total_count > 0 then 
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text =UserInfo.first_name, url = 't.me/'..UserSudo}},
+{{text = 'سـۅࢪس هـاެكس',url="t.me/zz_u5"}},
 }}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TextingDevBot, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '❲ قناة السورس ❳',url="t.me/AAPA1"}},}}	
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = 'سـۅࢪس هـاެكس',url="t.me/zz_u5"}},}}	
 merolua.sendText(msg_chat_id,msg_id,TextingDevBot,"md", true, false, false, false, reply_markup)
 end
 else
 if photo and photo.total_count and photo.total_count > 0 then
-local TestText = "*◉︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*◉︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*◉︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*◉︙𝙱𝙸𝙾 𝚂??𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},}}
+local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = 'سـۅࢪس هـاެكس',url="t.me/zz_u5"}},}}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TestText, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-local TestText = "*◉︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*◉︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*◉︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*◉︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},}}	
+local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = 'سـۅࢪس هـاެكس',url="t.me/zz_u5"}},}}	
 merolua.sendText(msg_chat_id,msg_id,TestText,"md", true, false, false, false, reply_markup)
 end
 end
@@ -19766,7 +19767,7 @@ local List = {
 • 🖤 | 𝑴𝑺𝑮 : #msgs ★
 ]], 
 [[ 
-┌ 𝐔𝐒𝐄𝐑 𖤱 #username 𖦴 . 
+┌ 𝐔𝐒??𝐑 𖤱 #username 𖦴 . 
 ├ 𝐌𝐒𝐆 𖤱 #msgs ?? . 
 ├ 𝐒𝐓𝐀 𖤱 #stast 𖦴 . 
 └ 𝐈𝐃 𖤱 #id 𖦴 . 
@@ -20654,7 +20655,7 @@ keyboard.inline_keyboard = {
 {{text="Atomic 1▶️",url='https://t.me/gamee?game=AtomicDrop1'},{text="Corsairs",url='https://t.me/gamebot?game=Corsairs'}},
 {{text="LumberJack",url='https://t.me/gamebot?game=LumberJack'}},
 {{text="LittlePlane",url='https://t.me/gamee?game=LittlePlane'},{text="RollerDisco",url='https://t.me/gamee?game=RollerDisco'}},
-{{text="🦖 لعبة التنين 🦖",url='https://t.me/T4TTTTBOT?game=HaWkS'},{text="🐍 لعبة الافعى 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
+{{text="🦖 لعبة التنين 🦖",url='https://t.me/T4TTTTBOT?game=MERON'},{text="🐍 لعبة الافعى 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
 {{text="🔵 لعبة الالوان 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
 {{text="🚀 لعبة الصاروخ 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 لعبة السهام 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
 {{text="لعبة النينجا",url='https://t.me/gamee?game=GravityNinja21'},{text="لعبة الكرتي",url='https://t.me/gamee?game=KarateKid2'}},
