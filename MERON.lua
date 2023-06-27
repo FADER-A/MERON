@@ -20680,7 +20680,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/l5l5III/3&caption=' .. URL.escape([[
 *⦑ Welcome to Source ⦒
-◉ ⦑ SOURCE MERON ⦒
+◉ ⦑ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ⦒
 ◉ Source version : 6.1* 
 — — — — — — — — —
 ]]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -24462,7 +24462,7 @@ UserNameyr = math.floor(UserNamey / 100 * 5)
 UserNameyy = math.floor(UserNamey - UserNameyr)
 Redis:incrby(TheMERON.."nool:flotysb"..fsvhhh ,UserNameyy)
 Redis:decrby(TheMERON.."nool:flotysb"..msg.sender_id.user_id ,UserNamey)
-merolua.sendText(msg.chat_id,msg.id, "حوالة صادرة من البنك ↢ ( "..gg.." )\n\nالمرسل : "..news.."\nالحساب رقم : `"..cccc.."`\nنوع البطاقة : "..uuuu.."\nالمستلم : "..newss.."\nالحساب رقم : `"..text.."`\nالبنك : "..hsabe.."\nنوع البطاقة : "..nouu.."\n"..nsba.."\nالمبلغ : "..UserNameyy.." دينار 💸","md",true)
+merolua.sendText(msg.chat_id,msg.id, "حوالة صادرة من البنك ↢ ( "..gg.." )\n\nالمرسل : "..news.."\nالحساب رقم : `"..cccc.."`\nنوع البطاقة : "..uuuu.."\nالمستلم : "..newss.."\nالحساب رقم : `"..text.."`\nالبنك : "..hsabe.."\nنوع البطاقة : "..nouu.."\n"..nsba.."\nالمبلغ : "..UserNameyy.." دينار ??","md",true)
 merolua.sendText(fsvhhh,0, "حوالة واردة من البنك ↢ ( "..gg.." )\n\nالمرسل : "..news.."\nالحساب رقم : `"..cccc.."`\nنوع البطاقة : "..uuuu.."\nالمبلغ : "..UserNameyy.." دينار 💸","md",true)
 Redis:del(TheMERON.."trans" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
 Redis:del(TheMERON.."transn" .. msg.sender_id.user_id)
