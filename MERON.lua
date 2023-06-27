@@ -12167,17 +12167,17 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 }}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TextingDevBot, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = 'سـۅࢪس هـاެكس',url="t.me/zz_u5"}},}}	
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}	
 merolua.sendText(msg_chat_id,msg_id,TextingDevBot,"md", true, false, false, false, reply_markup)
 end
 else
 if photo and photo.total_count and photo.total_count > 0 then
 local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = 'سـۅࢪس هـاެكس',url="t.me/zz_u5"}},}}
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TestText, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
 local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = 'سـۅࢪس هـاެكس',url="t.me/zz_u5"}},}}	
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}	
 merolua.sendText(msg_chat_id,msg_id,TestText,"md", true, false, false, false, reply_markup)
 end
 end
