@@ -12711,7 +12711,7 @@ local ban_ns ='\n*⟨•💖▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..Description..'\n�
 data = {} 
 data.inline_keyboard = {
 {
-{text =UserInfo.username,url = "https://t.me/"..UserInfo.username..""}, 
+{text =UserInfo.username,url = "https://t.me/"..UserInfo.first_name..""}, 
 },
 }
 msgg = msg.id/2097152/0.5
@@ -12721,7 +12721,7 @@ local ban_ns ='\n*⟨•💖▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..Description..'\n�
 data = {} 
 data.inline_keyboard = {
 {
-{text =UserInfo.first_name,url = "https://t.me/"..UserInfo.username..""}, 
+{text =UserInfo.first_name,url = "https://t.me/"..UserInfo.first_name..""}, 
 },
 }
 msgg = msg.id/2097152/0.5
@@ -12747,7 +12747,7 @@ local ban_ns ='\n*⟨•💖▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..Description..'\n�
 data = {} 
 data.inline_keyboard = {
 {
-{text =UserInfo.first_name,url = "https://t.me/"..UserInfo.username..""}, 
+{text =UserInfo.first_name,url = "https://t.me/"..UserInfo.first_name..""}, 
 },
 }
 msgg = msg.id/2097152/0.5
@@ -20637,20 +20637,28 @@ end
 
 
 
-if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg) or text == 'ياسورس' and ChCheck(msg) or text == 'يا سورس' and ChCheck(msg) then
-
-
+if text == 'السورس ✧' or text == 'يا سورس' or text == 'السورس' or text == 'source' then
+ photo = "https://t.me/l5l5III/3
+local T =[[
+✧︙[𝑊𝐸𝐿𝐶𝑂𝑀𝐸 𝑇𝑂 𝑆𝑂𝑈𝑅𝐶𝐸 𝑉𝐴𝐿𝑂𝑅𝐴𝑁𝑇](t.me/l5l5III )
+]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
-{{text = '- قناة التحديثات .',url="t.me/lllEll0"}},
-{{text = '- لتنصيب السورس .',url="https://t.me/l5l5III"}},
-{{text = '- المطور .',url="t.me/M_Y_R_Q"},
-{text = '- تواصل السورس .',url="https://t.me/vxxsbot"}},
-{{text = '❲ لتنصيب بوت ❳ .',url="https://t.me/M_Y_R_Q"}},
+{
+{text = '• مبرمج السورس •', url = 't.me/ZAXY9 '},{text = '• مطور السورس •', url = 't.me/'..chdevolper..' '},
+},
+{
+{text = '• تنصيب بوت مدفوع •', url = 't.me/ZAXY9'},
+},
+{
+{text = '• قناة التحديثات •', url = 't.me/VLORANTT '},{text = '• قناة السورس •', url = 't.me/'..chsource..' '},
+},
+{
+{text = '• 𝑆𝑂𝑈𝑅𝐶𝐸 𝑉𝐴𝐿𝑂𝑅𝐴𝑁𝑇 •', url = 't.me/VLORANTT '},
+},
 }
-local msg_id = msg.id/2097152/0.5
-return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/lllEll0/3&caption=' .. URL.escape([[
+local msgg = msg.id/2097152/0.5
+return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/l5l5III/3&caption=' .. URL.escape([[
 *⦑ Welcome to Source ⦒
 ◉ ⦑ SOURCE كارلوس ⦒
 ◉ Source version : 6.1* 
@@ -22169,7 +22177,7 @@ name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️�
 name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
 name = string.gsub(name,"👨‍🔬","👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍🔬👩‍🔬")
 name = string.gsub(name,"👨‍💻","👩‍💻👩‍??👩‍‍💻👩‍‍??👩‍‍💻👨‍💻??‍💻👩‍💻👩‍💻")
-name = string.gsub(name,"👨‍🔧","??‍🔧👩‍🔧??‍🔧??‍🔧??‍🔧👩‍🔧👨‍🔧👩‍🔧")
+name = string.gsub(name,"👨‍🔧","??‍🔧👩‍????‍🔧??‍🔧??‍🔧👩‍🔧👨‍🔧👩‍🔧")
 name = string.gsub(name,"👩‍??","👨‍🍳👨‍🍳👨‍🍳👨‍??👨‍🍳👩‍🍳👨‍🍳👨‍🍳??‍🍳")
 name = string.gsub(name,"🧚‍♀","🧚‍♂🧚‍♂🧚‍♂??‍♂🧚‍♀🧚‍♂🧚‍♂")
 name = string.gsub(name,"🧜‍♂","🧜‍♀🧜‍♀🧜‍♀🧜‍♀??‍♀🧚‍♂🧜‍♀🧜‍♀🧜‍♀")
