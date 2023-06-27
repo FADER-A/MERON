@@ -19806,7 +19806,7 @@ local List = {
 ]]} 
 local Text_Rand = List[math.random(#List)] 
 Redis:set(TheMERON.."MERON:Set:Id:Group"..msg.chat_id,Text_Rand)
-return merolua.sendText(msg_chat_id,msg_id, '◉︙تم التغيير ارسل ايدي لعرض الايدي الجديد\n◉
+return merolua.sendText(msg_chat_id,msg_id, '◉︙تم التغيير ارسل ايدي لعرض الايدي الجديد\n◉︙يمكنك ارسال تعين الايدي\n◉︙واختيار كليشة ايدي من هنا [@DRDDER]',"md",true)  
 end
 if text == 'مسح الايدي عام' and ChCheck(msg) or text == 'مسح الايدي عام' and ChCheck(msg) then
 if not msg.ControllerBot then 
