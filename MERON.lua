@@ -20637,31 +20637,45 @@ end
 
 
 
-if text == 'السورس ✧' or text == 'يا سورس' or text == 'السورس' or text == 'source' then
- photo = "https://t.me/l5l5III/3
-local T =[[
-✧︙[𝑊𝐸𝐿𝐶𝑂𝑀𝐸 𝑇𝑂 𝑆𝑂𝑈𝑅𝐶𝐸 𝑉𝐴𝐿𝑂𝑅𝐴𝑁𝑇](t.me/l5l5III )
+if text == "الالعاب المتطوره" and ChCheck(msg) or text == "الالعاب الاحترافيه" and ChCheck(msg) or text == "↫ الالعاب المتطوره ✧" and ChCheck(msg) then
+if Redis:get(hawks..'Abs:Lock:Gamesinline'..msg_chat_id) then
+Text =[[
+*✧︙قائمه الالعاب المتطوره اضغط للعب*
+* ✧︙هذه الالعاب تابعه *[لسورس هاكس](t.me/zz_u5)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '• مبرمج السورس •', url = 't.me/ZAXY9 '},{text = '• مطور السورس •', url = 't.me/'..chdevolper..' '},
-},
-{
-{text = '• تنصيب بوت مدفوع •', url = 't.me/ZAXY9'},
-},
-{
-{text = '• قناة التحديثات •', url = 't.me/VLORANTT '},{text = '• قناة السورس •', url = 't.me/'..chsource..' '},
-},
-{
-{text = '• 𝑆𝑂𝑈𝑅𝐶𝐸 𝑉𝐴𝐿𝑂𝑅𝐴𝑁𝑇 •', url = 't.me/VLORANTT '},
-},
+{{text="♟ الشطرنج ♟",url='https://t.me/T4TTTTBOT?game=chess'}},
+{{text="لعبة فلابي بيرد 🐥",url='https://t.me/awesomebot?game=FlappyBird'},{text="تحدي الرياضيات",url='https://t.me/gamebot?game=MathBattle'}},
+{{text="اكس او",url='t.me/xobot?start'},{text="سباق الدراجات 🏍",url='https://t.me/gamee?game=MotoFX'}},
+{{text="سباق سيارات 🏎",url='https://t.me/gamee?game=F1Racer'},{text="متشابه 👾",url='https://t.me/gamee?game=DiamondRows'}},
+{{text="كرة قدم ⚽",url='https://t.me/gamee?game=FootballStar'}},
+{{text="ورق🤹‍♂",url='https://t.me/gamee?game=Hexonix'},{text="Hexonix❌",url='https://t.me/gamee?game=Hexonix'}},
+{{text="MotoFx🏍️",url='https://t.me/gamee?game=MotoFx'}},
+{{text="لعبة 2048 🎰",url='https://t.me/awesomebot?game=g2048'},{text="Squares🏁",url='https://t.me/gamee?game=Squares'}},
+{{text="Atomic 1▶️",url='https://t.me/gamee?game=AtomicDrop1'},{text="Corsairs",url='https://t.me/gamebot?game=Corsairs'}},
+{{text="LumberJack",url='https://t.me/gamebot?game=LumberJack'}},
+{{text="LittlePlane",url='https://t.me/gamee?game=LittlePlane'},{text="RollerDisco",url='https://t.me/gamee?game=RollerDisco'}},
+{{text="🦖 لعبة التنين 🦖",url='https://t.me/T4TTTTBOT?game=HaWkS'},{text="🐍 لعبة الافعى 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
+{{text="🔵 لعبة الالوان 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
+{{text="🚀 لعبة الصاروخ 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 لعبة السهام 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
+{{text="لعبة النينجا",url='https://t.me/gamee?game=GravityNinja21'},{text="لعبة الكرتي",url='https://t.me/gamee?game=KarateKid2'}},
+{{text = '✧ HaWkS TeaM .', url="t.me/zz_u5"}},
 }
-local msgg = msg.id/2097152/0.5
-return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/l5l5III/3&caption=' .. URL.escape([[
-*⦑ Welcome to Source ⦒
-◉ ⦑ SOURCE كارلوس ⦒
-◉ Source version : 6.1* 
+local msg_id = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/zz_u5/544&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end end
+if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg) or text == 'ياسورس' and ChCheck(msg) or text == 'يا سورس' and ChCheck(msg) then  
+local Text ="[⦑ Welcome to Source ⦒](t.me/l5l5III)\n[✧ ⦑ SOURCE HaWkS ⦒](t.me/l5l5III)\n✧ Source version : 1.0"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 𝒔𝒐𝒖𝒓𝒄𝒆 .',url="t.me/l5l5III"}},
+{{text = '- 𝒅𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 .',url="t.me/HMCMH"},{text = '- 𝒕𝒘𝒔 𝒔𝒐𝒖𝒓𝒄𝒆 .',url="https://t.me/RASRXVV_BOT"}},
+}
+local msg_id = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/zz_u5&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 — — — — — — — — —
 ]]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'الاوامر' and ChCheck(msg) then
@@ -22177,7 +22191,7 @@ name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️�
 name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
 name = string.gsub(name,"👨‍🔬","👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍🔬👩‍🔬")
 name = string.gsub(name,"👨‍💻","👩‍💻👩‍??👩‍‍💻👩‍‍??👩‍‍💻👨‍💻??‍💻👩‍💻👩‍💻")
-name = string.gsub(name,"👨‍🔧","??‍🔧👩‍????‍🔧??‍🔧??‍🔧👩‍🔧👨‍🔧👩‍🔧")
+name = string.gsub(name,"👨‍🔧","??‍🔧👩‍🔧??‍🔧??‍🔧??‍🔧👩‍🔧👨‍🔧👩‍🔧")
 name = string.gsub(name,"👩‍??","👨‍🍳👨‍🍳👨‍🍳👨‍??👨‍🍳👩‍🍳👨‍🍳👨‍🍳??‍🍳")
 name = string.gsub(name,"🧚‍♀","🧚‍♂🧚‍♂🧚‍♂??‍♂🧚‍♀🧚‍♂🧚‍♂")
 name = string.gsub(name,"🧜‍♂","🧜‍♀🧜‍♀🧜‍♀🧜‍♀??‍♀🧚‍♂🧜‍♀🧜‍♀🧜‍♀")
