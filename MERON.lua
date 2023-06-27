@@ -12701,9 +12701,9 @@ local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames)
 local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto) 
 local Get_Is_Id = Get_Is_Id:gsub('#Bio',Bio) 
 if photo.total_count > 0 then
-return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
+return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
 else
-return bot.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
+return merolua.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 end
 else
 if photo.total_count > 0 then
@@ -19598,7 +19598,6 @@ end
 Redis:setex(TheMERON.."MERON:Redis:Id:Group"..msg.chat_id..""..msg.sender_id.user_id,240,true)  
 return merolua.sendText(msg_chat_id,msg_id,[[
 ◉︙ارسل الان النص
-◉︙يمكنك الاختيار من هنا [@klaish_id]
 ◉︙او يمكنك اضافه :
 ◉︙`#username` » اسم المستخدم
 ◉︙`#msgs` » عدد الرسائل
@@ -19764,7 +19763,7 @@ local List = {
 ⚕ 𓆰 𝑾𝒆𝒍??𝒐𝒎𝒆 𝑻𝒐 𝑮𝒓𝒐𝒖𝒑 ★ 
 • 🖤 | 𝑼𝑬𝑺 : #username ‌‌‏★
 • 🖤 | 𝑺𝑻𝑨 : #stast ★ 
-• 🖤 | 𝑰𝑫 : #id ‌‌‏★
+• 🖤 | ??𝑫 : #id ‌‌‏★
 • 🖤 | 𝑴𝑺𝑮 : #msgs ★
 ]], 
 [[ 
@@ -19807,7 +19806,7 @@ local List = {
 ]]} 
 local Text_Rand = List[math.random(#List)] 
 Redis:set(TheMERON.."MERON:Set:Id:Group"..msg.chat_id,Text_Rand)
-return merolua.sendText(msg_chat_id,msg_id, '◉︙تم التغيير ارسل ايدي لعرض الايدي الجديد\n◉︙يمكنك ارسال تعين الايدي\n◉︙واختيار كليشة ايدي من هنا [@klaish_id]',"md",true)  
+return merolua.sendText(msg_chat_id,msg_id, '◉︙تم التغيير ارسل ايدي لعرض الايدي الجديد\n◉
 end
 if text == 'مسح الايدي عام' and ChCheck(msg) or text == 'مسح الايدي عام' and ChCheck(msg) then
 if not msg.ControllerBot then 
