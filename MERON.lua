@@ -12144,7 +12144,7 @@ data = {
 send(Sudo_Id,0,'\n⇜ مرحباً عزيزي المطور \nشخص ما يحتاج مساعدتك\n━━━━━━━━\n⇜ اسمه : '..klajq..' \n⇜ ايديه : '..msg.sender.user_id..'\n⇜ يوزره : @'..basgk..'\n⇜ الوقت : '..os.date("%I:%M %p")..'\n⇜ التاريخ : '..os.date("%Y/%m/%d")..'',"md",false, false, false, false, reply_markup)
 end
 
-if text == 'سسكيمب and ChCheck(msg) or text == 'المطورر'and ChCheck(msg) or text == 'المطور' and ChCheck(msg) then   
+if text == 'سسكيمب'and ChCheck(msg) or text == 'المطورر'and ChCheck(msg) or text == 'المطور' and ChCheck(msg) then   
 local UserInfo = merolua.getUser(Sudo_Id) 
 local InfoUser = merolua.getUserFullInfo(Sudo_Id)
 if InfoUser.bio then
