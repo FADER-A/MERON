@@ -12144,7 +12144,7 @@ data = {
 send(Sudo_Id,0,'\n⇜ مرحباً عزيزي المطور \nشخص ما يحتاج مساعدتك\n━━━━━━━━\n⇜ اسمه : '..klajq..' \n⇜ ايديه : '..msg.sender.user_id..'\n⇜ يوزره : @'..basgk..'\n⇜ الوقت : '..os.date("%I:%M %p")..'\n⇜ التاريخ : '..os.date("%Y/%m/%d")..'',"md",false, false, false, false, reply_markup)
 end
 
-if text == 'المطور'and ChCheck(msg) then   
+if text == 'المطور' and ChCheck(msg) or text == 'مطور البوت' and ChCheck(msg) or text == 'مطور' and ChCheck(msg) then   
 local UserInfo = merolua.getUser(Sudo_Id) 
 local InfoUser = merolua.getUserFullInfo(Sudo_Id)
 if InfoUser.bio then
@@ -12153,31 +12153,30 @@ else
 Bio = ''
 end
 local photo = merolua.getUserProfilePhotos(Sudo_Id)
-local TextingDevBot = Redis:get(TheMERON..'MERON:Texting:DevMERON')
+local TextingDevBot = Redis:get(TheMERON..'MERON:Texting:DevTheMERON')
 if TextingDevBot then
 local TextingDevBot = TextingDevBot:gsub('#namemsudo',"["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..")") 
 local TextingDevBot = TextingDevBot:gsub('#namesudo',"["..UserInfo.first_name.."]") 
 local TextingDevBot = TextingDevBot:gsub('#usernamesudo',"[@"..UserSudo.."]") 
 local TextingDevBot = TextingDevBot:gsub('#idsudo',Sudo_Id) 
 local TextingDevBot = TextingDevBot:gsub('#biosudo',"["..Bio.."]") 
-if photo.total_count > 0 then 
+if photo and photo.total_count and photo.total_count > 0 then 
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text =UserInfo.first_name, url = 't.me/'..UserSudo}},
-{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},
 }}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TextingDevBot, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}	
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '❲ قناة السورس ❳',url="t.me/AAPA1"}},}}	
 merolua.sendText(msg_chat_id,msg_id,TextingDevBot,"md", true, false, false, false, reply_markup)
 end
 else
 if photo and photo.total_count and photo.total_count > 0 then
-local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}
+local TestText = "*◉︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*◉︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*◉︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*◉︙𝙱𝙸𝙾 𝚂??𝙳𝙾 : * ["..Bio.."] ."
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},}}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TestText, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}	
+local TestText = "*◉︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*◉︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*◉︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*◉︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},}}	
 merolua.sendText(msg_chat_id,msg_id,TestText,"md", true, false, false, false, reply_markup)
 end
 end
