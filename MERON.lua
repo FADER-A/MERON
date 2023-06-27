@@ -22591,10 +22591,10 @@ keyboardd.inline_keyboard = {
 {text = '❲ اضفني لمجموعتك ❳', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/DRDDER_2BOT'}, 
+{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/RASRXVV_BOT'}, 
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
+{text = '❲ قناه السورس ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
 },
 }
 local msg_id = msg.id/2097152/0.5 
@@ -22618,7 +22618,7 @@ data = {
 {text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/RASRXVV_BOT'}, 
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
+{text = '❲ قناه السورس ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
 },
 }
 }
