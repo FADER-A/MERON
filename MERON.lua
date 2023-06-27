@@ -1186,7 +1186,7 @@ end
 if data.content.text then
 text = data.content.text.text
 end
-local Name_Bot = (Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT")
+local Name_Bot = (Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس")
 if text and text:match('^'..Name_Bot..' ') then
 text = text:gsub('^'..Name_Bot..' ','')
 end
@@ -1412,7 +1412,7 @@ if UserInfoo.first_name == "" then
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ قناة السورس ❳', url='t.me/HAJSJSJW'},
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url='t.me/l5l5III'},
 },
 }
 else
@@ -1663,9 +1663,9 @@ local UserInfo = merolua.getUser(msg.sender_id.user_id)
 if msg.sender_id.user_id ~= 1054308380 then 
 
 local names = (UserInfo.first_name or '...')..(UserInfo.last_name or '...')
-if names and  names:find("TNT") then
+if names and  names:find("كارلوس") then
 merolua.deleteMessages(msg.chat_id,{[1]= msg.id})
-return merolua.sendText(msg_chat_id,0,'◉︙[هلو حبيبي ، ميصير تنتحل مطور السورس](tg://user?id='..msg.sender_id.user_id..')\n\n◉︙حساب مطور السورس الاصلي هذا @lllell1\n\n ◉︙او تكدر تكتب المطور وراح يطلعلك حساب مطور السورس',"md")
+return merolua.sendText(msg_chat_id,0,'◉︙[هلو حبيبي ، ميصير تنتحل مبــرمج السـورس](tg://user?id='..msg.sender_id.user_id..')\n\n◉︙حساب مبــرمج السـورس الاصلي هذا @M_Y_R_Q\n\n ◉︙او تكدر تكتب المطور وراح يطلعلك حساب مبــرمج السـورس',"md")
 end
 end
 if msg.content.location and not msg.Distinguished then  -- الموقع
@@ -1957,7 +1957,7 @@ local Lock_Bots = Redis:get(TheMERON.."GHYM:Lock:Bot:kick"..msg_chat_id)
 for k,v in pairs(msg.content.member_user_ids) do
 if v == tonumber(TheMERON) then
 local idephoto = Redis:get(TheMERON..':WELCOME_BOT')
-local Bot_Name = (Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT")
+local Bot_Name = (Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس")
 if idephoto then
 
 TextBot = '\n*◉︙اهلا انآ بوت اسمي '..Bot_Name..''..
@@ -1968,7 +1968,7 @@ TextBot = '\n*◉︙اهلا انآ بوت اسمي '..Bot_Name..''..
 keyboard = {} 
 keyboard.inline_keyboard = {
   {{text="◉ غادر ◉",callback_data="/LeaveBotPic:"..msg.sender_id.user_id},{text = '◉ تفعيل ◉', callback_data = msg.sender_id.user_id..'/onlinebott'..msg_chat_id}},
-	{{text = '❲ قناة السورس ❳',url="t.me/HAJSJSJW"}},
+	{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo='..idephoto..'&caption=' .. URL.escape(TextBot).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -1983,7 +1983,7 @@ TextBot = '\n*◉︙اهلا انآ بوت اسمي '..Bot_Name..''..
 keyboard = {} 
 keyboard.inline_keyboard = {
   {{text="◉ غادر ◉",callback_data="/LeaveBotPic:"..msg.sender_id.user_id},{text = '◉ تفعيل ◉', callback_data = msg.sender_id.user_id..'/onlinebott'..msg_chat_id}},
-	{{text = '❲ قناة السورس ❳',url="t.me/HAJSJSJW"}},
+	{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&caption=' .. URL.escape(TextBot).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -2006,7 +2006,7 @@ return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { 
 end
 local idephoto = Redis:get(TheMERON..':WELCOME_BOT')
 if idephoto then
-local Bot_Name = (Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT")
+local Bot_Name = (Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس")
 return merolua.sendPhoto(msg.chat_id, msg.id, idephoto,
 '\n*◉︙اهلا انآ بوت اسمي '..Bot_Name..''..
 '\n◉︙آختصـآصـي حمـآيهہ‌‏ آلمـجمـوعآت'..
@@ -5269,7 +5269,7 @@ return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { 
 end
 if not Redis:get(TheMERON..'Abs:ChId') then
 Redis:set(TheMERON..'GHYM:Channel:Redis'..msg_chat_id..':'..msg.sender_id.user_id,true)
-return merolua.sendText(msg_chat_id,msg_id,"\n◉︙اهلا بك عزيزي ، \n◉︙ارفع البوت مشرف في قناتك\n◉︙ثم ارسل معرف القناة\n◉︙مثال على معرف القناة 👇\n◉︙@HAJSJSJW\n◉︙او قم باعادة توجيه رساله من القناة الخاصه او العامه","md",true)  
+return merolua.sendText(msg_chat_id,msg_id,"\n◉︙اهلا بك عزيزي ، \n◉︙ارفع البوت مشرف في قناتك\n◉︙ثم ارسل معرف القناة\n◉︙مثال على معرف القناة 👇\n◉︙@l5l5III\n◉︙او قم باعادة توجيه رساله من القناة الخاصه او العامه","md",true)  
 else
 local Check = https.request('https://api.telegram.org/bot'..Token..'/getChat?chat_id='..Redis:get(TheMERON.."Abs:ChId"))
 local GetInfo = JSON.decode(Check)
@@ -5293,7 +5293,7 @@ if not msg.ControllerBot then
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
 Redis:set(TheMERON..'GHYM:Channel:Redis'..msg_chat_id..':'..msg.sender_id.user_id,true)
-return merolua.sendText(msg_chat_id,msg_id,"\n◉︙اهلا بك عزيزي ، \n◉︙ارفع البوت مشرف في قناتك\n◉︙ثم ارسل معرف القناة\n◉︙مثال على معرف القناة 👇\n◉︙@HAJSJSJW\n◉︙او قم باعادة توجيه رساله من القناة الخاصه او العامه","md",true)  
+return merolua.sendText(msg_chat_id,msg_id,"\n◉︙اهلا بك عزيزي ، \n◉︙ارفع البوت مشرف في قناتك\n◉︙ثم ارسل معرف القناة\n◉︙مثال على معرف القناة 👇\n◉︙@l5l5III\n◉︙او قم باعادة توجيه رساله من القناة الخاصه او العامه","md",true)  
 end
 if text == 'الاشتراك الاجباري' and ChCheck(msg) or text == 'الاشتراك الاجباري ◉' and ChCheck(msg) then
 if not msg.ControllerBot then 
@@ -5472,7 +5472,7 @@ end
 end
 if text == "ضع تاريخ الاشتراك" and ChCheck(msg) or text == "ضع تاريخ الاشتراك ◉" and ChCheck(msg) then
 if msg.sender_id.user_id ~= 1054308380 then 
-return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { مطور السورس }* ',"md",true)  
+return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { مبــرمج السـورس }* ',"md",true)  
 end
 Redis:set(TheMERON.."data:botsashtrak"..msg_chat_id..msg.sender_id.user_id,true)
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙ارسل تاريخ الاشتراك* ',"md",true)  
@@ -5503,7 +5503,7 @@ local List = Redis:smembers(TheMERON.."GHYM:ChekBotAdd")
 if #List == 0 then
 return merolua.sendText(msg_chat_id,msg_id,'⌁︙لا توجد مجموعات مفعله',"md",true)
 else
-Text = "⌁︙SOURCE TNT\n⌁︙File Bot Groups\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n"
+Text = "⌁︙SOURCE كارلوس\n⌁︙File Bot Groups\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n"
 for k,v in pairs(List) do
 GroupsManagers = Redis:scard(TheMERON.."GHYM:Managers:Group"..v) or 0
 GroupsAdmins = Redis:scard(TheMERON.."GHYM:Addictive:Group"..v) or 0
@@ -5628,7 +5628,7 @@ end
 end   
 Get_Json = Get_Json..'],'
 end
-Get_Json = Get_Json..'"Dev":"lllell1"}'
+Get_Json = Get_Json..'"Dev":"M_Y_R_Q"}'
 end
 Get_Json = Get_Json..'}}'
 local File = io.open('./'..UserBot..'.json', "w")
@@ -5785,7 +5785,7 @@ end
 end   
 Get_Json = Get_Json..'],'
 end
-Get_Json = Get_Json..'"Dev":"lllell1"}'
+Get_Json = Get_Json..'"Dev":"M_Y_R_Q"}'
 end
 Get_Json = Get_Json..'}}'
 local File = io.open('./'..UserBot..'.json', "w")
@@ -6997,7 +6997,7 @@ KlamSpeed = {
 " من أول من سل سيف في سبيل الله ؟",
 " من أول نبي قال أما بعد ؟",
 " كم كان عدد المسلمين في غزوة أحد ؟",
-" من الذي كفل TNTة مريم؟",
+" من الذي كفل كارلوسة مريم؟",
 " من هو النبي الذي روادته المرأة التي تربى في بيتها؟",
 " من النبي الذي طلب منه قومه أن ينزل لهم مائدة من السماء ؟",
 " من هو أول الأئمة الأربعة ؟",
@@ -7020,7 +7020,7 @@ name = string.gsub(name," من أول من أدخل عبادة الأصنام ؟
 name = string.gsub(name," من أول من سل سيف في سبيل الله ؟","الزبير بن العوام")
 name = string.gsub(name," من أول نبي قال أما بعد ؟","داود")
 name = string.gsub(name," كم كان عدد المسلمين في غزوة أحد ؟","100")
-name = string.gsub(name," من الذي كفل TNTة مريم؟","زكريا")
+name = string.gsub(name," من الذي كفل كارلوسة مريم؟","زكريا")
 name = string.gsub(name," من هو النبي الذي روادته المرأة التي تربى في بيتها؟","يوسف")
 name = string.gsub(name," من النبي الذي طلب منه قومه أن ينزل لهم مائدة من السماء ؟","عيسى")
 name = string.gsub(name," من هو أول الأئمة الأربعة ؟","ابو حنيفه")
@@ -7116,7 +7116,7 @@ if text == "اعلان البوت" and ChCheck(msg) then
 if not msg.ControllerBot then 
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
-local CmdStart = '*\n◉︙أهلآ بك في بوت '..(Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT")..
+local CmdStart = '*\n◉︙أهلآ بك في بوت '..(Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس")..
 '\n◉︙اختصاص البوت حماية المجموعات'..
 '\n◉︙لتفعيل البوت عليك اتباع مايلي ...'..
 '\n◉︙اضف البوت الى مجموعتك'..
@@ -7135,7 +7135,7 @@ data = {
 }
 local idephoto = Redis:get(TheMERON..':WELCOME_BOT')
 if idephoto then
-local Bot_Name = (Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT")
+local Bot_Name = (Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس")
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -8376,12 +8376,12 @@ Redis:del(TheMERON.."Bots:ProNames:UserNum"..msg.chat_id..msg.sender_id.user_id)
 if UserInfo.username then
 UserInfousername = ''..UserInfo.username..''
 else
-UserInfousername = 'HAJSJSJW'
+UserInfousername = 'l5l5III'
 end
-merolua.sendText(msg.chat_id, msg.id, "⌁︙العضو ↫ ["..UserInfo.first_name.."](https://t.me/"..(UserInfousername or "HAJSJSJW")..")\n⌁︙تم كتمه بسبب عدم وضع توحيد المجموعه بجانب اسمه يجب عليه وضع التوحيد ","md",true)
+merolua.sendText(msg.chat_id, msg.id, "⌁︙العضو ↫ ["..UserInfo.first_name.."](https://t.me/"..(UserInfousername or "l5l5III")..")\n⌁︙تم كتمه بسبب عدم وضع توحيد المجموعه بجانب اسمه يجب عليه وضع التوحيد ","md",true)
 else 
 Redis:incrby(TheMERON.."Bots:ProNames:UserNum"..msg.chat_id..msg.sender_id.user_id,1)
-merolua.sendText(msg.chat_id, msg.id,  "⌁︙عذرا عزيزي ↫ ["..UserInfo.first_name.."](https://t.me/"..(UserInfousername or "HAJSJSJW")..")\n⌁︙عليك وضع التوحيد ↫ "..Redis:get(TheMERON.."Bots:ProNames:Txt"..msg.chat_id).." بجانب اسمك\n⌁︙عدد المحاولات المتبقيه ↫ "..(tonumber(ProNamesTxt) - tonumber(UserNum)).."","md",true)
+merolua.sendText(msg.chat_id, msg.id,  "⌁︙عذرا عزيزي ↫ ["..UserInfo.first_name.."](https://t.me/"..(UserInfousername or "l5l5III")..")\n⌁︙عليك وضع التوحيد ↫ "..Redis:get(TheMERON.."Bots:ProNames:Txt"..msg.chat_id).." بجانب اسمك\n⌁︙عدد المحاولات المتبقيه ↫ "..(tonumber(ProNamesTxt) - tonumber(UserNum)).."","md",true)
 end
 end
 end
@@ -8634,7 +8634,7 @@ name = string.gsub(name,"كولومبيا","بوغوتا")
 name = string.gsub(name,"تايلاند","بانكوك")
 name = string.gsub(name,"بنغلادش","دكا")
 name = string.gsub(name,"السعودية","الرياض")
-name = string.gsub(name,"العراق","TNT")
+name = string.gsub(name,"العراق","كارلوس")
 name = string.gsub(name,"فيتنام","هانوي")
 name = string.gsub(name,"إسبانيا","مدريد")
 name = string.gsub(name,"كوريا الشمالية","بيونغ يانغ")
@@ -9089,7 +9089,7 @@ Redis:del(TheMERON..':GroupUserCountMsg:'..msg.chat_id)
 Redis:del(TheMERON..':GroupNameUser:'..msg.chat_id)
 return merolua.sendText(msg.chat_id,msg.id,"تم تصغير الترند","md")
 end
-local Bot_Name = (Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT")
+local Bot_Name = (Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس")
 
 if not Redis:get(TheMERON.."GHYM:Status:repleall") then
 local ss97 = {
@@ -9575,6 +9575,32 @@ https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. 
 end
 end
 end
+if text== "انطي هديه" and not Redis:get(TheMERON.."amrthshesh"..msg.chat_id) then     
+
+
+if msg.reply_to_message_id then
+
+local Message_Reply = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
+local UserInfo = merolua.getUser(Message_Reply.sender_id.user_id)
+local FlterName = UserInfo.first_name
+local geft = {
+"الف مبروك 👏 هديتك بيذنجان🍆سوي تبسي واندعيلي 🤲😹",
+"الف مبروك 👏 هديتك نوتيلا 🍫 \nيا كيكه انت 🥰😹",
+"الف مبروك 🥰 هديتك شفقه 🧢 البسهه الشمس تسمط راسك 😁😹",
+"الف مبروك 👏 هديتك راس بصل 🧅 اكله وابجي الدموع تريح القلب 😁😹",
+"الف مبروك 👏 هديتك حذاء 👞 تلبسهه لو اكطعهه على راسك 🥰😹",
+"الف مبروك 👏 هديتك شده 💸\n بس مو تتكبر على اصدقائك 😁😹",
+"الف مبروك 👏 هديتك تاج ذهب 👑\n يا تاج وباج انت 😉🥰",
+"الف مبروك 🥰 هديتك ساعه 🕰  بيها\nمنبه تكعدك الصبح 😁😹",
+"الف مبروك 👏 هديتك خاتم 💍 \nواعزمنه بعرسك 💃😹",
+"الف مبروك 👏 هديتك صابونه 🧼 والمي بلاش وروح اسبح يالوصخ 😁😹"
+}
+merolua.sendText(msg.chat_id,msg.id,'صارر استاذيي 🏃🏻‍♂️♥️')
+local msg_id = msg.reply_to_message_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape('- ['..FlterName..'](tg://user?id='..Message_Reply.sender_id.user_id..')'..'\n'..geft[math.random(#geft)]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
+return false
+end
+end
 if text== "شنو رئيك بهاي" or text=="شنو رئيك بيه" or text== "شنو رئيك بهاذش" or text== "شنو رأيك بهاي" or text== "شنو رايك بهاي" and ChCheck(msg) then 
 if msg.reply_to_message_id then
 if not Redis:get(TheMERON.."amrthshesh"..msg.chat_id) then     
@@ -10037,7 +10063,7 @@ local List = Redis:smembers(TheMERON.."GHYM:ChekBotAdd")
 if #List == 0 then
 return merolua.sendText(msg_chat_id,msg_id,'⌁︙لا توجد مجموعات مفعله',"md",true)
 else
-Text = "⌁︙SOURCE TNT\n⌁︙File Bot Groups\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n"
+Text = "⌁︙SOURCE كارلوس\n⌁︙File Bot Groups\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n"
 for k,v in pairs(List) do
 GroupsManagers = Redis:scard(TheMERON.."GHYM:Managers:Group"..v) or 0
 GroupsAdmins = Redis:scard(TheMERON.."GHYM:Addictive:Group"..v) or 0
@@ -11558,7 +11584,7 @@ end
 
 
 if text == 'الاصدار' and ChCheck(msg) then
-merolua.sendText(msg_chat_id,msg_id,'*◉︙اصدار سورس TNT 3.0*',"md",true)  
+merolua.sendText(msg_chat_id,msg_id,'*◉︙اصدار سورس كارلوس 3.0*',"md",true)  
 end
 if text == "الساعه" and ChCheck(msg) or text == "الوقت" and ChCheck(msg) then
 local ramsesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
@@ -12046,8 +12072,8 @@ end
 
 
 
-if text == 'مطور السورس' and ChCheck(msg) or text == 'المطور' and ChCheck(msg) then  
-local UserId_Info = merolua.searchPublicChat("lllell1")
+if text == 'مبــرمج السـورس' and ChCheck(msg) or text == 'المطور' and ChCheck(msg) then  
+local UserId_Info = merolua.searchPublicChat("M_Y_R_Q")
 if UserId_Info.id then
 local UserInfo = merolua.getUser(UserId_Info.id)
 local InfoUser = merolua.getUserFullInfo(UserId_Info.id)
@@ -12067,17 +12093,17 @@ local TestText = "*◉︙𝙳𝙴𝚅 𝙽𝙰𝙼𝙴 : * ["..UserInfo.first_na
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ قناة السورس ❳', url='https://t.me/HAJSJSJW'},
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url='https://t.me/l5l5III'},
 },
 }
 local msg_id = msg.id/2097152/0.5 
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
 else
-local TestText = "- معلومات مطور السورس : \n\n*◉︙name:* ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n\n*◉︙user :* "..UserInfousername.."\n\n*◉︙Bio:* ["..Bio.."]"
+local TestText = "- معلومات مبــرمج السـورس : \n\n*◉︙name:* ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n\n*◉︙user :* "..UserInfousername.."\n\n*◉︙Bio:* ["..Bio.."]"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ قناة السورس ❳', url='https://t.me/HAJSJSJW'},
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url='https://t.me/l5l5III'},
 },
 }
 local msg_id = msg.id/2097152/0.5 
@@ -12090,11 +12116,11 @@ send(msg_chat_id,msg_id,"⇜ تم إرسال طلبك للمطور سيتم ال
 if not Redis:get(TheMero.."Status:tagdev") then
 return false
 end
-local Get_Chat = bot.getChat(msg_chat_id)
-local Info_Chats = bot.getSupergroupFullInfo(msg_chat_id)
-local bains = bot.getUser(msg.sender.user_id)
+local Get_Chat = msg_chat_id
+local Info_Chats = msg_chat_id
+local bains = msg.sender.user_id
 if bains.first_name then
-klajq = '['..bains.first_name..'](tg://user?id='..bains.id..')'
+klajq = '['..UserInfo.first_name..'](tg://user?id='..UserInfo.first_name..')'
 else
 klajq = 'لا يوجد'
 end
@@ -12103,12 +12129,12 @@ basgk = ''..bains.username..' '
 else
 basgk = 'لا يوجد'
 end
-local czczh = ''..bains.first_name..''
+local czczh = ''..UserInfo.first_name..''
 local reply_markup = bot.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = czczh, url = "https://t.me/"..bains.username..""},
+{text = czczh, url = "https://t.me/"..UserInfo.first_name..""},
 },
 {
 {text = Get_Chat.title, url = Info_Chats.invite_link.invite_link}, 
@@ -12127,30 +12153,31 @@ else
 Bio = ''
 end
 local photo = merolua.getUserProfilePhotos(Sudo_Id)
-local TextingDevBot = Redis:get(TheMERON..'GHYM:Texting:DevTheMERON')
+local TextingDevBot = Redis:get(TheMERON..'MERON:Texting:DevMERON')
 if TextingDevBot then
 local TextingDevBot = TextingDevBot:gsub('#namemsudo',"["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..")") 
 local TextingDevBot = TextingDevBot:gsub('#namesudo',"["..UserInfo.first_name.."]") 
 local TextingDevBot = TextingDevBot:gsub('#usernamesudo',"[@"..UserSudo.."]") 
 local TextingDevBot = TextingDevBot:gsub('#idsudo',Sudo_Id) 
 local TextingDevBot = TextingDevBot:gsub('#biosudo',"["..Bio.."]") 
-if photo and photo.total_count and photo.total_count > 0 then 
+if photo.total_count > 0 then 
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text =UserInfo.first_name, url = 't.me/'..UserSudo}},
+{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},
 }}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TextingDevBot, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '❲ قناة السورس ❳',url="t.me/HAJSJSJW"}},}}	
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}	
 merolua.sendText(msg_chat_id,msg_id,TextingDevBot,"md", true, false, false, false, reply_markup)
 end
 else
 if photo and photo.total_count and photo.total_count > 0 then
-local TestText = "*◉︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*◉︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*◉︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*◉︙𝙱𝙸𝙾 𝚂??𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},}}
+local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TestText, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-local TestText = "*◉︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*◉︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*◉︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*◉︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},}}	
+local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}	
 merolua.sendText(msg_chat_id,msg_id,TestText,"md", true, false, false, false, reply_markup)
 end
 end
@@ -12174,9 +12201,9 @@ local NameChat = NameChat:gsub("}","")
 local LinkGp = json:decode(https.request('https://api.telegram.org/bot'..Token..'/exportChatInviteLink?chat_id='..msg.chat_id))
 if LinkGp.ok == true then 
 LinkGroup = LinkGp.result
-LinkGroup = "◉︙رابط المجموعه ↫ ⤈\n❨ ["..LinkGroup.."] ❩"
+LinkGroup = "✧︙رابط المجموعه ↫ ⤈\n❨ ["..LinkGroup.."] ❩"
 else
-LinkGroup ='◉︙ليست لدي صلاحية الدعوه لهذه المجموعه !'
+LinkGroup ='✧︙ليست لدي صلاحية الدعوه لهذه المجموعه !'
 end
 if not msg.ControllerBot then
 merolua.sendText(Sudo_Id,0,"◉︙هناك من بحاجه الى مساعده ↫ ⤈ \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n◉︙الشخص ↫ "..Name.."\n◉︙اسم المجموعه ↫ ["..NameChat.."]\n◉︙ايدي المجموعه ↫ ⤈ \n❨ `"..msg.chat_id.."` ❩\n"..LinkGroup.."\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n◉︙الوقت ↫ "..os.date("%I:%M%p").."\n◉︙التاريخ ↫ "..os.date("%Y/%m/%d").."",'md',true)
@@ -12663,7 +12690,7 @@ Get_Is_Id = Redis:get(TheMERON.."GHYM:Set:Id:Groups") or Redis:get(TheMERON.."GH
 if Redis:get(TheMERON.."GHYM:Status:IdPhoto"..msg_chat_id) then
 if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
-local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender.user_id) 
+local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender_id.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
 local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
@@ -12672,38 +12699,39 @@ local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT)
 local Get_Is_Id = Get_Is_Id:gsub('#Description',Description) 
 local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames) 
 local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto) 
+local Get_Is_Id = Get_Is_Id:gsub('#Bio',Bio) 
 if photo.total_count > 0 then
-return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
+return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,Get_Is_Id)
 else
-return merolua.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
+return bot.sendText(msg_chat_id,msg_id,Get_Is_Id,"md",true) 
 end
 else
 if photo.total_count > 0 then
-return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
-'\n*⌔︙'..Description..
-'\n⌔︙ايديك : '..UserId..
-'\n⌔︙معرفك : '..UserInfousername..
-'\n⌔‍︙رتبتك : '..RinkBot..
-'\n⌔︙صورك : '..TotalPhoto..
-'\n⌔︙رسائلك : '..TotalMsg..
-'\n⌔︙تعديلاتك : '..TotalEdit..
-'\n⌔︙تفاعلك : '..TotalMsgT..
-'*', "md")
+local ban_ns ='\n*⟨•💖▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..Description..'\n⟨•💖▸ 𝑼𝑺𝑬𝑹 •⟩ '..UserInfousername..'\n⟨•💖▸ 𝑰𝑫 •⟩ '..UserId..'\n⟨•💖▸ 𝑺𝑻𝑨 •⟩ '..RinkBot..'\n⟨•💖▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..TotalPhoto..'\n⟨•💖▸ 𝑴𝑺𝑮 •⟩ '..TotalMsg..'\n⟨•💖▸ 𝑻𝑭𝑨𝑷𝑳𝑲 •⟩ '..TotalMsgT..'\n⟨•💖▸ 𝑩𝑰𝑶 •⟩ '..Bio..'*'
+data = {} 
+data.inline_keyboard = {
+{
+{text =UserInfo.username,url = "https://t.me/"..UserInfo.username..""}, 
+},
+}
+msgg = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
 else
-return merolua.sendText(msg_chat_id,msg_id,
-'\n*⌔︙ايديك : '..UserId..
-'\n⌔︙معرفك : '..UserInfousername..
-'\n⌔‍︙رتبتك : '..RinkBot..
-'\n⌔︙رسائلك : '..TotalMsg..
-'\n⌔︙تعديلاتك : '..TotalEdit..
-'\n⌔︙تفاعلك : '..TotalMsgT..
-'*',"md",true) 
+local ban_ns ='\n*⟨•💖▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..Description..'\n⟨•💖▸ 𝑼𝑺𝑬𝑹 •⟩ '..UserInfousername..'\n⟨•💖▸ 𝑰𝑫 •⟩ '..UserId..'\n⟨•💖▸ 𝑺𝑻𝑨 •⟩ '..RinkBot..'\n⟨•💖▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..TotalPhoto..'\n⟨•💖▸ 𝑴𝑺𝑮 •⟩ '..TotalMsg..'\n⟨•💖▸ 𝑻𝑭𝑨𝑷𝑳?? •⟩ '..TotalMsgT..'\n⟨•💖▸ 𝑩𝑰𝑶 •⟩ '..Bio..'*'
+data = {} 
+data.inline_keyboard = {
+{
+{text =UserInfo.first_name,url = "https://t.me/"..UserInfo.username..""}, 
+},
+}
+msgg = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendMessage?chat_id=" .. msg_chat_id .. "&text=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
 end
 end
 else
 if Get_Is_Id then
 local Get_Is_Id = Get_Is_Id:gsub('#AddMem',NumAdd) 
-local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender.user_id) 
+local Get_Is_Id = Get_Is_Id:gsub('#id',msg.sender_id.user_id) 
 local Get_Is_Id = Get_Is_Id:gsub('#username',UserInfousername) 
 local Get_Is_Id = Get_Is_Id:gsub('#msgs',TotalMsg) 
 local Get_Is_Id = Get_Is_Id:gsub('#edit',TotalEdit) 
@@ -12712,16 +12740,18 @@ local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsgT)
 local Get_Is_Id = Get_Is_Id:gsub('#Description',Description) 
 local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames) 
 local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto) 
-return merolua.sendText(msg_chat_id,msg_id,'['..Get_Is_Id..']',"md",true) 
+local Get_Is_Id = Get_Is_Id:gsub('#Bio',Bio) 
+return send(msg_chat_id,msg_id,'['..Get_Is_Id..']',"md",true) 
 else
-return merolua.sendText(msg_chat_id,msg_id,
-'\n*⌔︙ايديك : '..UserId..
-'\n⌔︙معرفك : '..UserInfousername..
-'\n⌔‍︙رتبتك : '..RinkBot..
-'\n⌔︙رسائلك : '..TotalMsg..
-'\n⌔︙تعديلاتك : '..TotalEdit..
-'\n⌔︙تفاعلك : '..TotalMsgT..
-'*',"md",true) 
+local ban_ns ='\n*⟨•💖▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..Description..'\n⟨•💖▸ 𝑼𝑺𝑬𝑹 •⟩ '..UserInfousername..'\n⟨•💖▸ 𝑰𝑫 •⟩ '..UserId..'\n⟨•💖▸ 𝑺𝑻𝑨 •⟩ '..RinkBot..'\n⟨•💖▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..TotalPhoto..'\n⟨•💖▸ 𝑴𝑺𝑮 •⟩ '..TotalMsg..'\n⟨•💖▸ 𝑻𝑭𝑨𝑷𝑳𝑲 •⟩ '..TotalMsgT..'\n⟨•💖▸ 𝑩𝑰𝑶 •⟩ '..Bio..'*'
+data = {} 
+data.inline_keyboard = {
+{
+{text =UserInfo.first_name,url = "https://t.me/"..UserInfo.username..""}, 
+},
+}
+msgg = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendMessage?chat_id=" .. msg_chat_id .. "&text=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
 end
 end
 end
@@ -12955,6 +12985,10 @@ end
 if text and (text == "ميمز" or text == "ميمزات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:memz:Abs'..msg.chat_id) then
 Abs = math.random(2,220); 
 local Text ='*◉︙تم اختيار مقطع الميمز لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/MemzDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -12962,6 +12996,10 @@ end
 if text and (text == "ريمكس" or text == "ريمكسات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Remix:Abs'..msg.chat_id) then
 Abs = math.random(2,400); 
 local Text ='*◉︙تم اختيار الريمكس لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/RemixDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -12970,6 +13008,10 @@ end
 if text and (text == "صوره" or text == "صور") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,1120); 
 local Text ='*◉︙تم اختيار الصوره لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/PhotosDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -12978,6 +13020,10 @@ end
 if text and (text == "قيفات بنات" or text == "متحركات بنات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات بنات لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/lflflrofo/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -12986,6 +13032,10 @@ end
 if text and (text == "قيفات شباب" or text == "متحركات شباب") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات شباب لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/dldldldlgt/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -12994,6 +13044,10 @@ end
 if text and (text == "قيفات قطط" or text == "قطط") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات قطط لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/gsgjituops/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13002,6 +13056,10 @@ end
 if text and (text == "قيفات اطفال" or text == "اطفال") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات اطفال لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/fmgngoclr/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13010,6 +13068,10 @@ end
 if text and (text == "قيفات رومانسيه" or text == "متحركات حب") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات رومانسيه لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/romansiaaa/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13018,6 +13080,10 @@ end
 if text and (text == "قيفات كيبوب" or text == "قيف كيبوب") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات كيبوب لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/kibobg/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13026,6 +13092,10 @@ end
 if text and (text == "قران" or text == "قرآن") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Remix:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*اللهُم الجَنة وسّلام على الدُنيا و مَا فيها .*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/jahske/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -13034,6 +13104,10 @@ end
 if text and (text == "قيفات كوسال" or text == "كوسال") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='**◉︙تم اختيار قيفات كوسال لك**'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/koksalt/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13042,6 +13116,10 @@ end
 if text and (text == "انمي" or text == "anme") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Anime:Abs'..msg.chat_id) then
 Abs = math.random(3,998); 
 local Text ='*◉︙تم اختيار صورة الانمي لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/AnimesDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -13050,6 +13128,10 @@ end
 if text and (text == "كارتون" or text == "كار") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(2,86); 
 local Text ='*◉︙تم اختيار كارتون لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/kartonn220/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -13058,6 +13140,10 @@ end
 if text and (text == "ايدت" or text == "تصاميم") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار تصاميم لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendvideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/editedl/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -13066,6 +13152,10 @@ end
 if text and (text == "ايدت انمي" or text == "تصاميم انمي") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار تصاميم لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendvideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/edtinm/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -13074,6 +13164,10 @@ end
 if text and (text == "افتارات سنمائي" or text == "افتار سنمائي") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار سنمائي لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/IIYIZ/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13082,6 +13176,10 @@ end
 if text and (text == "افتار مشاهير" or text == "مشاهير") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار مشاهير لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/FPPPH/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13090,6 +13188,10 @@ end
 if text and (text == "افتارات بنات" or text == "افتار بنات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار بنات لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/javanev/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13098,6 +13200,10 @@ end
 if text and (text == "افتار لوكيت" or text == "لوكيت") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار لوكيت لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/kabsjjwbs/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13106,6 +13212,10 @@ end
 if text and (text == "صور لاعبين" or text == "لاعبين") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار لاعبين لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/IIYIH/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13114,6 +13224,10 @@ end
 if text and (text == "افتارات فكتوريا" or text == "افتار فكتوري") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار فكتوري لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Lorebots6/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13122,6 +13236,10 @@ end
 if text and (text == "BTS" or text == "بتس") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار صور BTS لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/xcososss/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13130,6 +13248,10 @@ end
 if text and (text == "تطقيم" or text == "صور تطقيم") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار صور تطقيم لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/zzuauwwuaisz/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13138,6 +13260,10 @@ end
 if text and (text == "اقتباسات" or text == "اقتباس") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار اقتباس لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Lorebots9/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13146,6 +13272,10 @@ end
 if text and (text == "جدارية" or text == "جداريه") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار اقتباسات جدارية لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/flflflgktl/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13154,6 +13284,10 @@ end
 if text and (text == "هيدرات" or text == "هيد") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار مشاهير لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Lorebots10/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -13162,6 +13296,10 @@ end
 if text and (text == "فلم" or text == "افلام") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(2,86); 
 local Text ='*◉︙تم اختيار الفلم لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/RRRRRTQ/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -13170,6 +13308,10 @@ end
 if text and (text == "ستوري" or text == "ستوريات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(2,78); 
 local Text ='*◉︙تم اختيار ستوري لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/LKKKKT/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -13177,6 +13319,10 @@ end
 if text and (text == "مسلسل" or text == "مسلسلات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Series:Abs'..msg.chat_id) then
 Abs = math.random(2,54); 
 local Text ='*◉︙تم اختيار المسلسل لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+}
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/SeriesDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
@@ -15168,7 +15314,7 @@ Abs = math.random(2,140);
 local Text ='*◉‍︙تم اختيار الشعر الاغنيه فقط*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ قناة السورس ❳',url="t.me/HAJSJSJW"}},
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/Teamsulta/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -15178,7 +15324,7 @@ Abs = math.random(2,140);
 local Text ='*◉‍︙تم اختيار الشعر لك فقط*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ قناة السورس ❳',url="t.me/HAJSJSJW"}},
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -16242,44 +16388,11 @@ return merolua.sendText(msg_chat_id,msg_id,'◉︙ليس يوزر هاذا')
 end
 end
 
-if text == 'المالك' and not Redis:get(TheMERON..'lock_getadmin'..msg.chat_id) then
+if text == 'المالك' and ChCheck(msg) or text == 'المنشئ' and ChCheck(msg) then
 
 
 if msg.can_be_deleted_for_all_users == false then
-return merolua.sendText(msg_chat_id,msg_id,"\n*◉︙عذرآ البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
-end
-local GetEr = Redis:get(TheMERON..'GHYM:Text:malek'..msg.chat_id)
-if GetEr then
-local UserId_Info = merolua.searchPublicChat(GetEr:gsub('@',''))
-if not UserId_Info.id then
-return merolua.sendText(msg_chat_id,msg_id,"*◉︙للأسف , المالك حسابه محذوف *","md",true)  
-end
-local UserInfo = merolua.getUser(UserId_Info.id)
-if UserInfo.first_name == "" then
-return merolua.sendText(msg_chat_id,msg_id,"*◉︙للأسف , المالك حسابه محذوف *","md",true)  
-end 
-local photo = merolua.getUserProfilePhotos(UserInfo.id)
-local InfoUser = merolua.getUserFullInfo(UserInfo.id)
-if InfoUser.bio then
-Bio = InfoUser.bio
-else
-Bio = ''
-end
-if UserInfo.username then
-UserInfousername = '[@'..UserInfo.username..']'
-else
-UserInfousername = 'لا يوجد'
-end
-if photo and photo.total_count and photo.total_count > 0 then
-local TestText = "- معلومات المالك : \n\n*◉︙name:* ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n\n*◉︙user :* "..UserInfousername.."\n\n*◉︙Bio:* ["..Bio.."]"
-local msg_id = msg.id/2097152/0.5 
-return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown')  
-else
-local TestText = "- معلومات المالك : \n\n*◉︙name:* ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n\n*◉︙user :* "..UserInfousername.."\n\n*◉︙Bio:* ["..Bio.."]"
-local msg_id = msg.id/2097152/0.5 
-return https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape(TestText).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
-end
-
+return merolua.sendText(msg_chat_id,msg_id,"\n*✧︙عذرآ البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
 end
 local Info_Members = merolua.getSupergroupMembers(msg_chat_id, "Administrators", "*", 0, 200)
 local List_Members = Info_Members.members
@@ -16287,7 +16400,7 @@ for k, v in pairs(List_Members) do
 if Info_Members.members[k].status.Merotele == "chatMemberStatusCreator" then
 local UserInfo = merolua.getUser(v.member_id.user_id)
 if UserInfo.first_name == "" then
-merolua.sendText(msg_chat_id,msg_id,"*◉︙للأسف , المالك حسابه محذوف *","md",true)  
+merolua.sendText(msg_chat_id,msg_id,"*✧︙اوبس , المالك حسابه محذوف *","md",true)  
 return false
 end 
 local photo = merolua.getUserProfilePhotos(UserInfo.id)
@@ -16297,19 +16410,30 @@ Bio = InfoUser.bio
 else
 Bio = ''
 end
-if UserInfo.username then
-UserInfousername = '[@'..UserInfo.username..']'
-else
-UserInfousername = 'لا يوجد'
-end
 if photo and photo.total_count and photo.total_count > 0 then
-local TestText = "- معلومات المالك : \n\n*◉︙name:* ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n\n*◉︙user :* "..UserInfousername.."\n\n*◉︙Bio:* ["..Bio.."]"
-local msg_id = msg.id/2097152/0.5 
-return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown')  
+local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 : * ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 :* @["..UserInfo.username.."]\n*✧︙𝙸𝙳 𝙾𝚆𝙽𝙴𝚁 : * "..UserInfo.id.." \n*✧︙𝙱𝙸𝙾 𝙾𝚆𝙽𝙴𝚁 : * ["..Bio.."]"
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {
+{
+{text = UserInfo.first_name, url = 't.me/'..UserInfo.username},
+},
+{
+{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"},
+},
+}
+}
+merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TestText, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-local TestText = "- معلومات المالك : \n\n*◉︙name:* ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n\n*◉︙user :* "..UserInfousername.."\n\n*◉︙Bio:* ["..Bio.."]"
-local msg_id = msg.id/2097152/0.5 
-return https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape(TestText).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
+local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 : * ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 :* @["..UserInfo.username.."]\n*✧︙𝙸𝙳 𝙾𝚆𝙽𝙴𝚁 : * "..UserInfo.id.." \n*✧︙𝙱𝙸𝙾 𝙾𝚆𝙽𝙴𝚁 : * ["..Bio.."]"
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {
+{
+{text = UserInfo.first_name, url = 't.me/'..UserInfo.username},
+},
+{
+{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"},
+},
+}
+}
+merolua.sendText(msg_chat_id,msg_id,TestText,"md", true, false, false, false, reply_markup)
 end
 
 end
@@ -16638,7 +16762,7 @@ data = {
 {text = '{ نعم }', data = msg.sender_id.user_id..'/Nzlne'},{text = '{ لا }', data = msg.sender_id.user_id..'/noNzlne'},
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -18576,7 +18700,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -20518,17 +20642,17 @@ if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg
 
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ قناة السورس ❳',url="t.me/HAJSJSJW"}},
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
 {{text = '- قناة التحديثات .',url="t.me/lllEll0"}},
-{{text = '- لتنصيب السورس .',url="https://t.me/HAJSJSJW"}},
-{{text = '- المطور .',url="t.me/lllell1"},
+{{text = '- لتنصيب السورس .',url="https://t.me/l5l5III"}},
+{{text = '- المطور .',url="t.me/M_Y_R_Q"},
 {text = '- تواصل السورس .',url="https://t.me/vxxsbot"}},
-{{text = '❲ لتنصيب بوت ❳ .',url="https://t.me/lllEll1"}},
+{{text = '❲ لتنصيب بوت ❳ .',url="https://t.me/M_Y_R_Q"}},
 }
 local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/lllEll0/3&caption=' .. URL.escape([[
 *⦑ Welcome to Source ⦒
-◉ ⦑ SOURCE TNT ⦒
+◉ ⦑ SOURCE كارلوس ⦒
 ◉ Source version : 6.1* 
 — — — — — — — — —
 ]]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -20560,7 +20684,7 @@ data = {
 {text = '{ القفل / الفتح }', data = msg.sender_id.user_id..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = msg.sender_id.user_id..'/listallAddorrem'}, 
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -20588,7 +20712,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -20715,7 +20839,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -20757,7 +20881,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -20804,7 +20928,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -20849,7 +20973,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -20929,7 +21053,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -21000,7 +21124,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -21055,7 +21179,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -21088,7 +21212,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -21141,7 +21265,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -21213,8 +21337,8 @@ end
 Redis:del(TheMERON.."GHYM:Name:Bot") 
 return merolua.sendText(msg_chat_id,msg_id,"◉︙تم مسح اسم البوت ","md",true)   
 end
-if text == (Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT") then
-local NamesBot = (Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT")
+if text == (Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس") then
+local NamesBot = (Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس")
 local NameBots = {
 "هـلا عـمري تفـضل",
 "عيون ["..NamesBot.."] العسليات",
@@ -21228,7 +21352,7 @@ local NameBots = {
 return merolua.sendText(msg_chat_id,msg_id, NameBots[math.random(#NameBots)],"md",true)  
 end
 if text == "بوت" and ChCheck(msg) then
-local NamesBot = (Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT")
+local NamesBot = (Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس")
 if msg.ControllerBot then 
 local su = {
 "اسمي القميل ["..NamesBot.."] ♥️",
@@ -21903,7 +22027,7 @@ if text then
 merolua.sendText(msg.chat_id,msg.id,'*◉︙احسنت اجابتك صحيحه ✓*',"md")     
 Redis:incrby(TheMERON.."GHYM:Num:Add:Games"..msg.chat_id..msg.sender_id.user_id, 1)  
 Redis:del(TheMERON.."GAME:CHER"..msg.chat_id)
-elseif text == 'الفيل' or text == 'الثور' or text == 'الحصان' or text == '7' or text == '9' or text == '8' or text == 'لوين' or text == 'موسكو' or text == 'مانكو' or text == '20' or text == '30' or text == '28' or text == 'ترامب' or text == 'اوباما' or text == 'كيم جونغ' or text == '50' or text == '70' or text == '40' or text == '7' or text == '3' or text == '10' or text == '4' or text == 'الاذن' or text == 'الثلاجه' or text == 'الغرفه' or text == '15' or text == '17' or text == '25' or text == 'الفرات' or text == 'نهر الكونغو' or text == 'المسيبي' or text == 'بيا بايج' or text == 'لاري بيج' or text == 'بيا مارك زوكيربرج' or text == 'الفيل' or text == 'النمر' or text == 'الفهد' or text == 'بانكول' or text == 'نيو دلهي' or text == 'بيكن' or text == 'الهاتف' or text == 'التلفاز' or text == 'المذياع' or text == 'لفرسول' or text == 'تركيا' or text == 'TNT' or text == 'النحاس' or text == 'الحديد' or text == 'الفضه' or text == 'امريكا الشماليه' or text == 'امريكا الجنوبيه' or text == 'افريقيا' or text == 'القرش' or text == 'الثعلب' or text == 'الكلب' or text == 'للجرو' or text == 'العجل' or text == 'الحمار' or text == '3' or text == '5' or text == '6' or text == 'اوربا' or text == 'افريقيا' or text == 'امريكا الجنوبيه' or text == 'افريقيا' or text == 'امريكا الشماليه' or text == 'اوربا' or text == 'الصاروخ' or text == 'المسدس' or text == 'الطائرات' or text == 'سيدات' or text == 'قوانص' or text == 'عوانس' or text == 'المكارم' or text == 'المبائم' or text == 'المعازم' or text == 'حرف الغاء' or text == 'حرف الواو' or text == 'حرف النون' or text == 'نحاس' or text == 'الماس' or text == 'حديد' or text == 'العمر' or text == 'ساعه' or text == 'الحذاء' or text == 'بئر' or text == 'نهر' or text == 'شلال' or text == 'ادم' or text == 'نوح' or text == 'عيسئ' or text == 'الاضافر' or text == 'الاسنان' or text == 'الدموع' or text == 'الاخلاق' or text == 'الضل' or text == 'حرف النون'  then
+elseif text == 'الفيل' or text == 'الثور' or text == 'الحصان' or text == '7' or text == '9' or text == '8' or text == 'لوين' or text == 'موسكو' or text == 'مانكو' or text == '20' or text == '30' or text == '28' or text == 'ترامب' or text == 'اوباما' or text == 'كيم جونغ' or text == '50' or text == '70' or text == '40' or text == '7' or text == '3' or text == '10' or text == '4' or text == 'الاذن' or text == 'الثلاجه' or text == 'الغرفه' or text == '15' or text == '17' or text == '25' or text == 'الفرات' or text == 'نهر الكونغو' or text == 'المسيبي' or text == 'بيا بايج' or text == 'لاري بيج' or text == 'بيا مارك زوكيربرج' or text == 'الفيل' or text == 'النمر' or text == 'الفهد' or text == 'بانكول' or text == 'نيو دلهي' or text == 'بيكن' or text == 'الهاتف' or text == 'التلفاز' or text == 'المذياع' or text == 'لفرسول' or text == 'تركيا' or text == 'كارلوس' or text == 'النحاس' or text == 'الحديد' or text == 'الفضه' or text == 'امريكا الشماليه' or text == 'امريكا الجنوبيه' or text == 'افريقيا' or text == 'القرش' or text == 'الثعلب' or text == 'الكلب' or text == 'للجرو' or text == 'العجل' or text == 'الحمار' or text == '3' or text == '5' or text == '6' or text == 'اوربا' or text == 'افريقيا' or text == 'امريكا الجنوبيه' or text == 'افريقيا' or text == 'امريكا الشماليه' or text == 'اوربا' or text == 'الصاروخ' or text == 'المسدس' or text == 'الطائرات' or text == 'سيدات' or text == 'قوانص' or text == 'عوانس' or text == 'المكارم' or text == 'المبائم' or text == 'المعازم' or text == 'حرف الغاء' or text == 'حرف الواو' or text == 'حرف النون' or text == 'نحاس' or text == 'الماس' or text == 'حديد' or text == 'العمر' or text == 'ساعه' or text == 'الحذاء' or text == 'بئر' or text == 'نهر' or text == 'شلال' or text == 'ادم' or text == 'نوح' or text == 'عيسئ' or text == 'الاضافر' or text == 'الاسنان' or text == 'الدموع' or text == 'الاخلاق' or text == 'الضل' or text == 'حرف النون'  then
 local list = {'10' , 'براسي' , 'النمل' , '32' , 'بوتين' , '30' , '11' , 'الفم' , '14' , 'النيل' , 'ستيف جوبر' , 'خديجه' , 'الاسد' , 'طوكيو' , 'الانسان' , 'لندن' , 'الزئبق' , 'اورباالدولفين' , 'المهر' , '4' , 'اسيا' , 'اسيا' , 'المنجنيق' , 'انسات' , 'العزائم' , 'حرف الام' , 'ذهب' , 'الاسم' , 'سحاب' , 'ابراهيم' , 'الشعر' , 'حرف الواو'}
 for k, v in pairs(list) do 
 if text ~= v then
@@ -22046,7 +22170,7 @@ name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
 name = string.gsub(name,"👨‍🔬","👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍🔬👩‍🔬")
 name = string.gsub(name,"👨‍💻","👩‍💻👩‍??👩‍‍💻👩‍‍??👩‍‍💻👨‍💻??‍💻👩‍💻👩‍💻")
 name = string.gsub(name,"👨‍🔧","??‍🔧👩‍🔧??‍🔧??‍🔧??‍🔧👩‍🔧👨‍🔧👩‍🔧")
-name = string.gsub(name,"👩‍??","👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳??‍🍳")
+name = string.gsub(name,"👩‍??","👨‍🍳👨‍🍳👨‍🍳👨‍??👨‍🍳👩‍🍳👨‍🍳👨‍🍳??‍🍳")
 name = string.gsub(name,"🧚‍♀","🧚‍♂🧚‍♂🧚‍♂??‍♂🧚‍♀🧚‍♂🧚‍♂")
 name = string.gsub(name,"🧜‍♂","🧜‍♀🧜‍♀🧜‍♀🧜‍♀??‍♀🧚‍♂🧜‍♀🧜‍♀🧜‍♀")
 name = string.gsub(name,"🧝‍♂","🧝‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♂??‍♀🧝‍♀??‍♀")
@@ -22423,7 +22547,7 @@ Redis:sadd(TheMERON..'GHYM:Num:User:Pv',msg.sender_id.user_id)
 if not msg.ControllerBot then
 if not Redis:get(TheMERON.."GHYM:Start:Bot") then
 if photo and photo.total_count and photo.total_count > 0 then
-local CmdStart = '*\n◉︙أهلآ بك في بوت '..(Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT")..
+local CmdStart = '*\n◉︙أهلآ بك في بوت '..(Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس")..
 '\n◉︙اختصاص البوت حماية المجموعات'..
 '\n◉︙لتفعيل البوت عليك اتباع مايلي ...'..
 '\n◉︙اضف البوت الى مجموعتك'..
@@ -22437,16 +22561,16 @@ keyboardd.inline_keyboard = {
 {text = '❲ اضفني لمجموعتك ❳', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/lllEll1'},{text = '❲ تحديثات البوت ❳', url = 'https://t.me/lllEll0'}, 
+{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/lllEll0'}, 
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'},{text = '❲ مطور السورس ❳', url = 't.me/lllEll1'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
 },
 }
 local msg_id = msg.id/2097152/0.5 
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(CmdStart)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
 else
-local CmdStart = '*\n◉︙أهلآ بك في بوت '..(Redis:get(TheMERON.."GHYM:Name:Bot") or "TNT")..
+local CmdStart = '*\n◉︙أهلآ بك في بوت '..(Redis:get(TheMERON.."GHYM:Name:Bot") or "كارلوس")..
 '\n◉︙اختصاص البوت حماية المجموعات'..
 '\n◉︙لتفعيل البوت عليك اتباع مايلي ...'..
 '\n◉︙اضف البوت الى مجموعتك'..
@@ -22461,10 +22585,10 @@ data = {
 {text = '❲ اضفني لمجموعتك ❳', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/lllEll1'},{text = '❲ تحديثات البوت ❳', url = 'https://t.me/lllEll0'}, 
+{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/RASRXVV_BOT'}, 
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'},{text = '❲ مطور السورس ❳', url = 't.me/lllEll1'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
 },
 }
 }
@@ -22478,10 +22602,10 @@ data = {
 {text = '❲ اضفني لمجموعتك ❳', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/lllEll1'},{text = '❲ تحديثات البوت ❳', url = 'https://t.me/lllEll0'}, 
+{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/RASRXVV_BOT'}, 
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'},{text = '❲ مطور السورس ❳', url = 't.me/lllEll1'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
 },
 }
 }
@@ -22576,7 +22700,7 @@ data = {
 },
 }
 }
-return merolua.sendText(msg_chat_id,msg_id,'◉︙اهلا بك عزيزي المطور\n◉︙اليك اوامر الكيبورد الخاصه بك\n◉︙تابع قناة السورس لتصلك اخر المنشورات @HAJSJSJW\n◉︙تابع قناة التحديثات لتصلك اخر المنشورات @lllEll0', 'md', false, false, false, false, reply_markup)
+return merolua.sendText(msg_chat_id,msg_id,'◉︙اهلا بك عزيزي المطور\n◉︙اليك اوامر الكيبورد الخاصه بك\n◉︙تابع 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 لتصلك اخر المنشورات @l5l5III\n◉︙تابع قناة التحديثات لتصلك اخر المنشورات @lllEll0', 'md', false, false, false, false, reply_markup)
 end
 end
 
@@ -25694,7 +25818,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -25755,7 +25879,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -25851,7 +25975,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -25938,7 +26062,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -26009,7 +26133,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -26058,7 +26182,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -26126,7 +26250,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -26197,7 +26321,7 @@ data = {
 {text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -26241,7 +26365,7 @@ data = {
 {text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -26384,7 +26508,7 @@ data = {
 {text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -26443,7 +26567,7 @@ data = {
 {text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
 },
 {
-{text = '❲ قناة السورس ❳', url = 't.me/HAJSJSJW'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -27268,7 +27392,7 @@ if Text and Text:match('(%d+)/onlinebott(.*)') then
   keyboard = {} 
   keyboard.inline_keyboard = {
     {{text="◉ غادر ◉",callback_data="/LeaveBotPic:"..IdUser},{text="◉ تعطيل ◉",callback_data= IdUser..'/offlinebotPic'..ChatId}},
-    {{text = '❲ قناة السورس ❳',url="t.me/HAJSJSJW"}},
+    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
   }
   local mm = Msg_id/2097152/0.5
   https.request("https://api.telegram.org/bot"..Token..'/EditMessagecaption?chat_id='..ChatId..'&message_id='..mm..'&caption=' .. URL.escape(txxt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -27286,7 +27410,7 @@ if Text and Text:match('(%d+)/onlinebott(.*)') then
   keyboard = {} 
   keyboard.inline_keyboard = {
     {{text="◉ غادر ◉",callback_data="/LeaveBotPic:"..IdUser},{text="◉ تفعيل ◉",callback_data= IdUser..'/onlinebott'..ChatId}},
-    {{text = '❲ قناة السورس ❳',url="t.me/HAJSJSJW"}},
+    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
   }
   local mm = Msg_id/2097152/0.5
   https.request("https://api.telegram.org/bot"..Token..'/EditMessagecaption?chat_id='..ChatId..'&message_id='..mm..'&caption=' .. URL.escape(txxt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -27313,7 +27437,7 @@ if Text and Text:match('(%d+)/onlinebott(.*)') then
   keyboard = {} 
   keyboard.inline_keyboard = {
     {{text="◉ غادر ◉",callback_data="/LeaveBotPic:"..IdUser},{text="◉ تفعيل ◉",callback_data= IdUser..'/onlinebott'..ChatId}},
-    {{text = '❲ قناة السورس ❳',url="t.me/HAJSJSJW"}},
+    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
   }
   local mm = Msg_id/2097152/0.5
   https.request("https://api.telegram.org/bot"..Token..'/EditMessagecaption?chat_id='..ChatId..'&message_id='..mm..'&caption=' .. URL.escape(txxt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -27327,7 +27451,7 @@ if Text and Text:match('(%d+)/onlinebott(.*)') then
   local txxt = "◉︙تم مغادره البوت من المجموعة"
   keyboard = {} 
   keyboard.inline_keyboard = {
-    {{text = '❲ قناة السورس ❳',url="t.me/HAJSJSJW"}},
+    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
   }
   local mm = Msg_id/2097152/0.5
   https.request("https://api.telegram.org/bot"..Token..'/EditMessagecaption?chat_id='..ChatId..'&message_id='..mm..'&caption=' .. URL.escape(txxt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
