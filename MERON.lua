@@ -20666,16 +20666,25 @@ local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/zz_u5/544&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end end
-if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg) or text == 'ياسورس' and ChCheck(msg) or text == 'يا سورس' and ChCheck(msg) then  
-local Text ="[⦑ Welcome to Source ⦒](t.me/l5l5III)\n[✧ ⦑ SOURCE HaWkS ⦒](t.me/l5l5III)\n✧ Source version : 1.0"
+if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg) or text == 'ياسورس' and ChCheck(msg) or text == 'يا سورس' and ChCheck(msg) then
+
+
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 𝒔𝒐𝒖𝒓𝒄𝒆 .',url="t.me/l5l5III"}},
-{{text = '- 𝒅𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 .',url="t.me/HMCMH"},{text = '- 𝒕𝒘𝒔 𝒔𝒐𝒖𝒓𝒄𝒆 .',url="https://t.me/RASRXVV_BOT"}},
+{{text = '❲ قناة السورس ❳',url="t.me/l5l5III"}},
+{{text = '- قناة التحديثات .',url="t.me/l5l5III"}},
+{{text = '- لتنصيب السورس .',url="https://t.me/l5l5III"}},
+{{text = '- المطور .',url="t.me/M_Y_R_Q"},
+{text = '- تواصل السورس .',url="https://t.me/RASRXVV_BOT"}},
+{{text = '❲ لتنصيب بوت ❳ .',url="https://t.me/M_Y_R_Q"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/zz_u5&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
+return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/l5l5III/3&caption=' .. URL.escape([[
+*⦑ Welcome to Source ⦒
+◉ ⦑ SOURCE GHYM ⦒
+◉ Source version : 6.1* 
+— — — — — — — — —
+]]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 — — — — — — — — —
 elseif text == 'الاوامر' and ChCheck(msg) then
 if not msg.Addictive then
