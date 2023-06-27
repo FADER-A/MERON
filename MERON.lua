@@ -12072,7 +12072,7 @@ end
 
 
 
-if text == 'مبــرمج السـورس' and ChCheck(msg) or text == 'مطور السورس' and ChCheck(msg) then  
+if text == 'مبرمج السورس' and ChCheck(msg) or text == 'مطور السورس' and ChCheck(msg) then  
 local UserId_Info = merolua.searchPublicChat("M_Y_R_Q")
 if UserId_Info.id then
 local UserInfo = merolua.getUser(UserId_Info.id)
@@ -12163,7 +12163,7 @@ local TextingDevBot = TextingDevBot:gsub('#biosudo',"["..Bio.."]")
 if photo.total_count > 0 then 
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text =UserInfo.first_name, url = 't.me/'..UserSudo}},
-{{text = 'سـۅࢪس هـاެكس',url="t.me/zz_u5"}},
+{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},
 }}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TextingDevBot, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
