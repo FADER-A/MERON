@@ -20641,7 +20641,7 @@ if text == "الالعاب المتطوره" and ChCheck(msg) or text == "الا
 if Redis:get(TheMERON..'Abs:Lock:Gamesinline'..msg_chat_id) then
 Text =[[
 *✧︙قائمه الالعاب المتطوره اضغط للعب*
-* ✧︙هذه الالعاب تابعه *[لسورس هاكس](t.me/zz_u5)
+* ✧︙هذه الالعاب تابعه *[لسورس هاكس](t.me/l5l5III)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -20695,16 +20695,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = msg.sender_id.user_id..'/help1'}, {text = '{ اوامر الادمنيه }', data = msg.sender_id.user_id..'/help2'}, 
+{text = '{ 𝟏 }', data = msg.sender_id.user_id..'/help1'}, {text = '{ 𝟐 }', data = msg.sender_id.user_id..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = msg.sender_id.user_id..'/help3'}, {text = '{ اوامر المنشئين }', data = msg.sender_id.user_id..'/help4'}, 
+{text = '{ 𝟑 }', data = msg.sender_id.user_id..'/help3'}, {text = '{ 𝟒 }', data = msg.sender_id.user_id..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = msg.sender_id.user_id..'/help5'}, {text = '{ اوامر التحشيش }', data = msg.sender_id.user_id..'/helpp6'}, 
+{text = '{ 𝟓 }', data = msg.sender_id.user_id..'/help5'}, {text = '{ 𝟔 }', data = msg.sender_id.user_id..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المطورين }', data = msg.sender_id.user_id..'/helpsudo'},{text = '{ الالعاب }', data = msg.sender_id.user_id..'/help6'}, 
+{text = '{ م7 }', data = msg.sender_id.user_id..'/helpsudo'},{text = '{ الالعاب }', data = msg.sender_id.user_id..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = msg.sender_id.user_id..'/helpts'},{text = '{ اوامر البنك }', data = msg.sender_id.user_id..'/helpbank'},
@@ -20879,10 +20879,11 @@ local TextHelp = [[*
 ◉︙غنيلي ، ريمكس ، اغنيه ، شعر
 ◉︙افتارات بنات ، افتارات شباب
 ◉︙ستوري ، قرآن ، اقتباسات
-◉︙هيدرات ، جداريات ، عبارات
+◉︙هيدرات ، جداريه ، عبارات
 ◉︙صور لاعبين ، صور مشاهير
 ◉︙افتار سنمائي ، افتار فكتوريا ، BTS
-◉︙صوره ،  متحركه
+◉︙ايدت انمي ، ايدت ،قيفات قطط
+◉︙صوره ،  متحركه ، لوكيت
 ◉︙انمي ، ميمز
 ◉︙مسلسل ، فلم
 ◉︙حساب العمر( احسب + تاريخ الميلاد)
@@ -22590,7 +22591,7 @@ keyboardd.inline_keyboard = {
 {text = '❲ اضفني لمجموعتك ❳', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/lllEll0'}, 
+{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/DRDDER_2BOT'}, 
 },
 {
 {text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
@@ -25829,16 +25830,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المطورين }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
@@ -25890,16 +25891,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المطورين }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
@@ -25986,16 +25987,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المطورين }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
@@ -26073,16 +26074,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
@@ -26144,16 +26145,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المطورين }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
@@ -26193,16 +26194,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المطورين }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
@@ -26261,16 +26262,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر التحشيش }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ 𝟔 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
@@ -26332,16 +26333,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المطورين }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
@@ -26376,16 +26377,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المطورين }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
@@ -26519,16 +26520,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المطورين }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
@@ -26578,16 +26579,16 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ اوامر الحمايه }', data = IdUser..'/help1'}, {text = '{ اوامر الادمنيه }', data = IdUser..'/help2'}, 
+{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ اوامر المدراء }', data = IdUser..'/help3'}, {text = '{ اوامر المنشئين }', data = IdUser..'/help4'}, 
+{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ اوامر المالكين }', data = IdUser..'/help5'}, {text = '{ اوامر التحشيش }', data = IdUser..'/helpp6'}, 
+{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ اوامر المطورين }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
 },
 {
 {text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
