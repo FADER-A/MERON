@@ -12996,9 +12996,11 @@ end
 if text and (text == "ريمكس" or text == "ريمكسات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Remix:Abs'..msg.chat_id) then
 Abs = math.random(2,400); 
 local Text ='*◉︙تم اختيار الريمكس لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/RemixDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -13008,9 +13010,11 @@ end
 if text and (text == "صوره" or text == "صور") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,1120); 
 local Text ='*◉︙تم اختيار الصوره لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/PhotosDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -13020,9 +13024,11 @@ end
 if text and (text == "قيفات بنات" or text == "متحركات بنات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات بنات لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/lflflrofo/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -13032,9 +13038,11 @@ end
 if text and (text == "قيفات شباب" or text == "متحركات شباب") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات شباب لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/dldldldlgt/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13044,9 +13052,11 @@ end
 if text and (text == "قيفات قطط" or text == "قطط") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات قطط لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/gsgjituops/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13056,9 +13066,11 @@ end
 if text and (text == "قيفات اطفال" or text == "اطفال") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات اطفال لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/fmgngoclr/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13068,9 +13080,11 @@ end
 if text and (text == "قيفات رومانسيه" or text == "متحركات حب") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات رومانسيه لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/romansiaaa/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13080,9 +13094,11 @@ end
 if text and (text == "قيفات كيبوب" or text == "قيف كيبوب") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار قيفات كيبوب لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/kibobg/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13092,9 +13108,11 @@ end
 if text and (text == "قران" or text == "قرآن") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Remix:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*اللهُم الجَنة وسّلام على الدُنيا و مَا فيها .*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/jahske/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -13104,9 +13122,11 @@ end
 if text and (text == "قيفات كوسال" or text == "كوسال") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='**◉︙تم اختيار قيفات كوسال لك**'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/koksalt/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13116,9 +13136,11 @@ end
 if text and (text == "انمي" or text == "anme") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Anime:Abs'..msg.chat_id) then
 Abs = math.random(3,998); 
 local Text ='*◉︙تم اختيار صورة الانمي لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/AnimesDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -13128,9 +13150,11 @@ end
 if text and (text == "كارتون" or text == "كار") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(2,86); 
 local Text ='*◉︙تم اختيار كارتون لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/kartonn220/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -13140,9 +13164,11 @@ end
 if text and (text == "ايدت" or text == "تصاميم") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار تصاميم لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendvideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/editedl/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -13152,9 +13178,11 @@ end
 if text and (text == "ايدت انمي" or text == "تصاميم انمي") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار تصاميم لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendvideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/edtinm/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -13164,9 +13192,11 @@ end
 if text and (text == "افتارات سنمائي" or text == "افتار سنمائي") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار سنمائي لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/IIYIZ/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13176,9 +13206,11 @@ end
 if text and (text == "افتار مشاهير" or text == "مشاهير") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار مشاهير لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/FPPPH/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13188,9 +13220,11 @@ end
 if text and (text == "افتارات بنات" or text == "افتار بنات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار بنات لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/javanev/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13200,9 +13234,11 @@ end
 if text and (text == "افتار لوكيت" or text == "لوكيت") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار لوكيت لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/kabsjjwbs/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13212,9 +13248,11 @@ end
 if text and (text == "صور لاعبين" or text == "لاعبين") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار لاعبين لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/IIYIH/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13224,9 +13262,11 @@ end
 if text and (text == "افتارات فكتوريا" or text == "افتار فكتوري") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار فكتوري لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Lorebots6/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13236,9 +13276,11 @@ end
 if text and (text == "BTS" or text == "بتس") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار صور BTS لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/xcososss/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13248,9 +13290,11 @@ end
 if text and (text == "تطقيم" or text == "صور تطقيم") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار صور تطقيم لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/zzuauwwuaisz/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13260,9 +13304,11 @@ end
 if text and (text == "اقتباسات" or text == "اقتباس") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار اقتباس لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Lorebots9/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13272,9 +13318,11 @@ end
 if text and (text == "جدارية" or text == "جداريه") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار اقتباسات جدارية لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/flflflgktl/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13284,9 +13332,11 @@ end
 if text and (text == "هيدرات" or text == "هيد") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
 local Text ='*◉︙تم اختيار افتار مشاهير لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Lorebots10/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
@@ -13296,9 +13346,11 @@ end
 if text and (text == "فلم" or text == "افلام") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(2,86); 
 local Text ='*◉︙تم اختيار الفلم لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/RRRRRTQ/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -13308,9 +13360,11 @@ end
 if text and (text == "ستوري" or text == "ستوريات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(2,78); 
 local Text ='*◉︙تم اختيار ستوري لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVideo?chat_id=' .. msg.chat_id .. '&video=https://t.me/LKKKKT/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -13319,9 +13373,11 @@ end
 if text and (text == "مسلسل" or text == "مسلسلات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Series:Abs'..msg.chat_id) then
 Abs = math.random(2,54); 
 local Text ='*◉︙تم اختيار المسلسل لك*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/SeriesDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
