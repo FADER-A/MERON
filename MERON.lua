@@ -3756,12 +3756,13 @@ local tttttt = '✫: اليك النتائج الخـاصة :\n\n✫:  نسبه 
 merolua.sendText(msg_chat_id,msg_id,tttttt) 
 Redis:del(TheMERON..":"..msg.sender_id.user_id..":ano_Bots"..msg.chat_id)
 end
-if text == 'جمالي' or text == 'نسبه جمالي' then
-if not Redis:get(TheMERON.."MERON:Status:gamle"..msg_chat_id) then
-return false
+if text == "نسبه جمالي" and ChCheck(msg) or text == "نسبة جمالي" and ChCheck(msg) then
+if not Redis:get(TheMERON.."nsb_jmal"..msg_chat_id) then
+return merolua.sendText(msg_chat_id,msg_id,"\n◉︙نسبة جمالي معطله","md",true)
 end
-local ban = merolua.getUser(msg.sender.user_id)
-local photo = merolua.getUserProfilePhotos(msg.sender.user_id)
+local photo = merolua.getUserProfilePhotos(msg.sender_id.user_id)
+Abs = math.random(0,100);
+if photo and photo.total_count and photo.total_count > 0 then
 local nspp = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",}
 local rdbhoto = nspp[math.random(#nspp)]
 if photo.total_count > 0 then
@@ -15377,7 +15378,7 @@ Abs = math.random(2,140);
 local Text ='*◉‍︙تم اختيار الشعر الاغنيه فقط*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋??𝐒 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/Teamsulta/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -16833,53 +16834,18 @@ return merolua.sendText(msg_chat_id,msg_id,' ◉︙عليك الاجابه اذ�
 end
 
 
-if text == "صورتي" then
-if Redis:get(TheMERON.."MERON:Status:photo"..msg.chat_id) then
-local photo = Merotele.getUserProfilePhotos(msg.sender.user_id)
-local ban = Merotele.getUser(msg.sender.user_id)
-local ban_ns = 'ᯏ'
-if photo.total_count > 0 then
-data = {} 
-data.inline_keyboard = {
-{
-{text = '٬ 𝗁𝗂𝖽𝖾 𝗂𝗍 † ٫', callback_data = msg.sender.user_id..'/ban88'}, 
-},
-{
-{text = ' صورتك القادمه', callback_data= msg.sender.user_id..'/ban1'}, 
-},
-}
-local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
+if text =="صورتي" and not Redis:get(TheMERON..'myphoto'..msg.chat_id)  then
+if not msg.Distinguished then
+return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص المميزين* ',"md",true)  
 end
+local photo = merolua.getUserProfilePhotos(msg.sender_id.user_id)
+local textrand = {"10%","20%","30%","40%","50%","60%","70%","80%","90%","100%",}
+local Text_Rand = textrand[math.random(#textrand)] 
+if photo and photo.total_count and photo.total_count > 0 then
+return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,"◉︙نسبه جمالك هي  : "..Text_Rand,"md")
+else
+return merolua.sendText(msg_chat_id,msg_id,'لا يوجد صوره لك',"md",true) 
 end
-end
-if text == 'رابط الحذف' or text == 'رابط حذف' then
-if ChannelJoin(msg) == false then
-local reply_markup = Merotele.replyMarkup{type = 'inline',data = {{{text = '٬ 𝖼𝗅𝗂𝖼𝗄 𝗍𝗈 𝗌𝗎𝖻𝗌𝖼𝗋𝗂𝖻𝖾 † ٫ ', url = 't.me/'..Redis:get(TheDrox..'Drox:Channel:Join')}, },}}
-return Merotele.sendText(msg.chat_id,msg.id,'*\n 𝗐𝖾𝗅𝖼𝗈𝗆𝖾 𝗉𝗋𝗈 🦎.*',"md",false, false, false, false, reply_markup)
-end
-local reply_markup = Merotele.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = 'Telegram', url = 'https://my.telegram.org/auth?to=delete'},{text = 'Instagram', url = 'https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/'}
-},
-{
-{text = 'Facebook', url = 'https://www.facebook.com/help/deleteaccount'},{text = 'Snapchat', url = 'https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount'}
-},
-{
-{text = '˛ - L u c i f e r 🦇. .', url = 't.me/II_T9'}, 
-},
-}
-}
-return Merotele.sendText(msg_chat_id,msg_id,'*⌔︰رابط الحذف في جميع مواقع التواصل*',"md",false, false, false, false, reply_markup)
-end
-if text == "تويت بالصور" then
-local t = "ليك تويت في الصوره ↫"
-Rrr = math.random(4,50)
-local m = "https://t.me/wffhvv/"..Rrr..""
-local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text and text:match("^معنى اسم (.*)$") and ChCheck(msg) then 
 local TextMean = text:match("^معنى اسم (.*)$") or text:match("^معنى اسم (.*)$") 
