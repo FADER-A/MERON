@@ -12749,7 +12749,7 @@ local Get_Is_Id = Get_Is_Id:gsub('#Description',Description)
 local Get_Is_Id = Get_Is_Id:gsub('#game',NumberGames) 
 local Get_Is_Id = Get_Is_Id:gsub('#photos',TotalPhoto) 
 local Get_Is_Id = Get_Is_Id:gsub('#Bio',Bio) 
-return merolua.send(msg_chat_id,msg_id,'['..Get_Is_Id..']',"md",true) 
+return merolua.sendText(msg_chat_id,msg_id,'['..Get_Is_Id..']',"md",true) 
 else
 local ban_ns ='\n*⟨•◉‍▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..Description..'\n⟨•◉‍▸ 𝑼𝑺𝑬𝑹 •⟩ '..UserInfousername..'\n⟨•◉‍▸ 𝑰𝑫 •⟩ '..UserId..'\n⟨•◉‍▸ 𝑺𝑻𝑨 •⟩ '..RinkBot..'\n⟨•◉‍▸ 𝑷𝑯𝑶𝑻𝑶 •⟩ '..TotalPhoto..'\n⟨•◉‍▸ 𝑴𝑺𝑮 •⟩ '..TotalMsg..'\n⟨•◉‍▸ 𝑻𝑭𝑨𝑷𝑳𝑲 •⟩ '..TotalMsgT..'\n⟨•◉‍▸ 𝑩𝑰𝑶 •⟩ '..Bio..'*'
 data = {} 
@@ -20348,102 +20348,7 @@ data = {
 }
 return merolua.sendText(msg_chat_id,msg_id,"◉︙ارسل الان اسم الرد لمسحه من الردود", 'md', false, false, false, false, reply_markup)
 end
-if text == "اضف ردي" and not Redis:get(MERON":My_Rd:lock:"..msg.chat_id) then
-local Num = Redis:get(MERON":My_Rd:num"..msg.sender_id.user_id..":"..msg.chat_id)
-if tonumber(Num) == 2 then 
-return merolua.send(msg.chat_id, msg.id, "لديك ردين باسمك فعلا ولايمكن الزياده.", 'md')
-end
-Redis:set(MERON":My_Rd:set:"..msg.sender_id.user_id..":"..msg.chat_id, true)
-send(msg.chat_id, msg.id, "ارسل اسم الرد الان :", 'md')
-end
 
-if text and Redis:get(MERON":My_Rd:del:"..msg.sender_id.user_id..":"..msg.chat_id) then
-if not Redis:sismember(MERON":My_Rd:text:"..msg.chat_id, text) then
-return merolua.send(msg.chat_id, msg.id, "لايوجد ردود بهذا الاسم", 'md')
-end
-if not tonumber(Redis:get(MERON":My_Rd:"..text..":"..msg.chat_id)) == tonumber(msg.sender_id.user_id) and not msg.Owners then
-return merolua.send(msg.chat_id, msg.id, "هذا الرد لايخصك", 'md')
-end
-Redis:del(MERON":My_Rd:"..text..":"..msg.chat_id)
-Redis:srem(MERON":My_Rd:text:"..msg.chat_id, text)
-Redis:decrby(MERON":My_Rd:num"..msg.sender_id.user_id..":"..msg.chat_id, 1)
-Redis:del(MERON":My_Rd:del:"..msg.sender_id.user_id..":"..msg.chat_id)
-send(msg.chat_id, msg.id, "تم حذف ردك بنجاح", 'md')
-end
-
-if text == "حذف ردودي" and not Redis:get(MERON":My_Rd:lock:"..msg.chat_id) then
-local list = Redis:smembers(MERON":My_Rd:text:"..msg.chat_id)
-for k,v in pairs(list) do
-if tonumber(Redis:get(MERON":My_Rd:"..v)) == tonumber(msg.sender_id.user_id)then
-Redis:del(MERON":My_Rd:"..v..":"..msg.chat_id)
-Redis:srem(MERON":My_Rd:text:"..msg.chat_id, v)
-Redis:decrby(MERON":My_Rd:num"..msg.sender_id.user_id..":"..msg.chat_id, 1)
-end
-end
-return merolua.send(msg.chat_id, msg.id, "مسحت الردود", 'md')
-end
-
-if text == "حذف قائمه الردود" and not Redis:get(MERON":My_Rd:lock:"..msg.chat_id) then
-local StatusMember = merolua.getSupergroupMember(msg.chat_id, msg.sender_id.user_id).status.Fastbots
-if not msg.Creator or not StatusMember == "chatMemberStatusCreator" then
-return merolua.send(msg_chat_id,msg_id,'\n*⌯ هذا الامر يخص { مالك المجموعه او رتبه المنشئ }* ',"md",true)
-end
-local list = Redis:smembers(MERON":My_Rd:text:"..msg.chat_id)
-for k,v in pairs(list) do
-Redis:del(MERON":My_Rd:"..v)
-Redis:srem(MERON":My_Rd:text:"..msg.chat_id, v)
-local id = Redis:get(MERON":My_Rd:"..v..":"..msg.chat_id)
-Redis:decrby(MERON":My_Rd:num"..id..":"..msg.chat_id, 1)
-end
-return merolua.send(msg.chat_id, msg.id, "مسحت الردود", 'md')
-end
-
-if text == "حذف ردي" and not Redis:get(MERON":My_Rd:lock:"..msg.chat_id) then
-local Num = Redis:get(MERON":My_Rd:num"..msg.sender_id.user_id..":"..msg.chat_id)
-if not Num then 
-return merolua.send(msg.chat_id, msg.id, "انت لا تمتلك ردود", 'md')
-end
-Redis:set(MERON":My_Rd:del:"..msg.sender_id.user_id..":"..msg.chat_id, true)
-send(msg.chat_id, msg.id, "ارسل اسم الرد الان :", 'md')
-end
-
-if text and  Redis:sismember(MERON":My_Rd:text:"..msg.chat_id, text) and not Redis:get(TheMERON":My_Rd:lock:"..msg.chat_id) then 
-local ID = Redis:get(MERON":My_Rd:"..text..":"..msg.chat_id)
-local UserInfo = bot.getUser(ID)
-local photo = bot.getUserProfilePhotos(ID)
-local Bio = FlterBio(getbio(ID))
-local msg_text = "NAME : "..UserInfo.first_name.."\nBIO : "..Bio
-local reply_markup = bot.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = UserInfo.first_name , url = "t.me/"..(UserInfo.username or UserBot)},
-},
-}
-}
-if photo.total_count > 0 then
-return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,msg_text,"md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
-else
-return merolua.send(msg_chat_id,msg_id,msg_text,"md",true) 
-end
-end
------- Enable & Disable
-if text == "تفعيل ردي" then
-local StatusMember = merolua.getSupergroupMember(msg.chat_id, msg.sender_id.user_id).status.Fastbots
-if not msg.Creator or not StatusMember == "chatMemberStatusCreator" then
-return merolua.send(msg_chat_id,msg_id,'\n*⌯ هذا الامر يخص { مالك المجموعه او رتبه المنشئ }* ',"md",true)
-end
-Redis:del(MERON":My_Rd:lock:"..msg.chat_id)
-send(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"↞ابشر فعلت امر ردي").Lock,"md",true)  
-end
-if text == "تعطيل ردي" then
-local StatusMember = merolua.getSupergroupMember(msg.chat_id, msg.sender_id.user_id).status.Fastbots
-if not msg.Creator or not StatusMember == "chatMemberStatusCreator" then
-return merolua.send(msg_chat_id,msg_id,'\n*⌯ هذا الامر يخص { مالك المجموعه او رتبه المنشئ }* ',"md",true)
-end
-Redis:set(MERON":My_Rd:lock:"..msg.chat_id, true)
-send(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"↞ابشر عطلت امر ردي").Lock,"md",true)  
-end
 
 if text == ("مسح الردود العامه") and ChCheck(msg) then 
 if not msg.DevelopersQ then 
