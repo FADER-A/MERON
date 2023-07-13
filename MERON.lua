@@ -11587,7 +11587,44 @@ local UserInfoo = merolua.getUser(user2)
 local listTow = "◉︙ثنائي اليوم : \n ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") ~ ["..UserInfoo.first_name.."](tg://user?id="..UserInfoo.id..")\n"
 return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
 end
-
+if text == 'شخصيتي' or text == 'حددي شخصيتي' or text == 'حدد شخصيتي' then
+if not Redis:get(msg.chat_id) then
+end
+local texting = {"عنيده", 
+"متردده  ",
+"خبيثة  ", 
+"ايجابية ", 
+"غامضة  ", 
+"ضعيفة ", 
+"كلاسيكية  ", 
+"مسالمة  ", 
+"حماسية ", 
+"قيادية  ", 
+"شكاك  ", 
+"رومنسية  ",
+"محفزة  ",
+"متعاونة  ",
+"اجتماعية  ",
+"عصبية ",
+"نرجسية  ",
+"انطوائية  ",
+"مظلومة  ",
+} 
+zezee = texting[math.random(#texting)]
+local Jabwa = merolua.getUser(msg.sender_id.user_id)
+local photo = merolua.getUserProfilePhotos(msg.sender_id.user_id)
+local news = 'شخصيتك : '..zezee
+if photo.total_count > 0 then
+data = {} 
+data.inline_keyboard = {
+{
+{text =news,url = "https://t.me/"..Jabwa.username..""}, 
+},
+}
+local msgg = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg.chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(news).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
+end
+end
 
 
 
@@ -12229,7 +12266,7 @@ else
 t = '['..UserInfo.first_name..'](tg://user?id='..UserInfo.id..')'
 u = 'لا يوجد'
 end
-local photo = bot.getUserProfilePhotos(UserId_Info.id)
+local photo = merolua.getUserProfilePhotos(UserId_Info.id)
 if photo.total_count > 0 then
 local TestText = "  *⌔︙Name : *( "..(t).." *)*\n*⌔︙User : *( "..(u).." *)*\n*.\n"
 keyboardd = {}
@@ -16869,6 +16906,7 @@ else
 return merolua.sendText(msg_chat_id,msg_id,'لا يوجد صوره لك',"md",true) 
 end
 end
+
 if text and text:match("^معنى اسم (.*)$") and ChCheck(msg) then 
 local TextMean = text:match("^معنى اسم (.*)$") or text:match("^معنى اسم (.*)$") 
 if not Redis:get(TheMERON..'mynames'..msg.chat_id)  then
