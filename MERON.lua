@@ -19735,6 +19735,7 @@ return merolua.sendText(msg_chat_id,msg_id,[[
 ◉︙`#Description` » تعليق الصوره
 ◉︙`#Bio` » البايو.
 ]],"md",true)    
+end
 data = {} 
 data.inline_keyboard = {
 {
