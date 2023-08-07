@@ -19735,16 +19735,7 @@ return merolua.sendText(msg_chat_id,msg_id,[[
 ◉︙`#Description` » تعليق الصوره
 ◉︙`#Bio` » البايو.
 ]],"md",true)    
-end
-data = {} 
-data.inline_keyboard = {
-{
-{text =UserInfo.first_name,url = "https://t.me/"..UserInfo.username..""}, 
-},
-}
-msgg = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendMessage?chat_id=" .. msg_chat_id .. "&text=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
-end
+end 
 if text == 'مسح الايدي' and ChCheck(msg) or text == 'مسح الايدي' and ChCheck(msg) then
 if not msg.Originators then
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { '..Controller_Num(5)..' }* ',"md",true)  
@@ -19772,16 +19763,6 @@ local List = {
  ℘︙نقاطك ~⪼ #game
  ℘︙البايو ~⪼ #Bio
 ]],[[
-data = {} 
-data.inline_keyboard = {
-{
-{text =UserInfo.first_name,url = "https://t.me/"..UserInfo.username..""}, 
-},
-}
-msgg = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendMessage?chat_id=" .. msg_chat_id .. "&text=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
-end
-end
 ↫ #Description
 ⌁︙ايديك↫ #id
 ⌁︙معرفك↫ #username
@@ -19792,16 +19773,6 @@ end
 ⌁︙نقاطك↫ #game
 ]],
 [[
-data = {} 
-data.inline_keyboard = {
-{
-{text =UserInfo.first_name,url = "https://t.me/"..UserInfo.username..""}, 
-},
-}
-msgg = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendMessage?chat_id=" .. msg_chat_id .. "&text=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
-end
-end
 ↫ #Description
 ⌁︙ايديك↫ #id
 ⌁︙معرفك↫ #username
@@ -19813,16 +19784,6 @@ end
 ⌁︙البايو↫ #Bio
 ]],
 [[
-data = {} 
-data.inline_keyboard = {
-{
-{text =UserInfo.first_name,url = "https://t.me/"..UserInfo.username..""}, 
-},
-}
-msgg = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendMessage?chat_id=" .. msg_chat_id .. "&text=".. URL.escape(ban_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
-end
-end
 ◉︙#Description
 ◉︙ايديـك ❨ #id ❩
 ◉︙معرفـك ❨ #username ❩
