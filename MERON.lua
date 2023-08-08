@@ -22211,7 +22211,6 @@ end
 if text == 'المليون' or text == 'من سيربح المليون' or text == 'لعبه المليون' or text == 'translat' then 
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'ابدء اللعبة الان', data = msg.sender_id.user_id..'Ml'}},
-{{text = ' - 𝖳𝖾𝖺𝗆 𝖡𝖱𝗈k𝖲 .', url = "https://t.me/IOUTB"}},}}
 return merolua.sendText(msg_chat_id,msg_id, [[*※︙مرحبا بك في لعبة من سيربح المليون*]],"md",false, false, false, false, reply_markup)
 end
 if text == "بوب" or text == "مشاهير" then
