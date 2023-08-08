@@ -19653,6 +19653,34 @@ elseif text == 'مسح جهاتي' and ChCheck(msg) then
 
 Redis:del(TheMERON..'MERON:Num:Add:Memp'..msg.chat_id..':'..msg.sender_id.user_id)
 merolua.sendText(msg_chat_id,msg_id,'◉︙تم مسح جميع جهاتك المضافه ',"md",true)  
+if text == "المختلف" or text == "مختلف" then 
+Abs = math.random(4,1002); 
+local Text ='*⌁︙ اهلا بك عزيزي في لعبه المختلف*'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹المستوى    الاول ›', callback_data = msg.sender_id.user_id..'/aktlaf1'},},{{text='‹  المستوى الثاني ›',callback_data = msg.sender_id.user_id..'/help2'},},{{text = '‹  المستوى الثالث ›', callback_data = msg.sender_id.user_id..'/help3'}
+}
+}
+local msg_id = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/tshakk/94/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+elseif Text and Text:match('(%d+)/gghhj') then
+local UserId = Text:match('(%d+)/gyyu')
+if tonumber(IdUser) == tonumber(UserId) then
+Abs = math.random(4,80); 
+local Text ='*⌁︙مبروك حبي اجابتك صح 🎉 *'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹  لعب مره اخرىٰ ›', callback_data = IdUser..'/'.. 'aktlaf2'},}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. ChatId .. '&photo=https://t.me/tshakk/103/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
+elseif Text and Text:match('(%d+)/unwiner') then
+local UserId = Text:match('(%d+)/unwiner')
+if tonumber(IdUser) == tonumber(UserId) then
+Abs = math.random(4,80); 
+local Text ='*⌁︙   حظ اوفر اجباتك خطا حبي   *'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹  لعب مره اخرىٰ ›', callback_data = IdUser..'/'.. 'aktlaf2'},}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. ChatId .. '&photo=https://t.me/tshakk/104/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
 elseif text == 'رسائلي' and ChCheck(msg) then
 
 
