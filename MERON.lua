@@ -29598,7 +29598,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙اللعبة 3 مستويات عبارة عن اسئلة عامة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'ابدء المستوي الاول من اللعبة', data = IdUser..'R1'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)R1') then
@@ -29609,7 +29609,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الجنيه', data = IdUser..'/Wrong'},},
 {{text = 'الزلوط', data = IdUser..'R2'},},
 {{text = 'اليورو', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)R2') then
@@ -29618,7 +29618,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'R3'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)R3') then
@@ -29629,7 +29629,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = '24 ساعه', data = IdUser..'R4'},},
 {{text = '23 ساعه', data = IdUser..'/Wrong'},},
 {{text = '22 ساعه', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)R4') then
@@ -29638,7 +29638,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'R5'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)R5') then
@@ -29649,7 +29649,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الخلية ', data = IdUser..'R6'},},
 {{text = 'الشجرة', data = IdUser..'/Wrong'},},
 {{text = 'الكهف', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)R6') then
@@ -29658,7 +29658,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'R7'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)R7') then
@@ -29669,7 +29669,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'اطعمته', data = IdUser..'/Wrong'},},
 {{text = 'استضفته', data = IdUser..'/Wrong'},},
 {{text = 'اكرمته ', data = IdUser..'R8'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)R8') then
@@ -29678,7 +29678,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'R9'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)R9') then
@@ -29689,7 +29689,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'قبرص', data = IdUser..'/Wrong'},},
 {{text = 'باريس', data = IdUser..'/Wrong'},},
 {{text = 'لندن ', data = IdUser..'RR10'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)RR10') then
@@ -29698,7 +29698,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'X11'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)X11') then
@@ -29709,7 +29709,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'العربيه ', data = IdUser..'X12'},},
 {{text = 'الانجليزيه', data = IdUser..'/Wrong'},},
 {{text = 'الفرنسيه', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)X12') then
@@ -29718,7 +29718,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'X13'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)X13') then
@@ -29729,7 +29729,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'مدريد', data = IdUser..'/Wrong'},},
 {{text = 'اسطنبول ', data = IdUser..'X14'},},
 {{text = 'انقرا', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)X14') then
@@ -29738,7 +29738,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'X15'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)X15') then
@@ -29749,7 +29749,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = '6 جيب', data = IdUser..'/Wrong'},},
 {{text = '8 جيب', data = IdUser..'Z16'},},
 {{text = '4 جيب', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)Z16') then
@@ -29758,7 +29758,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'Z17'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)Z17') then
@@ -29769,7 +29769,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'فرنسا', data = IdUser..'/Wrong'},},
 {{text = 'امريكا', data = IdUser..'/Wrong'},},
 {{text = 'لندن ', data = IdUser..'Z18'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)Z18') then
@@ -29778,7 +29778,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'Z19'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)Z19') then
@@ -29789,7 +29789,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = '3 فصول', data = IdUser..'/Wrong'},},
 {{text = '4 فصول', data = IdUser..'Z20'},},
 {{text = '5 فصول', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)Z20') then
@@ -29798,7 +29798,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحه ونجحت في تخطي المستوي الاول يا بطل  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'انتقل للمستوي الثاني ', data = IdUser..'C21'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)C21') then
@@ -29809,7 +29809,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الفحم', data = IdUser..'/Wrong'},},
 {{text = 'المنجنيز', data = IdUser..'/Wrong'},},
 {{text = 'البترول ', data = IdUser..'C22'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)C22') then
@@ -29818,7 +29818,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'C23'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)C23') then
@@ -29829,7 +29829,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الصقر ', data = IdUser..'/Wrong'},},
 {{text = 'الشعلة', data = IdUser..'/Wrong'},},
 {{text = 'النسر ', data = IdUser..'C24'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)C24') then
@@ -29838,7 +29838,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'C25'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)C25') then
@@ -29849,7 +29849,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = '20 سن ', data = IdUser..'/Wrong'},},
 {{text = '40 سن', data = IdUser..'V26'},},
 {{text = '60 سن', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)V26') then
@@ -29858,7 +29858,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'V27'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)V27') then
@@ -29869,7 +29869,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = '3 قلوب ', data = IdUser..'V28'},},
 {{text = '4 قلوب  ', data = IdUser..'/Wrong'},},
 {{text = '5 قلوب', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)V28') then
@@ -29878,7 +29878,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'V29'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)V29') then
@@ -29889,7 +29889,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'مصر ', data = IdUser..'V30'},},
 {{text = 'انجلترا ', data = IdUser..'/Wrong'},},
 {{text = 'فرنسا', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)V30') then
@@ -29898,7 +29898,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'B31'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)B31') then
@@ -29909,7 +29909,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الفرنسية ', data = IdUser..'/Wrong'},},
 {{text = 'الإسبانية ', data = IdUser..'B32'},},
 {{text = 'الانجليزية', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)B32') then
@@ -29918,7 +29918,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'B33'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)B33') then
@@ -29929,7 +29929,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الهادي ', data = IdUser..'B34'},},
 {{text = 'الهندي ', data = IdUser..'/Wrong'},},
 {{text = 'الاطلنطي', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)B34') then
@@ -29938,7 +29938,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'B35'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)B35') then
@@ -29949,7 +29949,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'القوة ', data = IdUser..'N36'},},
 {{text = 'الغرور ', data = IdUser..'/Wrong'},},
 {{text = 'الكبرياء', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)N36') then
@@ -29958,7 +29958,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'N37'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)N37') then
@@ -29969,7 +29969,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = '4 لترات ', data = IdUser..'/Wrong'},},
 {{text = '5 لترات', data = IdUser..'/Wrong'},},
 {{text = '6 لترات ', data = IdUser..'N38'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)N38') then
@@ -29978,7 +29978,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'N39'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)N39') then
@@ -29989,7 +29989,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السعوديه ', data = IdUser..'/Wrong'},},
 {{text = 'اليمن', data = IdUser..'/Wrong'},},
 {{text = 'عمان ', data = IdUser..'N40'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)N40') then
@@ -29998,7 +29998,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا بطل الأبطال لقد تخطيت المستوي الثاني وهو المتوسط انتقل لأخر المستويات الان   *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'انتقل إلي المستوي الأخير ', data = IdUser..'M41'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)M41') then
@@ -30009,7 +30009,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'طه ', data = IdUser..'M42'},},
 {{text = 'المطففين ', data = IdUser..'/Wrong'},},
 {{text = 'العمران', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)M42') then
@@ -30018,7 +30018,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'M43'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)M43') then
@@ -30029,7 +30029,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الصومال ', data = IdUser..'M44'},},
 {{text = 'ماليزيا ', data = IdUser..'/Wrong'},},
 {{text = 'السودان', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)M44') then
@@ -30038,7 +30038,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'M45'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)M45') then
@@ -30049,7 +30049,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الورق ', data = IdUser..'/Wrong'},},
 {{text = 'الاموال', data = IdUser..'/Wrong'},},
 {{text = 'الطوابع ', data = IdUser..'A46'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)A46') then
@@ -30058,7 +30058,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'A47'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)A47') then
@@ -30069,7 +30069,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = '126 غرفة', data = IdUser..'/Wrong'},},
 {{text = '110 غرفة', data = IdUser..'/Wrong'},},
 {{text = '143 غرفة ', data = IdUser..'A48'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)A48') then
@@ -30078,7 +30078,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'A49'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)A49') then
@@ -30089,7 +30089,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الدب', data = IdUser..'/Wrong'},},
 {{text = 'حصان البحر ', data = IdUser..'A50'},},
 {{text = 'فرس النهر', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)A50') then
@@ -30098,7 +30098,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'S51'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)S51') then
@@ -30109,7 +30109,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = '11 عام', data = IdUser..'/Wrong'},},
 {{text = '22 عام ', data = IdUser..'S52'},},
 {{text = '33 عام', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)S52') then
@@ -30118,7 +30118,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'S53'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)S53') then
@@ -30129,7 +30129,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الإغريق', data = IdUser..'/Wrong'},},
 {{text = 'اليونانيين', data = IdUser..'/Wrong'},},
 {{text = 'المصريين القدماء ', data = IdUser..'S54'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)S54') then
@@ -30138,7 +30138,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'S55'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)S55') then
@@ -30149,7 +30149,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'الثعبان', data = IdUser..'D56'},},
 {{text = 'التمساح', data = IdUser..'/Wrong'},},
 {{text = 'السمك', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)D56') then
@@ -30158,7 +30158,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'D57'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)D57') then
@@ -30169,7 +30169,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = '206', data = IdUser..'/Wrong'},},
 {{text = '406', data = IdUser..'/Wrong'},},
 {{text = '706', data = IdUser..'D58'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)D58') then
@@ -30178,7 +30178,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙احسنت يا صديقي إجابتك صحيحة  *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السؤال التالي ', data = IdUser..'D59'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)D59') then
@@ -30189,7 +30189,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'السلحفاه', data = IdUser..'/Wrong'},},
 {{text = 'الضفدع', data = IdUser..'D60'},},
 {{text = 'السحليه', data = IdUser..'/Wrong'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)D60') then
@@ -30198,7 +30198,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙تم الانتهاء من جميع الاسئله بنجاح عاش يا بطل 💕😂*"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'إعادة اللعبة ', data = IdUser..'Ml'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)/Wrong') then
@@ -30207,7 +30207,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local Text = "*※︙للأسف خطأ يا صديقي حظ اوفر المره القادمه *"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text = 'إعادة اللعبه', data = IdUser..'Ml'},},}}
-LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
+Merotele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup)
 end
 end 
 if Text and Text:match('(%d+)/backbio') then
