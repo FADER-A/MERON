@@ -15411,7 +15411,20 @@ end
 
 if text and (text == "غنيلي" or text == "↫ غنيلي ◉") and ChCheck(msg) and not Redis:get(TheMERON..'MERON:sh3ir:Abs'..msg.chat_id) then
 Abs = math.random(2,140); 
-local Text ='*◉‍︙تم اختيار الشعر الاغنيه فقط*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+if tonumber(user1) == tonumber(TheMERON) then
+local NumRand1 = math.random(1, #List_Members); 
+user1 = List_Members[3].member_id.user_id
+end
+local UserInfo = merolua.getUser(user1)
+local list = {"ماتشبع طمسسس دعوف صاحباتك وتعال","لشوكت تبقى نايم ؟ دتعال خل نسولف شوي","هاااااا شنهي نايم كاعد بصوت ايناس الخالدي 😂","دكعددددد ولك شني انت اشتاقينالك"}
+local texting = list[math.random(#list)]
+local listTow = "◉︙"..texting.." : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
+return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
+end
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
