@@ -15424,7 +15424,6 @@ local list = {"ماتشبع طمسسس دعوف صاحباتك وتعال","لش
 local texting = list[math.random(#list)]
 local listTow = "◉︙"..texting.." : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
-end
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
