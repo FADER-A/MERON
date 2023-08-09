@@ -15417,7 +15417,6 @@ local NumRand1 = math.random(1, #List_Members);
 local user1 = List_Members[NumRand1].member_id.user_id
 local UserInfo = merolua.getUser(user1)
 local Text = "✺︙اخترت لك هاذ البيست معجبك كول حته اغيره : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
-return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
