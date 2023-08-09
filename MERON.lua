@@ -3236,23 +3236,6 @@ merolua.sendText(msg_chat_id,msg_id,"◉︙تمت الاذاعه الى *- "..#l
 Redis:del(TheMERON.."MERON:Broadcasting:Users" .. msg_chat_id .. ":" .. msg.sender_id.user_id) 
 return false
 end
-if text and not Redis:get(TheMERON..MERON:lock_chengname'..msg.chat_id) then   
-local UserInfo = merolua.getUser(msg.sender_id.user_id)
-if Redis:get(TheMERON..MERON:"chencher"..msg.sender_id.user_id) then 
-if Redis:get(TheMERON..MERON:"chencher"..msg.sender_id.user_id) ~= UserInfo.first_name then 
-tahan = '['..(Redis:get(TheMERON..MERON:"chencher"..msg.sender_id.user_id) or '')..']'
-taham = '['..UserInfo.first_name..']'
-local taha ={ 
-'\n ليش غيرت اسمك  يا حلو 😹',
-'\n شهل اسم الفيطي '..taham.. ' \n رجعه ؏ قديم \n '..tahan..'',
-'\nليش غيرت اسمك  '..tahan..' ',
-}
-send(msg.chat_id,msg.id,taha[math.random(#taha)])
-end  
-end
-Redis:set(TheMERON..MERON:"chencher"..msg.sender_id.user_id, UserInfo.first_name) 
-end
-
 ------------------------------------------------------------------------------------------------------------
 if Redis:get(TheMERON.."MERON:Broadcasting:Groups" .. msg_chat_id .. ":" .. msg.sender_id.user_id) then 
 if text == "الغاء" and ChCheck(msg) or text == 'الغاء الامر ◉' and ChCheck(msg) then   
@@ -20840,7 +20823,7 @@ if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg
 
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂??𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
 {{text = '- قناة التحديثات .',url="t.me/l5l5III"}},
 {{text = '- لتنصيب السورس .',url="https://t.me/l5l5III"}},
 {{text = '- مبــرمج السـورس .',url="t.me/M_Y_R_Q"},
