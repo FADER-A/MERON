@@ -3236,7 +3236,7 @@ merolua.sendText(msg_chat_id,msg_id,"◉︙تمت الاذاعه الى *- "..#l
 Redis:del(TheMERON.."MERON:Broadcasting:Users" .. msg_chat_id .. ":" .. msg.sender_id.user_id) 
 return false
 end
-if text and not Redis:get(TheMERON..MERON:'lock_chengname'..msg.chat_id) then   
+if text and not Redis:get(TheMERON..MERON:lock_chengname'..msg.chat_id) then   
 local UserInfo = merolua.getUser(msg.sender_id.user_id)
 if Redis:get(TheMERON..MERON:"chencher"..msg.sender_id.user_id) then 
 if Redis:get(TheMERON..MERON:"chencher"..msg.sender_id.user_id) ~= UserInfo.first_name then 
