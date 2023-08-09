@@ -13021,14 +13021,24 @@ end
 
 if text and (text == "متحركه" or text == "متحركات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:gif:Abs'..msg.chat_id) then
 Abs = math.random(2,143); 
-local Text ='*◉︙تم اختيار المتحركه لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendAnimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/LKKKKR/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
 end
 
 if text and (text == "ميمز" or text == "ميمزات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:memz:Abs'..msg.chat_id) then
 Abs = math.random(2,220); 
-local Text ='*◉︙تم اختيار مقطع الميمز لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
@@ -13039,7 +13049,12 @@ end
 
 if text and (text == "ريمكس" or text == "ريمكسات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Remix:Abs'..msg.chat_id) then
 Abs = math.random(2,400); 
-local Text ='*◉︙تم اختيار الريمكس لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13053,7 +13068,12 @@ end
 
 if text and (text == "صوره" or text == "صور") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,1120); 
-local Text ='*◉︙تم اختيار الصوره لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13067,7 +13087,12 @@ end
 
 if text and (text == "قيفات بنات" or text == "متحركات بنات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار قيفات بنات لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13081,7 +13106,12 @@ end
 
 if text and (text == "قيفات شباب" or text == "متحركات شباب") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار قيفات شباب لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13095,7 +13125,12 @@ end
 
 if text and (text == "قيفات قطط" or text == "قطط") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار قيفات قطط لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13109,7 +13144,12 @@ end
 
 if text and (text == "قيفات اطفال" or text == "اطفال") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار قيفات اطفال لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13123,7 +13163,12 @@ end
 
 if text and (text == "قيفات رومانسيه" or text == "متحركات حب") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار قيفات رومانسيه لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13137,7 +13182,12 @@ end
 
 if text and (text == "قيفات كيبوب" or text == "قيف كيبوب") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار قيفات كيبوب لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13151,7 +13201,12 @@ end
 
 if text and (text == "قران" or text == "قرآن") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Remix:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*اللهُم الجَنة وسّلام على الدُنيا و مَا فيها .*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13165,7 +13220,12 @@ end
 
 if text and (text == "قيفات كوسال" or text == "كوسال") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='**◉︙تم اختيار قيفات كوسال لك**'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13179,7 +13239,12 @@ end
 
 if text and (text == "انمي" or text == "anme") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Anime:Abs'..msg.chat_id) then
 Abs = math.random(3,998); 
-local Text ='*◉︙تم اختيار صورة الانمي لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13193,7 +13258,12 @@ end
 
 if text and (text == "كارتون" or text == "كار") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(2,86); 
-local Text ='*◉︙تم اختيار كارتون لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13207,7 +13277,12 @@ end
 
 if text and (text == "ايدت" or text == "تصاميم") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار تصاميم لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13221,7 +13296,12 @@ end
 
 if text and (text == "ايدت انمي" or text == "تصاميم انمي") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار تصاميم لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13235,7 +13315,12 @@ end
 
 if text and (text == "افتارات سنمائي" or text == "افتار سنمائي") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار افتار سنمائي لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13249,7 +13334,12 @@ end
 
 if text and (text == "افتار مشاهير" or text == "مشاهير") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار افتار مشاهير لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13263,7 +13353,12 @@ end
 
 if text and (text == "افتارات بنات" or text == "افتار بنات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار افتار بنات لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13277,7 +13372,12 @@ end
 
 if text and (text == "افتار لوكيت" or text == "لوكيت") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار افتار لوكيت لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13291,7 +13391,12 @@ end
 
 if text and (text == "صور لاعبين" or text == "لاعبين") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار لاعبين لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13305,7 +13410,12 @@ end
 
 if text and (text == "افتارات فكتوريا" or text == "افتار فكتوري") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار افتار فكتوري لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13319,7 +13429,12 @@ end
 
 if text and (text == "BTS" or text == "بتس") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار صور BTS لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13333,7 +13448,12 @@ end
 
 if text and (text == "تطقيم" or text == "صور تطقيم") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار صور تطقيم لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13347,7 +13467,12 @@ end
 
 if text and (text == "اقتباسات" or text == "اقتباس") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار اقتباس لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13361,7 +13486,12 @@ end
 
 if text and (text == "جدارية" or text == "جداريه") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار اقتباسات جدارية لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13375,7 +13505,12 @@ end
 
 if text and (text == "هيدرات" or text == "هيد") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Photo:Abs'..msg.chat_id) then
 Abs = math.random(4,50); 
-local Text ='*◉︙تم اختيار افتار مشاهير لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13389,7 +13524,12 @@ end
 
 if text and (text == "فلم" or text == "افلام") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(2,86); 
-local Text ='*◉︙تم اختيار الفلم لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13403,7 +13543,12 @@ end
 
 if text and (text == "ستوري" or text == "ستوريات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Movies:Abs'..msg.chat_id) then
 Abs = math.random(2,78); 
-local Text ='*◉︙تم اختيار ستوري لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -13416,7 +13561,12 @@ end
 
 if text and (text == "مسلسل" or text == "مسلسلات") and ChCheck(msg) and not Redis:get(TheMERON..'Abs:Series:Abs'..msg.chat_id) then
 Abs = math.random(2,54); 
-local Text ='*◉︙تم اختيار المسلسل لك*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -15416,7 +15566,7 @@ local List_Members = Info_Members.members
 local NumRand1 = math.random(1, #List_Members); 
 local user1 = List_Members[NumRand1].member_id.user_id
 local UserInfo = merolua.getUser(user1)
-local Text = "✺︙اخترت لك هاذ البيست معجبك كول حته اغيره : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
@@ -15426,7 +15576,12 @@ https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ms
 end
 if text and (text == "شعر" or text == "↫ شعر ◉") and ChCheck(msg) and not Redis:get(TheMERON..'MERON:sh3ir:Abs'..msg.chat_id) then
 Abs = math.random(2,140); 
-local Text ='*◉‍︙تم اختيار الشعر لك فقط*'
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local UserInfo = merolua.getUser(user1)
+local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
