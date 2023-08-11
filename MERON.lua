@@ -7327,7 +7327,7 @@ if not msg.Addictive then
 return send(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
 end
 if not Redis:get(TheMERON.."youtubee"..msg.chat_id)  then
-return send(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تفعيل اليوتيوب مسبقاً","md",true )
+return merolua.Text(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تفعيل اليوتيوب مسبقاً","md",true )
 else
 Redis:del(TheMERON.."youtubee"..msg.chat_id)
 return send(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تفعيل اليوتيوب","md",true )
@@ -7733,7 +7733,7 @@ return send(msg.chat_id,msg.id,"⇜ تم وضع اضافة ردي لجميع ا�
 end
 if text == "تفعيل اضف ردي" or text == "تفعيل ردي" or text == "تفعيل ردود الاعضاء" then
 if not msg.TheBasicsQ then
-return send(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
+return merolua.Text(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
 end
 if Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
 return send(msg.chat_id,msg.id,"⇜ تم تفعيل ردود الاعضاء مسبقاً ","md",true)
