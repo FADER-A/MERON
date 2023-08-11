@@ -7719,10 +7719,10 @@ end
 end
 if text == "ضع الردود للمميزين" or text == "وضع الردود للمميزين" then
 if not msg.TheBasicsQ then
-return send(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
+return merolua.Text(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
 end
 Redis:set(TheMERON.."myrdspecial"..msg.chat_id,"true")
-return send(msg.chat_id,msg.id,"⇜ تم وضع اضافة ردي للمميزين ومافوق ","md",true)
+return merolua.Text(msg.chat_id,msg.id,"⇜ تم وضع اضافة ردي للمميزين ومافوق ","md",true)
 end
 if text == "ضع الردود للاعضاء" or text == "وضع الردود للاعضاء" then
 if not msg.TheBasicsQ then
@@ -7736,7 +7736,7 @@ if not msg.TheBasicsQ then
 return merolua.Text(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
 end
 if Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-return send(msg.chat_id,msg.id,"⇜ تم تفعيل ردود الاعضاء مسبقاً ","md",true)
+return merolua.Text(msg.chat_id,msg.id,"⇜ تم تفعيل ردود الاعضاء مسبقاً ","md",true)
 else
 Redis:set(TheMERON.."onmyrd"..msg.chat_id,"true")
 return merolua.Text(msg.chat_id,msg.id,"⇜ ابشر فعلت ردود الاعضاء ","md",true)
@@ -7748,7 +7748,7 @@ return merolua.Text(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص الما�
 end
 if Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
 Redis:del(TheMERON.."onmyrd"..msg.chat_id)
-return send(msg.chat_id,msg.id,"⇜ ابشر عطلت ردود الاعضاء ","md",true)
+return merolua.Text(msg.chat_id,msg.id,"⇜ ابشر عطلت ردود الاعضاء ","md",true)
 else
 return merolua.Text(msg.chat_id,msg.id,"⇜ تم تعطيل ردود الاعضاء مسبقاً ","md",true)
 end
@@ -7758,7 +7758,7 @@ if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
 return send(msg.chat_id,msg.id,"⇜ اضافة الردود للاعضاء معطلة\n⇜ لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
 end
 if not msg.Distinguished and Redis:get(TheMERON.."myrdspecial"..msg.chat_id) then
-return send(msg.chat_id,msg.id,"⇜ عذراً عزيزي اضافة ردي للمميزين ومافوق فقط","md",true)
+return merolua.Text(msg.chat_id,msg.id,"⇜ عذراً عزيزي اضافة ردي للمميزين ومافوق فقط","md",true)
 end
 if Redis:sismember(TheMERON.."MERON:List:myrdmyid"..msg_chat_id,msg.sender_id.user_id) then
 return send(msg_chat_id,msg_id,"\n⇜ عذراً عزيزي انت ضايف ردك من قبل\n⇜ لحذف ردك ( حذف ردي )","md",true)
@@ -7772,7 +7772,7 @@ data = {
 },
 }
 }
-return send(msg_chat_id,msg_id,"⇜ حسناً عزيزي ارسل اسمك الان", 'md', false, false, false, false, reply_markup)
+return merolua.Text(msg_chat_id,msg_id,"⇜ حسناً عزيزي ارسل اسمك الان", 'md', false, false, false, false, reply_markup)
 end
 if text == "حذف ردي" or text == "مسح ردي" then
 myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
@@ -7785,7 +7785,7 @@ Redis:del(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_
 end
 if text == "ردي" then
 if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-return send(msg.chat_id,msg.id,"⇜ اضافة الردود للاعضاء معطلة\n⇜ لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
+return merolua.Text(msg.chat_id,msg.id,"⇜ اضافة الردود للاعضاء معطلة\n⇜ لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
 end
 checkmyrde = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
 if Redis:get(TheMERON.."MERON:Add:myrdid"..checkmyrde..msg_chat_id) then
