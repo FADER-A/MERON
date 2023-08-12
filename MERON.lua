@@ -8132,7 +8132,7 @@ data = {
 },
 }
 }
-return merolua.sendText(msg.chat_id,msg.id," الالة الحاسبة\n༄","md",false, false, false, false, start_mrkup)
+ merolua.sendText(msg.chat_id,msg.id," الالة الحاسبة\n༄","md",false, false, false, false, start_mrkup)
 return false 
 end
 -------------
