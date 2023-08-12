@@ -7313,13 +7313,13 @@ Redis:set(TheMERON.."MERON:biousers"..msg.chat_id,true)
 end
 if text == "تعطيل اليوتيوب" or text == "تعطيل يوتيوب" then
 if not msg.Addictive then
-return send(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
+return merolua.sendText(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
 end
 if Redis:get(TheMERON.."youtubee"..msg.chat_id)  then
-return send(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تعطيل اليوتيوب مسبقاً","md",true )
+return merolua.sendText(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تعطيل اليوتيوب مسبقاً","md",true )
 else
 Redis:set(TheMERON.."youtubee"..msg.chat_id,"true")
-return send(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تعطيل اليوتيوب","md",true )
+return merolua.sendText(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تعطيل اليوتيوب","md",true )
 end
 end
 if text == "تعطيل اليوتيوب" or text == "تعطيل يوتيوب" then
@@ -7794,7 +7794,7 @@ return merolua.sendText(msg_chat_id,msg_id,"• حسناً عزيزي ارسل �
 end
 if text == "حذف ردي" or text == "مسح ردي" then
 myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
-send(msg.chat_id, msg.id,"• تم مسح ردك بنجاح\n• الرد ( "..myrd.." )", 'md')
+return merolua.sendText(msg.chat_id, msg.id,"• تم مسح ردك بنجاح\n• الرد ( "..myrd.." )", 'md')
 Redis:srem(TheMERON.."MERON:List:myrd"..msg_chat_id, myrd)
 Redis:srem(TheMERON.."MERON:List:myrdmyid"..msg_chat_id, msg.sender_id.user_id)
 Redis:del(TheMERON.."MERON:Add:myrdtext"..myrd..msg_chat_id)
@@ -7901,7 +7901,7 @@ local Texingt = Redis:get(TheMERON.."MERON:Add:myrdtext"..text..msg_chat_id)
 if Texingt then
 local Texingtowner = Redis:get(TheMERON.."MERON:Add:myrdid"..text..msg_chat_id)
 local UserInfo = merolua.getUser(Texingtowner)
-local Bio = FlterBio(getbio(Texingtowner))
+local Bio = FlterBio((Texingtowner))
 local photo = merolua.getUserProfilePhotos(Texingtowner)
 local ban = merolua.getUser(Texingtowner)
 if ban.first_name then
@@ -7965,8 +7965,8 @@ Redis:del(TheMERON.."MERON:Set:myrd"..msg.sender_id.user_id..":"..msg_chat_id)
 return merolua.sendText(msg.chat_id, msg.id,"• واضفنا ردك ياحلو\n• اكتب ( "..text.." ) لتجربته", 'md')
 end
 end
-if text and text:match('^ايدي (%d+)$') then
-numberidd = text:match('^ايدي (%d+)$')
+if text and text:match('^اايدي (%d+)$') then
+numberidd = text:match('^اايدي (%d+)$')
 numberid = math.floor(numberidd)
 if not Redis:get(TheMERON.."MERON:Status:Id"..msg_chat_id) then
 return false
@@ -8170,7 +8170,7 @@ else
 on_time = 00
 end
 local current_time = ("https://dev-revor.tk/Apis/Auto/Auto.php?a=hi")
-local txx = "• القفل التلقائي : "..state.." \n• الوقت الان : "..current_time.."\n\n• وقت بداية القفل » "..lock_time.."\n• وقت نهاية القفل » "..on_time
+local txx = "• القفل التلقائي : "\n• وقت بداية القفل » "..lock_time.."\n• وقت نهاية القفل » "..on_time
 return merolua.sendText(msg.chat_id,msg.id,txx)
 end
 
@@ -10584,6 +10584,12 @@ end
 if text== "الابراج"  or text== "ابراج"  and Redis:get(TheMERON..'replayallbot'..msg.chat_id) then
 return merolua.sendText(msg.chat_id,msg.id,"ٰ◉︙يرجى كتابة اسم برجك !\n◉︙مثال : برج الحوت")
 end
+if text== "طقس"  or text== "الطقس" then
+return merolua.sendText(msg.chat_id,msg.id,"ٰ⇜ اكتب : طقس + اسم المدينة")
+end
+if text== "اذان"  or text== "الاذان" then
+return merolua.sendText(msg.chat_id,msg.id,"ٰ⇜ اكتب : اذان + اسم المدينة")
+end
 if text== "همسه"  or text== "همسة"  and Redis:get(TheMERON..'replayallbot'..msg.chat_id) then
 return merolua.sendText(msg.chat_id,msg.id,"◉︙هلا بك عزيزي\n◉︙ضع معرف البوت  في الرساله ثم فراغ ثم تكتب رسالتك ثم معرف الشخص ثم معرف الشخص بعدها تضغط هذه همسه سرية الى...")
 end
@@ -12692,17 +12698,107 @@ Redis:del(TheMERON.."zogatall"..msg.chat_id)
 return merolua.sendText(msg.chat_id,msg.id,"◉︙تم مسح المتزوجين","md",true)  
 end
 
-if text == "ثنائي اليوم" and Redis:get(TheMERON..'MERON:Althnaee:Chat'..msg.chat_id)  then
-local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
+if text == "ثنائي اليوم" or text == "ثنائي" and Redis:get(TheMERON.."MERON:Althnaee:Chat"..msg.chat_id) then
+if Redis:get(TheMERON.."ThnaeeDay:ex"..msg.chat_id) then
+ThnaeeDaynameone = Redis:get(TheMERON.."ThnaeeDay:nameone"..msg.chat_id)
+ThnaeeDaynametwo = Redis:get(TheMERON.."ThnaeeDay:nametwo"..msg.chat_id)
+ThnaeeDayidone = Redis:get(TheMERON.."ThnaeeDay:idone"..msg.chat_id)
+ThnaeeDayidtwo = Redis:get(TheMERON.."ThnaeeDay:idtwo"..msg.chat_id)
+if tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 83000 then
+hourthn = "23 ساعة"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 77400 then
+hourthn = "21 ساعة"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 70200 then
+hourthn = "19 ساعة"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 63000 then
+hourthn = "17 ساعة"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 55800 then
+hourthn = "15 ساعة"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 48600 then
+hourthn = "13 ساعة"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 41400 then
+hourthn = "11 ساعة"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 34200 then
+hourthn = "9 ساعات"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 27000 then
+hourthn = "7 ساعات"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 19800 then
+hourthn = "5 ساعات"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 12600 then
+hourthn = "3 ساعات"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) >= 3600 then
+hourthn = "ساعتين"
+elseif tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) <= 3599 then
+hourthn = "ساعة"
+else
+hourthn = " لم يحدد الوقت "
+end
+local listTow = "• تم إختيار ثنائي اليوم مسبقاً : \n["..ThnaeeDaynameone.."](tg://user?id="..ThnaeeDayidone..") + ["..ThnaeeDaynametwo.."](tg://user?id="..ThnaeeDayidtwo..") = ❤️\n⏳ سيتم اختيار ثنائي آخر بعد "..hourthn.." "
+return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true) 
+end
+local Info_Members = bot.searchChatMembers(msg.chat_id, "*", 200)
 local List_Members = Info_Members.members
 local NumRand1 = math.random(1, #List_Members); 
 local NumRand2 = math.random(1, #List_Members); 
 local user1 = List_Members[NumRand1].member_id.user_id
 local user2 = List_Members[NumRand2].member_id.user_id
-local UserInfo = merolua.getUser(user1)
-local UserInfoo = merolua.getUser(user2)
-local listTow = "◉︙ثنائي اليوم : \n ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") ~ ["..UserInfoo.first_name.."](tg://user?id="..UserInfoo.id..")\n"
+local UserInfo = bot.getUser(user1)
+local UserInfoo = bot.getUser(user2)
+local listTow = "• تم إختيار ثنائي اليوم : \n["..FlterBio(UserInfo.first_name).."](tg://user?id="..UserInfo.id..") + ["..UserInfoo.first_name.."](tg://user?id="..UserInfoo.id..") = ❤️\n⏳ سيتم اختيار ثنائي آخر بعد 24 ساعة"
+Redis:set(TheMERON.."ThnaeeDay:nameone"..msg.chat_id,FlterBio(UserInfo.first_name))
+Redis:set(TheMERON.."ThnaeeDay:nametwo"..msg.chat_id,FlterBio(UserInfoo.first_name))
+Redis:set(TheMERON.."ThnaeeDay:idone"..msg.chat_id,UserInfo.id)
+Redis:set(TheMERON.."ThnaeeDay:idtwo"..msg.chat_id,UserInfoo.id)
+Redis:setex(TheMERON.."ThnaeeDay:ex"..msg.chat_id,86400,true)
 return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
+end
+if Redis:get(TheMERON.."MERON:Althnaee:Chat"..msg.chat_id) and tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) <= 1 then
+local Info_Members = bot.searchChatMembers(msg.chat_id, "*", 200)
+local List_Members = Info_Members.members
+local NumRand1 = math.random(1, #List_Members); 
+local NumRand2 = math.random(1, #List_Members); 
+local user1 = List_Members[NumRand1].member_id.user_id
+local user2 = List_Members[NumRand2].member_id.user_id
+local UserInfo = bot.getUser(user1)
+local UserInfoo = bot.getUser(user2)
+local listTow = "• تم إختيار ثنائي اليوم : \n["..FlterBio(UserInfo.first_name).."](tg://user?id="..UserInfo.id..") + ["..UserInfoo.first_name.."](tg://user?id="..UserInfoo.id..") = ❤️\n⏳ سيتم اختيار ثنائي آخر بعد 24 ساعة"
+Redis:set(TheMERON.."ThnaeeDay:nameone"..msg.chat_id,FlterBio(UserInfo.first_name))
+Redis:set(TheMERON.."ThnaeeDay:nametwo"..msg.chat_id,FlterBio(UserInfoo.first_name))
+Redis:set(TheMERON.."ThnaeeDay:idone"..msg.chat_id,UserInfo.id)
+Redis:set(TheMERON.."ThnaeeDay:idtwo"..msg.chat_id,UserInfoo.id)
+Redis:setex(TheMERON.."ThnaeeDay:ex"..msg.chat_id,86400,true)
+return merolua.sendText(msg.chat_id,0,listTow,"md",true)
+end
+if text == 'تفعيل الاذكار' or text == 'تفعيل اذكار' or text == 'تفعيل الاذكار تلقائيا' or text == 'تفعيل الاذكار تلقائياً' or text == 'تفعيل اذكار تلقائيا' then
+if not msg.Addictive then
+return merolua.sendText(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
+end
+if Redis:get(TheMERON.."azkarhourr"..msg.chat_id) then
+return merolua.sendText(msg.chat_id,msg.id,"⇜ تم تفعيل الاذكار مسبقاً ","md",true)
+else
+Redis:setex(TheMERON.."azkarhour"..msg.chat_id,3600,true)
+Redis:set(TheMERON.."azkarhourr"..msg.chat_id,"true")
+return merolua.sendText(msg.chat_id,msg.id,"⇜ ابشر فعلت الاذكار تلقائياً ","md",true)
+end
+end
+if text == 'تعطيل الاذكار' or text == 'تعطيل اذكار' or text == 'تعطيل الاذكار تلقائيا' or text == 'تعطيل الاذكار تلقائياً' or text == 'تعطيل اذكار تلقائيا' then
+if not msg.Addictive then
+return merolua.sendText(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
+end
+if Redis:get(TheMERON.."azkarhourr"..msg.chat_id) then
+Redis:del(TheMERON.."azkarhour"..msg.chat_id)
+Redis:del(TheMERON.."azkarhourr"..msg.chat_id)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ ابشر عطلت الاذكار تلقائياً ","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id,"⇜ تم تعطيل الاذكار مسبقاً ","md",true)
+end
+end
+if Redis:get(TheMERON.."azkarhourr"..msg.chat_id) and tonumber(Redis:ttl(TheMERON.."azkarhour"..msg.chat_id)) <= 1 then
+local Textingt = {"ربَّنا آتِنا في الدُّنيا حسنةً، وفي الآخرةِ حسنةً، وقِنا عذابَ النَّار️", "لك الحمد ربي حمدًا يليق بلطفك و عظيم كرمك♥️", "اللهم يسرلي امري واشرح لي صدري", "اللهم إن الأمر أمرك، والخلق خلقك، والقضاء قضاؤك اللهم إني وكلتك وفوضت أمري إليك", "لا إِلَهَ إِلا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ", "‏﴿ فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ إِنَّهُ كَانَ تَوَّابًا ﴾", "اللهُم وسع قبور من رحلوا إليك بجنةٍ لا يفنى نعيمها", "اللهُم السّعه والتوسّع والمُتسّع لِقبورهَم", "اللهم ارزقنا توبةً نصوحةً قبل الموت", "اللهم يا مقلب القلوب ثبت قلبي على دينك", "أستغفُرك ربِي رضًا وعافيّه،أستغفُرك ربِي حُبًا وطمَأنينة", "استغفرالله واتوب اليه", "استغفرالله ألذي لا إله إلا هو الحي القيوم واتوب اليه 💕✨", "اللهم إني اسألك العفو والعافية والمعافاة الدائمة في الدين والدنيا والآخرة", "اللهُم جازنا بحُلو الحياة وطيب المقام ‏وعيشة السُعداء وراحة البال", "اللهُم افتح بيني وبينَ رزقي ونصيبي وسعادتي وتوفيقي فتحًا مُبينًا وأنتَ خير الفاتِحين", "اللهم أعنّا على طاعتك وحُسن عبادتك 🤎🌱", "ثم يأتي الله بأكثر شيء يعلم أنه سيقر عينك، و يعوضك به على صبرك.", "وَيُؤْنِسُنِي أَنَّكَ عَلِيمٌ بِمَا يُخْفَى.", "اللهُم أحسن رحيلي إن حان وقتي.", "‏سلامًا على من مرّ على مُرِّنا فحلّاهُ.", "لا تَمَلْ، ‏أكمِلْ طريقكَ، ‏إنَّ اللهَ يُحِبُّ العبدَ اللحوح.", "وسبق أن تمنينا ما نحن فيه الآن، فاللهم لك الحمد.",}
+local Descriptiont = Textingt[math.random(#Textingt)]
+Redis:setex(TheMERON.."azkarhour"..msg.chat_id,3600,true)
+send(msg.chat_id,0,Descriptiont,"md",true)
+return merolua.sendText(msg.chat_id,0,"-","md",true)
 end
 if text == 'شخصيتي' or text == 'حددي شخصيتي' or text == 'حدد شخصيتي' then
 if not Redis:get(msg.chat_id) then
@@ -12748,14 +12844,191 @@ end
 if text == 'الاصدار' and ChCheck(msg) then
 merolua.sendText(msg_chat_id,msg_id,'*◉︙اصدار سورس كارلوس 3.0*',"md",true)  
 end
+if text == "احسب عمري" or text == "احسب العمر" then
+if not Redis:get(TheMERON.."myages"..msg.chat_id) then
+Redis:setex(TheMERON.."Age:send:"..msg.chat_id..":"..msg.sender_id.user_id, 30, true)
+return merolua.sendText(msg.chat_id, msg.id,"⇜ ارسل عمرك بالصيغيه التالية :\n يوم/شهر/سنة\n- مثال : 20/2/2002 ", 'md')
+end
+end
+if text and Redis:get(TheMERON.."Age:send:"..msg.chat_id..":"..msg.sender_id.user_id) then
+if text and text:match('(%d+)/(%d+)/(%d+)') then
+local input = {text:match('(%d+)/(%d+)/(%d+)')}
+local day = input[1]
+local month = input[2]
+local year = input[3]
+local api = http.request("http://ahmed-yad.ml/Anubis/birth_day_pro.php?day="..day.."&month="..month.."&year="..year)
+local api_decode = JSON.decode(api)
+if not api_decode["العمر الميلادي"] then
+return merolua.sendText(msg.chat_id, msg.id,"⇜ صيغة العمر خطأ\n ⇜ ارسل عمرك بالصيغيه التالية :\n يوم/شهر/سنة\n- مثال : 20/2/2002", 'md')
+end
+local birth_date = "- عمرك الميلادي : "..api_decode["العمر الميلادي"]
+local birth_hijri = "- عمرك الهجري : "..api_decode["العمر الهيجري"]
+local next_birth_day = "- عيد ميلادك القادم : ".. api_decode["عيد الميلاد القادم"]
+local birth_months = "- عمرك بالاشهر : " .. api_decode["العمر بالشهور"]
+local birth_weeks = "- عمرك بالاسابيع : ".. api_decode["العمر بالاسابيع"]
+local birth_days = "- عمرك بالايام : ".. api_decode["العمر بالايام"]
+local birth_hours = "- عمرك بالساعات : ".. api_decode["العمر بالساعات"]
+local birth_day_name = "- ولدت يوم : ".. api_decode["يوم الميلاد"]
+local in_Season = "- فصل : ".. api_decode["ولد في فصل"]
+local brg = "- برجك : ".. api_decode["برج"]
+local breath = "- اتنفست : ".. api_decode["عدد الانفاس"].." نفس 🫁"
+local heart_beat = "- نبضات قلبك : ".. api_decode["عدد نبضات القلب"] .." نبضه 🫀"
+local lol = "- ضحكت : ".. api_decode["كم مره ضحك"].."ضحكه 😂"
+local sleep_time = "- نمت : ".. api_decode["مده النوم في العمر"].." ساعه 🕔"
+local eat_times = api_decode["مده الاكل في العمر"]
+Redis:del(TheMERON.."Age:send:"..msg.chat_id..":"..msg.sender_id.user_id)
+local Msg_text = birth_date.."\n"..birth_hijri.."\n"..birth_months.."\n"..birth_weeks.."\n"..birth_days.."\n"..birth_hours.."\n"..birth_day_name.." "..in_Season.." "..brg.."\n"..breath.."\n"..heart_beat.."\n"..lol.."\n"..sleep_time.."\n✬"
+return merolua.sendText(msg.chat_id, msg.id,Msg_text, 'html')
+else
+return merolua.sendText(msg.chat_id, msg.id,"⇜ صيغة العمر خطأ\n ⇜ ارسل عمرك بالصيغيه التالية :\n يوم/شهر/سنة\n- مثال : 20/2/2002", 'md')
+end
+end
 if text == "الساعه" and ChCheck(msg) or text == "الوقت" and ChCheck(msg) then
 local ramsesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
 merolua.sendText(msg_chat_id,msg_id,ramsesj20)
 end
 
-if text == "التاريخ" and ChCheck(msg) then
-local ramsesj20 =  "\n التاريخ : "..os.date("%Y/%m/%d")
-merolua.sendText(msg_chat_id,msg_id,ramsesj20)
+if text == "التاريخ" or text == "التقويم" then
+local url, res = https.request("http://api.aladhan.com/v1/timingsByAddress?address=Mecca&method=8")
+local jdat = JSON.decode(url)
+local year = jdat.data.date.hijri.year
+local months = jdat.data.date.hijri.month.number
+local days = jdat.data.date.hijri.day
+local dayss = days + 1
+local namemonths = jdat.data.date.hijri.month.ar
+local namedays = jdat.data.date.hijri.weekday.ar
+local hijrii = ""..year.."/"..months.."/"..math.floor(dayss).."" 
+textt = "⌯ الساعة : " ..os.date("%p %I:%M:%S").. "\n⌯ اليوم : "..namedays.."\n⌯ الشهر : "..namemonths.."\n⌯ التاريخ الميلادي : " .. os.date("%Y/%m/%d") .. "\n⌯ التاريخ الهجري : " .. hijrii .. "\n"
+months = jdat.data.date.hijri.month.number
+if months == 1 then
+tarekh = "https://t.me/calshevd728/2"
+elseif months == 2 then
+tarekh = "https://t.me/calshevd728/3"
+elseif months == 3 then
+tarekh = "https://t.me/calshevd728/4"
+elseif months == 4 then
+tarekh = "https://t.me/calshevd728/5"
+elseif months == 5 then
+tarekh = "https://t.me/calshevd728/6"
+elseif months == 6 then
+tarekh = "https://t.me/calshevd728/7"
+elseif months == 7 then
+tarekh = "https://t.me/calshevd728/8"
+elseif months == 8 then
+tarekh = "https://t.me/calshevd728/9"
+elseif months == 9 then
+tarekh = "https://t.me/calshevd728/10"
+elseif months == 10 then
+tarekh = "https://t.me/calshevd728/11"
+elseif months == 11 then
+tarekh = "https://t.me/calshevd728/12"
+elseif months == 12 then
+tarekh = "https://t.me/calshevd728/13"
+else
+send(msg_chat_id, msg_id, textt, "md",true)
+end
+local msg_id = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo='..tarekh..'&caption=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
+end
+if text and text:match("^اذان (.*)$") or text and text:match("^الاذان (.*)$") then
+local textcity = text:match("^اذان (.*)$") or text:match("^الاذان (.*)$") 
+local url, res = request("http://api.aladhan.com/v1/timingsByAddress?address="..textcity.."")
+local jdat = JSON.decode(url)
+local Fajr = jdat.data.timings.Fajr
+local Dhuhr = jdat.data.timings.Dhuhr
+local Asr = jdat.data.timings.Asr
+local Maghrib = jdat.data.timings.Maghrib
+local Isha = jdat.data.timings.Isha
+textt = "⌯ اوقات الاذان في : " ..textcity.. "\n- الفجر : "..Fajr.."\n- الظهر : "..Dhuhr.."\n- العصر : " .. Asr .. "\n- المغرب : " .. Maghrib .. "\n- العشاء : "..Isha.."\n✧"
+return merolua.sendText(msg_chat_id,msg_id,textt)
+end
+if text and text:match("^الطقس (.*)$") or text and text:match("^طقس (.*)$") then
+local textcity = text:match("^طقس (.*)$") or text:match("^الطقس (.*)$") 
+local BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
+local url = BASE_URL
+url = url..'?q='..textcity..'&APPID=eedbc05ba060c787ab0614cad1f2e12b'
+url = url..'&units=metric'
+local b, c, h = request(url)
+local weather = JSON.decode(b)
+local pressure = weather.main.pressure
+local humidity = weather.main.humidity
+local conditions = '- حالة الجو : '
+if weather.weather[1].main == 'Clear' then
+conditions = conditions .. 'صافي ☀'
+elseif weather.weather[1].main == 'Clouds' then
+conditions = conditions .. 'غائم ☁☁'
+elseif weather.weather[1].main == 'Rain' then
+conditions = conditions .. 'ماطر ☔'
+elseif weather.weather[1].main == 'Thunderstorm' then
+conditions = conditions .. 'عاصف ☔☔☔☔'
+elseif weather.weather[1].main == 'Mist' then
+conditions = conditions .. 'مغبر 💨'
+end
+local temp = '⌯ الطقس في : '..textcity..'\n- درجة الحرارة : '..weather.main.feels_like..' 🌡\n- الضغط : '..pressure..'\n- الرطوبة : '..humidity..'\n'..conditions..'\n✧'
+return merolua.sendText(msg_chat_id,msg_id,temp)
+end
+
+if text == "نمله" or text == "نملة" or text == "النمله" then
+local photo = "https://te.legra.ph/file/437c4b16cfbcee983cf14.jpg"
+local caption = ""
+local keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '>> 🐜 <<', callback_data="/kill_the_ant"},
+},
+}
+local msg_rep = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&reply_to_message_id="..msg_rep.."&photo="..photo.."&caption="..URL.escape(caption).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+if text == "ترند القروبات" or text == "ترند المجموعات" then
+if not msg.Addictive then
+return merolua.sendText(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
+end
+GroupAllRtba = Redis:hgetall(TheMERON..':GroupUserCountMsg:groups')
+GetAllNames  = Redis:hgetall(TheMERON..':GroupNameUser:groups')
+GroupAllRtbaL = {}
+for k,v in pairs(GroupAllRtba) do table.insert(GroupAllRtbaL,{v,k}) end
+Count,Kount,i = 8 , 0 , 1
+for _ in pairs(GroupAllRtbaL) do Kount = Kount + 1 end
+table.sort(GroupAllRtbaL, function(a, b) return tonumber(a[1]) > tonumber(b[1]) end)
+if Count >= Kount then Count = Kount end
+Text = "⇜ قائمة ترند القروبات \n━━━━━━━━━━━\n"
+for k,v in pairs(GroupAllRtbaL) do
+if v[2] and v[2]:match("(-100%d+)") then
+local InfoChat = bot.getChat(v[2])
+local InfoChats = bot.getSupergroupFullInfo(v[2])
+if InfoChats.code ~= 400 then
+var(InfoChats.invite_link)
+if not InfoChats.invite_link then
+linkedid = "["..InfoChat.title.."]" or "اسم القروب خطأ"
+else
+linkedid = "["..InfoChat.title.."]" or "اسم القروب خطأ"
+end
+if i <= Count then  
+Text = Text..i..") :"..v[1].." | "..(linkedid).." \n" 
+end ; 
+i=i+1
+end
+end
+end
+return merolua.sendText(msg.chat_id,msg.id,Text,"md",true)
+end
+if text and msg.chat_id then
+local GetMsg = Redis:incr(TheMERON..'MERON:MsgNumbergroups'..msg.chat_id) or 1
+Redis:hset(TheMERON..':GroupUserCountMsg:groups',msg.chat_id,GetMsg)
+end
+if text and text:match("^قوقل (.*)$") then
+local F = text:match("^قوقل (.*)$") 
+local Text_mira = "⇜ اضغط على بحثك وهو "..F..""
+local reply_markup = bot.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'اضغط هنا', url = 'https://www.google.com/search?q='..F..'&ie=UTF-8&oe=UTF-8&hl=ar-sa&client=safari'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,Text_mira,"md",false, false, false, false, reply_markup)
 end
 if text == 'مسح صوت' and ChCheck(msg) then
 
@@ -18197,8 +18470,8 @@ if text and text:match("^كول (.*)$") and ChCheck(msg) and Redis:get(TheMERON.
 local txt = {string.match(text, "^(كول) (.*)$")}
 return merolua.sendText(msg_chat_id,msg_id, txt[2], 'md')
 end
-if text and text:match("^احسب (.*)$") or text and text:match("^عمري (.*)$") and ChCheck(msg) then 
-local TextAge = text:match("^احسب (.*)$") or text:match("^عمري (.*)$") 
+if text and text:match("^احسبب (.*)$") or text and text:match("^عمري (.*)$") and ChCheck(msg) then 
+local TextAge = text:match("^احسبب (.*)$") or text:match("^عمري (.*)$") 
 if not Redis:get(TheMERON..'myages'..msg.chat_id)  then
 UrlAge = io.popen('curl -s "http://185.185.127.158/youtube/age.php?Age='..URL.escape(TextAge)..'"'):read('*a')
 Age = JSON.decode(UrlAge)
@@ -23558,7 +23831,172 @@ https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.
 return merolua.sendText(msg_chat_id,msg_id,"※︙اسرع واحد يرتبها ~ {"..name.."}","md",true)  
 end
 end
+if text == "زووم" or text == "زوم" then
+if not Redis:get(TheMERON.."MERON:Status:Games"..msg.chat_id) then
+return merolua.sendText(msg.chat_id,msg.id,"⇜ الالعاب معطلة من قبل المشرفين","md",true)
+end
+KlamSpeeddd = {"فراوله","غيوم","قط","عشب","بطه","الماس","شمس","حاسبه","فطر","موقد","ساعه","حذاء","مفتاح","كرز","جبن","سلحفاه","شعر","نظاره","حمار وحشي","سلطه","بطيخ","كتاب","طماطم","ديك","كرسي","حجاب","بوصله"};
+name = KlamSpeeddd[math.random(#KlamSpeeddd)]
+Redis:set(TheMero.."mshaherrr"..msg.chat_id,name)
+name = string.gsub(name,"فراوله","https://t.me/zzommm/2")
+name = string.gsub(name,"غيوم","https://t.me/zzommm/3")
+name = string.gsub(name,"قط","https://t.me/zzommm/4")
+name = string.gsub(name,"عشب","https://t.me/zzommm/5")
+name = string.gsub(name,"بطه","https://t.me/zzommm/6")
+name = string.gsub(name,"الماس","https://t.me/zzommm/7")
+name = string.gsub(name,"شمس","https://t.me/zzommm/8")
+name = string.gsub(name,"حاسبه","https://t.me/zzommm/9")
+name = string.gsub(name,"فطر","https://t.me/zzommm/10")
+name = string.gsub(name,"موقد","https://t.me/zzommm/11")
+name = string.gsub(name,"ساعه","https://t.me/zzommm/12")
+name = string.gsub(name,"حذاء","https://t.me/zzommm/13")
+name = string.gsub(name,"مفتاح","https://t.me/zzommm/14")
+name = string.gsub(name,"كرز","https://t.me/zzommm/15")
+name = string.gsub(name,"جبن","https://t.me/zzommm/16")
+name = string.gsub(name,"سلحفاه","https://t.me/zzommm/17")
+name = string.gsub(name,"شعر","https://t.me/zzommm/18")
+name = string.gsub(name,"نظاره","https://t.me/zzommm/19")
+name = string.gsub(name,"حمار وحشي","https://t.me/zzommm/20")
+name = string.gsub(name,"سلطه","https://t.me/zzommm/21")
+name = string.gsub(name,"بطيخ","https://t.me/zzommm/22")
+name = string.gsub(name,"كتاب","https://t.me/zzommm/23")
+name = string.gsub(name,"طماطم","https://t.me/zzommm/24")
+name = string.gsub(name,"ديك","https://t.me/zzommm/25")
+name = string.gsub(name,"كرسي","https://t.me/zzommm/26")
+name = string.gsub(name,"حجاب","https://t.me/zzommm/27")
+name = string.gsub(name,"بوصله","https://t.me/zzommm/28")
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&photo="..name.."&caption="..URL.escape("اسرع واحد يعرف الصوره").."&reply_to_message_id="..(msg.id/2097152/0.5))
+end
+if text == 'الالعاب الاحترافيه' or text == 'الالعاب المتطوره' then
+local reply_markup = bot.replyMarkup{
+type = 'inline',
+data = {
+{{text="♟ Chess Game ♟",url='https://t.me/T4TTTTBOT?game=chess'}},
+{{text="لعبة فلابي بيرد 🐥",url='https://t.me/awesomebot?game=FlappyBird'},{text="تحداني فالرياضيات 🔢",url='https://t.me/gamebot?game=MathBattle'}},
+{{text="تحداني في ❌⭕️",url='t.me/XO_AABOT?start3836619'},{text="سباق الدراجات 🏍",url='https://t.me/gamee?game=MotoFX'}},
+{{text="سباق سيارات 🏎",url='https://t.me/gamee?game=F1Racer'},{text="متشابه 👾",url='https://t.me/gamee?game=DiamondRows'}},
+{{text="كرة قدم ⚽",url='https://t.me/gamee?game=FootballStar'}},
+{{text="دومنا🥇",url='https://vipgames.com/play/?affiliateId=wpDom/#/games/domino/lobby'},{text="❕ليدو",url='https://vipgames.com/play/?affiliateId=wpVG#/games/ludo/lobby'}},
+{{text="ورق🤹‍♂",url='https://t.me/gamee?game=Hexonix'},{text="Hexonix❌",url='https://t.me/gamee?game=Hexonix'}},
+{{text="MotoFx🏍️",url='https://t.me/gamee?game=MotoFx'}},
+{{text="لعبة 2048 🎰",url='https://t.me/awesomebot?game=g2048'},{text="Squares🏁",url='https://t.me/gamee?game=Squares'}},
+{{text="Atomic 1▶️",url='https://t.me/gamee?game=AtomicDrop1'},{text="Corsairs",url='https://t.me/gamebot?game=Corsairs'}},
+{{text="LumberJack",url='https://t.me/gamebot?game=LumberJack'}},
+{{text="LittlePlane",url='https://t.me/gamee?game=LittlePlane'},{text="RollerDisco",url='https://t.me/gamee?game=RollerDisco'}},
+{{text="🦖 Dragon Game 🦖",url='https://t.me/T4TTTTBOT?game=dragon'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
+{{text="🔵 Color Game 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
+{{text="🚀 Rocket Game 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 Arrow Game 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
+{{text = '🧚🏻‍♀️',url="t.me/Tepthon"}},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,'⇜ قائمة الالعاب المتطورة ',"md", true, false, false, false, reply_markup)
+end
 
+if text == "صور" then
+if not Redis:get(TheMERON.."MERON:Status:Games"..msg.chat_id) then
+return merolua.sendText(msg.chat_id,msg.id,"⇜ الالعاب معطلة من قبل المشرفين","md",true)
+end
+KlamSpeeddd = {"ديل","زيتون","بن تن","ون بيس","نمله","توت","دكتور","باونتي","عسل","سابق ولاحق","دماغ","خروف","ميكي ماوس","كرسي","كيا","عين","بي ام دبليو","بشت","لاما","ببجي","سيمبا","سبونج بوب","شاي","طبله","كابتن ماجد","اليابان","بزر","ديك رومي","لاكوست","نوكيا","بطه","غوريلا","باب","كراش","لوتس","فرشه","اسعاف","تركيا","تشيلسي","طرزان","ال جي","نوتيلا","طفايه","عدنان ولينا","فتيات القوه","دمعه","قراند","قطط","سله","فلاش","يد","كبد","الصين","مكسرات","فيمتو","باباي","كاشهد","مسجد","برايه","بطوط","باندا","كيندر","طياره","سنافر","الصين","سالي","بطريق","قرد","شاورما","ثريه","ميداليه","ماعز","سرير","هدى","بطاريه","احلام","نيسان","لابتوب","نسر","مسدس","مسواك","بير","قوقل","ملعب","دبابه","مغسله","سلم","دبور","كودو","بيانو","كهف","مشط","نقار الخشب","تفاح","طاوله","عنكبوت"};
+name = KlamSpeeddd[math.random(#KlamSpeeddd)]
+Redis:set(TheMero.."photohzr"..msg.chat_id,name)
+name = string.gsub(name,"ديل","https://t.me/hsjwjwhs82819/2")
+name = string.gsub(name,"زيتون","https://t.me/hsjwjwhs82819/3")
+name = string.gsub(name,"بن تن","https://t.me/hsjwjwhs82819/4")
+name = string.gsub(name,"ون بيس","https://t.me/hsjwjwhs82819/5")
+name = string.gsub(name,"نمله","https://t.me/hsjwjwhs82819/6")
+name = string.gsub(name,"توت","https://t.me/hsjwjwhs82819/7")
+name = string.gsub(name,"دكتور","https://t.me/hsjwjwhs82819/8")
+name = string.gsub(name,"باونتي","https://t.me/hsjwjwhs82819/9")
+name = string.gsub(name,"عسل","https://t.me/hsjwjwhs82819/10")
+name = string.gsub(name,"سابق ولاحق","https://t.me/hsjwjwhs82819/11")
+name = string.gsub(name,"دماغ","https://t.me/hsjwjwhs82819/12")
+name = string.gsub(name,"خروف","https://t.me/hsjwjwhs82819/13")
+name = string.gsub(name,"ميكي ماوس","https://t.me/hsjwjwhs82819/14")
+name = string.gsub(name,"كرسي","https://t.me/hsjwjwhs82819/15")
+name = string.gsub(name,"كيا","https://t.me/hsjwjwhs82819/16")
+name = string.gsub(name,"عين","https://t.me/hsjwjwhs82819/17")
+name = string.gsub(name,"بي ام دبليو","https://t.me/hsjwjwhs82819/18")
+name = string.gsub(name,"بشت","https://t.me/hsjwjwhs82819/19")
+name = string.gsub(name,"لاما","https://t.me/hsjwjwhs82819/20")
+name = string.gsub(name,"ببجي","https://t.me/hsjwjwhs82819/21")
+name = string.gsub(name,"سيمبا","https://t.me/hsjwjwhs82819/22")
+name = string.gsub(name,"سبونج بوب","https://t.me/hsjwjwhs82819/23")
+name = string.gsub(name,"شاي","https://t.me/hsjwjwhs82819/24")
+name = string.gsub(name,"طبله","https://t.me/hsjwjwhs82819/25")
+name = string.gsub(name,"كابتن ماجد","https://t.me/hsjwjwhs82819/26")
+name = string.gsub(name,"اليابان","https://t.me/hsjwjwhs82819/27")
+name = string.gsub(name,"بزر","https://t.me/hsjwjwhs82819/28")
+name = string.gsub(name,"ديك رومي","https://t.me/hsjwjwhs82819/29")
+name = string.gsub(name,"لاكوست","https://t.me/hsjwjwhs82819/30")
+name = string.gsub(name,"نوكيا","https://t.me/hsjwjwhs82819/31")
+name = string.gsub(name,"بطه","https://t.me/hsjwjwhs82819/32")
+name = string.gsub(name,"غوريلا","https://t.me/hsjwjwhs82819/33")
+name = string.gsub(name,"باب","https://t.me/hsjwjwhs82819/34")
+name = string.gsub(name,"كراش","https://t.me/hsjwjwhs82819/35")
+name = string.gsub(name,"لوتس","https://t.me/hsjwjwhs82819/36")
+name = string.gsub(name,"فرشه","https://t.me/hsjwjwhs82819/37")
+name = string.gsub(name,"اسعاف","https://t.me/hsjwjwhs82819/38")
+name = string.gsub(name,"تركيا","https://t.me/hsjwjwhs82819/39")
+name = string.gsub(name,"تشيلسي","https://t.me/hsjwjwhs82819/40")
+name = string.gsub(name,"طرزان","https://t.me/hsjwjwhs82819/41")
+name = string.gsub(name,"ال جي","https://t.me/hsjwjwhs82819/42")
+name = string.gsub(name,"نوتيلا","https://t.me/hsjwjwhs82819/43")
+name = string.gsub(name,"طفايه","https://t.me/hsjwjwhs82819/44")
+name = string.gsub(name,"عدنان ولينا","https://t.me/hsjwjwhs82819/45")
+name = string.gsub(name,"فتيات القوه","https://t.me/hsjwjwhs82819/46")
+name = string.gsub(name,"دمعه","https://t.me/hsjwjwhs82819/47")
+name = string.gsub(name,"قراند","https://t.me/hsjwjwhs82819/48")
+name = string.gsub(name,"قطط","https://t.me/hsjwjwhs82819/49")
+name = string.gsub(name,"سله","https://t.me/hsjwjwhs82819/50")
+name = string.gsub(name,"فلاش","https://t.me/hsjwjwhs82819/51")
+name = string.gsub(name,"يد","https://t.me/hsjwjwhs82819/52")
+name = string.gsub(name,"كبد","https://t.me/hsjwjwhs82819/53")
+name = string.gsub(name,"الصين","https://t.me/hsjwjwhs82819/54")
+name = string.gsub(name,"مكسرات","https://t.me/hsjwjwhs82819/55")
+name = string.gsub(name,"فيمتو","https://t.me/hsjwjwhs82819/56")
+name = string.gsub(name,"باباي","https://t.me/hsjwjwhs82819/57")
+name = string.gsub(name,"كالميرا","https://t.me/hsjwjwhs82819/58")
+name = string.gsub(name,"مسجد","https://t.me/hsjwjwhs82819/59")
+name = string.gsub(name,"برايه","https://t.me/hsjwjwhs82819/60")
+name = string.gsub(name,"بطوط","https://t.me/hsjwjwhs82819/61")
+name = string.gsub(name,"باندا","https://t.me/hsjwjwhs82819/62")
+name = string.gsub(name,"كيندر","https://t.me/hsjwjwhs82819/63")
+name = string.gsub(name,"طياره","https://t.me/hsjwjwhs82819/64")
+name = string.gsub(name,"سنافر","https://t.me/hsjwjwhs82819/65")
+name = string.gsub(name,"الصين","https://t.me/hsjwjwhs82819/66")
+name = string.gsub(name,"سالي","https://t.me/hsjwjwhs82819/67")
+name = string.gsub(name,"بطريق","https://t.me/hsjwjwhs82819/68")
+name = string.gsub(name,"قرد","https://t.me/hsjwjwhs82819/69")
+name = string.gsub(name,"شاورما","https://t.me/hsjwjwhs82819/70")
+name = string.gsub(name,"ثريه","https://t.me/hsjwjwhs82819/71")
+name = string.gsub(name,"ميداليه","https://t.me/hsjwjwhs82819/72")
+name = string.gsub(name,"ماعز","https://t.me/hsjwjwhs82819/73")
+name = string.gsub(name,"سرير","https://t.me/hsjwjwhs82819/74")
+name = string.gsub(name,"هدى","https://t.me/hsjwjwhs82819/75")
+name = string.gsub(name,"بطاريه","https://t.me/hsjwjwhs82819/76")
+name = string.gsub(name,"احلام","https://t.me/hsjwjwhs82819/77")
+name = string.gsub(name,"نيسان","https://t.me/hsjwjwhs82819/78")
+name = string.gsub(name,"لابتوب","https://t.me/hsjwjwhs82819/79")
+name = string.gsub(name,"نسر","https://t.me/hsjwjwhs82819/80")
+name = string.gsub(name,"مسدس","https://t.me/hsjwjwhs82819/81")
+name = string.gsub(name,"مسواك","https://t.me/hsjwjwhs82819/82")
+name = string.gsub(name,"بير","https://t.me/hsjwjwhs82819/83")
+name = string.gsub(name,"قوقل","https://t.me/hsjwjwhs82819/84")
+name = string.gsub(name,"ملعب","https://t.me/hsjwjwhs82819/85")
+name = string.gsub(name,"دبابه","https://t.me/hsjwjwhs82819/86")
+name = string.gsub(name,"مغسله","https://t.me/hsjwjwhs82819/87")
+name = string.gsub(name,"سلم","https://t.me/hsjwjwhs82819/88")
+name = string.gsub(name,"دبور","https://t.me/hsjwjwhs82819/89")
+name = string.gsub(name,"كودو","https://t.me/hsjwjwhs82819/90")
+name = string.gsub(name,"بيانو","https://t.me/hsjwjwhs82819/91")
+name = string.gsub(name,"كهف","https://t.me/hsjwjwhs82819/92")
+name = string.gsub(name,"مشط","https://t.me/hsjwjwhs82819/93")
+name = string.gsub(name,"نقار الخشب","https://t.me/hsjwjwhs82819/94")
+name = string.gsub(name,"تفاح","https://t.me/hsjwjwhs82819/95")
+name = string.gsub(name,"طاوله","https://t.me/hsjwjwhs82819/96")
+name = string.gsub(name,"عنكبوت","https://t.me/hsjwjwhs82819/97")
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&photo="..name.."&caption="..URL.escape("اسرع واحد يعرف الصورة").."&reply_to_message_id="..(msg.id/2097152/0.5))
+end
 if text == "صراحه" or text == "جرأه" then
 if Redis:get(TheMERON.."MERON:Status:Games"..msg.chat_id) then
 local texting = {
