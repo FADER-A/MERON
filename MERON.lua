@@ -12742,8 +12742,8 @@ local NumRand1 = math.random(1, #List_Members);
 local NumRand2 = math.random(1, #List_Members); 
 local user1 = List_Members[NumRand1].member_id.user_id
 local user2 = List_Members[NumRand2].member_id.user_id
-local UserInfo = bot.getUser(user1)
-local UserInfoo = bot.getUser(user2)
+local UserInfo = merolua.getUser(user1)
+local UserInfoo = merolua.getUser(user2)
 local listTow = "• تم إختيار ثنائي اليوم : \n["..FlterBio(UserInfo.first_name).."](tg://user?id="..UserInfo.id..") + ["..UserInfoo.first_name.."](tg://user?id="..UserInfoo.id..") = ❤️\n⏳ سيتم اختيار ثنائي آخر بعد 24 ساعة"
 Redis:set(TheMERON.."ThnaeeDay:nameone"..msg.chat_id,FlterBio(UserInfo.first_name))
 Redis:set(TheMERON.."ThnaeeDay:nametwo"..msg.chat_id,FlterBio(UserInfoo.first_name))
@@ -12759,8 +12759,8 @@ local NumRand1 = math.random(1, #List_Members);
 local NumRand2 = math.random(1, #List_Members); 
 local user1 = List_Members[NumRand1].member_id.user_id
 local user2 = List_Members[NumRand2].member_id.user_id
-local UserInfo = bot.getUser(user1)
-local UserInfoo = bot.getUser(user2)
+local UserInfo = merolua.getUser(user1)
+local UserInfoo = merolua.getUser(user2)
 local listTow = "• تم إختيار ثنائي اليوم : \n["..FlterBio(UserInfo.first_name).."](tg://user?id="..UserInfo.id..") + ["..UserInfoo.first_name.."](tg://user?id="..UserInfoo.id..") = ❤️\n⏳ سيتم اختيار ثنائي آخر بعد 24 ساعة"
 Redis:set(TheMERON.."ThnaeeDay:nameone"..msg.chat_id,FlterBio(UserInfo.first_name))
 Redis:set(TheMERON.."ThnaeeDay:nametwo"..msg.chat_id,FlterBio(UserInfoo.first_name))
