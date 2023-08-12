@@ -26670,42 +26670,30 @@ end
 if not Redis:get(TheMERON.."lock_getpankiuser"..msg.chat_id) then
 
 if text == 'انشاء حساب بنكي' or text == 'انشاء حساب البنكي' or text =='انشاء الحساب بنكي' or text =='انشاء الحساب البنكي' or text == "انشاء حساب" or text == "فتح حساب بنكي" then
+
 cobnum = tonumber(Redis:get(TheMERON.."bandid"..msg.sender_id.user_id))
 if cobnum == msg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id, "← حسابك محظور من لعبة البنك","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ حسابك محظور من لعبة البنك","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← لديك حساب بنكي مسبقاً\n\n← لعرض معلومات حسابك اكتب\n← `حسابي`","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لديك حساب بنكي مسبقاً\n\n⇜ لعرض معلومات حسابك اكتب\n⇠ `حسابي`","md",true)
 end
-ttshakse = '← عشان تسوي حساب لازم تختار نوع البطاقة\n〰'
-local reply_markup = bot.replyMarkup{
+ttshakse = '⇜ عشان تسوي حساب اختار نوع بطاقتك'
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
 {text = 'ماستر', data = msg.sender_id.user_id..'/master'},{text = 'فيزا', data = msg.sender_id.user_id..'/visaa'},{text = 'اكسبرس', data = msg.sender_id.user_id..'/express'},
 },
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .',url="t.me/JJXXH"}, 
+{text = '🧚🏻‍♀️',url="t.me/Tepthon"}, 
 }
 }
 return merolua.sendText(msg.chat_id,msg.id,ttshakse,"md",false, false, false, false, reply_markup)
 end
 if text == 'مسح حساب بنكي' or text == 'مسح حساب البنكي' or text =='مسح الحساب بنكي' or text =='مسح الحساب البنكي' or text == "مسح حسابي البنكي" or text == "مسح حسابي بنكي" or text == "مسح حسابي" then
+
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← مسحت حسابك البنكي 🏦","md",true)
-----
-local Cname = Redis:get(TheMERON.."companys_name:"..msg.sender_id.user_id)
-print(Cname)
-if Cname then
-for k,v in pairs(Redis:smembers(TheMERON.."company:mem:"..Cname)) do
-Redis:srem(TheMERON.."in_company:", v)
-end
-Redis:srem(TheMERON.."companys:", Cname)
-Redis:srem(TheMERON.."company_owners:", msg.sender_id.user_id)
-Redis:srem(TheMERON.."in_company:", msg.sender_id.user_id)
-Redis:del(TheMERON.."companys_id:"..Cname)
-Redis:del(TheMERON.."company:mem:"..Cname)
-Redis:del(TheMERON.."companys_name:"..msg.sender_id.user_id)
-end
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مسحت حسابك البنكي 🏦","md",true)
 Redis:srem(TheMERON.."booob", msg.sender_id.user_id)
 Redis:srem(TheMERON.."taza", msg.sender_id.user_id)
 Redis:del(TheMERON.."boob"..msg.sender_id.user_id)
@@ -26720,6 +26708,7 @@ Redis:del(TheMERON.."rahr1"..msg.sender_id.user_id)
 Redis:del(TheMERON.."rahrr1"..msg.sender_id.user_id)
 Redis:del(TheMERON.."tabbroat"..msg.sender_id.user_id)
 Redis:del(TheMERON.."shkse"..msg.sender_id.user_id)
+Redis:del(TheMERON.."doltebank"..msg.sender_id.user_id)
 Redis:del(TheMERON.."ratbinc"..msg.sender_id.user_id)
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mgrmasname"..msg.sender_id.user_id)
@@ -26756,6 +26745,7 @@ Redis:del(TheMERON.."carsonaname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carsonanum"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carcoroname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carcoronum"..msg.sender_id.user_id)
+namfra = Redis:get(TheMERON.."namefram"..msg.sender_id.user_id)
 Redis:del(TheMERON.."toplvfarm"..msg.sender_id.user_id)
 Redis:del(TheMERON.."btatatime"..msg.sender_id.user_id)
 Redis:del(TheMERON.."btatanum"..msg.sender_id.user_id)
@@ -26778,6 +26768,15 @@ Redis:del(TheMERON.."fleflaname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."freaztime"..msg.sender_id.user_id)
 Redis:del(TheMERON.."freaznum"..msg.sender_id.user_id)
 Redis:del(TheMERON.."freazname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."doratime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."doranum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."doraname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tomtime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tomnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tomname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."ftrtime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."ftrnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."ftrname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."tfahtime"..msg.sender_id.user_id)
 Redis:del(TheMERON.."tfahnum"..msg.sender_id.user_id)
 Redis:del(TheMERON.."tfahname"..msg.sender_id.user_id)
@@ -26790,267 +26789,105 @@ Redis:del(TheMERON.."zetonname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mozztime"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mozznum"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mozzname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mangatime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."manganum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."manganame"..msg.sender_id.user_id)
 Redis:del(TheMERON.."sizefram"..msg.sender_id.user_id)
 Redis:del(TheMERON.."namefram"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mzroatsize"..msg.sender_id.user_id)
-local namfra = Redis:get(TheMERON.."namefram"..msg.sender_id.user_id)
-if namfra then
 Redis:srem(TheMERON.."farmarname", namfra)
-end
 Redis:srem(TheMERON.."ownerfram",msg.sender_id.user_id)
+namenad = Redis:get(TheMERON.."lkbnade"..msg.sender_id.user_id)
+Redis:del(TheMERON.."namenade"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nokatnade"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energynade"..msg.sender_id.user_id)
+Redis:del(TheMERON.."traningnade"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."5"..msg.sender_id.user_id)
+Redis:srem(TheMERON.."lkbnadesadd", namenad)
+Redis:srem(TheMERON.."ownernade",msg.sender_id.user_id)
+Redis:del(TheMERON.."lkbnade"..msg.sender_id.user_id)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
-if text == 'تثبيت النتائج' or text == 'تثبيت نتائج' then
-if msg.Asasy then
-time = os.date("*t")
-month = time.month
-day = time.day
-local_time = month.."/"..day
-local bank_users = Redis:smembers(TheMERON.."booob")
-if #bank_users == 0 then
-return merolua.sendText(msg.chat_id,msg.id,"← لا يوجد حسابات في البنك","md",true)
-end
-mony_list = {}
-for k,v in pairs(bank_users) do
-local mony = Redis:get(TheMERON.."boob"..v)
-table.insert(mony_list, {tonumber(mony) , v})
-end
-table.sort(mony_list, function(a, b) return a[1] > b[1] end)
-num = 1
-emoji ={ 
-"🥇",
-"🥈",
-"🥉"
-}
-for k,v in pairs(mony_list) do
-local user_name = bot.getUser(v[2]).first_name or "لا يوجد اسم"
-local mony = v[1]
-local convert_mony = string.format("%.0f",mony)
-local emo = emoji[k]
-num = num + 1
-Redis:set(TheMERON.."medal"..v[2],convert_mony)
-Redis:set(TheMERON.."medal2"..v[2],emo)
-Redis:set(TheMERON.."medal3"..v[2],local_time)
-Redis:sadd(TheMERON.."medalid",v[2])
-Redis:set(TheMERON.."medal"..v[2],convert_mony)
-Redis:set(TheMERON.."medal2"..v[2],emo)
-Redis:set(TheMERON.."medal3"..v[2],local_time)
-Redis:sadd(TheMERON.."medalid",v[2])
-local user_name = bot.getUser(v[2]).first_name or "لا يوجد اسم"
-local user_tag = '['..user_name..'](tg://user?id='..v[2]..')'
-local mony = v[1]
-local convert_mony = string.format("%.0f",mony)
-local emo = emoji[k]
-num = num + 1
-Redis:set(TheMERON.."medal"..v[2],convert_mony)
-Redis:set(TheMERON.."medal2"..v[2],emo)
-Redis:set(TheMERON.."medal3"..v[2],local_time)
-Redis:sadd(TheMERON.."medalid",v[2])
-if num == 4 then
-return end
-end
-return merolua.sendText(msg.chat_id,msg.id, "← تم تثبيت النتائج","md",true)
-end
-end
-if text == 'مسح كل الفلوس' or text == 'مسح كل فلوس' then
-if msg.Asasy then
-local bank_users = Redis:smembers(TheMERON.."booob")
-for k,v in pairs(bank_users) do
-Redis:del(TheMERON.."boob"..v)
-Redis:del(TheMERON.."kreednum"..v)
-Redis:del(TheMERON.."kreed"..v)
-Redis:del(TheMERON.."rrfff"..v)
-Redis:del(TheMERON.."tabbroat"..v)
-Redis:del(TheMERON.."ratbinc"..v)
-Redis:del(TheMERON.."ratbtrans"..v)
-Redis:del(TheMERON.."mgrmasname"..v)
-Redis:del(TheMERON.."mgrmasnum"..v)
-Redis:del(TheMERON.."mgrkldname"..v)
-Redis:del(TheMERON.."mgrkldnum"..v)
-Redis:del(TheMERON.."mgrswrname"..v)
-Redis:del(TheMERON.."mgrswrnum"..v)
-Redis:del(TheMERON.."mgrktmname"..v)
-Redis:del(TheMERON.."mgrktmnum"..v)
-Redis:del(TheMERON.."akrksrname"..v)
-Redis:del(TheMERON.."akrksrnum"..v)
-Redis:del(TheMERON.."akrfelname"..v)
-Redis:del(TheMERON.."akrfelnum"..v)
-Redis:del(TheMERON.."akrmnzname"..v)
-Redis:del(TheMERON.."akrmnznum"..v)
-Redis:del(TheMERON.."airshbhname"..v)
-Redis:del(TheMERON.."airshbhnum"..v)
-Redis:del(TheMERON.."airsfarname"..v)
-Redis:del(TheMERON.."airsfarnum"..v)
-Redis:del(TheMERON.."airkhasname"..v)
-Redis:del(TheMERON.."airkhasnum"..v)
-Redis:del(TheMERON.."carrangname"..v)
-Redis:del(TheMERON.."carrangnum"..v)
-Redis:del(TheMERON.."caraccename"..v)
-Redis:del(TheMERON.."caraccenum"..v)
-Redis:del(TheMERON.."carcamrname"..v)
-Redis:del(TheMERON.."carcamrnum"..v)
-Redis:del(TheMERON.."caralntrname"..v)
-Redis:del(TheMERON.."caralntrnum"..v)
-Redis:del(TheMERON.."carhilxname"..v)
-Redis:del(TheMERON.."carhilxnum"..v)
-Redis:del(TheMERON.."carsonaname"..v)
-Redis:del(TheMERON.."carsonanum"..v)
-Redis:del(TheMERON.."carcoroname"..v)
-Redis:del(TheMERON.."carcoronum"..v)
-end
-local bank_usersr = Redis:smembers(TheMERON.."rrfffid")
-for k,v in pairs(bank_usersr) do
-Redis:del(TheMERON.."boob"..v)
-Redis:del(TheMERON.."rrfff"..v)
-end
-return merolua.sendText(msg.chat_id,msg.id, "← مسحت كل فلوس اللعبة 🏦","md",true)
-end
-end
-if text == 'تصفير النتائج' or text == 'مسح لعبه البنك' then
-if msg.Asasy then
-local bank_users = Redis:smembers(TheMERON.."booob")
-for k,v in pairs(bank_users) do
-Redis:del(TheMERON.."boob"..v)
-Redis:del(TheMERON.."kreednum"..v)
-Redis:del(TheMERON.."kreed"..v)
-Redis:del(TheMERON.."rrfff"..v)
-Redis:del(TheMERON.."numattack"..v)
-Redis:del(TheMERON.."tabbroat"..v)
-Redis:del(TheMERON.."shkse"..v)
-Redis:del(TheMERON.."ratbinc"..v)
-Redis:del(TheMERON.."ratbtrans"..v)
-Redis:del(TheMERON.."mgrmasname"..v)
-Redis:del(TheMERON.."mgrmasnum"..v)
-Redis:del(TheMERON.."mgrkldname"..v)
-Redis:del(TheMERON.."mgrkldnum"..v)
-Redis:del(TheMERON.."mgrswrname"..v)
-Redis:del(TheMERON.."mgrswrnum"..v)
-Redis:del(TheMERON.."mgrktmname"..v)
-Redis:del(TheMERON.."mgrktmnum"..v)
-Redis:del(TheMERON.."akrksrname"..v)
-Redis:del(TheMERON.."akrksrnum"..v)
-Redis:del(TheMERON.."akrfelname"..v)
-Redis:del(TheMERON.."akrfelnum"..v)
-Redis:del(TheMERON.."akrmnzname"..v)
-Redis:del(TheMERON.."akrmnznum"..v)
-Redis:del(TheMERON.."airshbhname"..v)
-Redis:del(TheMERON.."airshbhnum"..v)
-Redis:del(TheMERON.."airsfarname"..v)
-Redis:del(TheMERON.."airsfarnum"..v)
-Redis:del(TheMERON.."airkhasname"..v)
-Redis:del(TheMERON.."airkhasnum"..v)
-Redis:del(TheMERON.."carrangname"..v)
-Redis:del(TheMERON.."carrangnum"..v)
-Redis:del(TheMERON.."caraccename"..v)
-Redis:del(TheMERON.."caraccenum"..v)
-Redis:del(TheMERON.."carcamrname"..v)
-Redis:del(TheMERON.."carcamrnum"..v)
-Redis:del(TheMERON.."caralntrname"..v)
-Redis:del(TheMERON.."caralntrnum"..v)
-Redis:del(TheMERON.."carhilxname"..v)
-Redis:del(TheMERON.."carhilxnum"..v)
-Redis:del(TheMERON.."carsonaname"..v)
-Redis:del(TheMERON.."carsonanum"..v)
-Redis:del(TheMERON.."carcoroname"..v)
-Redis:del(TheMERON.."carcoronum"..v)
-end
-for k,v in pairs(Redis:smembers(TheMERON.."company_owners:")) do 
-local Cname = Redis:get(TheMERON.."companys_name:"..v)
-Redis:del(TheMERON.."companys_owner:"..Cname)
-Redis:del(TheMERON.."companys_id:"..Cname)
-Redis:del(TheMERON.."company:mem:"..Cname)
-Redis:del(TheMERON.."companys_name:"..v)
-end
-Redis:del(TheMERON.."company_owners:")
-Redis:del(TheMERON.."companys:")
-Redis:del(TheMERON.."in_company:")
-local bank_usersr = Redis:smembers(TheMERON.."rrfffid")
-for k,v in pairs(bank_usersr) do
-Redis:del(TheMERON.."boob"..v)
-Redis:del(TheMERON.."rrfff"..v)
-end
-Redis:del(TheMERON.."rrfffid")
-Redis:del(TheMERON.."booob")
-Redis:del(TheMERON.."taza")
-return merolua.sendText(msg.chat_id,msg.id, "← مسحت لعبه البنك 🏦","md",true)
-end
-end
-if text == 'ميدالياتي' or text == 'ميداليات' then
-if Redis:sismember(TheMERON.."medalid",msg.sender_id.user_id) then
-local medaa2 = Redis:get(TheMERON.."medal2"..msg.sender_id.user_id)
-if medaa2 == "🥇" then
-local medaa = Redis:get(TheMERON.."medal"..msg.sender_id.user_id)
-local medaa2 = Redis:get(TheMERON.."medal2"..msg.sender_id.user_id)
-local medaa3 = Redis:get(TheMERON.."medal3"..msg.sender_id.user_id)
-return merolua.sendText(msg.chat_id,msg.id, "ميدالياتك :\n\nالتاريخ : "..medaa3.." \nالفلوس : "..medaa.." 💵\nالمركز : "..medaa2.." كونكر "..medaa2.."\n〰","md",true)
-elseif medaa2 == "🥈" then
-local medaa = Redis:get(TheMERON.."medal"..msg.sender_id.user_id)
-local medaa2 = Redis:get(TheMERON.."medal2"..msg.sender_id.user_id)
-local medaa3 = Redis:get(TheMERON.."medal3"..msg.sender_id.user_id)
-return merolua.sendText(msg.chat_id,msg.id, "ميدالياتك :\n\nالتاريخ : "..medaa3.." \nالفلوس : "..medaa.." 💵\nالمركز : "..medaa2.." ايس "..medaa2.."\n〰","md",true)
-else
-local medaa = Redis:get(TheMERON.."medal"..msg.sender_id.user_id)
-local medaa2 = Redis:get(TheMERON.."medal2"..msg.sender_id.user_id)
-local medaa3 = Redis:get(TheMERON.."medal3"..msg.sender_id.user_id)
-return merolua.sendText(msg.chat_id,msg.id, "ميدالياتك :\n\nالتاريخ : "..medaa3.." \nالفلوس : "..medaa.." 💵\nالمركز : "..medaa2.." كراون "..medaa2.."\n〰","md",true)
-end
-else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش ميداليات","md",true)
-end
-end
+
 if text == 'فلوسي' or text == 'فلوس' and tonumber(msg.reply_to_message_id) == 0 then
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if tonumber(ballancee) < 1 then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش فلوس ارسل الالعاب وابدأ بجمع الفلوس \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك فلوس \n✧","md",true)
 end
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك `"..convert_mony.."` جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك `"..convert_mony.."`  ريال 💵","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match("^فلوس @(%S+)$") or text and text:match("^فلوسه @(%S+)$") then
 local UserName = text:match("^فلوس @(%S+)$") or text:match("^فلوسه @(%S+)$")
 local UserId_Info = bot.searchPublicChat(UserName)
 if not UserId_Info.id then
-return merolua.sendText(msg.chat_id,msg.id,"\n← مافيه حساب كذا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ مافيه حساب كذا ","md",true)
 end
-local UserInfo = bot.getUser(UserId_Info.id)
+local UserInfo = merolua.getUser(UserId_Info.id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n← هذا بوت 🤡 ","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ هذا بوت  ","md",true)  
 end
 if Redis:sismember(TheMERON.."booob",UserId_Info.id) then
 ballanceed = Redis:get(TheMERON.."boob"..UserId_Info.id) or 0
 local convert_mony = string.format("%.0f",ballanceed)
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسه `"..convert_mony.."` جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسه `"..convert_mony.."` ريال 💵","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 end
 if text == 'فلوسه' or text == 'فلوس' and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف معندهوش حساب بالبنك 🤣*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها حساب بالبنك ","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 ballanceed = Redis:get(TheMERON.."boob"..Remsg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballanceed)
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسه `"..convert_mony.."` جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسه `"..convert_mony.."` ريال 💵","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 end
 if text == 'حسابي' or text == 'حسابي البنكي' or text == 'رقم حسابي' then
-local ban = bot.getUser(msg.sender_id.user_id)
+
+local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
 news = ""..ban.first_name..""
 else
-news = " لا يوجد"
+news = " لا يوجد اسم"
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
 cccc = Redis:get(TheMERON.."boobb"..msg.sender_id.user_id)
@@ -27058,30 +26895,31 @@ uuuu = Redis:get(TheMERON.."bbobb"..msg.sender_id.user_id)
 pppp = Redis:get(TheMERON.."rrfff"..msg.sender_id.user_id) or 0
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 shkse = Redis:get(TheMERON.."shkse"..msg.sender_id.user_id)
+doltebank = Redis:get(TheMERON.."doltebank"..msg.sender_id.user_id)
 local convert_mony = string.format("%.0f",ballancee)
 if shkse == "طيبة" then
 shkseemg = "طيبة 😇"
 else
 shkseemg = "شريرة 😈"
 end
-return merolua.sendText(msg.chat_id,msg.id, "← الاسم ↢ "..news.."\n← الحساب ↢ `"..cccc.."`\n← بنك ↢ ( كريتف )\n← نوع ↢ ( "..uuuu.." )\n← الرصيد ↢ ( "..convert_mony.." جنيه 💵 )\n← الزرف ( "..math.floor(pppp).." جنيه 💵 )\n← شخصيتك : "..shkseemg.."\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الاسم ↤ "..news.."\n⇜ الحساب ↤ `"..cccc.."`\n⇜ بنك ↤ ❲ ريما ❳\n⇜ نوع ↤ ❲ "..uuuu.." ❳\n⇜ الرصيد ↤ ❲ "..convert_mony.." ريال 💵 ❳\n⇜ الزرف ❲ "..math.floor(pppp).." ريال 💵 ❳\n⇜ شخصيتك ↤ ❲ "..shkseemg.." ❳\n⇜ دولتك ↤ ❲ "..doltebank.." ❳","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == 'مسح حسابه' and tonumber(msg.reply_to_message_id) ~= 0 then
-if msg.Asasy then
+if msg.ControllerBot then
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف معندهوش حساب بالبنك 🤣*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها حساب بالبنك ","md",true)  
 return false
 end
-local ban = bot.getUser(Remsg.sender_id.user_id)
+local ban = merolua.getUser(Remsg.sender_id.user_id)
 if ban.first_name then
 news = ""..ban.first_name..""
 else
-news = " لا يوجد"
+news = " لا يوجد اسم"
 end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local Cname = Redis:get(TheMERON.."in_company:name:"..msg.sender_id.user_id) or 0
@@ -27095,6 +26933,7 @@ ballanceed = Redis:get(TheMERON.."boob"..Remsg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballanceed)
 Redis:srem(TheMERON.."booob", Remsg.sender_id.user_id)
 Redis:srem(TheMERON.."taza", Remsg.sender_id.user_id)
+namfra = Redis:get(TheMERON.."namefram"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."boob"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."boobb"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."rrfff"..Remsg.sender_id.user_id)
@@ -27108,6 +26947,7 @@ Redis:del(TheMERON.."rahr1"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."rahrr1"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."tabbroat"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."shkse"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."doltebank"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."ratbinc"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."ratbtrans"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."mgrmasname"..Remsg.sender_id.user_id)
@@ -27144,24 +26984,116 @@ Redis:del(TheMERON.."carsonaname"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."carsonanum"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."carcoroname"..Remsg.sender_id.user_id)
 Redis:del(TheMERON.."carcoronum"..Remsg.sender_id.user_id)
-return merolua.sendText(msg.chat_id,msg.id, "← الاسم ↢ "..news.."\n← الحساب ↢ `"..ccccc.."`\n← بنك ↢ ( كريتف )\n← نوع ↢ ( "..uuuuu.." )\n← الرصيد ↢ ( "..convert_mony.." جنيه 💵 )\n← الزرف ↢ ( "..math.floor(ppppp).." جنيه 💵 )\n← مسكين مسحت حسابه \n〰","md",true)
+Redis:del(TheMERON.."rotpa"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."rddd"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."rotpagrid"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."rotpaid"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."rdddgr"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."rdddid"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."rdddtex"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."toplvfarm"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."btatatime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."btatanum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."btataname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."lemontime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."lemonnum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."lemonname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."khesstime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."khessnum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."khessname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."kheartime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."khearnum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."khearname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."jzartime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."jzarnum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."jzarname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."fleflatime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."fleflanum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."fleflaname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."freaztime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."freaznum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."freazname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."doratime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."doranum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."doraname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."tomtime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."tomnum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."tomname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."ftrtime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."ftrnum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."ftrname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."tfahtime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."tfahnum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."tfahname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."enabtime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."enabnum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."enabname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."zetontime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."zetonnum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."zetonname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."mozztime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."mozznum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."mozzname"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."mangatime"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."manganum"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."manganame"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."sizefram"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."namefram"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."mzroatsize"..Remsg.sender_id.user_id)
+Redis:srem(TheMERON.."farmarname", namfra)
+Redis:srem(TheMERON.."ownerfram",Remsg.sender_id.user_id)
+namenad = Redis:get(TheMERON.."lkbnade"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."namenade"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."nokatnade"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."energynade"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."traningnade"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."1"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."2"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."3"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."4"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."5"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."1"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."2"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."3"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."4"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."5"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."1"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."2"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."3"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."4"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."5"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."1"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."2"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."3"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."4"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."5"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."1"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."2"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."3"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."4"..Remsg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."5"..Remsg.sender_id.user_id)
+Redis:srem(TheMERON.."lkbnadesadd", namenad)
+Redis:srem(TheMERON.."ownernade",Remsg.sender_id.user_id)
+Redis:del(TheMERON.."lkbnade"..Remsg.sender_id.user_id)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الاسم ↤ "..news.."\n⇜ الحساب ↤ `"..ccccc.."`\n⇜ بنك ↤ ❲ ريما ❳\n⇜ نوع ❲ "..uuuuu.." ❳\n⇜ الرصيد ↤ ❲ "..convert_mony.." ريال 💵 ❳\n⇜ الزرف ↤ ❲ "..math.floor(ppppp).." ريال 💵 ❳\n⇜ مسكين مسحت حسابه","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي اصلاً ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي اصلاً ","md",true)
 end
 end
 end
 if text == 'حسابه' and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف معندهوش حساب بالبنك 🤣*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها حساب بالبنك ","md",true)  
 return false
 end
-local ban = bot.getUser(Remsg.sender_id.user_id)
+local ban = merolua.getUser(Remsg.sender_id.user_id)
 if ban.first_name then
 news = ""..ban.first_name..""
 else
-news = " لا يوجد"
+news = " لا يوجد اسم"
 end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 ccccc = Redis:get(TheMERON.."boobb"..Remsg.sender_id.user_id)
@@ -27169,26 +27101,52 @@ uuuuu = Redis:get(TheMERON.."bbobb"..Remsg.sender_id.user_id)
 ppppp = Redis:get(TheMERON.."rrfff"..Remsg.sender_id.user_id) or 0
 ballanceed = Redis:get(TheMERON.."boob"..Remsg.sender_id.user_id) or 0
 shkse = Redis:get(TheMERON.."shkse"..Remsg.sender_id.user_id)
+doltebank = Redis:get(TheMERON.."doltebank"..Remsg.sender_id.user_id)
 local convert_mony = string.format("%.0f",ballanceed)
 if shkse == "طيبة" then
 shkseemg = "طيبة 😇"
 else
 shkseemg = "شريرة 😈"
 end
-return merolua.sendText(msg.chat_id,msg.id, "← الاسم ↢ "..news.."\n← الحساب ↢ `"..ccccc.."`\n← بنك ↢ ( كريتف )\n← نوع ↢ ( "..uuuuu.." )\n← الرصيد ↢ ( "..convert_mony.." جنيه 💵 )\n← الزرف ↢ ( "..math.floor(ppppp).." جنيه 💵 )\n← شخصيته : "..shkseemg.."\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الاسم ↤ "..news.."\n⇜ الحساب ↤ `"..ccccc.."`\n⇜ بنك ↤ ❲ ريما ❳\n⇜ نوع ↤ ❲ "..uuuuu.." ❳\n⇜ الرصيد ↤ ❲ "..convert_mony.." ريال 💵 ❳\n⇜ الزرف ↤ ❲ "..math.floor(ppppp).." ريال 💵 ❳\n⇜ شخصيتك ↤ ❲ "..shkseemg.." ❳\n⇜ دولتك ↤ ❲ "..doltebank.." ❳ ","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
+end
+end
+if text and text:match('^نسبه الحظ (.*)$') or text and text:match('^نسبة الحظ (.*)$') then
+if msg.ControllerBot then
+local UserName = text:match('^نسبه الحظ (.*)$') or text:match('^نسبة الحظ (.*)$')
+local coniss = coin(UserName)
+if coniss == 0 then
+Redis:del(TheMERON.."nsbhad"..1)
+Redis:set(TheMERON.."nsbhad"..1,0)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم تعيين نسبة الحظ 0%","md",true)
+elseif coniss == 50 then
+Redis:del(TheMERON.."nsbhad"..1)
+Redis:set(TheMERON.."nsbhad"..1,50)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم تعيين نسبة الحظ 50%","md",true)
+elseif coniss == 75 then
+Redis:del(TheMERON.."nsbhad"..1)
+Redis:set(TheMERON.."nsbhad"..1,75)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم تعيين نسبة الحظ 75%","md",true)
+elseif coniss == 100 then
+Redis:del(TheMERON.."nsbhad"..1)
+Redis:set(TheMERON.."nsbhad"..1,100)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم تعيين نسبة الحظ 100%","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ نسبة الحظ خطأ\n⇜ يرجى اختيار النسبة كالتالي :\n⇜ نسبه الحظ 0 او 50 او 75 او 100","md",true)
+end
 end
 end
 if text and text:match('^مسح حساب (.*)$') or text and text:match('^مسح حسابه (.*)$') then
-if msg.Asasy then
+if msg.ControllerBot then
 local UserName = text:match('^مسح حساب (.*)$') or text:match('^مسح حسابه (.*)$')
 local coniss = coin(UserName)
-local ban = bot.getUser(coniss)
+local ban = merolua.getUser(coniss)
 if ban.first_name then
 news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
-news = " لا يوجد "
+news = " لا يوجد اسم "
 end
 if Redis:sismember(TheMERON.."booob",coniss) then
 local Cname = Redis:get(TheMERON.."in_company:name:"..coniss) or 0
@@ -27200,6 +27158,7 @@ uuuuu = Redis:get(TheMERON.."bbobb"..coniss)
 ppppp = Redis:get(TheMERON.."rrfff"..coniss) or 0
 ballanceed = Redis:get(TheMERON.."boob"..coniss) or 0
 local convert_mony = string.format("%.0f",ballanceed)
+namfra = Redis:get(TheMERON.."namefram"..coniss)
 Redis:srem(TheMERON.."booob", coniss)
 Redis:srem(TheMERON.."taza", coniss)
 Redis:del(TheMERON.."boob"..coniss)
@@ -27213,6 +27172,7 @@ Redis:del(TheMERON.."rahr1"..coniss)
 Redis:del(TheMERON.."rahrr1"..coniss)
 Redis:del(TheMERON.."tabbroat"..coniss)
 Redis:del(TheMERON.."shkse"..coniss)
+Redis:del(TheMERON.."doltebank"..coniss)
 Redis:del(TheMERON.."ratbinc"..coniss)
 Redis:del(TheMERON.."ratbtrans"..coniss)
 Redis:del(TheMERON.."numattack"..coniss)
@@ -27251,13 +27211,105 @@ Redis:del(TheMERON.."carsonanum"..coniss)
 Redis:del(TheMERON.."carcoroname"..coniss)
 Redis:del(TheMERON.."carcoronum"..coniss)
 Redis:srem(TheMERON.."rrfffid", coniss)
-return merolua.sendText(msg.chat_id,msg.id, "← الاسم ↢ "..news.."\n← الحساب ↢ `"..ccccc.."`\n← بنك ↢ ( كريتف )\n← نوع ↢ ( "..uuuuu.." )\n← الرصيد ↢ ( "..convert_mony.." جنيه 💵 )\n← الزرف ↢ ( "..math.floor(ppppp).." جنيه 💵 )\n← مسكين مسحت حسابه \n〰","md",true)
+Redis:del(TheMERON.."rotpa"..coniss)
+Redis:del(TheMERON.."rddd"..coniss)
+Redis:del(TheMERON.."rotpagrid"..coniss)
+Redis:del(TheMERON.."rotpaid"..coniss)
+Redis:del(TheMERON.."rdddgr"..coniss)
+Redis:del(TheMERON.."rdddid"..coniss)
+Redis:del(TheMERON.."rdddtex"..coniss)
+Redis:del(TheMERON.."toplvfarm"..coniss)
+Redis:del(TheMERON.."btatatime"..coniss)
+Redis:del(TheMERON.."btatanum"..coniss)
+Redis:del(TheMERON.."btataname"..coniss)
+Redis:del(TheMERON.."lemontime"..coniss)
+Redis:del(TheMERON.."lemonnum"..coniss)
+Redis:del(TheMERON.."lemonname"..coniss)
+Redis:del(TheMERON.."khesstime"..coniss)
+Redis:del(TheMERON.."khessnum"..coniss)
+Redis:del(TheMERON.."khessname"..coniss)
+Redis:del(TheMERON.."kheartime"..coniss)
+Redis:del(TheMERON.."khearnum"..coniss)
+Redis:del(TheMERON.."khearname"..coniss)
+Redis:del(TheMERON.."jzartime"..coniss)
+Redis:del(TheMERON.."jzarnum"..coniss)
+Redis:del(TheMERON.."jzarname"..coniss)
+Redis:del(TheMERON.."fleflatime"..coniss)
+Redis:del(TheMERON.."fleflanum"..coniss)
+Redis:del(TheMERON.."fleflaname"..coniss)
+Redis:del(TheMERON.."freaztime"..coniss)
+Redis:del(TheMERON.."freaznum"..coniss)
+Redis:del(TheMERON.."freazname"..coniss)
+Redis:del(TheMERON.."doratime"..coniss)
+Redis:del(TheMERON.."doranum"..coniss)
+Redis:del(TheMERON.."doraname"..coniss)
+Redis:del(TheMERON.."tomtime"..coniss)
+Redis:del(TheMERON.."tomnum"..coniss)
+Redis:del(TheMERON.."tomname"..coniss)
+Redis:del(TheMERON.."ftrtime"..coniss)
+Redis:del(TheMERON.."ftrnum"..coniss)
+Redis:del(TheMERON.."ftrname"..coniss)
+Redis:del(TheMERON.."tfahtime"..coniss)
+Redis:del(TheMERON.."tfahnum"..coniss)
+Redis:del(TheMERON.."tfahname"..coniss)
+Redis:del(TheMERON.."enabtime"..coniss)
+Redis:del(TheMERON.."enabnum"..coniss)
+Redis:del(TheMERON.."enabname"..coniss)
+Redis:del(TheMERON.."zetontime"..coniss)
+Redis:del(TheMERON.."zetonnum"..coniss)
+Redis:del(TheMERON.."zetonname"..coniss)
+Redis:del(TheMERON.."mozztime"..coniss)
+Redis:del(TheMERON.."mozznum"..coniss)
+Redis:del(TheMERON.."mozzname"..coniss)
+Redis:del(TheMERON.."mangatime"..coniss)
+Redis:del(TheMERON.."manganum"..coniss)
+Redis:del(TheMERON.."manganame"..coniss)
+Redis:del(TheMERON.."sizefram"..coniss)
+Redis:del(TheMERON.."namefram"..coniss)
+Redis:del(TheMERON.."mzroatsize"..coniss)
+Redis:srem(TheMERON.."farmarname", namfra)
+Redis:srem(TheMERON.."ownerfram",coniss)
+namenad = Redis:get(TheMERON.."lkbnade"..coniss)
+Redis:del(TheMERON.."namenade"..coniss)
+Redis:del(TheMERON.."nokatnade"..coniss)
+Redis:del(TheMERON.."energynade"..coniss)
+Redis:del(TheMERON.."traningnade"..coniss)
+Redis:del(TheMERON.."nameplayer".."1"..coniss)
+Redis:del(TheMERON.."nameplayer".."2"..coniss)
+Redis:del(TheMERON.."nameplayer".."3"..coniss)
+Redis:del(TheMERON.."nameplayer".."4"..coniss)
+Redis:del(TheMERON.."nameplayer".."5"..coniss)
+Redis:del(TheMERON.."energyplayer".."1"..coniss)
+Redis:del(TheMERON.."energyplayer".."2"..coniss)
+Redis:del(TheMERON.."energyplayer".."3"..coniss)
+Redis:del(TheMERON.."energyplayer".."4"..coniss)
+Redis:del(TheMERON.."energyplayer".."5"..coniss)
+Redis:del(TheMERON.."mrkzplayer".."1"..coniss)
+Redis:del(TheMERON.."mrkzplayer".."2"..coniss)
+Redis:del(TheMERON.."mrkzplayer".."3"..coniss)
+Redis:del(TheMERON.."mrkzplayer".."4"..coniss)
+Redis:del(TheMERON.."mrkzplayer".."5"..coniss)
+Redis:del(TheMERON.."cityplayer".."1"..coniss)
+Redis:del(TheMERON.."cityplayer".."2"..coniss)
+Redis:del(TheMERON.."cityplayer".."3"..coniss)
+Redis:del(TheMERON.."cityplayer".."4"..coniss)
+Redis:del(TheMERON.."cityplayer".."5"..coniss)
+Redis:del(TheMERON.."priceplayer".."1"..coniss)
+Redis:del(TheMERON.."priceplayer".."2"..coniss)
+Redis:del(TheMERON.."priceplayer".."3"..coniss)
+Redis:del(TheMERON.."priceplayer".."4"..coniss)
+Redis:del(TheMERON.."priceplayer".."5"..coniss)
+Redis:srem(TheMERON.."lkbnadesadd", namenad)
+Redis:srem(TheMERON.."ownernade",coniss)
+Redis:del(TheMERON.."lkbnade"..coniss)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الاسم ↤ "..news.."\n⇜ الحساب ↤ `"..ccccc.."`\n⇜ بنك ↤ ❲ ريما ❳\n⇜ نوع ↤ ❲ "..uuuuu.." ❳\n⇜ الرصيد ↤ ❲ "..convert_mony.." ❳ ريال 💵 )\n⇜ الزرف ↤ ❲ "..math.floor(ppppp).." ريال 💵 ❳\n⇜ مسكين مسحت حسابه","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي اصلاً ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي اصلاً ","md",true)
 end
 end
 end
 if text and text:match('^حساب (.*)$') or text and text:match('^حسابه (.*)$') then
+
 local UserName = text:match('^حساب (.*)$') or text:match('^حسابه (.*)$')
 local coniss = coin(UserName)
 if Redis:get(TheMERON.."boballcc"..coniss) then
@@ -27268,52 +27320,58 @@ local convert_mony = string.format("%.0f",ballancee)
 local dfhb = Redis:get(TheMERON.."boballbalc"..coniss)
 local fsvhh = Redis:get(TheMERON.."boballban"..coniss)
 shkse = Redis:get(TheMERON.."shkse"..coniss)
+doltebank = Redis:get(TheMERON.."doltebank"..coniss)
 if shkse == "طيبة" then
 shkseemg = "طيبة 😇"
 else
 shkseemg = "شريرة 😈"
 end
-return merolua.sendText(msg.chat_id,msg.id, "← الاسم ↢ "..yty.."\n← الحساب ↢ `"..coniss.."`\n← بنك ↢ ( كريتف )\n← نوع ↢ ( "..fsvhh.." )\n← الرصيد ↢ ( "..convert_mony.." جنيه 💵 )\n← شخصيته : "..shkseemg.."\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الاسم ↤ "..yty.."\n⇜ الحساب ↤ `"..coniss.."`\n⇜ بنك ↤ ❲ ريما ❳\n⇜ نوع ↤ ❲ "..fsvhh.." ❳\n⇜ الرصيد ↤ ❲ "..convert_mony.." ريال 💵 ❳\n⇜ شخصيتك ↤ ❲ "..shkseemg.." ❳\n⇜ دولتك ↤ ❲ "..doltebank.." ❳","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← مافيه حساب بنكي كذا","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مافيه حساب بنكي كذا","md",true)
 end
 end
-if text and text:match('اكشطها (.*)') then
-local TextAksht = text:match('اكشطها (.*)')
+if text and text:match('اكشط (.*)') then
+
+local TextAksht = text:match('اكشط (.*)')
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-if not Redis:sismember(TheMERON.."Akshtd:Games:",TextAksht) then
-return merolua.sendText(msg.chat_id,msg.id,"← الرمز مستخدم قبل !")
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي ↤ "..msg.sender_id.user_id.."\n⇜ القروب ↤ "..msg.chat_id.."\n⇜ الرسالة ↤ "..text.."\n✧","md",true)
 end
-local list ={"10000","20000","30000","40000","50000","60000"}
+if not Redis:sismember(TheMERON.."Akshtd:Games:",TextAksht) then
+return merolua.sendText(msg.chat_id,msg.id,"⇜ الرمز مستخدم قبل !")
+end
+local list ={"100000","200000","300000","400000","500000","600000"}
 local Number = tonumber(list[math.random(#list)])
 Redis:srem(TheMERON.."Akshtd:Games:",TextAksht)
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 cobonplus = tonumber(ballancee) + Number
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , cobonplus)
-local UserInfoo = bot.getUser(msg.sender_id.user_id)
+local UserInfoo = merolua.getUser(msg.sender_id.user_id)
 local GetName = '- ['..UserInfoo.first_name..'](tg://user?id='..msg.sender_id.user_id..')'
-return merolua.sendText(msg.chat_id,msg.id,GetName.."\n\n*← حصلت علي : "..Number.. " جنيه 💵*\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,GetName.."\n\n⇜ مبروك كشطتها واخذت ↤ "..Number.. " ريال 💵\n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ","md",true)
 end
 end
 if text == "قائمه اكشطها" then
-if not msg.Asasy then
-return merolua.sendText(msg.chat_id,msg.id,'\n*هذا الامر يخص المطور الاساسي* ',"md",true)  
+if not msg.ControllerBot then
+return merolua.sendText(msg.chat_id,msg.id,'\n⇜ هذا الامر يخص المطور الاساسي ',"md",true)  
 end
 local Text = Redis:smembers(TheMERON.."Akshtd:Games:") 
 if #Text == 0 then
-return merolua.sendText(msg.chat_id,msg.id,"لا يوجد رموز اكشطهاها","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"⇜ لا يوجد رموز اكشطها","md",true)  
 end
-local Texter = "\nقائمه اكشطها : \n\n"
+local Texter = "\n⇜ قائمة اكشطها : \n\n"
 for k, v in pairs(Text) do
-Texter = Texter.."*"..k.."-* `"..v.."`\n"
+Texter = Texter..""..k.."- `"..v.."`\n"
 end
 return merolua.sendText(msg.chat_id,msg.id,Texter,"md")
 end
 if text == "صنع اكشطها" then
-if not msg.Asasy then
-return merolua.sendText(msg.chat_id,msg.id,'\n*هذا الامر يخص المطور الاساسي* ',"md",true)  
+if not msg.ControllerBot then
+return merolua.sendText(msg.chat_id,msg.id,'\n⇜ هذا الامر يخص المطور الاساسي ',"md",true)  
 end
 Redis:del(TheMERON.."Akshtd:Games:")
 local list ={"q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"}
@@ -27348,54 +27406,60 @@ Redis:sadd(TheMERON.."Akshtd:Games:",Num7)
 Redis:sadd(TheMERON.."Akshtd:Games:",Num8)
 Redis:sadd(TheMERON.."Akshtd:Games:",Num9)
 return merolua.sendText(msg.chat_id,msg.id,[[
-تم صنع قائمة اكشطها جديدة :
+⇜ تم صنع قائمة اكشط جديدة :
 
-1 - `]]..Num..[[`
+1 ↦ `]]..Num..[[`
 
-2 - `]]..Num1..[[`
+2 ↦ `]]..Num1..[[`
 
-3 - `]]..Num2..[[`
+3 ↦ `]]..Num2..[[`
 
-4 - `]]..Num3..[[`
+4 ↦ `]]..Num3..[[`
 
-5 - `]]..Num4..[[`
+5 ↦ `]]..Num4..[[`
 
-6 - `]]..Num5..[[`
+6 ↦ `]]..Num5..[[`
 
-7 - `]]..Num6..[[`
+7 ↦ `]]..Num6..[[`
 
-8 - `]]..Num7..[[`
+8 ↦ `]]..Num7..[[`
 
-9 - `]]..Num8..[[`
+9 ↦ `]]..Num8..[[`
 
-10 - `]]..Num9..[[`
+10 ↦ `]]..Num9..[[`
 ]],"md")
 end
 if text == 'مضاربه' then
+
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:ttl(TheMERON.."iiooooo" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iiooooo" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← مينفعش تضارب الحين\n← تعال بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."iiooooo" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب الحين\n⇜ تعال بعد "..time.." ","md",true)
 end
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`مضاربه` المبلغ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `مضاربه` المبلغ","md",true)
 end
 if text and text:match('^مضاربه (.*)$') or text and text:match('^مضاربة (.*)$') then
+
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local UserName = text:match('^مضاربه (.*)$') or text:match('^مضاربة (.*)$')
 local coniss = coin(UserName)
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي ↤ "..msg.sender_id.user_id.."\n⇜ القروب ↤ "..msg.chat_id.."\n⇜ الرسالة ↤ "..text.."\n✧","md",true)
+end
 if Redis:ttl(TheMERON.."iiooooo" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iiooooo" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← مينفعش تضارب الحين\n← تعال بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."iiooooo" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب الحين\n⇜ تعال بعد "..time.." ","md",true)
 end
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if tonumber(coniss) < 99 then
-return merolua.sendText(msg.chat_id,msg.id, "← الحد الادنى المسموح هو 100 جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح هو 100 ريال 💵\n✧","md",true)
 end
 if tonumber(ballancee) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✧","md",true)
 end
-local modarba = {"1", "2", "3", "4️",}
+local modarba = {"1", "2", "3", "4"}
 local Descriptioontt = modarba[math.random(#modarba)]
 local modarbaa = math.random(1,90);
 if Descriptioontt == "1" or Descriptioontt == "3" then
@@ -27404,148 +27468,168 @@ ballanceekkku = ballancee - ballanceekku
 local convert_mony = string.format("%.0f",ballanceekku)
 local convert_mony1 = string.format("%.0f",ballanceekkku)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ballanceekkku))
-Redis:setex(TheMERON.."iiooooo" .. msg.sender_id.user_id,920, true)
-return merolua.sendText(msg.chat_id,msg.id, "← مضاربة فاشلة 📉\n← نسبة الخسارة ↢ "..modarbaa.."%\n← المبلغ الذي خسرته ↢ ( "..convert_mony.." جنيه 💵 )\n← فلوسك صارت ↢ ( "..convert_mony1.." جنيه 💵 )\n〰","md",true)
+Redis:setex(TheMERON.."iiooooo" .. msg.sender_id.user_id,900, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مضاربة فاشلة 📉\n⇜ نسبة الخسارة ↤ "..modarbaa.."%\n⇜ المبلغ الذي خسرته ↤ ❲ "..convert_mony.." ريال 💵 ❳\n⇜ فلوسك صارت ↤ ❲ "..convert_mony1.." ريال 💵 ❳\n✧","md",true)
 else
 ballanceekku = coniss / 100 * modarbaa
 ballanceekkku = ballancee + ballanceekku
 local convert_mony = string.format("%.0f",ballanceekku)
 local convert_mony1 = string.format("%.0f",ballanceekkku)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ballanceekkku))
-Redis:setex(TheMERON.."iiooooo" .. msg.sender_id.user_id,920, true)
-return merolua.sendText(msg.chat_id,msg.id, "← مضاربة ناجحة 📈\n← نسبة الربح ↢ "..modarbaa.."%\n← المبلغ الذي ربحته ↢ ( "..convert_mony.." جنيه 💵 )\n← فلوسك صارت ↢ ( "..convert_mony1.." جنيه 💵 )\n〰","md",true)
+Redis:setex(TheMERON.."iiooooo" .. msg.sender_id.user_id,900, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مضاربة ناجحة 📈\n⇜ نسبة الربح ↤ "..modarbaa.."%\n⇜ المبلغ الذي ربحته ↤ ❲ "..convert_mony.." ريال 💵 ❳\n⇜ فلوسك صارت ↤ ❲ "..convert_mony1.." ريال 💵 ❳\n✧","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == 'استثمار' then
+
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:ttl(TheMERON.."iioooo" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iioooo" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← مينفعش تستثمر الحين\n← تعال بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."iioooo" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر الحين\n⇜ تعال بعد "..time.." ","md",true)
 end
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`استثمار` المبلغ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `استثمار` المبلغ","md",true)
 end
 if text and text:match('^استثمار (.*)$') then
+
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local UserName = text:match('^استثمار (.*)$')
 local coniss = coin(UserName)
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:ttl(TheMERON.."iioooo" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iioooo" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← مينفعش تستثمر الحين\n← تعال بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."iioooo" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر الحين\n⇜ تعال بعد "..time.." ","md",true)
 end
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if tonumber(coniss) < 99 then
-return merolua.sendText(msg.chat_id,msg.id, "← الحد الادنى المسموح هو 100 جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح هو 100 ريال 💵\n✧","md",true)
 end
 if tonumber(ballancee) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✧","md",true)
 end
-if tonumber(ballancee) < 100000 then
-local hadddd = math.random(10,15);
-ballanceekk = coniss / 100 * hadddd
-ballanceekkk = ballancee + ballanceekk
-local convert_mony = string.format("%.0f",ballanceekk)
-local convert_mony1 = string.format("%.0f",ballanceekkk)
-Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ballanceekkk))
-Redis:setex(TheMERON.."iioooo" .. msg.sender_id.user_id,1220, true)
-return merolua.sendText(msg.chat_id,msg.id, "← استثمار ناجح 💰\n← نسبة الربح ↢ "..hadddd.."%\n← مبلغ الربح ↢ ( "..convert_mony.." جنيه 💵 )\n← فلوسك صارت ↢ ( "..convert_mony1.." جنيه 💵 )\n〰","md",true)
-else
 local hadddd = math.random(1,9);
 ballanceekk = coniss / 100 * hadddd
 ballanceekkk = ballancee + ballanceekk
 local convert_mony = string.format("%.0f",ballanceekk)
 local convert_mony1 = string.format("%.0f",ballanceekkk)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ballanceekkk))
-Redis:setex(TheMERON.."iioooo" .. msg.sender_id.user_id,1220, true)
-return merolua.sendText(msg.chat_id,msg.id, "← استثمار ناجح 💰\n← نسبة الربح ↢ "..hadddd.."%\n← مبلغ الربح ↢ ( "..convert_mony.." جنيه 💵 )\n← فلوسك صارت ↢ ( "..convert_mony1.." جنيه 💵 )\n〰","md",true)
-end
+Redis:setex(TheMERON.."iioooo" .. msg.sender_id.user_id,1200, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استثمار ناجح 💰\n⇜ نسبة الربح ↤ "..hadddd.."%\n⇜ مبلغ الربح ↤ ❲ "..convert_mony.." ريال 💵 ❳\n⇜ فلوسك صارت ↤ ❲ "..convert_mony1.." ريال 💵 ❳\n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == 'سحب' then
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:ttl(TheMERON.."iioood" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iioood" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← مينفعش تلعب سحب الحين\n← تعال بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."iioood" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب سحب الحين\n⇜ تعال بعد "..time.." ","md",true)
 end
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`سحب` المبلغ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `سحب` المبلغ","md",true)
 end
 if text == 'حظ' then
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:ttl(TheMERON.."iiooo" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iiooo" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← مينفعش تلعب حظ الحين\n← تعال بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."iiooo" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب حظ الحين\n⇜ تعال بعد "..time.." ","md",true)
 end
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`حظ` المبلغ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `حظ` المبلغ","md",true)
 end
 if text and text:match('^حظ (.*)$') then
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local UserName = text:match('^حظ (.*)$')
 local coniss = coin(UserName)
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:ttl(TheMERON.."iiooo" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iiooo" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← مينفعش تلعب حظ الحين\n← تعال بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."iiooo" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب حظ الحين\n⇜ تعال بعد "..time.." ","md",true)
 end
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if tonumber(coniss) < 99 then
-return merolua.sendText(msg.chat_id,msg.id, "← الحد الادنى المسموح هو 100 جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح هو 100 ريال 💵\n✧","md",true)
 end
 if tonumber(ballancee) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✧","md",true)
 end
-local daddd = {"1", "2"}
-local haddd = daddd[math.random(#daddd)]
+nsbhad = Redis:get(TheMERON.."nsbhad"..1) or 50
+if tonumber(nsbhad) == 0 then
+daddd = {"2"}
+elseif tonumber(nsbhad) == 50 then
+daddd = {"1", "2"}
+elseif tonumber(nsbhad) == 75 then
+daddd = {"1", "2", "1"}
+else
+daddd = {"1", "1"}
+end
+haddd = daddd[math.random(#daddd)]
 if haddd == "1" then
 local ballanceek = ballancee + coniss
 local convert_mony = string.format("%.0f",ballancee)
 local convert_mony1 = string.format("%.0f",ballanceek)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ballanceek))
-Redis:setex(TheMERON.."iiooo" .. msg.sender_id.user_id,920, true)
-return merolua.sendText(msg.chat_id,msg.id, "← مبروك فزت بالحظ 🎉\n← فلوسك قبل ↢ ( "..convert_mony.." جنيه 💵 )\n← رصيدك الان ↢ ( "..convert_mony1.." جنيه 💵 )\n〰","md",true)
+Redis:setex(TheMERON.."iiooo" .. msg.sender_id.user_id,900, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مبروك فزت بالحظ 🎉\n⇜ فلوسك قبل ↤ ❲ "..convert_mony.." ريال 💵 ❳\n⇜ رصيدك الان ↤ ❲ `"..convert_mony1.."` ريال 💵 ❳\n✧","md",true)
 else
 local ballanceekk = ballancee - coniss
 local convert_mony = string.format("%.0f",ballancee)
 local convert_mony1 = string.format("%.0f",ballanceekk)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ballanceekk))
-Redis:setex(TheMERON.."iiooo" .. msg.sender_id.user_id,920, true)
-return merolua.sendText(msg.chat_id,msg.id, "← للاسف خسرت بالحظ 😬\n← فلوسك قبل ↢ ( "..convert_mony.." جنيه 💵 )\n← رصيدك الان ↢ ( "..convert_mony1.." جنيه 💵 )\n〰","md",true)
+Redis:setex(TheMERON.."iiooo" .. msg.sender_id.user_id,900, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ للاسف خسرت بالحظ 😬\n⇜ فلوسك قبل ↤ ❲ "..convert_mony.." درهم 💵 ❳\n⇜ رصيدك الان ↤ ❲ `"..convert_mony1.."` درهم 💵 ❳\n✧","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == 'تحويل' then
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`تحويل` المبلغ","md",true)
+if Redis:ttl(TheMERON.."tanstime" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."tanstime" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تحول فلوس الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `تحويل` المبلغ","md",true)
 end
 if text and text:match('^تحويل (.*)$') then
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local UserName = text:match('^تحويل (.*)$')
 local coniss = coin(UserName)
 if not Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ","md",true)
+end
+if Redis:ttl(TheMERON.."tanstime" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."tanstime" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تحول فلوس الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
 end
 if tonumber(coniss) < 100 then
-return merolua.sendText(msg.chat_id,msg.id, "← الحد الادنى المسموح به هو 100 جنيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح به هو 100 درهم \n✧","md",true)
 end
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if tonumber(ballancee) < 100 then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✧","md",true)
 end
 if tonumber(coniss) > tonumber(ballancee) then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي\n✧","md",true)
 end
 Redis:set(TheMERON.."transn"..msg.sender_id.user_id,coniss)
 Redis:setex(TheMERON.."trans" .. msg.chat_id .. ":" .. msg.sender_id.user_id,60, true)
 return merolua.sendText(msg.chat_id,msg.id,[[
-← ارسل الحين رقم الحساب البنكي الي تبي تحول له
+⇜ ارسل الحين رقم الحساب البنكي الي تبي تحول له
 
 – معاك دقيقة وحدة والغي طلب التحويل .
-〰
+✧
 ]],"md",true)  
 return false
 end
@@ -27555,27 +27639,31 @@ uuuu = Redis:get(TheMERON.."bbobb"..msg.sender_id.user_id)
 if text ~= text:match('^(%d+)$') then
 Redis:del(TheMERON.."trans" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
 Redis:del(TheMERON.."transn" .. msg.sender_id.user_id)
-return merolua.sendText(msg.chat_id,msg.id,"← ارسل رقم حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ ارسل رقم حساب بنكي ","md",true)
+end
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي ↤ "..msg.sender_id.user_id.."\n⇜ القروب ↤ "..msg.chat_id.."\n⇜ الرسالة ↤ "..text.."\n✧","md",true)
 end
 if text == cccc then
 Redis:del(TheMERON.."trans" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
 Redis:del(TheMERON.."transn" .. msg.sender_id.user_id)
-return merolua.sendText(msg.chat_id,msg.id,"← مينفعش تحول لنفسك ","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تحول لنفسك ","md",true)
 end
 if Redis:get(TheMERON.."boballcc"..text) then
 local UserNamey = Redis:get(TheMERON.."transn"..msg.sender_id.user_id)
-local ban = bot.getUser(msg.sender_id.user_id)
+local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
 news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
-news = " لا يوجد "
+news = " لا يوجد اسم"
 end
 local fsvhhh = Redis:get(TheMERON.."boballid"..text)
-local bann = bot.getUser(fsvhhh)
+local bann = merolua.getUser(fsvhhh)
 if bann.first_name then
 newss = "["..bann.first_name.."](tg://user?id="..bann.id..")"
 else
-newss = " لا يوجد "
+newss = " لا يوجد اسم"
 end
 local fsvhh = Redis:get(TheMERON.."boballban"..text)
 UserNameyr = UserNamey / 10
@@ -27587,18 +27675,19 @@ Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(deccde))
 decdecb = Redis:get(TheMERON.."boob"..fsvhhh) or 0
 deccde2 = decdecb + UserNameyy
 Redis:set(TheMERON.."boob"..fsvhhh , math.floor(deccde2))
-
-return merolua.sendText(msg.chat_id,msg.id, "• حوالة صادرة من بنك كريتف\n\n← المرسل : "..news.."\n← الحساب رقم : `"..cccc.."`\n← نوع البطاقة : "..uuuu.."\n← المستلم : "..newss.."\n← الحساب رقم : `"..text.."`\n← نوع البطاقة : "..fsvhh.."\n← خصمت 10% رسوم تحويل\n← المبلغ : "..convert_mony.." جنيه 💵","md",true)
-return merolua.sendText(fsvhhh,0, "• حوالة واردة من بنك كريتف\n\n← المرسل : "..news.."\n← الحساب رقم : `"..cccc.."`\n← نوع البطاقة : "..uuuu.."\n← المبلغ : "..convert_mony.." جنيه 💵","md",true)
+Redis:setex(TheMERON.."tanstime" .. msg.sender_id.user_id,1800, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ حوالة صادرة من بنك ريما\n\n⇜ المرسل ↤ "..news.."\n⇜ الحساب رقم ↤ `"..cccc.."`\n⇜ نوع البطاقة ↤ "..uuuu.."\n⇜ المستلم ↤ "..newss.."\n⇜ الحساب رقم ↤ `"..text.."`\n⇜ نوع البطاقة ↤ "..fsvhh.."\n⇜ خصمت 10% رسوم تحويل\n⇜ المبلغ ↤ "..convert_mony.." ريال 💵","md",true)
+send(fsvhhh,0, "⌯ حوالة واردة من بنك ريما\n\n⇜ المرسل ↤ "..news.."\n⇜ الحساب رقم ↤ `"..cccc.."`\n⇜ نوع البطاقة ↤ "..uuuu.."\n⇜ المبلغ ↤ "..convert_mony.." ريال 💵","md",true)
 Redis:del(TheMERON.."trans" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
 Redis:del(TheMERON.."transn" .. msg.sender_id.user_id)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← مافيه حساب بنكي كذا","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مافيه حساب بنكي كذا","md",true)
 Redis:del(TheMERON.."trans" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
 Redis:del(TheMERON.."transn" .. msg.sender_id.user_id)
 end
 end
 if text == "ترتيبي" then
+
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
 local bank_users = Redis:smembers(TheMERON.."booob")
 my_num_in_bank = {}
@@ -27610,18 +27699,19 @@ table.sort(my_num_in_bank, function(a, b) return a[1] > b[1] end)
 for k,v in pairs(my_num_in_bank) do
 if tonumber(v[2]) == tonumber(msg.sender_id.user_id) then
 local mony = v[1]
-return merolua.sendText(msg.chat_id,msg.id,"← ترتيبك ( "..k.." )","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ ترتيبك ( "..k.." )","md",true)
 end
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == "ترتيبه" and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف معندهوش حساب بالبنك 🤣*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها حساب بالبنك ","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
@@ -27635,47 +27725,98 @@ table.sort(my_num_in_bank, function(a, b) return a[1] > b[1] end)
 for k,v in pairs(my_num_in_bank) do
 if tonumber(v[2]) == tonumber(Remsg.sender_id.user_id) then
 local mony = v[1]
-return merolua.sendText(msg.chat_id,msg.id,"← ترتيبه ( "..k.." )","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ ترتيبه ( "..k.." )","md",true)
 end
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي","md",true)
 end
 end
 if text == "توب" or text == "التوب" then
-local toptop = "← اهلين فيك في قوائم التوب\nللمزيد من التفاصيل - [@JJXXH]\n〰"
-local reply_markup = bot.replyMarkup{
+if Redis:ttl(TheMERON.."deletbank" .. 111) >= 1036800 then
+day = "13 يوم"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 950400 then
+day = "12 يوم"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 864000 then
+day = "11 يوم"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 777600 then
+day = "10 ايام"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 691200 then
+day = "9 ايام"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 604800 then
+day = "8 ايام"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 518400 then
+day = "7 ايام"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 432000 then
+day = "6 ايام"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 345600 then
+day = "5 ايام"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 259200 then
+day = "4 ايام"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 172800 then
+day = "3 ايام"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) >= 86400 then
+day = "يومان"
+elseif Redis:ttl(TheMERON.."deletbank" .. 111) <= 86400 then
+day = "يوم واحد"
+else
+day = " لم يحدد الوقت "
+end
+local toptop = "⇜ أهلين يا روح ريما هذي أوامري :\n⇜ اختر نوع التوب من الازرار\n\n⇜ تتصفر اللعبة بعد ↤ "..day.."\n✧"
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = 'الزرف', data = msg.sender_id.user_id..'/topzrf'},{text = 'الفلوس', data = msg.sender_id.user_id..'/topmon'},{text = 'زواجات', data = msg.sender_id.user_id..'/zoztee'},
+{text = 'توب الفلوس', data = msg.sender_id.user_id..'/topmon'}, {text = 'توب الحراميه', data = msg.sender_id.user_id..'/topzrf'},
 },
 {
-{text = 'المتبرعين', data = msg.sender_id.user_id..'/motbra'},{text = 'الشركات', data = msg.sender_id.user_id..'/shrkatt'},{text = 'المزارع', data = msg.sender_id.user_id..'/mazratee'},
+{text = 'توب المتزوجين', data = msg.sender_id.user_id..'/zoztee'}, {text = 'توب المتبرعين', data = msg.sender_id.user_id..'/motbra'},
+},
+{
+{text = 'توب النوادي', data = msg.sender_id.user_id..'/topnade'},{text = 'توب المزارع', data = msg.sender_id.user_id..'/mazratee'},
 },
 {
 {text = 'اخفاء', data = msg.sender_id.user_id..'/delAmr'}, 
 },
 {
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .', url="t.me/JJXXH"},
+{text = '🧚🏻‍♀️', url="t.me/Tepthon"},
 },
 }
 }
 return merolua.sendText(msg.chat_id,msg.id,toptop,"md",false, false, false, false, reply_markup)
 end
-if text == "توب فلوس" or text == "توب الفلوس" then
-local ban = bot.getUser(msg.sender_id.user_id)
+if text == "توب الفلوس" or text == "توب فلوس" then
+
+local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
 news = "["..ban.first_name.."]("..ban.first_name..")"
+news = news:gsub("🇾🇪️",'')
+news = news:gsub("🇹🇳",'')
+news = news:gsub("🇸🇾",'')
+news = news:gsub("🇸🇩",'')
+news = news:gsub("🇸🇦",'')
+news = news:gsub("🇶🇦",'')
+news = news:gsub("🇵🇸",'')
+news = news:gsub("🇴🇲",'')
+news = news:gsub("🇲🇦",'')
+news = news:gsub("🇱🇾",'')
+news = news:gsub("🇱🇧",'')
+news = news:gsub("🇰🇼️",'')
+news = news:gsub("🇯🇴",'')
+news = news:gsub("🇮🇶",'')
+news = news:gsub("🇪🇬",'')
+news = news:gsub("🇧🇭",'')
+news = news:gsub("🇩🇿️",'')
+news = news:gsub("🇦🇪",'')
 else
-news = " لا يوجد"
+news = " لا يوجد اسم"
 end
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local bank_users = Redis:smembers(TheMERON.."booob")
 if #bank_users == 0 then
-return merolua.sendText(msg.chat_id,msg.id,"← لا يوجد حسابات في البنك","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ لا يوجد حسابات في البنك","md",true)
 end
-top_mony = "توب اغنى 30 شخص :\n\n"
+top_mony = "⇜ توب اغنى 20 شخص :\n\n"
 mony_list = {}
 for k,v in pairs(bank_users) do
 local mony = Redis:get(TheMERON.."boob"..v)
@@ -27703,58 +27844,85 @@ emoji ={
 "17)",
 "18)",
 "19)",
-"20)",
-"21)",
-"22)",
-"23)",
-"24)",
-"25)",
-"26)",
-"27)",
-"28)",
-"29)",
-"30)"
+"20)"
 }
 for k,v in pairs(mony_list) do
-if tonumber(msg.sender_id.user_id) == tonumber(v[2]) then
-YRank = k
-end
-if num <= 30 then
-local user_name = bot.getUser(v[2]).first_name or "لا يوجد اسم"
+if num <= 20 then
+local user_name = merolua.getUser(v[2]).first_name or "لا يوجد اسم"
 tt =  "["..user_name.."]("..user_name..")"
+tt = tt:gsub("🇾🇪️",'')
+tt = tt:gsub("🇹🇳",'')
+tt = tt:gsub("🇸🇾",'')
+tt = tt:gsub("🇸🇩",'')
+tt = tt:gsub("🇸🇦",'')
+tt = tt:gsub("🇶🇦",'')
+tt = tt:gsub("🇵🇸",'')
+tt = tt:gsub("🇴🇲",'')
+tt = tt:gsub("🇲🇦",'')
+tt = tt:gsub("🇱🇾",'')
+tt = tt:gsub("🇱🇧",'')
+tt = tt:gsub("🇰🇼️",'')
+tt = tt:gsub("🇯🇴",'')
+tt = tt:gsub("🇮🇶",'')
+tt = tt:gsub("🇪🇬",'')
+tt = tt:gsub("🇧🇭",'')
+tt = tt:gsub("🇩🇿️",'')
+tt = tt:gsub("🇦🇪",'')
+tt = tt:gsub("@[%a%d_]+",'')
+tt = tt:gsub("#[%a%d_]+",'')
+local doltebank = Redis:get(TheMERON.."doltebank"..v[2]) or " " or " "
 local mony = v[1]
 local convert_mony = string.format("%.0f",mony)
 local emo = emoji[k]
 num = num + 1
 gflos = string.format("%.0f", mony):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
-top_mony = top_mony..emo.." "..gflos.." 💵 l "..tt.." \n"
+top_mony = top_mony..emo.." "..gflos.." 💵 l "..tt.." "..doltebank.."\n"
 gflous = string.format("%.0f", ballancee):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
-gg = " ━━━━━━━━━\n"..YRank.." ) "..gflous.." 💵 l "..news.." \n\nملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
+gg = " ━━━━━━━━━\nyou ) "..gflous.." 💵 l "..news.." \n\n⇜ ملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
 end
 end
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .', url="t.me/JJXXH"},
+{text = '🧚🏻‍♀️', url="t.me/Tepthon"},
 },
 }
 }
 return merolua.sendText(msg.chat_id,msg.id,top_mony..gg,"md",false, false, false, false, reply_markup)
 end
 if text == "توب الحراميه" or text == "توب الحرامية" or text == "توب حراميه" or text == "توب الزرف" or text == "توب زرف" then
-local ban = bot.getUser(msg.sender_id.user_id)
+
+local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
 news = "["..ban.first_name.."]("..ban.first_name..")"
+news = news:gsub("🇾🇪️",'')
+news = news:gsub("🇹🇳",'')
+news = news:gsub("🇸🇾",'')
+news = news:gsub("🇸🇩",'')
+news = news:gsub("🇸🇦",'')
+news = news:gsub("🇶🇦",'')
+news = news:gsub("🇵🇸",'')
+news = news:gsub("🇴🇲",'')
+news = news:gsub("🇲🇦",'')
+news = news:gsub("🇱🇾",'')
+news = news:gsub("🇱🇧",'')
+news = news:gsub("🇰🇼️",'')
+news = news:gsub("🇯🇴",'')
+news = news:gsub("🇮🇶",'')
+news = news:gsub("🇪🇬",'')
+news = news:gsub("🇧🇭",'')
+news = news:gsub("🇩🇿️",'')
+news = news:gsub("🇦🇪",'')
 else
-news = " لا يوجد"
+news = " لا يوجد اسم"
 end
 zrfee = Redis:get(TheMERON.."rrfff"..msg.sender_id.user_id) or 0
 local ty_users = Redis:smembers(TheMERON.."rrfffid")
 if #ty_users == 0 then
-return merolua.sendText(chat_id,msg_id,"← لا يوجد احد","md",true)
+return merolua.sendText(chat_id,msg_id,"⇜ لا يوجد احد","md",true)
 end
-ty_anubis = "توب 20 شخص زرفوا فلوس :\n\n"
+ty_anubis = "⇜ توب 20 شخص زرفوا فلوس :\n\n"
 ty_list = {}
 for k,v in pairs(ty_users) do
 local mony = Redis:get(TheMERON.."rrfff"..v)
@@ -27786,114 +27954,144 @@ emojii ={
 }
 for k,v in pairs(ty_list) do
 if num_ty <= 20 then
-local user_name = bot.getUser(v[2]).first_name or "لا يوجد اسم"
+local user_name = merolua.getUser(v[2]).first_name or "لا يوجد اسم"
 tt =  "["..user_name.."]("..user_name..")"
+tt = tt:gsub("🇾🇪️",'')
+tt = tt:gsub("🇹🇳",'')
+tt = tt:gsub("🇸🇾",'')
+tt = tt:gsub("🇸🇩",'')
+tt = tt:gsub("🇸🇦",'')
+tt = tt:gsub("🇶??",'')
+tt = tt:gsub("🇵🇸",'')
+tt = tt:gsub("🇴🇲",'')
+tt = tt:gsub("🇲🇦",'')
+tt = tt:gsub("🇱🇾",'')
+tt = tt:gsub("🇱🇧",'')
+tt = tt:gsub("🇰🇼️",'')
+tt = tt:gsub("🇯🇴",'')
+tt = tt:gsub("🇮🇶",'')
+tt = tt:gsub("🇪🇬",'')
+tt = tt:gsub("🇧🇭",'')
+tt = tt:gsub("🇩🇿️",'')
+tt = tt:gsub("🇦🇪",'')
+tt = tt:gsub("@[%a%d_]+",'')
+tt = tt:gsub("#[%a%d_]+",'')
+local doltebank = Redis:get(TheMERON.."doltebank"..v[2]) or " "
 local mony = v[1]
 local convert_mony = string.format("%.0f",mony)
 local emoo = emojii[k]
 num_ty = num_ty + 1
 gflos = string.format("%.0f", mony):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
-ty_anubis = ty_anubis..emoo.." "..gflos.." 💵 l "..tt.." \n"
+ty_anubis = ty_anubis..emoo.." "..gflos.." 💵 l "..tt.." "..doltebank.." \n"
 gflous = string.format("%.0f", zrfee):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
-gg = " ━━━━━━━━━\n• you) "..gflous.." 💵 l "..news.." \n\nملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
+gg = " ━━━━━━━━━\n• you) "..gflous.." 💵 l "..news.." \n\n⇜ ملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
 end
 end
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .', url="t.me/JJXXH"},
+{text = '🧚🏻‍♀️', url="t.me/Tepthon"},
 },
 }
 }
 return merolua.sendText(msg.chat_id,msg.id,ty_anubis..gg,"md",false, false, false, false, reply_markup)
 end
 if text == 'رشوة' or text == 'رشوه' or text == 'رشوى' or text == 'رشوا' then
+
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:ttl(TheMERON.."iioo" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iioo" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← من شوي اخذت رشوة استنى "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."iioo" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ من شوي اخذت رشوة استنى "..time.." ","md",true)
 end
 if Redis:ttl(TheMERON.."polrsho" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."polrsho" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← انتا بالسجن 🏤\n← استنى "..math.floor(hours).." دقيقة\n〰","md",true)
+local time = ctime(Redis:ttl(TheMERON.."polrsho" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ انتا بالسجن 🏤\n⇜ استنى "..time.." \n✧","md",true)
 end
 shkse = Redis:get(TheMERON.."shkse"..msg.sender_id.user_id)
 if shkse == "طيبة" then
-return merolua.sendText(msg.chat_id,msg.id, "← شخصيتك طيبة مينفعش تاخذ رشوة","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ شخصيتك طيبة مايمديك تاخذ رشوة","md",true)
 end
 local daddd = {"1", "2", "3", "4",}
 local haddd = daddd[math.random(#daddd)]
 if haddd == "1" or haddd == "2" or haddd == "3" then
-local jjjo = math.random(200,7000);
+local jjjo = math.random(200,4000);
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 bakigcj = ballanceed + jjjo
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , bakigcj)
-return merolua.sendText(msg.chat_id,msg.id,"← هذه رشوة بطل زرف "..jjjo.." جنيه 💵","md",true)
-Redis:setex(TheMERON.."iioo" .. msg.sender_id.user_id,620, true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ هذه رشوة بطل زرف "..jjjo.." درهم 💵","md",true)
+Redis:setex(TheMERON.."iioo" .. msg.sender_id.user_id,600, true)
 else
-Redis:setex(TheMERON.."polrsho" .. msg.sender_id.user_id,320, true)
-return merolua.sendText(msg.chat_id,msg.id, "← مسكتك الشرطة وانتا ترتشي 🚔\n〰","md",true)
+Redis:setex(TheMERON.."polrsho" .. msg.sender_id.user_id,300, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مسكتك الشرطة وانتا ترتشي 🚔\n✧","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == 'بخشيش' or text == 'بقشيش' then
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:ttl(TheMERON.."iioo" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iioo" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← من شوي اخذت بخشيش استنى "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."iioo" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ من شوي اخذت بخشيش استنى "..time.." ","md",true)
 end
 shkse = Redis:get(TheMERON.."shkse"..msg.sender_id.user_id)
 if shkse == "شريرة" then
-return merolua.sendText(msg.chat_id,msg.id, "← شخصيتك شريرة مينفعش تاخذ بخشيش","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ شخصيتك شريرة مايمديك تاخذ بخشيش","md",true)
 end
-local jjjo = math.random(200,5000);
+local jjjo = math.random(200,4000);
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 bakigcj = ballanceed + jjjo
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , bakigcj)
-return merolua.sendText(msg.chat_id,msg.id,"← تكرم وهي بخشيش "..jjjo.." جنيه 💵","md",true)
-Redis:setex(TheMERON.."iioo" .. msg.sender_id.user_id,620, true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ تكرم وهي بخشيش "..jjjo.." درهم 💵","md",true)
+Redis:setex(TheMERON.."iioo" .. msg.sender_id.user_id,600, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
-end
-if text == 'زرف' and tonumber(msg.reply_to_message_id) == 0 then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`زرف` بالرد","md",true)
 end
 if text == 'زرف' or text == 'زرفو' or text == 'زرفه' and tonumber(msg.reply_to_message_id) ~= 0 then
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 shkse = Redis:get(TheMERON.."shkse"..msg.sender_id.user_id)
 if shkse == "طيبة" then
-return merolua.sendText(msg.chat_id,msg.id, "← شخصيتك طيبة مينفعش تزرف العالم","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ شخصيتك طيبة مايمديك تزرف العالم","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف معندهوش حساب بالبنك 🤣*","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها حساب بالبنك 🤣","md",true)
 return false
 end
 if Remsg.sender_id.user_id == msg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← عاوز تزرف نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ بدك تزرف نفسك 🤡","md",true)  
 return false
 end
 if Redis:ttl(TheMERON.."polic" .. msg.sender_id.user_id) >=60 then
 local hours = Redis:ttl(TheMERON.."polic" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← انتا بالسجن 🏤 استنى "..math.floor(hours).." دقائق\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ انتا بالسجن 🏤 استنى "..math.floor(hours).." دقائق\n✧","md",true)
 end
 if Redis:ttl(TheMERON.."hrame" .. Remsg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."hrame" .. Remsg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← ذا المسكين مزروف قبل شوي\n← يمديك تزرفه بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."hrame" .. Remsg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد "..time.." ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 ballanceed = Redis:get(TheMERON.."boob"..Remsg.sender_id.user_id) or 0
 if tonumber(ballanceed) < 199 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تزرفه فلوسه اقل من 200 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تزرفه فلوسه اقل من 200 درهم 💵","md",true)
 end
 shkseto = Redis:get(TheMERON.."shkse"..Remsg.sender_id.user_id)
 if shkseto == "طيبة" then
@@ -27904,12 +28102,12 @@ zrfne = ballanceed - hrame
 zrfnee = ballancope + hrame
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(zrfnee))
 Redis:set(TheMERON.."boob"..Remsg.sender_id.user_id , math.floor(zrfne))
-Redis:setex(TheMERON.."hrame" .. Remsg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."hrame" .. Remsg.sender_id.user_id,600, true)
 local zoropeo = Redis:get(TheMERON.."rrfff"..msg.sender_id.user_id) or 0
 zoroprod = zoropeo + hrame
 Redis:set(TheMERON.."rrfff"..msg.sender_id.user_id,zoroprod)
 Redis:sadd(TheMERON.."rrfffid",msg.sender_id.user_id)
-local ban = bot.getUser(Remsg.sender_id.user_id)
+local ban = merolua.getUser(Remsg.sender_id.user_id)
 if ban.first_name then
 news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
@@ -27920,7 +28118,7 @@ Redis:set(TheMERON.."hrameid"..msg.chat_id..Remsg.sender_id.user_id,msg.sender_i
 Redis:set(TheMERON.."balcmsrok"..msg.chat_id..Remsg.sender_id.user_id,hrame)
 Redis:setex(TheMERON.."timehrame"..msg.chat_id..msg.sender_id.user_id,30, true)
 bot.deleteMessages(msg.chat_id,{[1]= msg.id})
-return merolua.sendText(msg.chat_id,0, "← "..news.." في حرامي زرفك "..hrame.." جنيه 💵\n← الله يعوض عليك يرحقلبي\n← لو مكانك افشخه 😞😂\n〰","md",true)
+return merolua.sendText(msg.chat_id,0, "⇜ "..news.." في حرامي زرفك "..hrame.." درهم 💵\n⇜ رد عليه بكلمة ( شرطه )\n⇜ معك 30 ثانية\n✧","md",true)
 else
 local hrame = math.floor(math.random() * 200) + 1;
 local ballanceed = Redis:get(TheMERON.."boob"..Remsg.sender_id.user_id) or 0
@@ -27929,34 +28127,143 @@ zrfne = ballanceed - hrame
 zrfnee = ballancope + hrame
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(zrfnee))
 Redis:set(TheMERON.."boob"..Remsg.sender_id.user_id , math.floor(zrfne))
-Redis:setex(TheMERON.."hrame" .. Remsg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."hrame" .. Remsg.sender_id.user_id,600, true)
 local zoropeo = Redis:get(TheMERON.."rrfff"..msg.sender_id.user_id) or 0
 zoroprod = zoropeo + hrame
 Redis:set(TheMERON.."rrfff"..msg.sender_id.user_id,zoroprod)
 Redis:sadd(TheMERON.."rrfffid",msg.sender_id.user_id)
-return merolua.sendText(msg.chat_id,msg.id, "← خذ يالحرامي زرفته "..hrame.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ خذ يالحرامي زرفته "..hrame.." درهم 💵\n✧","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
+if text == 'شرطه' or text == 'الشرطه' or text == 'شرطة' and tonumber(msg.reply_to_message_id) ~= 0 then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
+if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها حساب بالبنك 🤣","md",true)
+return false
+end
+local hrameid = Redis:get(TheMERON.."hrameid"..msg.chat_id..msg.sender_id.user_id)
+shkse = Redis:get(TheMERON.."shkse"..msg.sender_id.user_id)
+if shkse == "شريرة" then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ شخصيتك شريرة مايمديك تطلب الشرطة","md",true)
+end
+if Redis:get(TheMERON.."timehrame"..msg.chat_id.. hrameid) then
+local hours = Redis:ttl(TheMERON.."timehrame" .. hrameid)
+local msrokid = Redis:get(TheMERON.."msrokid"..msg.chat_id..msg.sender_id.user_id)
+local hrameid = Redis:get(TheMERON.."hrameid"..msg.chat_id..msg.sender_id.user_id)
+local balcmsrok = Redis:get(TheMERON.."balcmsrok"..msg.chat_id..msg.sender_id.user_id) or 0
+if tonumber(hrameid) == Remsg.sender_id.user_id and tonumber(msrokid) == msg.sender_id.user_id then
+local ballancehrame = Redis:get(TheMERON.."boob"..hrameid) or 0
+local ballancmsrok = Redis:get(TheMERON.."boob"..msrokid) or 0
+ballancehramenow = tonumber(ballancehrame) - tonumber(balcmsrok)
+ballancmsroknow = tonumber(ballancmsrok) + tonumber(balcmsrok)
+Redis:set(TheMERON.."boob"..hrameid , ballancehramenow)
+Redis:set(TheMERON.."boob"..msrokid , ballancmsroknow)
+local ban = merolua.getUser(hrameid)
+if ban.first_name then
+news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+else
+news = " لا يوجد اسم"
+end
+Redis:setex(TheMERON.."polic" .. hrameid,600, true)
+Redis:del(TheMERON.."msrokid" ..msg.chat_id..msg.sender_id.user_id) 
+Redis:del(TheMERON.."hrameid" ..msg.chat_id..msg.sender_id.user_id) 
+Redis:del(TheMERON.."balcmsrok" ..msg.chat_id..msg.sender_id.user_id) 
+Redis:del(TheMERON.."timehrame" ..msg.chat_id..msg.sender_id.user_id)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ كفو مسكته الشرطة 👨‍✈️\n⇜ الحرامي : "..news.."\n⇜ تم اعادة فلوسك : "..tonumber(balcmsrok).." درهم 💵\n⇜ سيتم سجن الحرامي\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id,"⇜ تم التحقيق معه وتبين مو هو الحرامي\n⇜ باقي معك "..math.floor(hours).." ثانية\n✧","md",true)
+end
+else
+return merolua.sendText(msg.chat_id,msg.id,"⇜ انتهى الوقت والحرامي هرب\n✧","md",true)
+end
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match("^شرطه @(%S+)$") or text and text:match("^شرطة @(%S+)$") then
 
-
+local UserName = text:match("^شرطه @(%S+)$") or text:match("^شرطة @(%S+)$")
+local UserId_Info = bot.searchPublicChat(UserName)
+if not UserId_Info.id then
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ مافيه حساب كذا ","md",true)
+end
+local UserInfo = merolua.getUser(UserId_Info.id)
+if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ هذا بوت 🤡 ","md",true)  
+end
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+local hrameid = Redis:get(TheMERON.."hrameid"..msg.chat_id..msg.sender_id.user_id)
+shkse = Redis:get(TheMERON.."shkse"..msg.sender_id.user_id)
+if shkse == "شريرة" then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ شخصيتك شريرة مايمديك تطلب الشرطة","md",true)
+end
+if Redis:get(TheMERON.."timehrame"..msg.chat_id.. hrameid) then
+local hours = Redis:ttl(TheMERON.."timehrame" .. hrameid)
+local msrokid = Redis:get(TheMERON.."msrokid"..msg.chat_id..msg.sender_id.user_id)
+local hrameid = Redis:get(TheMERON.."hrameid"..msg.chat_id..msg.sender_id.user_id)
+local balcmsrok = Redis:get(TheMERON.."balcmsrok"..msg.chat_id..msg.sender_id.user_id) or 0
+if tonumber(hrameid) == UserId_Info.id and tonumber(msrokid) == msg.sender_id.user_id then
+local ballancehrame = Redis:get(TheMERON.."boob"..hrameid) or 0
+local ballancmsrok = Redis:get(TheMERON.."boob"..msrokid) or 0
+ballancehramenow = tonumber(ballancehrame) - tonumber(balcmsrok)
+ballancmsroknow = tonumber(ballancmsrok) + tonumber(balcmsrok)
+Redis:set(TheMERON.."boob"..hrameid , ballancehramenow)
+Redis:set(TheMERON.."boob"..msrokid , ballancmsroknow)
+local ban = merolua.getUser(hrameid)
+if ban.first_name then
+news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+else
+news = " لا يوجد اسم"
+end
+Redis:setex(TheMERON.."polic" .. hrameid,600, true)
+Redis:del(TheMERON.."msrokid" ..msg.chat_id..msg.sender_id.user_id) 
+Redis:del(TheMERON.."hrameid" ..msg.chat_id..msg.sender_id.user_id) 
+Redis:del(TheMERON.."balcmsrok" ..msg.chat_id..msg.sender_id.user_id)
+Redis:del(TheMERON.."timehrame" ..msg.chat_id..msg.sender_id.user_id)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ كفو مسكته الشرطة 👨‍✈️\n⇜ الحرامي : "..news.."\n⇜ تم اعادة فلوسك : "..tonumber(balcmsrok).." درهم 💵\n⇜ سيتم سجن الحرامي\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id,"⇜ تم التحقيق معه وتبين مو هو الحرامي\n⇜ باقي معك "..math.floor(hours).." ثانية\n✧","md",true)
+end
+else
+return merolua.sendText(msg.chat_id,msg.id,"⇜ انتهى الوقت والحرامي هرب\n✧","md",true)
+end
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
 if text == 'راتب' or text == 'راتبي' then
+
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-if Redis:ttl(TheMERON.."iiioo" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iiioo" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← راتبك بينزل بعد "..math.floor(hours).." دقيقة","md",true)
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
 end
-local ban = bot.getUser(msg.sender_id.user_id)
+if Redis:ttl(TheMERON.."iiioo" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."iiioo" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد "..time.." ","md",true)
+end
+local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
 neews = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
-neews = " لا يوجد "
+neews = " لا يوجد اسم"
 end
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 shkse = Redis:get(TheMERON.."shkse"..msg.sender_id.user_id)
@@ -27968,140 +28275,140 @@ local ratpep = ballancee + 500000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 300 or tonumber(ratbinc) == 301 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 500000 جنيه 💵\n← وظيفتك : ملك 👑\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 500000 درهم 💵\n⇜ وظيفتك : ملك 👑\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : `"..convert_mony.."` درهم 💵\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,300)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 500000 جنيه 💵\n← وظيفتك : ملك 👑\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 500000 درهم 💵\n⇜ وظيفتك : ملك 👑\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : `"..convert_mony.."` درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 240 and tonumber(ratbtrans) == 9 then
 local ratpep = ballancee + 200000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id) or 0
 if tonumber(ratbinc) == 270 or tonumber(ratbinc) == 271 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 200000 جنيه 💵\n← وظيفتك : امير 🤵‍♂️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 200000 درهم 💵\n⇜ وظيفتك : امير 🤵‍♂️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,270)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 200000 جنيه 💵\n← وظيفتك : امير 🤵‍♂️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 200000 درهم 💵\n⇜ وظيفتك : امير 🤵‍♂️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 210 and tonumber(ratbtrans) == 8 then
 local ratpep = ballancee + 100000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 240 or tonumber(ratbinc) == 241 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 100000 جنيه 💵\n← وظيفتك : وزير 🤵‍♂️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 100000 درهم 💵\n⇜ وظيفتك : وزير 🤵‍♂️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,240)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 100000 جنيه 💵\n← وظيفتك : وزير 🤵‍♂️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 100000 درهم 💵\n⇜ وظيفتك : وزير 🤵‍♂️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 180 and tonumber(ratbtrans) == 7 then
 local ratpep = ballancee + 70000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 210 or tonumber(ratbinc) == 211 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 70000 جنيه 💵\n← وظيفتك : بزنس مان كبير 💸\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 70000 درهم 💵\n⇜ وظيفتك : بزنس مان كبير 💸\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,210)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 70000 جنيه 💵\n← وظيفتك : بزنس مان كبير 💸\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 70000 درهم 💵\n⇜ وظيفتك : بزنس مان كبير 💸\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 150 and tonumber(ratbtrans) == 6 then
 local ratpep = ballancee + 40000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 180 or tonumber(ratbinc) == 181 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 40000 جنيه 💵\n← وظيفتك : تاجر صغير 💰\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 40000 درهم 💵\n⇜ وظيفتك : تاجر صغير 💰\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,180)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 40000 جنيه 💵\n← وظيفتك : تاجر صغير 💰\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 40000 درهم 💵\n⇜ وظيفتك : تاجر صغير 💰\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 120 and tonumber(ratbtrans) == 5 then
 local ratpep = ballancee + 25000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 150 or tonumber(ratbinc) == 151 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 25000 جنيه 💵\n← وظيفتك : طيار 👨‍✈️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 25000 درهم 💵\n⇜ وظيفتك : طيار 👨‍✈️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,150)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 25000 جنيه 💵\n← وظيفتك : طيار 👨‍✈️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 25000 درهم 💵\n⇜ وظيفتك : طيار 👨‍✈️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 90 and tonumber(ratbtrans) == 4 then
 local ratpep = ballancee + 18000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 120 or tonumber(ratbinc) == 121 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 18000 جنيه 💵\n← وظيفتك : دكتور 👨‍⚕️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 18000 درهم 💵\n⇜ وظيفتك : دكتور 👨‍⚕️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,120)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 18000 جنيه 💵\n← وظيفتك : دكتور 👨‍⚕️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 18000 درهم 💵\n⇜ وظيفتك : دكتور 👨‍⚕️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 60 and tonumber(ratbtrans) == 3 then
 local ratpep = ballancee + 9000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 90 or tonumber(ratbinc) == 91 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 9000 جنيه 💵\n← وظيفتك : صيدلي 👨‍🔬\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 9000 درهم 💵\n⇜ وظيفتك : صيدلي 👨‍🔬\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,90)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 9000 جنيه 💵\n← وظيفتك : صيدلي 👨‍🔬\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 9000 درهم 💵\n⇜ وظيفتك : صيدلي 👨‍🔬\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 30 and tonumber(ratbtrans) == 2 then
 local ratpep = ballancee + 2500
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 60 or tonumber(ratbinc) == 61 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 2500 جنيه 💵\n← وظيفتك : نجار 👨‍🔧\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 2500 درهم 💵\n⇜ وظيفتك : نجار 👨‍🔧\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,60)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 2500 جنيه 💵\n← وظيفتك : نجار 👨‍🔧\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 2500 درهم 💵\n⇜ وظيفتك : نجار 👨‍🔧\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 1 and tonumber(ratbtrans) == 1 then
 local ratpep = ballancee + 500
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 30 or tonumber(ratbinc) == 31 then
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,30)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 500 جنيه 💵\n← وظيفتك : قروي 👨‍🌾\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 500 درهم 💵\n⇜ وظيفتك : قروي 👨‍🌾\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 500 جنيه 💵\n← وظيفتك : قروي 👨‍🌾\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 500 درهم 💵\n⇜ وظيفتك : قروي 👨‍🌾\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 end
 else
@@ -28110,150 +28417,155 @@ local ratpep = ballancee + 500000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 300 or tonumber(ratbinc) == 301 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 500000 جنيه 💵\n← وظيفتك : ال تشابو 🧛‍♂️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 500000 درهم 💵\n⇜ وظيفتك : ال تشابو 🧛‍♂️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,300)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 500000 جنيه 💵\n← وظيفتك : ال تشابو 🧛‍♂️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 500000 درهم 💵\n⇜ وظيفتك : ال تشابو 🧛‍♂️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 240 and tonumber(ratbtrans) == 9 then
 local ratpep = ballancee + 200000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 270 or tonumber(ratbinc) == 271 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 200000 جنيه 💵\n← وظيفتك : بائع ممنوعات دولي 🎩\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 200000 درهم 💵\n⇜ وظيفتك : بائع ممنوعات دولي 🎩\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,270)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 200000 جنيه 💵\n← وظيفتك : بائع ممنوعات دولي 🎩\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 200000 درهم 💵\n⇜ وظيفتك : بائع ممنوعات دولي 🎩\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 210 and tonumber(ratbtrans) == 8 then
 local ratpep = ballancee + 100000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 240 or tonumber(ratbinc) == 241 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 100000 جنيه 💵\n← وظيفتك : تاجر ممنوعات 🧔‍♂️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 100000 درهم 💵\n⇜ وظيفتك : تاجر ممنوعات 🧔‍♂️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,240)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 100000 جنيه 💵\n← وظيفتك : تاجر ممنوعات 🧔‍♂️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 100000 درهم 💵\n⇜ وظيفتك : تاجر ممنوعات 🧔‍♂️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 180 and tonumber(ratbtrans) == 7 then
 local ratpep = ballancee + 70000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 210 or tonumber(ratbinc) == 211 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 70000 جنيه 💵\n← وظيفتك : بق بوس العصابة 🗣\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 70000 درهم 💵\n⇜ وظيفتك : بق بوس العصابة 🗣\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,210)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 70000 جنيه 💵\n← وظيفتك : بق بوس العصابة 🗣\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 70000 درهم 💵\n⇜ وظيفتك : بق بوس العصابة 🗣\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 150 and tonumber(ratbtrans) == 6 then
 local ratpep = ballancee + 40000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 180 or tonumber(ratbinc) == 181 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 40000 جنيه 💵\n← وظيفتك : مساعد رئيس العصابة 🦹‍♀️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 40000 درهم 💵\n⇜ وظيفتك : مساعد رئيس العصابة 🦹‍♀️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,180)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 40000 جنيه 💵\n← وظيفتك : مساعد رئيس العصابة 🦹‍♀️\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 40000 درهم 💵\n⇜ وظيفتك : مساعد رئيس العصابة 🦹‍♀️\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 120 and tonumber(ratbtrans) == 5 then
 local ratpep = ballancee + 25000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 150 or tonumber(ratbinc) == 151 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 25000 جنيه 💵\n← وظيفتك : عضو عصابة 🙍\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 25000 درهم 💵\n⇜ وظيفتك : عضو عصابة 🙍\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,150)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 25000 جنيه 💵\n← وظيفتك : عضو عصابة 🙍\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 25000 درهم 💵\n⇜ وظيفتك : عضو عصابة 🙍\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 90 and tonumber(ratbtrans) == 4 then
 local ratpep = ballancee + 18000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 120 or tonumber(ratbinc) == 121 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 18000 جنيه 💵\n← وظيفتك : قاتل مأجور 🔫\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 18000 درهم 💵\n⇜ وظيفتك : قاتل مأجور 🔫\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,120)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 18000 جنيه 💵\n← وظيفتك : قاتل مأجور 🔫\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 18000 درهم 💵\n⇜ وظيفتك : قاتل مأجور 🔫\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 60 and tonumber(ratbtrans) == 3 then
 local ratpep = ballancee + 9000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 90 or tonumber(ratbinc) == 91 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 9000 جنيه 💵\n← وظيفتك : قاتل 🕴\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 9000 درهم 💵\n⇜ وظيفتك : قاتل 🕴\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,90)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 9000 جنيه 💵\n← وظيفتك : قاتل 🕴\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 9000 درهم 💵\n⇜ وظيفتك : قاتل 🕴\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 30 and tonumber(ratbtrans) == 2 then
 local ratpep = ballancee + 2500
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 60 or tonumber(ratbinc) == 61 then
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 2500 جنيه 💵\n← وظيفتك : سارق 🥷\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 2500 درهم 💵\n⇜ وظيفتك : سارق 🥷\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,60)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 2500 جنيه 💵\n← وظيفتك : سارق 🥷\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 2500 درهم 💵\n⇜ وظيفتك : سارق 🥷\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 elseif tonumber(ratbinc) >= 0 and tonumber(ratbtrans) == 1 then
 local ratpep = ballancee + 500
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ratpep))
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."iiioo" .. msg.sender_id.user_id,600, true)
 Redis:incrby(TheMERON.."ratbinc"..msg.sender_id.user_id,1)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id)
 if tonumber(ratbinc) == 30 or tonumber(ratbinc) == 31 then
 Redis:set(TheMERON.."ratbinc"..msg.sender_id.user_id,30)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 500 جنيه 💵\n← وظيفتك : مشرد 👣\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 500 درهم 💵\n⇜ وظيفتك : مشرد 👣\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n\nتستطيع الان تطوير راتبك ارسل ( `تطوير راتب` )\n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار ايداع "..neews.."\n\n← المبلغ : 500 جنيه 💵\n← وظيفتك : مشرد 👣\n← نوع العملية : اضافة راتب\n← تطوير الراتب : "..tonumber(ratbinc).."\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار ايداع "..neews.."\n\n⇜ المبلغ : 500 درهم 💵\n⇜ وظيفتك : مشرد 👣\n⇜ نوع العملية : اضافة راتب\n⇜ تطوير الراتب : "..tonumber(ratbinc).."\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 end
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == 'تطوير راتب' or text == 'تطوير الراتب' or text == 'تطوير راتبي' then
+
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 shkse = Redis:get(TheMERON.."shkse"..msg.sender_id.user_id)
 ratbinc = Redis:get(TheMERON.."ratbinc"..msg.sender_id.user_id) or 0
@@ -28261,252 +28573,258 @@ ratbtrans = Redis:get(TheMERON.."ratbtrans"..msg.sender_id.user_id) or 1
 if shkse == "طيبة" then
 if tonumber(ratbinc) == 270 then
 if tonumber(ballanceed) < 1000000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 1000000000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 1000000000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,10)
 nowbalc = tonumber(ballancee) - 1000000000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 1000000000 جنيه 💵\n← اصبحت وظيفتك : ملك 👑\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 1000000000 درهم 💵\n⇜ اصبحت وظيفتك : ملك 👑\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 240 then
 if tonumber(ballanceed) < 200000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 200000000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 200000000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,9)
 nowbalc = tonumber(ballancee) - 200000000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 200000000 جنيه 💵\n← اصبحت وظيفتك : امير 🤵\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 200000000 درهم 💵\n⇜ اصبحت وظيفتك : امير 🤵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 210 then
 if tonumber(ballanceed) < 30000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 30000000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 30000000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,8)
 nowbalc = tonumber(ballancee) - 30000000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 30000000 جنيه 💵\n← اصبحت وظيفتك : وزير 🤵\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 30000000 درهم 💵\n⇜ اصبحت وظيفتك : وزير 🤵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 180 then
 if tonumber(ballanceed) < 1000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 1000000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 1000000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,7)
 nowbalc = tonumber(ballancee) - 1000000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 1000000 جنيه 💵\n← اصبحت وظيفتك : بزنس مان كبير 💸\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 1000000 درهم 💵\n⇜ اصبحت وظيفتك : بزنس مان كبير 💸\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 150 then
 if tonumber(ballanceed) < 300000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 300000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 300000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,6)
 nowbalc = tonumber(ballancee) - 300000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 300000 جنيه 💵\n← اصبحت وظيفتك : تاجر صغير 💰\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 300000 درهم 💵\n⇜ اصبحت وظيفتك : تاجر صغير 💰\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 120 then
 if tonumber(ballanceed) < 120000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 120000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 120000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,5)
 nowbalc = tonumber(ballancee) - 120000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 120000 جنيه 💵\n← اصبحت وظيفتك : طيار 👨\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 120000 درهم 💵\n⇜ اصبحت وظيفتك : طيار 👨\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 90 then
 if tonumber(ballanceed) < 80000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 80000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 80000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,4)
 nowbalc = tonumber(ballancee) - 80000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 80000 جنيه 💵\n← اصبحت وظيفتك : دكتور 👨\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 80000 درهم 💵\n⇜ اصبحت وظيفتك : دكتور 👨\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 60 then
 if tonumber(ballanceed) < 30000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 30000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 30000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,3)
 nowbalc = tonumber(ballancee) - 30000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 30000 جنيه 💵\n← اصبحت وظيفتك : صيدلي ‍👨\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 30000 درهم 💵\n⇜ اصبحت وظيفتك : صيدلي ‍👨\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 30 then
 if tonumber(ballanceed) < 3000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 3000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 3000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,2)
 nowbalc = tonumber(ballancee) - 3000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 3000 جنيه 💵\n← اصبحت وظيفتك : نجار 👨\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 3000 درهم 💵\n⇜ اصبحت وظيفتك : نجار 👨\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id,"← لا تستطيع تطوير راتبك حالياً\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ لا تستطيع تطوير راتبك حالياً\n✧","md",true)
 end
 else
 if tonumber(ratbinc) == 270 then
 if tonumber(ballanceed) < 1000000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 1000000000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 1000000000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,10)
 nowbalc = tonumber(ballancee) - 1000000000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 1000000000 جنيه 💵\n← اصبحت وظيفتك : ال تشابو 🧛\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 1000000000 درهم 💵\n⇜ اصبحت وظيفتك : ال تشابو 🧛\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 240 then
 if tonumber(ballanceed) < 200000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 200000000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 200000000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,9)
 nowbalc = tonumber(ballancee) - 200000000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 200000000 جنيه 💵\n← اصبحت وظيفتك : بائع ممنوعات دولي 🎩\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 200000000 درهم 💵\n⇜ اصبحت وظيفتك : بائع ممنوعات دولي 🎩\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 210 then
 if tonumber(ballanceed) < 30000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 30000000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 30000000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,8)
 nowbalc = tonumber(ballancee) - 30000000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 30000000 جنيه 💵\n← اصبحت وظيفتك : تاجر ممنوعات 🧔‍♂️\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 30000000 درهم 💵\n⇜ اصبحت وظيفتك : تاجر ممنوعات 🧔‍♂️\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 180 then
 if tonumber(ballanceed) < 1000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 1000000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 1000000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,7)
 nowbalc = tonumber(ballancee) - 1000000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 1000000 جنيه 💵\n← اصبحت وظيفتك : بق بوس العصابة 🗣\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 1000000 درهم 💵\n⇜ اصبحت وظيفتك : بق بوس العصابة 🗣\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 150 then
 if tonumber(ballanceed) < 300000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 300000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 300000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,6)
 nowbalc = tonumber(ballancee) - 300000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 300000 جنيه 💵\n← اصبحت وظيفتك : مساعد رئيس العصابة 🦹\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 300000 درهم 💵\n⇜ اصبحت وظيفتك : مساعد رئيس العصابة 🦹\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 120 then
 if tonumber(ballanceed) < 120000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 120000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 120000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,5)
 nowbalc = tonumber(ballancee) - 120000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 120000 جنيه 💵\n← اصبحت وظيفتك : عضو عصابة 🙍\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 120000 درهم 💵\n⇜ اصبحت وظيفتك : عضو عصابة 🙍\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 90 then
 if tonumber(ballanceed) < 80000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 80000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 80000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,4)
 nowbalc = tonumber(ballancee) - 80000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 80000 جنيه 💵\n← اصبحت وظيفتك : قاتل مأجور 🔫\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 80000 درهم 💵\n⇜ اصبحت وظيفتك : قاتل مأجور 🔫\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 60 then
 if tonumber(ballanceed) < 30000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 30000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 30000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,3)
 nowbalc = tonumber(ballancee) - 30000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 30000 جنيه 💵\n← اصبحت وظيفتك : قاتل 🕴\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 30000 درهم 💵\n⇜ اصبحت وظيفتك : قاتل 🕴\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 elseif tonumber(ratbinc) == 30 then
 if tonumber(ballanceed) < 3000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تطور راتبك تحتاج مبلغ 3000 جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تطور راتبك تحتاج مبلغ 3000 درهم 💵","md",true)
 end
 Redis:del(TheMERON.."ratbtrans"..msg.sender_id.user_id)
 Redis:set(TheMERON.."ratbtrans"..msg.sender_id.user_id,2)
 nowbalc = tonumber(ballancee) - 3000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(nowbalc))
 local convert_mony = string.format("%.0f",nowbalc)
-return merolua.sendText(msg.chat_id,msg.id,"• اشعار تطوير راتب\n\n← المبلغ : 3000 جنيه 💵\n← اصبحت وظيفتك : سارق 🥷\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⌯ اشعار تطوير راتب\n\n⇜ المبلغ : 3000 درهم 💵\n⇜ اصبحت وظيفتك : سارق 🥷\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id,"← لا تستطيع تطوير راتبك حالياً\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ لا تستطيع تطوير راتبك حالياً\n✧","md",true)
 end
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == 'هجوم' then
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`هجوم` المبلغ ( بالرد )","md",true)
+
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `هجوم` المبلغ ( بالرد )","md",true)
 end
 if text and text:match("^هجوم (%d+)$") and msg.reply_to_message_id == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`هجوم` المبلغ ( بالرد )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `هجوم` المبلغ ( بالرد )","md",true)
 end
 if text and text:match('^هجوم (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local UserName = text:match('^هجوم (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف معندهوش حساب بالبنك 🤣*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها حساب بالبنك 🤣","md",true)  
 return false
 end
 if Remsg.sender_id.user_id == msg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهاجم نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهاجم نفسك 🤡","md",true)  
 return false
 end
 if Redis:ttl(TheMERON.."attack" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."attack" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← خسرت بأخر معركة استنى "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."attack" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ خسرت بأخر معركة استنى "..time.." ","md",true)
 end
 if Redis:ttl(TheMERON.."defen" .. Remsg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."defen" .. Remsg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← الخصم خسر بأخر معركة\n← يمديك تهاجمه بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."defen" .. Remsg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ الخصم خسر بأخر معركة\n⇜ يمديك تهاجمه بعد "..time.." ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 ballancope = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 ballanceed = Redis:get(TheMERON.."boob"..Remsg.sender_id.user_id) or 0
-if tonumber(ballancope) < 1000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تهجم فلوسك اقل من 1000 جنيه 💵","md",true)
+if tonumber(ballancope) < 100000 then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تهجم فلوسك اقل من 100000 درهم 💵","md",true)
 end
-if tonumber(ballanceed) < 1000 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تهجم عليه فلوسه اقل من 1000 جنيه 💵","md",true)
+if tonumber(ballanceed) < 100000 then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تهجم عليه فلوسه اقل من 100000 درهم 💵","md",true)
 end
-if tonumber(coniss) < 1000 then
-return merolua.sendText(msg.chat_id,msg.id, "← الحد الادنى المسموح هو 1000 جنيه 💵\n〰","md",true)
+if tonumber(coniss) < 9999 then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح هو 10000 درهم 💵\n✧","md",true)
 end
 if tonumber(ballancope) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي","md",true)
 end
 if tonumber(ballanceed) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسه مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسه ماتكفي","md",true)
 end
 local Textinggt = {"1", "2", "3", "4", "5", "6", "7", "8",}
 local Descriptioont = Textinggt[math.random(#Textinggt)]
-local ban = bot.getUser(msg.sender_id.user_id)
+local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
 neews = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
 neews = " لا يوجد اسم "
 end
-local bann = bot.getUser(Remsg.sender_id.user_id)
+local bann = merolua.getUser(Remsg.sender_id.user_id)
 if bann.first_name then
 neewss = "["..bann.first_name.."](tg://user?id="..bann.id..")"
 else
@@ -28524,11 +28842,11 @@ Redis:set(TheMERON.."boob"..Remsg.sender_id.user_id , math.floor(zrfnee))
 Redis:setex(TheMERON.."attack" .. msg.sender_id.user_id,600, true)
 local convert_mony = string.format("%.0f",drebattackk)
 local convert_monyy = string.format("%.0f",drebattack)
-return merolua.sendText(msg.chat_id,msg.id, "← لقد خسرت في المعركة "..neews.." 🛡\n← الفائز : "..neewss.."\n← الخاسر : "..neews.."\n← الجائزة : "..convert_mony.." جنيه 💵\n← الضريبة : "..convert_monyy.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لقد خسرت في المعركة "..neews.." 🛡\n⇜ الفائز : "..neewss.."\n⇜ الخاسر : "..neews.."\n⇜ الجائزة : "..convert_mony.." درهم 💵\n⇜ الضريبة : "..convert_monyy.." درهم 💵\n✧","md",true)
 elseif Descriptioont == "2" or Descriptioont == "4" or Descriptioont == "5" or  Descriptioont == "6" or Descriptioont == "8" then
 local ballanceed = Redis:get(TheMERON.."boob"..Remsg.sender_id.user_id) or 0
 local ballancope = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-begaatt = Redis:get(TheMERON.."numattack"..msg.sender_id.user_id) or 1000
+begaatt = Redis:get(TheMERON.."numattack"..msg.sender_id.user_id) or 200
 numattackk = tonumber(begaatt) - 1
 if numattackk == 0 then
 numattackk = 1
@@ -28541,7 +28859,7 @@ Redis:set(TheMERON.."boob"..Remsg.sender_id.user_id , math.floor(zrfnee))
 Redis:setex(TheMERON.."defen" .. Remsg.sender_id.user_id,1800, true)
 Redis:set(TheMERON.."numattack"..msg.sender_id.user_id , math.floor(numattackk))
 local convert_mony = string.format("%.0f",math.floor(attack))
-return merolua.sendText(msg.chat_id,msg.id, "← لقد فزت في المعركة\n← ودمرت قلعة "..neewss.." 🏰\n← الفائز : "..neews.."\n← الخاسر : "..neewss.."\n← الجائزة : "..convert_mony.." جنيه 💵\n← نسبة قوة المهاجم اصبحت "..numattackk.." 🩸\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لقد فزت في المعركة\n⇜ ودمرت قلعة "..neewss.." 🏰\n⇜ الفائز : "..neews.."\n⇜ الخاسر : "..neewss.."\n⇜ الجائزة : "..convert_mony.." درهم 💵\n⇜ نسبة قوة المهاجم اصبحت "..numattackk.." 🩸\n✧","md",true)
 elseif Descriptioont == "7" then
 local ballanceed = Redis:get(TheMERON.."boob"..Remsg.sender_id.user_id) or 0
 local ballancope = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
@@ -28552,29 +28870,30 @@ Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(zrfne))
 Redis:set(TheMERON.."boob"..Remsg.sender_id.user_id , math.floor(zrfnee))
 Redis:setex(TheMERON.."attack" .. msg.sender_id.user_id,600, true)
 local convert_mony = string.format("%.0f",math.floor(halfzrf))
-return merolua.sendText(msg.chat_id,msg.id, "← لقد خسرت في المعركة "..neews.." 🛡\n← ولكن استطعت اعادة نصف الموارد\n← الفائز : "..neewss.."\n← الخاسر : "..neews.."\n← الجائزة : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لقد خسرت في المعركة "..neews.." 🛡\n⇜ ولكن استطعت اعادة نصف الموارد\n⇜ الفائز : "..neewss.."\n⇜ الخاسر : "..neews.."\n⇜ الجائزة : "..convert_mony.." درهم 💵\n✧","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == "المعرض" or text == "معرض" then
+
 Redis:setex(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id,60, true)
 return merolua.sendText(msg.chat_id,msg.id,[[
-– اهلين فيك بمعرض كريتف
+– اهلين فيك بمعرض ريما
 - يتوفر لدينا حالياً :
 
-← `سيارات`  🚗
-← `طيارات`  ✈️
-← `عقارات`  🏘
-← `مجوهرات`  💎
+⇠ `سيارات`  🚗
+⇠ `طيارات`  ✈️
+⇠ `عقارات`  🏘
+⇠ `مجوهرات`  💎
 
 - اضغط للنسخ
 
-〰
+✧
 ]],"md",true)  
 return false
 end
@@ -28583,18 +28902,18 @@ Redis:del(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id)
 return merolua.sendText(msg.chat_id,msg.id,[[
 – السيارات المتوفرة لدينا حالياً :
 
-← `فيلار` - السعر : 10000000 💵
-← `اكسنت` - السعر : 9000000 💵
-← `كامري` - السعر : 8000000 💵
-← `النترا` - السعر : 7000000 💵
-← `هايلكس` - السعر : 6000000 💵
-← `سوناتا` - السعر : 5000000 💵
-← `كورولا` - السعر : 4000000 💵
+⇠ `فيلار` - السعر : 10000000 💵
+⇠ `اكسنت` - السعر : 9000000 💵
+⇠ `كامري` - السعر : 8000000 💵
+⇠ `النترا` - السعر : 7000000 💵
+⇠ `هايلكس` - السعر : 6000000 💵
+⇠ `سوناتا` - السعر : 5000000 💵
+⇠ `كورولا` - السعر : 4000000 💵
 
 - ارسل اسم السيارة والعدد
 مثال : شراء سياره فيلار 2
 
-〰
+✧
 ]],"md",true)  
 return false
 end
@@ -28603,14 +28922,14 @@ Redis:del(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id)
 return merolua.sendText(msg.chat_id,msg.id,[[
 – الطيارات المتوفرة لدينا حالياً :
 
-← `شبح` - السعر : 1000000000 💵
-← `سفر` - السعر : 500000000 💵
-← `خاصه` - السعر : 200000000 💵
+⇠ `شبح` - السعر : 1000000000 💵
+⇠ `سفر` - السعر : 500000000 💵
+⇠ `خاصه` - السعر : 200000000 💵
 
 - ارسل اسم الطائرة والعدد
 مثال : شراء طياره سفر 2
 
-〰
+✧
 ]],"md",true)  
 return false
 end
@@ -28619,14 +28938,14 @@ Redis:del(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id)
 return merolua.sendText(msg.chat_id,msg.id,[[
 – العقارات المتوفرة لدينا حالياً :
 
-← `قصر` - السعر : 1000000 💵
-← `فيلا` - السعر : 500000 💵
-← `منزل` - السعر : 100000 💵
+⇠ `قصر` - السعر : 1000000 💵
+⇠ `فيلا` - السعر : 500000 💵
+⇠ `منزل` - السعر : 100000 💵
 
 - ارسل اسم العقار والعدد
 مثال : شراء قصر 2
 
-〰
+✧
 ]],"md",true)  
 return false
 end
@@ -28635,30 +28954,35 @@ Redis:del(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id)
 return merolua.sendText(msg.chat_id,msg.id,[[
 – المجوهرات المتوفرة لدينا حالياً :
 
-← `ماسه` - السعر : 1000000 💵
-← `قلاده` - السعر : 500000 💵
-← `سوار` - السعر : 200000 💵
-← `خاتم` - السعر : 50000 💵
+⇠ `ماسه` - السعر : 1000000 💵
+⇠ `قلاده` - السعر : 500000 💵
+⇠ `سوار` - السعر : 200000 💵
+⇠ `خاتم` - السعر : 50000 💵
 
 - ارسل الاسم والعدد
 مثال : شراء سوار 2
 
-〰
+✧
 ]],"md",true)  
 return false
 end
 if text and text:match('^شراء ماسه (.*)$') or text and text:match('^شراء ماسة (.*)$') then
+
 local UserName = text:match('^شراء ماسه (.*)$') or text:match('^شراء ماسة (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار ماسه بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار ماسه بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 masmgr = tonumber(coniss) * 1000000
 if tonumber(ballance) < tonumber(masmgr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local mgrmasname = Redis:get(TheMERON.."mgrmasname"..msg.sender_id.user_id)
 local mgrmasprice = Redis:get(TheMERON.."mgrmasprice"..msg.sender_id.user_id) or 0
@@ -28672,23 +28996,28 @@ totalypalice = tonumber(ballance) - tonumber(masmgr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(masmgr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء مجوهرات\nالنوع : ماسه \nاجمالي السعر : "..convert_monyy.." 💵\nعدد ماساتك : `"..mgrmasnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء مجوهرات\n⇜ النوع : ماسه \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد ماساتك : `"..mgrmasnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء قلاده (.*)$') or text and text:match('^شراء قلادة (.*)$') then
+
 local UserName = text:match('^شراء قلاده (.*)$') or text:match('^شراء قلادة (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار قلاده بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار قلاده بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 kldmgr = tonumber(coniss) * 500000
 if tonumber(ballance) < tonumber(kldmgr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local mgrkldname = Redis:get(TheMERON.."mgrkldname"..msg.sender_id.user_id)
 local mgrkldprice = Redis:get(TheMERON.."mgrkldprice"..msg.sender_id.user_id) or 0
@@ -28702,24 +29031,29 @@ totalypalice = tonumber(ballance) - tonumber(kldmgr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(kldmgr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء مجوهرات\nالنوع : قلاده \nاجمالي السعر : "..convert_monyy.." 💵\nعدد قلاداتك : `"..mgrkldnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء مجوهرات\n⇜ النوع : قلاده \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد قلاداتك : `"..mgrkldnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء سوار (.*)$') then
+
 local UserName = text:match('^شراء سوار (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار سوار بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار سوار بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 swrmgr = tonumber(coniss) * 200000
 if tonumber(ballance) < tonumber(swrmgr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local mgrswrname = Redis:get(TheMERON.."mgrswrname"..msg.sender_id.user_id)
 local mgrswrprice = Redis:get(TheMERON.."mgrswrprice"..msg.sender_id.user_id) or 0
@@ -28733,24 +29067,27 @@ totalypalice = tonumber(ballance) - tonumber(swrmgr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(swrmgr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء مجوهرات\nالنوع : سوار \nاجمالي السعر : "..convert_monyy.." 💵\nعدد اساورك : `"..mgrswrnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء مجوهرات\n⇜ النوع : سوار \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد اساورك : `"..mgrswrnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء خاتم (.*)$') then
 local UserName = text:match('^شراء خاتم (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار خاتم بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار خاتم بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 ktmmgr = tonumber(coniss) * 50000
 if tonumber(ballance) < tonumber(ktmmgr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local mgrktmname = Redis:get(TheMERON.."mgrktmname"..msg.sender_id.user_id)
 local mgrktmprice = Redis:get(TheMERON.."mgrktmprice"..msg.sender_id.user_id) or 0
@@ -28764,30 +29101,36 @@ totalypalice = tonumber(ballance) - tonumber(ktmmgr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(ktmmgr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء مجوهرات\nالنوع : خاتم \nاجمالي السعر : "..convert_monyy.." 💵\nعدد خواتمك : `"..mgrktmnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء مجوهرات\n⇜ النوع : خاتم \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد خواتمك : `"..mgrktmnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع ماسه (.*)$') then
+
 local UserName = text:match('^بيع ماسه (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local mgrmasnum = Redis:get(TheMERON.."mgrmasnum"..msg.sender_id.user_id) or 0
 if tonumber(mgrmasnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك ماسات ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك ماسات ","md",true)
 end
 if tonumber(mgrmasnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." ماسه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." ماسه","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local mgrmasname = Redis:get(TheMERON.."mgrmasname"..msg.sender_id.user_id)
 local mgrmasprice = Redis:get(TheMERON.."mgrmasprice"..msg.sender_id.user_id) or 0
 local mgrmasnum = Redis:get(TheMERON.."mgrmasnum"..msg.sender_id.user_id) or 0
 local mgrmasnow = tonumber(mgrmasnum) - tonumber(coniss)
 Redis:set(TheMERON.."mgrmasnum"..msg.sender_id.user_id , mgrmasnow)
-sellmgr = tonumber(coniss) * 900000
+local Textinggt = {"900000", "1000000", "1100000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellmgr = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellmgr
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -28796,30 +29139,36 @@ if tonumber(mgrmasnum) == 0 then
 Redis:del(TheMERON.."mgrmasname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mgrmasnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع مجوهرات\nالنوع : ماسه \nالعدد : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellmgr).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع مجوهرات\n⇜ النوع : ماسه \n⇜ العدد : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellmgr).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع قلاده (.*)$') or text and text:match('^شراء قلادة (.*)$') then
+
 local UserName = text:match('^بيع قلاده (.*)$') or text:match('^شراء قلادة (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local mgrkldnum = Redis:get(TheMERON.."mgrkldnum"..msg.sender_id.user_id) or 0
 if tonumber(mgrkldnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك قلادات ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك قلادات ","md",true)
 end
 if tonumber(mgrkldnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." قلاده ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." قلاده ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local mgrkldname = Redis:get(TheMERON.."mgrkldname"..msg.sender_id.user_id)
 local mgrkldprice = Redis:get(TheMERON.."mgrkldprice"..msg.sender_id.user_id) or 0
 local mgrkldnum = Redis:get(TheMERON.."mgrkldnum"..msg.sender_id.user_id) or 0
 local mgrkldnow = tonumber(mgrkldnum) - tonumber(coniss)
 Redis:set(TheMERON.."mgrkldnum"..msg.sender_id.user_id , mgrkldnow)
-sellkld = tonumber(coniss) * 400000
+local Textinggt = {"400000", "500000", "600000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellkld = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellkld
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -28828,30 +29177,36 @@ if tonumber(mgrkldnum) == 0 then
 Redis:del(TheMERON.."mgrkldname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mgrkldnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع مجوهرات\nالنوع : قلاده \nالعدد : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellkld).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع مجوهرات\n⇜ النوع : قلاده \n⇜ العدد : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellkld).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع سوار (.*)$') then
+
 local UserName = text:match('^بيع سوار (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local mgrswrnum = Redis:get(TheMERON.."mgrswrnum"..msg.sender_id.user_id) or 0
 if tonumber(mgrswrnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك اساور ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك اساور ","md",true)
 end
 if tonumber(mgrswrnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سوار ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سوار ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local mgrswrname = Redis:get(TheMERON.."mgrswrname"..msg.sender_id.user_id)
 local mgrswrprice = Redis:get(TheMERON.."mgrswrprice"..msg.sender_id.user_id) or 0
 local mgrswrnum = Redis:get(TheMERON.."mgrswrnum"..msg.sender_id.user_id) or 0
 local mgrswrnow = tonumber(mgrswrnum) - tonumber(coniss)
 Redis:set(TheMERON.."mgrswrnum"..msg.sender_id.user_id , mgrswrnow)
-sellswr = tonumber(coniss) * 150000
+local Textinggt = {"150000", "200000", "300000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellswr = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellswr
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -28860,30 +29215,36 @@ if tonumber(mgrswrnum) == 0 then
 Redis:del(TheMERON.."mgrswrname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mgrswrnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع مجوهرات\nالنوع : سوار \nالعدد : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellswr).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع مجوهرات\n⇜ النوع : سوار \n⇜ العدد : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellswr).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع خاتم (.*)$') then
+
 local UserName = text:match('^بيع خاتم (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local mgrktmnum = Redis:get(TheMERON.."mgrktmnum"..msg.sender_id.user_id) or 0
 if tonumber(mgrktmnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك خواتم ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك خواتم ","md",true)
 end
 if tonumber(mgrktmnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." خاتم ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." خاتم ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local mgrktmname = Redis:get(TheMERON.."mgrktmname"..msg.sender_id.user_id)
 local mgrktmprice = Redis:get(TheMERON.."mgrktmprice"..msg.sender_id.user_id) or 0
 local mgrktmnum = Redis:get(TheMERON.."mgrktmnum"..msg.sender_id.user_id) or 0
 local mgrktmnow = tonumber(mgrktmnum) - tonumber(coniss)
 Redis:set(TheMERON.."mgrktmnum"..msg.sender_id.user_id , mgrktmnow)
-sellktm = tonumber(coniss) * 40000
+local Textinggt = {"40000", "50000", "60000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellktm = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellktm
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -28892,29 +29253,37 @@ if tonumber(mgrktmnum) == 0 then
 Redis:del(TheMERON.."mgrktmname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mgrktmnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع مجوهرات\nالنوع : خاتم \nالعدد : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellktm).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع مجوهرات\n⇜ النوع : خاتم \n⇜ العدد : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellktm).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء ماسه (.*)$') or text and text:match('^اهداء ماسة (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local UserName = text:match('^اهداء ماسه (.*)$') or text:match('^اهداء ماسة (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local mgrmasnum = Redis:get(TheMERON.."mgrmasnum"..msg.sender_id.user_id) or 0
 if tonumber(mgrmasnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك ماسات ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك ماسات ","md",true)
 end
 if tonumber(mgrmasnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." ماسه ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." ماسه ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local mgrmasnum = Redis:get(TheMERON.."mgrmasnum"..msg.sender_id.user_id) or 0
 local mgrmasnow = tonumber(mgrmasnum) - tonumber(coniss)
@@ -28929,32 +29298,41 @@ if tonumber(mgrmasnum) == 0 then
 Redis:del(TheMERON.."mgrmasname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mgrmasnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) ماسه\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) ماسه\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء قلاده (.*)$') or text and text:match('^اهداء قلادة (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local UserName = text:match('^اهداء قلاده (.*)$') or text:match('^اهداء قلادة (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local mgrkldnum = Redis:get(TheMERON.."mgrkldnum"..msg.sender_id.user_id) or 0
 if tonumber(mgrkldnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك قلادات ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك قلادات ","md",true)
 end
 if tonumber(mgrkldnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." قلاده ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." قلاده ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local mgrkldnum = Redis:get(TheMERON.."mgrkldnum"..msg.sender_id.user_id) or 0
 local mgrkldnow = tonumber(mgrkldnum) - tonumber(coniss)
@@ -28969,32 +29347,41 @@ if tonumber(mgrkldnum) == 0 then
 Redis:del(TheMERON.."mgrkldname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mgrkldnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) قلاده\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) قلاده\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء سوار (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local UserName = text:match('^اهداء سوار (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local mgrswrnum = Redis:get(TheMERON.."mgrswrnum"..msg.sender_id.user_id) or 0
 if tonumber(mgrswrnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك اساور ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك اساور ","md",true)
 end
 if tonumber(mgrswrnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سوار","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سوار","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local mgrswrnum = Redis:get(TheMERON.."mgrswrnum"..msg.sender_id.user_id) or 0
 local mgrswrnow = tonumber(mgrswrnum) - tonumber(coniss)
@@ -29009,32 +29396,41 @@ if tonumber(mgrswrnum) == 0 then
 Redis:del(TheMERON.."mgrswrname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mgrswrnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) سوار\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) سوار\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء خاتم (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local UserName = text:match('^اهداء خاتم (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local mgrktmnum = Redis:get(TheMERON.."mgrktmnum"..msg.sender_id.user_id) or 0
 if tonumber(mgrktmnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك خواتم ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك خواتم ","md",true)
 end
 if tonumber(mgrktmnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." خاتم","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." خاتم","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local mgrktmnum = Redis:get(TheMERON.."mgrktmnum"..msg.sender_id.user_id) or 0
 local mgrktmnow = tonumber(mgrktmnum) - tonumber(coniss)
@@ -29049,27 +29445,31 @@ if tonumber(mgrktmnum) == 0 then
 Redis:del(TheMERON.."mgrktmname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."mgrktmnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) خاتم\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) خاتم\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء قصر (.*)$') then
 local UserName = text:match('^شراء قصر (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار قصر بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار قصر بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 ksrakr = tonumber(coniss) * 1000000
 if tonumber(ballance) < tonumber(ksrakr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local akrksrname = Redis:get(TheMERON.."akrksrname"..msg.sender_id.user_id)
 local akrksrprice = Redis:get(TheMERON.."akrksrprice"..msg.sender_id.user_id) or 0
@@ -29083,9 +29483,9 @@ totalypalice = tonumber(ballance) - tonumber(ksrakr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(ksrakr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء عقار\nنوع العقار : قصر \nاجمالي السعر : "..convert_monyy.." 💵\nعدد قصورك : `"..akrksrnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء عقار\n⇜ نوع العقار : قصر \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد قصورك : `"..akrksrnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء فيلا (.*)$') then
@@ -29094,13 +29494,17 @@ local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار فيلا بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار فيلا بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 felakr = tonumber(coniss) * 500000
 if tonumber(ballance) < tonumber(felakr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local akrfelname = Redis:get(TheMERON.."akrfelname"..msg.sender_id.user_id)
 local akrfelprice = Redis:get(TheMERON.."akrfelprice"..msg.sender_id.user_id) or 0
@@ -29114,9 +29518,9 @@ totalypalice = tonumber(ballance) - tonumber(felakr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(felakr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء عقار\nنوع العقار : قصر \nاجمالي السعر : "..convert_monyy.." 💵\nعدد فيلاتك : `"..akrfelnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء عقار\n⇜ نوع العقار : قصر \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد فيلاتك : `"..akrfelnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء منزل (.*)$') then
@@ -29125,13 +29529,17 @@ local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار منزل بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار منزل بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 mnzakr = tonumber(coniss) * 200000
 if tonumber(ballance) < tonumber(mnzakr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local akrmnzname = Redis:get(TheMERON.."akrmnzname"..msg.sender_id.user_id)
 local akrmnzprice = Redis:get(TheMERON.."akrmnzprice"..msg.sender_id.user_id) or 0
@@ -29145,30 +29553,35 @@ totalypalice = tonumber(ballance) - tonumber(mnzakr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(mnzakr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء عقار\nنوع العقار : منزل \nاجمالي السعر : "..convert_monyy.." 💵\nعدد منازلك : `"..akrmnznow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء عقار\n⇜ نوع العقار : منزل \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد منازلك : `"..akrmnznow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع قصر (.*)$') then
 local UserName = text:match('^بيع قصر (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local akrksrnum = Redis:get(TheMERON.."akrksrnum"..msg.sender_id.user_id) or 0
 if tonumber(akrksrnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك قصور ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك قصور ","md",true)
 end
 if tonumber(akrksrnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." قصر","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." قصر","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local akrksrname = Redis:get(TheMERON.."akrksrname"..msg.sender_id.user_id)
 local akrksrprice = Redis:get(TheMERON.."akrksrprice"..msg.sender_id.user_id) or 0
 local akrksrnum = Redis:get(TheMERON.."akrksrnum"..msg.sender_id.user_id) or 0
 local akrksrnow = tonumber(akrksrnum) - tonumber(coniss)
 Redis:set(TheMERON.."akrksrnum"..msg.sender_id.user_id , akrksrnow)
-sellakr = tonumber(coniss) * 900000
+local Textinggt = {"900000", "1000000", "1100000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellakr = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellakr
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -29177,30 +29590,35 @@ if tonumber(akrksrnum) == 0 then
 Redis:del(TheMERON.."akrksrname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."akrksrnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع عقار\nنوع العقار : قصر \nالعدد : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellakr).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع عقار\n⇜ نوع العقار : قصر \n⇜ العدد : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellakr).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع فيلا (.*)$') then
 local UserName = text:match('^بيع فيلا (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local akrfelnum = Redis:get(TheMERON.."akrfelnum"..msg.sender_id.user_id) or 0
 if tonumber(akrfelnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك فيلات ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك فيلات ","md",true)
 end
 if tonumber(akrfelnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." فيلا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." فيلا ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local akrfelname = Redis:get(TheMERON.."akrfelname"..msg.sender_id.user_id)
 local akrfelprice = Redis:get(TheMERON.."akrfelprice"..msg.sender_id.user_id) or 0
 local akrfelnum = Redis:get(TheMERON.."akrfelnum"..msg.sender_id.user_id) or 0
 local akrfelnow = tonumber(akrfelnum) - tonumber(coniss)
 Redis:set(TheMERON.."akrfelnum"..msg.sender_id.user_id , akrfelnow)
-felakr = tonumber(coniss) * 400000
+local Textinggt = {"400000", "500000", "600000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+felakr = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + felakr
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -29209,30 +29627,35 @@ if tonumber(akrfelnum) == 0 then
 Redis:del(TheMERON.."akrfelname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."akrfelnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع عقار\nنوع العقار : فيلا \nالعدد : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(felakr).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع عقار\n⇜ نوع العقار : فيلا \n⇜ العدد : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(felakr).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع منزل (.*)$') then
 local UserName = text:match('^بيع منزل (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local akrmnznum = Redis:get(TheMERON.."akrmnznum"..msg.sender_id.user_id) or 0
 if tonumber(akrmnznum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك منازل ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك منازل ","md",true)
 end
 if tonumber(akrmnznum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." منزل ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." منزل ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local akrmnzname = Redis:get(TheMERON.."akrmnzname"..msg.sender_id.user_id)
 local akrmnzprice = Redis:get(TheMERON.."akrmnzprice"..msg.sender_id.user_id) or 0
 local akrmnznum = Redis:get(TheMERON.."akrmnznum"..msg.sender_id.user_id) or 0
 local akrmnznow = tonumber(akrmnznum) - tonumber(coniss)
 Redis:set(TheMERON.."akrmnznum"..msg.sender_id.user_id , akrmnznow)
-mnzakr = tonumber(coniss) * 90000
+local Textinggt = {"90000", "100000", "110000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+mnzakr = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + mnzakr
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -29241,29 +29664,36 @@ if tonumber(akrmnznum) == 0 then
 Redis:del(TheMERON.."akrmnzname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."akrmnznum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع عقار\nنوع العقار : منزل \nالعدد : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(mnzakr).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع عقار\n⇜ نوع العقار : منزل \n⇜ العدد : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(mnzakr).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء قصر (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local UserName = text:match('^اهداء قصر (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local akrksrnum = Redis:get(TheMERON.."akrksrnum"..msg.sender_id.user_id) or 0
 if tonumber(akrksrnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك قصور ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك قصور ","md",true)
 end
 if tonumber(akrksrnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." قصر ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." قصر ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local akrksrnum = Redis:get(TheMERON.."akrksrnum"..msg.sender_id.user_id) or 0
 local akrksrnow = tonumber(akrksrnum) - tonumber(coniss)
@@ -29278,32 +29708,40 @@ if tonumber(akrksrnum) == 0 then
 Redis:del(TheMERON.."akrksrname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."akrksrnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) قصر\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) قصر\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء فيلا (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
 local UserName = text:match('^اهداء فيلا (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local akrfelnum = Redis:get(TheMERON.."akrfelnum"..msg.sender_id.user_id) or 0
 if tonumber(akrfelnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك فيلات ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك فيلات ","md",true)
 end
 if tonumber(akrfelnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." فيلا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." فيلا ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local akrfelnum = Redis:get(TheMERON.."akrfelnum"..msg.sender_id.user_id) or 0
 local akrfelnow = tonumber(akrfelnum) - tonumber(coniss)
@@ -29318,32 +29756,40 @@ if tonumber(akrfelnum) == 0 then
 Redis:del(TheMERON.."akrfelname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."akrfelnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) فيلا\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) فيلا\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء منزل (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
 local UserName = text:match('^اهداء منزل (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local akrmnznum = Redis:get(TheMERON.."akrmnznum"..msg.sender_id.user_id) or 0
 if tonumber(akrmnznum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك منازل ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك منازل ","md",true)
 end
 if tonumber(akrmnznum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." منزل","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." منزل","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local akrmnznum = Redis:get(TheMERON.."akrmnznum"..msg.sender_id.user_id) or 0
 local akrmnznow = tonumber(akrmnznum) - tonumber(coniss)
@@ -29358,27 +29804,32 @@ if tonumber(akrmnznum) == 0 then
 Redis:del(TheMERON.."akrmnzname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."akrmnznum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) منزل\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) منزل\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء طياره شبح (.*)$') or text and text:match('^شراء طيارة شبح (.*)$') then
+
 local UserName = text:match('^شراء طياره شبح (.*)$') or text:match('^شراء طيارة شبح (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار طياره شبح بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار طياره شبح بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 shbhair = tonumber(coniss) * 1000000000
 if tonumber(ballance) < tonumber(shbhair) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local airshbhname = Redis:get(TheMERON.."airshbhname"..msg.sender_id.user_id)
 local airshbhprice = Redis:get(TheMERON.."airshbhprice"..msg.sender_id.user_id) or 0
@@ -29392,24 +29843,29 @@ totalypalice = tonumber(ballance) - tonumber(shbhair)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(shbhair))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء طائرة\nنوع الطائرة : شبح \nاجمالي السعر : "..convert_monyy.." 💵\nعدد طائراتك الشبح : `"..airshbhnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء طائرة\n⇜ نوع الطائرة : شبح \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد طائراتك الشبح : `"..airshbhnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء طياره سفر (.*)$') or text and text:match('^شراء طيارة سفر (.*)$') then
+
 local UserName = text:match('^شراء طياره سفر (.*)$') or text:match('^شراء طيارة سفر (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار طياره سفر بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار طياره سفر بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 sfarair = tonumber(coniss) * 500000000
 if tonumber(ballance) < tonumber(sfarair) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local airsfarname = Redis:get(TheMERON.."airsfarname"..msg.sender_id.user_id)
 local airsfarprice = Redis:get(TheMERON.."airsfarprice"..msg.sender_id.user_id) or 0
@@ -29423,24 +29879,29 @@ totalypalice = tonumber(ballance) - tonumber(sfarair)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(sfarair))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء طائرة\nنوع الطائرة : سفر \nاجمالي السعر : "..convert_monyy.." 💵\nعدد طائراتك السفر : `"..airsfarnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء طائرة\n⇜ نوع الطائرة : سفر \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد طائراتك السفر : `"..airsfarnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء طياره خاصه (.*)$') or text and text:match('^شراء طيارة خاصه (.*)$') then
+
 local UserName = text:match('^شراء طياره خاصه (.*)$') or text:match('^شراء طيارة خاصه (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار طياره خاصه بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار طياره خاصه بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 khasair = tonumber(coniss) * 200000000
 if tonumber(ballance) < tonumber(khasair) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local airkhasname = Redis:get(TheMERON.."airkhasname"..msg.sender_id.user_id)
 local airkhasprice = Redis:get(TheMERON.."airkhasprice"..msg.sender_id.user_id) or 0
@@ -29454,30 +29915,36 @@ totalypalice = tonumber(ballance) - tonumber(khasair)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(khasair))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء طائرة\nنوع الطائرة : خاصه \nاجمالي السعر : "..convert_monyy.." 💵\nعدد طائراتك الخاصه : `"..airkhasnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء طائرة\n⇜ نوع الطائرة : خاصه \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد طائراتك الخاصه : `"..airkhasnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع طياره شبح (.*)$') or text and text:match('^بيع طيارة شبح (.*)$') then
+
 local UserName = text:match('^بيع طياره شبح (.*)$') or text:match('^بيع طيارة شبح (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local airshbhnum = Redis:get(TheMERON.."airshbhnum"..msg.sender_id.user_id) or 0
 if tonumber(airshbhnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك طائرات شبح ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك طائرات شبح ","md",true)
 end
 if tonumber(airshbhnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." طيارة شبح ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." طيارة شبح ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local airshbhname = Redis:get(TheMERON.."airshbhname"..msg.sender_id.user_id)
 local airshbhprice = Redis:get(TheMERON.."airshbhprice"..msg.sender_id.user_id) or 0
 local airshbhnum = Redis:get(TheMERON.."airshbhnum"..msg.sender_id.user_id) or 0
 local airshbhnow = tonumber(airshbhnum) - tonumber(coniss)
 Redis:set(TheMERON.."airshbhnum"..msg.sender_id.user_id , airshbhnow)
-sellair = tonumber(coniss) * 900000000
+local Textinggt = {"900000000", "1000000000", "1100000000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellair = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellair
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -29486,30 +29953,36 @@ if tonumber(airshbhnum) == 0 then
 Redis:del(TheMERON.."airshbhname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."airshbhnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع طائرة\nنوع الطائرة : شبح \nعدد الطائرات : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellair).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع طائرة\n⇜ نوع الطائرة : شبح \n⇜ عدد الطائرات : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellair).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع طياره سفر (.*)$') or text and text:match('^بيع طيارة سفر (.*)$') then
+
 local UserName = text:match('^بيع طياره سفر (.*)$') or text:match('^بيع طيارة سفر (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local airsfarnum = Redis:get(TheMERON.."airsfarnum"..msg.sender_id.user_id) or 0
 if tonumber(airsfarnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك طائرات سفر ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك طائرات سفر ","md",true)
 end
 if tonumber(airsfarnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." طيارة سفر ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." طيارة سفر ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local airsfarname = Redis:get(TheMERON.."airsfarname"..msg.sender_id.user_id)
 local airsfarprice = Redis:get(TheMERON.."airsfarprice"..msg.sender_id.user_id) or 0
 local airsfarnum = Redis:get(TheMERON.."airsfarnum"..msg.sender_id.user_id) or 0
 local airsfarnow = tonumber(airsfarnum) - tonumber(coniss)
 Redis:set(TheMERON.."airsfarnum"..msg.sender_id.user_id , airsfarnow)
-sellair = tonumber(coniss) * 400000000
+local Textinggt = {"400000000", "500000000", "600000000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellair = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellair
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -29518,30 +29991,36 @@ if tonumber(airsfarnum) == 0 then
 Redis:del(TheMERON.."airsfarname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."airsfarnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع طائرة\nنوع الطائرة : سفر \nعدد الطائرات : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellair).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع طائرة\n⇜ نوع الطائرة : سفر \n⇜ عدد الطائرات : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellair).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع طياره خاصه (.*)$') or text and text:match('^بيع طيارة خاصه (.*)$') then
+
 local UserName = text:match('^بيع طياره خاصه (.*)$') or text:match('^بيع طيارة خاصه (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local airkhasnum = Redis:get(TheMERON.."airkhasnum"..msg.sender_id.user_id) or 0
 if tonumber(airkhasnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك طائرات خاصه ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك طائرات خاصه ","md",true)
 end
 if tonumber(airkhasnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." طيارة خاصه ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." طيارة خاصه ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local airkhasname = Redis:get(TheMERON.."airkhasname"..msg.sender_id.user_id)
 local airkhasprice = Redis:get(TheMERON.."airkhasprice"..msg.sender_id.user_id) or 0
 local airkhasnum = Redis:get(TheMERON.."airkhasnum"..msg.sender_id.user_id) or 0
 local airkhasnow = tonumber(airkhasnum) - tonumber(coniss)
 Redis:set(TheMERON.."airkhasnum"..msg.sender_id.user_id , airkhasnow)
-sellair = tonumber(coniss) * 150000000
+local Textinggt = {"150000000", "200000000", "250000000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellair = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellair
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -29550,29 +30029,37 @@ if tonumber(airkhasnum) == 0 then
 Redis:del(TheMERON.."airkhasname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."airkhasnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع طائرة\nنوع الطائرة : خاصه \nعدد الطائرات : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellair).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع طائرة\n⇜ نوع الطائرة : خاصه \n⇜ عدد الطائرات : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellair).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء طائره شبح (.*)$') or text and text:match('^اهداء طائرة شبح (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local UserName = text:match('^اهداء طائره شبح (.*)$') or text:match('^اهداء طائرة شبح (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local airshbhnum = Redis:get(TheMERON.."airshbhnum"..msg.sender_id.user_id) or 0
 if tonumber(airshbhnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك طائرات شبح ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك طائرات شبح ","md",true)
 end
 if tonumber(airshbhnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." طائرة شبح ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." طائرة شبح ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local airshbhnum = Redis:get(TheMERON.."airshbhnum"..msg.sender_id.user_id) or 0
 local airshbhnow = tonumber(airshbhnum) - tonumber(coniss)
@@ -29587,32 +30074,42 @@ if tonumber(airshbhnum) == 0 then
 Redis:del(TheMERON.."airshbhname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."airshbhnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) طائرة شبح\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) طائرة شبح\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء طائره سفر (.*)$') or text and text:match('^اهداء طائرة سفر (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local UserName = text:match('^اهداء طائره سفر (.*)$') or text:match('^اهداء طائرة سفر (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 local airsfarnum = Redis:get(TheMERON.."airsfarnum"..msg.sender_id.user_id) or 0
 if tonumber(airsfarnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك طائرات سفر ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك طائرات سفر ","md",true)
 end
 if tonumber(airsfarnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." طائرة سفر ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." طائرة سفر ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local airsfarnum = Redis:get(TheMERON.."airsfarnum"..msg.sender_id.user_id) or 0
 local airsfarnow = tonumber(airsfarnum) - tonumber(coniss)
@@ -29627,32 +30124,41 @@ if tonumber(airsfarnum) == 0 then
 Redis:del(TheMERON.."airsfarname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."airsfarnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) طائرة سفر\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) طائرة سفر\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء طائره خاصه (.*)$') or text and text:match('^اهداء طائرة خاصه (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
+
 local UserName = text:match('^اهداء طائره خاصه (.*)$') or text:match('^اهداء طائرة خاصه (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local airkhasnum = Redis:get(TheMERON.."airkhasnum"..msg.sender_id.user_id) or 0
 if tonumber(airkhasnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك طائرات خاصه ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك طائرات خاصه ","md",true)
 end
 if tonumber(airkhasnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." طائرة خاصه ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." طائرة خاصه ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local airkhasnum = Redis:get(TheMERON.."airkhasnum"..msg.sender_id.user_id) or 0
 local airkhasnow = tonumber(airkhasnum) - tonumber(coniss)
@@ -29667,12 +30173,13 @@ if tonumber(airkhasnum) == 0 then
 Redis:del(TheMERON.."airkhasname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."airkhasnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) طائرة خاصه\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) طائرة خاصه\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء سياره فيلار (.*)$') or text and text:match('^شراء سيارة فيلار (.*)$') then
@@ -29681,13 +30188,17 @@ local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار سياره فيلار بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار سياره فيلار بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 rangpr = tonumber(coniss) * 10000000
 if tonumber(ballance) < tonumber(rangpr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local carrangname = Redis:get(TheMERON.."carrangname"..msg.sender_id.user_id)
 local carrangprice = Redis:get(TheMERON.."carrangprice"..msg.sender_id.user_id) or 0
@@ -29701,9 +30212,9 @@ totalypalice = tonumber(ballance) - tonumber(rangpr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(rangpr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء سيارة\nنوع السيارة : فيلار \nاجمالي السعر : "..convert_monyy.." 💵\nعدد سياراتك الفيلار : `"..carrangnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء سيارة\n⇜ نوع السيارة : فيلار \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد سياراتك الفيلار : `"..carrangnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء سياره اكسنت (.*)$') or text and text:match('^شراء سيارة اكسنت (.*)$') then
@@ -29712,13 +30223,17 @@ local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار سياره اكسنت بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار سياره اكسنت بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 accepr = tonumber(coniss) * 9000000
 if tonumber(ballance) < tonumber(accepr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local caraccename = Redis:get(TheMERON.."caraccename"..msg.sender_id.user_id)
 local caracceprice = Redis:get(TheMERON.."caracceprice"..msg.sender_id.user_id) or 0
@@ -29732,9 +30247,9 @@ totalypalice = tonumber(ballance) - tonumber(accepr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(accepr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء سيارة\nنوع السيارة : اكسنت \nاجمالي السعر : "..convert_monyy.." 💵\nعدد سياراتك الاكسنت : `"..caraccenow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء سيارة\n⇜ نوع السيارة : اكسنت \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد سياراتك الاكسنت : `"..caraccenow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء سياره كامري (.*)$') or text and text:match('^شراء سيارة كامري (.*)$') then
@@ -29743,13 +30258,17 @@ local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار سياره كامري بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار سياره كامري بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 camrpr = tonumber(coniss) * 8000000
 if tonumber(ballance) < tonumber(camrpr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local carcamrname = Redis:get(TheMERON.."carcamrname"..msg.sender_id.user_id)
 local carcamrprice = Redis:get(TheMERON.."carcamrprice"..msg.sender_id.user_id) or 0
@@ -29763,9 +30282,9 @@ totalypalice = tonumber(ballance) - tonumber(camrpr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(camrpr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء سيارة\nنوع السيارة : كامري \nاجمالي السعر : "..convert_monyy.." 💵\nعدد سياراتك الكامري : `"..carcamrnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء سيارة\n⇜ نوع السيارة : كامري \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد سياراتك الكامري : `"..carcamrnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء سياره النترا (.*)$') or text and text:match('^شراء سيارة النترا (.*)$') then
@@ -29774,13 +30293,17 @@ local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار سياره النترا بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار سياره النترا بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 alntrpr = tonumber(coniss) * 7000000
 if tonumber(ballance) < tonumber(alntrpr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local caralntrname = Redis:get(TheMERON.."caralntrname"..msg.sender_id.user_id)
 local caralntrprice = Redis:get(TheMERON.."caralntrprice"..msg.sender_id.user_id) or 0
@@ -29794,9 +30317,9 @@ totalypalice = tonumber(ballance) - tonumber(alntrpr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(alntrpr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء سيارة\nنوع السيارة : النترا \nاجمالي السعر : "..convert_monyy.." 💵\nعدد سياراتك الالنترا : `"..caralntrnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء سيارة\n⇜ نوع السيارة : النترا \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد سياراتك الالنترا : `"..caralntrnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء سياره هايلكس (.*)$') or text and text:match('^شراء سيارة هايلكس (.*)$') then
@@ -29805,13 +30328,17 @@ local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار سياره هايلكس بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار سياره هايلكس بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 hilxpr = tonumber(coniss) * 6000000
 if tonumber(ballance) < tonumber(hilxpr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local carhilxname = Redis:get(TheMERON.."carhilxname"..msg.sender_id.user_id)
 local carhilxprice = Redis:get(TheMERON.."carhilxprice"..msg.sender_id.user_id) or 0
@@ -29825,9 +30352,9 @@ totalypalice = tonumber(ballance) - tonumber(hilxpr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(hilxpr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء سيارة\nنوع السيارة : هايلكس \nاجمالي السعر : "..convert_monyy.." 💵\nعدد سياراتك الهايلكس : `"..carhilxnow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء سيارة\n⇜ نوع السيارة : هايلكس \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد سياراتك الهايلكس : `"..carhilxnow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء سياره سوناتا (.*)$') or text and text:match('^شراء سيارة سوناتا (.*)$') then
@@ -29836,13 +30363,17 @@ local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار سياره سوناتا بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار سياره سوناتا بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 sonapr = tonumber(coniss) * 5000000
 if tonumber(ballance) < tonumber(sonapr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local carsonaname = Redis:get(TheMERON.."carsonaname"..msg.sender_id.user_id)
 local carsonaprice = Redis:get(TheMERON.."carsonaprice"..msg.sender_id.user_id) or 0
@@ -29856,9 +30387,9 @@ totalypalice = tonumber(ballance) - tonumber(sonapr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(sonapr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء سيارة\nنوع السيارة : سوناتا \nاجمالي السعر : "..convert_monyy.." 💵\nعدد سياراتك السوناتا : `"..carsonanow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء سيارة\n⇜ نوع السيارة : سوناتا \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد سياراتك السوناتا : `"..carsonanow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^شراء سياره كورولا (.*)$') or text and text:match('^شراء سيارة كورولا (.*)$') then
@@ -29867,13 +30398,17 @@ local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if tonumber(coniss) > 1000000001 then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري اكثر من مليار سياره كورولا بعملية وحدة\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري اكثر من مليار سياره كورولا بعملية وحدة\n✧","md",true)
 end
 ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 coropr = tonumber(coniss) * 4000000
 if tonumber(ballance) < tonumber(coropr) then
-return merolua.sendText(msg.chat_id,msg.id, "← مينفعش تشتري فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
 end
 local carcoroname = Redis:get(TheMERON.."carcoroname"..msg.sender_id.user_id)
 local carcoroprice = Redis:get(TheMERON.."carcoroprice"..msg.sender_id.user_id) or 0
@@ -29887,30 +30422,35 @@ totalypalice = tonumber(ballance) - tonumber(coropr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
 local convert_monyy = string.format("%.0f",math.floor(coropr))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل شراء سيارة\nنوع السيارة : كورولا \nاجمالي السعر : "..convert_monyy.." 💵\nعدد سياراتك الكورولا : `"..carcoronow.."`\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل شراء سيارة\n⇜ نوع السيارة : كورولا \n⇜ اجمالي السعر : "..convert_monyy.." 💵\n⇜ عدد سياراتك الكورولا : `"..carcoronow.."`\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع سياره فيلار (.*)$') or text and text:match('^بيع سيارة فيلار (.*)$') then
 local UserName = text:match('^بيع سياره فيلار (.*)$') or text:match('^بيع سيارة فيلار (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local carrangnum = Redis:get(TheMERON.."carrangnum"..msg.sender_id.user_id) or 0
 if tonumber(carrangnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات فيلار ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات فيلار ","md",true)
 end
 if tonumber(carrangnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة فيلار ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة فيلار ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local carrangname = Redis:get(TheMERON.."carrangname"..msg.sender_id.user_id)
 local carrangprice = Redis:get(TheMERON.."carrangprice"..msg.sender_id.user_id) or 0
 local carrangnum = Redis:get(TheMERON.."carrangnum"..msg.sender_id.user_id) or 0
 local carrangnow = tonumber(carrangnum) - tonumber(coniss)
 Redis:set(TheMERON.."carrangnum"..msg.sender_id.user_id , carrangnow)
-sellcar = tonumber(coniss) * 9000000
+local Textinggt = {"9000000", "10000000", "11000000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellcar = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellcar
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
@@ -29919,30 +30459,35 @@ if tonumber(carrangnum) == 0 then
 Redis:del(TheMERON.."carrangname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carrangnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع سيارة\nنوع السيارة : فيلار \nعدد السيارات : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellcar).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع سيارة\n⇜ نوع السيارة : فيلار \n⇜ عدد السيارات : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellcar).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع سياره اكسنت (.*)$') or text and text:match('^بيع سيارة اكسنت (.*)$') then
 local UserName = text:match('^بيع سياره اكسنت (.*)$') or text:match('^بيع سيارة اكسنت (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local caraccenum = Redis:get(TheMERON.."caraccenum"..msg.sender_id.user_id) or 0
 if tonumber(caraccenum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات اكسنت ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات اكسنت ","md",true)
 end
 if tonumber(caraccenum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة اكسنت ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة اكسنت ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local caraccename = Redis:get(TheMERON.."caraccename"..msg.sender_id.user_id)
 local caracceprice = Redis:get(TheMERON.."caracceprice"..msg.sender_id.user_id) or 0
 local caraccenum = Redis:get(TheMERON.."caraccenum"..msg.sender_id.user_id) or 0
 local caraccenow = tonumber(caraccenum) - tonumber(coniss)
 Redis:set(TheMERON.."caraccenum"..msg.sender_id.user_id , caraccenow)
-sellcar = tonumber(coniss) * 8000000
+local Textinggt = {"8000000", "9000000", "10000000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellcar = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellcar
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local caraccenum = Redis:get(TheMERON.."caraccenum"..msg.sender_id.user_id) or 0
@@ -29951,30 +30496,35 @@ Redis:del(TheMERON.."caraccename"..msg.sender_id.user_id)
 Redis:del(TheMERON.."caraccenum"..msg.sender_id.user_id)
 end
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع سيارة\nنوع السيارة : اكسنت \nعدد السيارات : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellcar).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع سيارة\n⇜ نوع السيارة : اكسنت \n⇜ عدد السيارات : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellcar).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع سياره كامري (.*)$') or text and text:match('^بيع سيارة كامري (.*)$') then
 local UserName = text:match('^بيع سياره كامري (.*)$') or text:match('^بيع سيارة كامري (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local carcamrnum = Redis:get(TheMERON.."carcamrnum"..msg.sender_id.user_id) or 0
 if tonumber(carcamrnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات كامري ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات كامري ","md",true)
 end
 if tonumber(carcamrnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة كامري ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة كامري ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local carcamrname = Redis:get(TheMERON.."carcamrname"..msg.sender_id.user_id)
 local carcamrprice = Redis:get(TheMERON.."carcamrprice"..msg.sender_id.user_id) or 0
 local carcamrnum = Redis:get(TheMERON.."carcamrnum"..msg.sender_id.user_id) or 0
 local carcamrnow = tonumber(carcamrnum) - tonumber(coniss)
 Redis:set(TheMERON.."carcamrnum"..msg.sender_id.user_id , carcamrnow)
-sellcar = tonumber(coniss) * 7000000
+local Textinggt = {"7000000", "8000000", "9000000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellcar = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellcar
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local carcamrnum = Redis:get(TheMERON.."carcamrnum"..msg.sender_id.user_id) or 0
@@ -29983,30 +30533,35 @@ Redis:del(TheMERON.."carcamrname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carcamrnum"..msg.sender_id.user_id)
 end
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع سيارة\nنوع السيارة : كامري \nعدد السيارات : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellcar).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع سيارة\n⇜ نوع السيارة : كامري \n⇜ عدد السيارات : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellcar).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع سياره النترا (.*)$') or text and text:match('^بيع سيارة النترا (.*)$') then
 local UserName = text:match('^بيع سياره النترا (.*)$') or text:match('^بيع سيارة النترا (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local caralntrnum = Redis:get(TheMERON.."caralntrnum"..msg.sender_id.user_id) or 0
 if tonumber(caralntrnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات النترا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات النترا ","md",true)
 end
 if tonumber(caralntrnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة النترا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة النترا ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local caralntrname = Redis:get(TheMERON.."caralntrname"..msg.sender_id.user_id)
 local caralntrprice = Redis:get(TheMERON.."caralntrprice"..msg.sender_id.user_id) or 0
 local caralntrnum = Redis:get(TheMERON.."caralntrnum"..msg.sender_id.user_id) or 0
 local caralntrnow = tonumber(caralntrnum) - tonumber(coniss)
 Redis:set(TheMERON.."caralntrnum"..msg.sender_id.user_id , caralntrnow)
-sellcar = tonumber(coniss) * 6000000
+local Textinggt = {"6000000", "7000000", "8000000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellcar = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellcar
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local caralntrnum = Redis:get(TheMERON.."caralntrnum"..msg.sender_id.user_id) or 0
@@ -30015,30 +30570,35 @@ Redis:del(TheMERON.."caralntrname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."caralntrnum"..msg.sender_id.user_id)
 end
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع سيارة\nنوع السيارة : النترا \nعدد السيارات : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellcar).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع سيارة\n⇜ نوع السيارة : النترا \n⇜ عدد السيارات : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellcar).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع سياره هايلكس (.*)$') or text and text:match('^بيع سيارة هايلكس (.*)$') then
 local UserName = text:match('^بيع سياره هايلكس (.*)$') or text:match('^بيع سيارة هايلكس (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local carhilxnum = Redis:get(TheMERON.."carhilxnum"..msg.sender_id.user_id) or 0
 if tonumber(carhilxnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات هايلكس ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات هايلكس ","md",true)
 end
 if tonumber(carhilxnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة هايلكس ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة هايلكس ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local carhilxname = Redis:get(TheMERON.."carhilxname"..msg.sender_id.user_id)
 local carhilxprice = Redis:get(TheMERON.."carhilxprice"..msg.sender_id.user_id) or 0
 local carhilxnum = Redis:get(TheMERON.."carhilxnum"..msg.sender_id.user_id) or 0
 local carhilxnow = tonumber(carhilxnum) - tonumber(coniss)
 Redis:set(TheMERON.."carhilxnum"..msg.sender_id.user_id , carhilxnow)
-sellcar = tonumber(coniss) * 5000000
+local Textinggt = {"5000000", "6000000", "7000000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellcar = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellcar
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local carhilxnum = Redis:get(TheMERON.."carhilxnum"..msg.sender_id.user_id) or 0
@@ -30047,30 +30607,35 @@ Redis:del(TheMERON.."carhilxname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carhilxnum"..msg.sender_id.user_id)
 end
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع سيارة\nنوع السيارة : هايلكس \nعدد السيارات : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellcar).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع سيارة\n⇜ نوع السيارة : هايلكس \n⇜ عدد السيارات : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellcar).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع سياره سوناتا (.*)$') or text and text:match('^بيع سيارة سوناتا (.*)$') then
 local UserName = text:match('^بيع سياره سوناتا (.*)$') or text:match('^بيع سيارة سوناتا (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local carsonanum = Redis:get(TheMERON.."carsonanum"..msg.sender_id.user_id) or 0
 if tonumber(carsonanum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات سوناتا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات سوناتا ","md",true)
 end
 if tonumber(carsonanum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة سوناتا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة سوناتا ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local carsonaname = Redis:get(TheMERON.."carsonaname"..msg.sender_id.user_id)
 local carsonaprice = Redis:get(TheMERON.."carsonaprice"..msg.sender_id.user_id) or 0
 local carsonanum = Redis:get(TheMERON.."carsonanum"..msg.sender_id.user_id) or 0
 local carsonanow = tonumber(carsonanum) - tonumber(coniss)
 Redis:set(TheMERON.."carsonanum"..msg.sender_id.user_id , carsonanow)
-sellcar = tonumber(coniss) * 4000000
+local Textinggt = {"4000000", "5000000", "6000000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellcar = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellcar
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local carsonanum = Redis:get(TheMERON.."carsonanum"..msg.sender_id.user_id) or 0
@@ -30079,30 +30644,35 @@ Redis:del(TheMERON.."carsonaname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carsonanum"..msg.sender_id.user_id)
 end
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع سيارة\nنوع السيارة : سوناتا \nعدد السيارات : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellcar).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع سيارة\n⇜ نوع السيارة : سوناتا \n⇜ عدد السيارات : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellcar).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^بيع سياره كورولا (.*)$') or text and text:match('^بيع سيارة كورولا (.*)$') then
 local UserName = text:match('^بيع سياره كورولا (.*)$') or text:match('^بيع سيارة كورولا (.*)$')
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local carcoronum = Redis:get(TheMERON.."carcoronum"..msg.sender_id.user_id) or 0
 if tonumber(carcoronum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات كورولا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات كورولا ","md",true)
 end
 if tonumber(carcoronum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة كورولا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة كورولا ","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local carcoroname = Redis:get(TheMERON.."carcoroname"..msg.sender_id.user_id)
 local carcoroprice = Redis:get(TheMERON.."carcoroprice"..msg.sender_id.user_id) or 0
 local carcoronum = Redis:get(TheMERON.."carcoronum"..msg.sender_id.user_id) or 0
 local carcoronow = tonumber(carcoronum) - tonumber(coniss)
 Redis:set(TheMERON.."carcoronum"..msg.sender_id.user_id , carcoronow)
-sellcar = tonumber(coniss) * 3000000
+local Textinggt = {"3000000", "4000000", "5000000",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+sellcar = tonumber(coniss) * Descriptioont
 totalypalice = tonumber(ballanceed) + sellcar
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , totalypalice)
 local carcoronum = Redis:get(TheMERON.."carcoronum"..msg.sender_id.user_id) or 0
@@ -30111,29 +30681,36 @@ Redis:del(TheMERON.."carcoroname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carcoronum"..msg.sender_id.user_id)
 end
 local convert_mony = string.format("%.0f",math.floor(totalypalice))
-return merolua.sendText(msg.chat_id,msg.id, "← وصل بيع سيارة\nنوع السيارة : كورولا \nعدد السيارات : "..tonumber(coniss).."\nاجمالي السعر : "..tonumber(sellcar).." 💵\nرصيدك الان : "..convert_mony.."\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل بيع سيارة\n⇜ نوع السيارة : كورولا \n⇜ عدد السيارات : "..tonumber(coniss).."\n⇜ اجمالي السعر : "..tonumber(sellcar).." 💵\n⇜ رصيدك الان : "..convert_mony.."\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء سياره فيلار (.*)$') or text and text:match('^اهداء سيارة فيلار (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
 local UserName = text:match('^اهداء سياره فيلار (.*)$') or text:match('^اهداء سيارة فيلار (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local carrangnum = Redis:get(TheMERON.."carrangnum"..msg.sender_id.user_id) or 0
 if tonumber(carrangnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات فيلار ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات فيلار ","md",true)
 end
 if tonumber(carrangnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة فيلار ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة فيلار ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local carrangnum = Redis:get(TheMERON.."carrangnum"..msg.sender_id.user_id) or 0
 local carrangnow = tonumber(carrangnum) - tonumber(coniss)
@@ -30148,32 +30725,40 @@ if tonumber(carrangnum) == 0 then
 Redis:del(TheMERON.."carrangname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carrangnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) سيارة فيلار\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) سيارة فيلار\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء سياره اكسنت (.*)$') or text and text:match('^اهداء سيارة اكسنت (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
 local UserName = text:match('^اهداء سياره اكسنت (.*)$') or text:match('^اهداء سيارة اكسنت (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local caraccenum = Redis:get(TheMERON.."caraccenum"..msg.sender_id.user_id) or 0
 if tonumber(caraccenum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات اكسنت ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات اكسنت ","md",true)
 end
 if tonumber(caraccenum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة اكسنت ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة اكسنت ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local caraccenum = Redis:get(TheMERON.."caraccenum"..msg.sender_id.user_id) or 0
 local caraccenow = tonumber(caraccenum) - tonumber(coniss)
@@ -30188,32 +30773,40 @@ if tonumber(caraccenum) == 0 then
 Redis:del(TheMERON.."caraccename"..msg.sender_id.user_id)
 Redis:del(TheMERON.."caraccenum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) سيارة اكسنت\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) سيارة اكسنت\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء سياره كامري (.*)$') or text and text:match('^اهداء سيارة كامري (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
 local UserName = text:match('^اهداء سياره كامري (.*)$') or text:match('^اهداء سيارة كامري (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local carcamrnum = Redis:get(TheMERON.."carcamrnum"..msg.sender_id.user_id) or 0
 if tonumber(carcamrnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات كامري ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات كامري ","md",true)
 end
 if tonumber(carcamrnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة كامري ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة كامري ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local carcamrnum = Redis:get(TheMERON.."carcamrnum"..msg.sender_id.user_id) or 0
 local carcamrnow = tonumber(carcamrnum) - tonumber(coniss)
@@ -30228,32 +30821,40 @@ if tonumber(carcamrnum) == 0 then
 Redis:del(TheMERON.."carcamrname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carcamrnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) سيارة كامري\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) سيارة كامري\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء سياره هايلكس (.*)$') or text and text:match('^اهداء سيارة هايلكس (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
 local UserName = text:match('^اهداء سياره هايلكس (.*)$') or text:match('^اهداء سيارة هايلكس (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local carhilxnum = Redis:get(TheMERON.."carhilxnum"..msg.sender_id.user_id) or 0
 if tonumber(carhilxnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات هايلكس ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات هايلكس ","md",true)
 end
 if tonumber(carhilxnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة هايلكس ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة هايلكس ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local carhilxnum = Redis:get(TheMERON.."carhilxnum"..msg.sender_id.user_id) or 0
 local carhilxnow = tonumber(carhilxnum) - tonumber(coniss)
@@ -30268,32 +30869,40 @@ if tonumber(carhilxnum) == 0 then
 Redis:del(TheMERON.."carhilxname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carhilxnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) سيارة هايلكس\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) سيارة هايلكس\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء سياره النترا (.*)$') or text and text:match('^اهداء سيارة النترا (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
 local UserName = text:match('^اهداء سياره النترا (.*)$') or text:match('^اهداء سيارة النترا (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local caralntrnum = Redis:get(TheMERON.."caralntrnum"..msg.sender_id.user_id) or 0
 if tonumber(caralntrnum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات النترا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات النترا ","md",true)
 end
 if tonumber(caralntrnum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة النترا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة النترا ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local caralntrnum = Redis:get(TheMERON.."caralntrnum"..msg.sender_id.user_id) or 0
 local caralntrnow = tonumber(caralntrnum) - tonumber(coniss)
@@ -30308,32 +30917,40 @@ if tonumber(caralntrnum) == 0 then
 Redis:del(TheMERON.."caralntrname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."caralntrnum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) سيارة النترا\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) سيارة النترا\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء سياره سوناتا (.*)$') or text and text:match('^اهداء سيارة سوناتا (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
 local UserName = text:match('^اهداء سياره سوناتا (.*)$') or text:match('^اهداء سيارة سوناتا (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local carsonanum = Redis:get(TheMERON.."carsonanum"..msg.sender_id.user_id) or 0
 if tonumber(carsonanum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات سوناتا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات سوناتا ","md",true)
 end
 if tonumber(carsonanum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة سوناتا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة سوناتا ","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local carsonanum = Redis:get(TheMERON.."carsonanum"..msg.sender_id.user_id) or 0
 local carsonanow = tonumber(carsonanum) - tonumber(coniss)
@@ -30348,32 +30965,40 @@ if tonumber(carsonanum) == 0 then
 Redis:del(TheMERON.."carsonaname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carsonanum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) سيارة سوناتا\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) سيارة سوناتا\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text and text:match('^اهداء سياره كورولا (.*)$') or text and text:match('^اهداء سيارة كورولا (.*)$') and tonumber(msg.reply_to_message_id) ~= 0 then
 local UserName = text:match('^اهداء سياره كورولا (.*)$') or text:match('^اهداء سيارة كورولا (.*)$')
+if Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."giftmmt" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ مايمديك تهدي الحين\n⇜ تعال بعد "..time.." ","md",true)
+end
 local coniss = coin(UserName)
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
 local carcoronum = Redis:get(TheMERON.."carcoronum"..msg.sender_id.user_id) or 0
 if tonumber(carcoronum) == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك سيارات كورولا ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك سيارات كورولا ","md",true)
 end
 if tonumber(carcoronum) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش "..tonumber(coniss).." سيارة كورولا","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك "..tonumber(coniss).." سيارة كورولا","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← تهدي نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهدي نفسك 🤡","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
 local carcoronum = Redis:get(TheMERON.."carcoronum"..msg.sender_id.user_id) or 0
 local carcoronow = tonumber(carcoronum) - tonumber(coniss)
@@ -30388,16 +31013,18 @@ if tonumber(carcoronum) == 0 then
 Redis:del(TheMERON.."carcoroname"..msg.sender_id.user_id)
 Redis:del(TheMERON.."carcoronum"..msg.sender_id.user_id)
 end
-return merolua.sendText(msg.chat_id,msg.id, "← تم اهديته ( "..tonumber(coniss).." ) سيارة كورولا\n\n← اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم اهديته ( "..tonumber(coniss).." ) سيارة كورولا\n\n⇜ اكتب `ممتلكاتي` لعرض جميع ممتلكاتك \n✧","md",true)
+Redis:setex(TheMERON.."giftmmt" .. msg.sender_id.user_id,1800, true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 ----------
 if text == "ممتلكاتي" or text == "ممتلكات" then
+
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
 local mgrmasname = Redis:get(TheMERON.."mgrmasname"..msg.sender_id.user_id)
 local mgrmasnum = Redis:get(TheMERON.."mgrmasnum"..msg.sender_id.user_id) or 0
@@ -30519,96 +31146,77 @@ else
 carcoronamee = ""
 end
 if akrksrnum == 0 and akrfelnum == 0 and akrmnznum == 0 and mgrmasnum == 0 and mgrkldnum == 0 and mgrswrnum == 0 and mgrktmnum == 0 and airshbhnum == 0 and airsfarnum == 0 and airkhasnum == 0 and carrangnum == 0 and caraccenum == 0 and carcamrnum == 0 and caralntrnum == 0 and carhilxnum == 0 and carsonanum == 0 and carcoronum == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "← لا يوجد لديك ممتلكات\nتستطيع الشراء عن طريق ارسال كلمة ( `المعرض` )\n\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لا يوجد لديك ممتلكات\n⇜ تستطيع الشراء عن طريق ارسال كلمة ( `المعرض` )\n\n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← مجوهراتك : 💎\n\n"..mgrmasnamee..""..mgrkldnamee..""..mgrswrnamee..""..mgrktmnamee.."\n← عقاراتك : 🏘\n\n"..akrksrnamee..""..akrfelnamee..""..akrmnznamee.."\n← طائراتك : ✈️\n\n"..airshbhnamee..""..airsfarnamee..""..airkhasnamee.."\n← سياراتك : 🚗\n\n"..carrangnamee..""..caraccenamee..""..carcamrnamee..""..caralntrnamee..""..carhilxnamee..""..carsonanamee..""..carcoronamee.."\n\n← تستطيع بيع او اهداء ممتلكاتك\nمثال :\nبيع فيلا 4 \nاهداء طائره شبح 2 ( بالرد ) \n\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مجوهراتك : 💎\n\n"..mgrmasnamee..""..mgrkldnamee..""..mgrswrnamee..""..mgrktmnamee.."\n⇜ عقاراتك : 🏘\n\n"..akrksrnamee..""..akrfelnamee..""..akrmnznamee.."\n⇜ طائراتك : ✈️\n\n"..airshbhnamee..""..airsfarnamee..""..airkhasnamee.."\n⇜ سياراتك : 🚗\n\n"..carrangnamee..""..caraccenamee..""..carcamrnamee..""..caralntrnamee..""..carhilxnamee..""..carsonanamee..""..carcoronamee.."\n\n⇜ تستطيع بيع او اهداء ممتلكاتك\nمثال :\nبيع فيلا 4 \nاهداء طائره شبح 2 ( بالرد ) \n\n✧","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 ----------
-if text == 'مسح لعبه الزواج' then
-if msg.Asasy then
-local zwag_users = Redis:smembers(TheMERON.."roogg1")
-for k,v in pairs(zwag_users) do
-Redis:del(TheMERON.."roog1"..v)
-Redis:del(TheMERON.."rooga1"..v)
-Redis:del(TheMERON.."rahr1"..v)
-Redis:del(TheMERON.."rahrr1"..v)
-Redis:del(TheMERON.."roogte1"..v)
-end
-local zwaga_users = Redis:smembers(TheMERON.."roogga1")
-for k,v in pairs(zwaga_users) do
-Redis:del(TheMERON.."roog1"..v)
-Redis:del(TheMERON.."rooga1"..v)
-Redis:del(TheMERON.."rahr1"..v)
-Redis:del(TheMERON.."rahrr1"..v)
-Redis:del(TheMERON.."roogte1"..v)
-end
-Redis:del(TheMERON.."roogga1")
-Redis:del(TheMERON.."roogg1")
-return merolua.sendText(msg.chat_id,msg.id, "← مسحت لعبه الزواج","md",true)
-end
-end
 if text == 'زواج' then
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`زواج` المهر","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زواج` المهر","md",true)
 end
 if text and text:match("^زواج (%d+)$") and msg.reply_to_message_id == 0 then
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`زواج` المهر ( بالرد )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زواج` المهر ( بالرد )","md",true)
 end
 if text and text:match("^زواج (.*)$") and msg.reply_to_message_id ~= 0 then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 
+ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local UserName = text:match('^زواج (.*)$')
 local coniss = coin(UserName)
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← زوجتك نفسي 🤣😒*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ زوجتك نفسي 🤣😒","md",true)  
 return false
 end
 if Redis:get(TheMERON.."zwag_request:"..msg.sender_id.user_id) then 
-return merolua.sendText(msg.chat_id,msg.id, "← في طلب باسمك انتظر قليلاً \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ في طلب باسمك انتظر قليلاً \n✧","md",true)
 end
 if tonumber(coniss) < 10000 then
-return merolua.sendText(msg.chat_id,msg.id, "← الحد الادنى المسموح به هو 10000 جنيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح به هو 10000 درهم \n✧","md",true)
 end
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if tonumber(ballancee) < 10000 then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✧","md",true)
 end
 if tonumber(coniss) > tonumber(ballancee) then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي\n✧","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف مو للزواج 🤣*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما مو للزواج 🤣","md",true)  
 return false
 end
 if Redis:get(TheMERON.."roog1"..msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← ابك تراك متزوج !!","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ابك تراك متزوج !!","md",true)
 return false
 end
 if Redis:get(TheMERON.."rooga1"..msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← ابك تراك متزوج !!","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ابك تراك متزوج !!","md",true)
 return false
 end
 if Redis:get(TheMERON.."roog1"..Remsg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← ابعد بعيد لاتحوس وتدور حول المتزوجين","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ابعد بعيد لاتحوس وتدور حول المتزوجين","md",true)
 return false
 end
 if Redis:get(TheMERON.."rooga1"..Remsg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← ابعد بعيد لاتحوس وتدور حول المتزوجين","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ابعد بعيد لاتحوس وتدور حول المتزوجين","md",true)
 return false
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-local zwg = bot.getUser(msg.sender_id.user_id)
-local zwga = bot.getUser(Remsg.sender_id.user_id)
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+local zwg = merolua.getUser(msg.sender_id.user_id)
+local zwga = merolua.getUser(Remsg.sender_id.user_id)
 local zwg_tag = '['..zwg.first_name.."](tg://user?id="..msg.sender_id.user_id..")"
 local zwga_tag = '['..zwga.first_name.."](tg://user?id="..Remsg.sender_id.user_id..")"
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
@@ -30618,18 +31226,18 @@ data = {
 }
 Redis:setex(TheMERON.."zwag_request:"..msg.sender_id.user_id,60,true)
 Redis:setex(TheMERON.."zwag_request:"..Remsg.sender_id.user_id,60,true)
-return merolua.sendText(msg.chat_id,msg.id,"← الزوج : "..zwg_tag.."\n← الزوجة : "..zwga_tag.."\n← المهر : "..coniss.."\n← اي رايك معاكي دقيقه وينتهي الطلب ؟","md",false, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ الزوج : "..zwg_tag.."\n⇜ الزوجة : "..zwga_tag.."\n⇜ المهر : "..coniss.."\n⇜ شو رأيك معاكي دقيقة وينتهي الطلب ؟","md",false, false, false, false, reply_markup)
 else
-return merolua.sendText(msg.chat_id,msg.reply_to_message_id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.reply_to_message_id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == "زواجات غش" then
-if msg.Asasy then
+if msg.ControllerBot then
   local zwag_users = Redis:smembers(TheMERON.."roogg1")
   if #zwag_users == 0 then
-  return merolua.sendText(msg.chat_id,msg.id,"← مافي زواجات حاليا","md",true)
+  return merolua.sendText(msg.chat_id,msg.id,"⇜ مافي زواجات حاليا","md",true)
   end
-  top_zwag = "توب 30 اغلى زواجات :\n\n"
+  top_zwag = "⇜ توب 30 اغلى زواجات :\n\n"
   zwag_list = {}
   for k,v in pairs(zwag_users) do
   local mahr = Redis:get(TheMERON.."rahr1"..v)
@@ -30672,9 +31280,9 @@ if msg.Asasy then
   }
   for k,v in pairs(zwag_list) do
   if znum <= 30 then
-  local zwg_name = bot.getUser(v[2]).first_name or "لا يوجد اسم"
+  local zwg_name = merolua.getUser(v[2]).first_name or "لا يوجد اسم"
   local zwg_tag = '['..zwg_name..'](tg://user?id='..v[2]..')'
-  local zwga_name = bot.getUser(v[3]).first_name or Redis:get(TheMERON..v[3].."first_name:") or "لا يوجد اسم"
+  local zwga_name = merolua.getUser(v[3]).first_name or Redis:get(TheMERON..v[3].."first_name:") or "لا يوجد اسم"
   local zwga_tag = '['..zwga_name..'](tg://user?id='..v[3]..')'
 tt =  '['..zwg_name..'](tg://user?id='..v[2]..')'
 kk = '['..zwga_name..'](tg://user?id='..v[3]..')'
@@ -30684,14 +31292,14 @@ local emo = zwag_emoji[k]
 znum = znum + 1
 gflos = string.format("%.0f", mony):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
 top_zwag = top_zwag..emo.." "..gflos.." 💵 l "..tt.." 👫 "..kk.."\n"
-gg = "\n\nملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
+gg = "\n\n⇜ ملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
   end
   end
-  local reply_markup = bot.replyMarkup{
+  local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .' , url="t.me/JJXXH"},
+{text = '🧚🏻‍♀️', url="t.me/Tepthon"},
 },
 }
 }
@@ -30699,11 +31307,12 @@ return merolua.sendText(msg.chat_id,msg.id,top_zwag,"md",false, false, false, fa
   end
   end
 if text == "توب زواج" or text == "توب متزوجات" or text == "توب زوجات" or text == "توب زواجات" or text == "زواجات" or text == "الزواجات" then
+
   local zwag_users = Redis:smembers(TheMERON.."roogg1")
   if #zwag_users == 0 then
-  return merolua.sendText(msg.chat_id,msg.id,"← مافي زواجات حاليا","md",true)
+  return merolua.sendText(msg.chat_id,msg.id,"⇜ مافي زواجات حاليا","md",true)
   end
-  top_zwag = "توب 30 اغلى زواجات :\n\n"
+  top_zwag = "⇜ توب 30 اغلى زواجات :\n\n"
   zwag_list = {}
   for k,v in pairs(zwag_users) do
   local mahr = Redis:get(TheMERON.."rahr1"..v)
@@ -30746,113 +31355,162 @@ if text == "توب زواج" or text == "توب متزوجات" or text == "تو
   }
   for k,v in pairs(zwag_list) do
   if znum <= 30 then
-  local zwg_name = bot.getUser(v[2]).first_name or "لا يوجد اسم"
-  local zwga_name = bot.getUser(v[3]).first_name or Redis:get(TheMERON..v[3].."first_name:") or "لا يوجد اسم"
+  local zwg_name = merolua.getUser(v[2]).first_name or "لا يوجد اسم"
+  local zwga_name = merolua.getUser(v[3]).first_name or Redis:get(TheMERON..v[3].."first_name:") or "لا يوجد اسم"
 tt =  "["..zwg_name.."]("..zwg_name..")"
-kk = "["..zwga_name.."]("..zwga_name..")"
+tt = tt:gsub("🇾🇪️",'')
+tt = tt:gsub("🇹🇳",'')
+tt = tt:gsub("🇸🇾",'')
+tt = tt:gsub("🇸🇩",'')
+tt = tt:gsub("🇸🇦",'')
+tt = tt:gsub("🇶🇦",'')
+tt = tt:gsub("🇵🇸",'')
+tt = tt:gsub("🇴🇲",'')
+tt = tt:gsub("🇲🇦",'')
+tt = tt:gsub("🇱🇾",'')
+tt = tt:gsub("🇱🇧",'')
+tt = tt:gsub("🇰🇼️",'')
+tt = tt:gsub("🇯🇴",'')
+tt = tt:gsub("🇮🇶",'')
+tt = tt:gsub("🇪🇬",'')
+tt = tt:gsub("🇧🇭",'')
+tt = tt:gsub("🇩🇿️",'')
+tt = tt:gsub("🇦🇪",'')
+tt = tt:gsub("@[%a%d_]+",'')
+tt = tt:gsub("#[%a%d_]+",'')
+kk =  "["..zwga_name.."]("..zwga_name..")"
+kk = kk:gsub("🇾🇪️",'')
+kk = kk:gsub("🇹🇳",'')
+kk = kk:gsub("🇸🇾",'')
+kk = kk:gsub("🇸🇩",'')
+kk = kk:gsub("🇸🇦",'')
+kk = kk:gsub("🇶🇦",'')
+kk = kk:gsub("🇵🇸",'')
+kk = kk:gsub("🇴🇲",'')
+kk = kk:gsub("🇲🇦",'')
+kk = kk:gsub("🇱🇾",'')
+kk = kk:gsub("🇱🇧",'')
+kk = kk:gsub("🇰🇼️",'')
+kk = kk:gsub("🇯🇴",'')
+kk = kk:gsub("🇮🇶",'')
+kk = kk:gsub("🇪🇬",'')
+kk = kk:gsub("🇧🇭",'')
+kk = kk:gsub("🇩🇿️",'')
+kk = kk:gsub("🇦🇪",'')
+kk = kk:gsub("@[%a%d_]+",'')
+kk = kk:gsub("#[%a%d_]+",'')
+local doltebank = Redis:get(TheMERON.."doltebank"..v[2]) or " "
+local doltebankz = Redis:get(TheMERON.."doltebank"..v[3]) or " "
 local mony = v[1]
 local convert_mony = string.format("%.0f",mony)
 local emo = zwag_emoji[k]
 znum = znum + 1
 gflos = string.format("%.0f", mony):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
-top_zwag = top_zwag..emo.." "..gflos.." 💵 l "..tt.." 👫 "..kk.."\n"
-gg = "\n\nملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
+top_zwag = top_zwag..emo.." "..gflos.." 💵 l "..tt.." "..doltebank.." 👫 "..kk.." "..doltebankz.."\n"
+gg = "\n\n⇜ ملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
   end
   end
-  local reply_markup = bot.replyMarkup{
+  local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .', url="t.me/JJXXH"},
+{text = '🧚🏻‍♀️', url="t.me/Tepthon"},
 },
 }
 }
 return merolua.sendText(msg.chat_id,msg.id,top_zwag..gg,"md",false, false, false, false, reply_markup)
   end
 if text == 'زواجي' then
+
 if Redis:sismember(TheMERON.."roogg1",msg.sender_id.user_id) or Redis:sismember(TheMERON.."roogga1",msg.sender_id.user_id) then
 local zoog = Redis:get(TheMERON.."roog1"..msg.sender_id.user_id)
 local zooga = Redis:get(TheMERON.."rooga1"..msg.sender_id.user_id)
 local mahr = Redis:get(TheMERON.."rahr1"..msg.sender_id.user_id)
 local convert_mony = string.format("%.0f",mahr)
-local bandd = bot.getUser(zoog)
+local bandd = merolua.getUser(zoog)
 if bandd.first_name then
 neews = "["..bandd.first_name.."](tg://user?id="..bandd.id..")"
 else
-neews = " لا يوجد"
+neews = " لا يوجد اسم"
 end
-local ban = bot.getUser(zooga)
+local ban = merolua.getUser(zooga)
 if ban.first_name then
 newws = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
-newws = " لا يوجد"
+newws = " لا يوجد اسم"
 end
-return merolua.sendText(msg.chat_id,msg.id, "• وثيقة الزواج حقتك :\n\n← الزوج "..neews.." 🤵🏻\n← الزوجة "..newws.." 👰🏻‍♀️\n← المهر : "..convert_mony.." جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وثيقة الزواج حقتك :\n\n⇜ الزوج "..neews.." 🤵🏻\n⇜ الزوجة "..newws.." 👰🏻‍♀️\n⇜ المهر : "..convert_mony.." درهم 💵","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← انت اعزب","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ انت اعزب","md",true)
 end
 end
 if text == 'زوجها' or text == "زوجته" or text == "جوزها" or text == "زوجتو" or text == "زواجه" and msg.reply_to_message_id ~= 0 then
+
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if msg.sender_id.user_id == Remsg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← لا تكشف نفسك وتخسر فلوس عالفاضي\n اكتب `زواجي`*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ اكتب `زواجي`","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."roogg1",Remsg.sender_id.user_id) or Redis:sismember(TheMERON.."roogga1",Remsg.sender_id.user_id) then
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if tonumber(ballancee) < 100 then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✧","md",true)
 end
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف مو متزوجه 🤣*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما مو متزوجه ","md",true)  
 return false
 end
 local zoog = Redis:get(TheMERON.."roog1"..Remsg.sender_id.user_id)
 local zooga = Redis:get(TheMERON.."rooga1"..Remsg.sender_id.user_id)
 local mahr = Redis:get(TheMERON.."rahr1"..Remsg.sender_id.user_id)
-local bandd = bot.getUser(zoog)
+local bandd = merolua.getUser(zoog)
 if bandd.first_name then
 neews = "["..bandd.first_name.."](tg://user?id="..bandd.id..")"
 else
-neews = " لا يوجد"
+neews = " لا يوجد اسم"
 end
-local ban = bot.getUser(zooga)
+local ban = merolua.getUser(zooga)
 if ban.first_name then
 newws = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
-newws = " لا يوجد"
+newws = " لا يوجد اسم"
 end
 local otheka = ballancee - 100
 local convert_mony = string.format("%.0f",mahr)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(otheka))
-return merolua.sendText(msg.chat_id,msg.id, "• وثيقة الزواج حقته :\n\n← الزوج "..neews.." 🤵🏻\n← الزوجة "..newws.." 👰🏻‍♀️\n← المهر : "..convert_mony.." جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وثيقة الزواج حقته :\n\n⇜ الزوج "..neews.." 🤵🏻\n⇜ الزوجة "..newws.." 👰🏻‍♀️\n⇜ المهر : "..convert_mony.." درهم 💵","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← مسكين اعزب مو متزوج","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مسكين اعزب مو متزوج","md",true)
 end
 end
 if text == 'طلاق' then
+
 if Redis:sismember(TheMERON.."roogg1",msg.sender_id.user_id) or Redis:sismember(TheMERON.."roogga1",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local zoog = Redis:get(TheMERON.."roog1"..msg.sender_id.user_id)
 local zooga = tonumber(Redis:get(TheMERON.."rooga1"..msg.sender_id.user_id))
 if tonumber(zoog) == msg.sender_id.user_id then
-local bandd = bot.getUser(zoog)
+local bandd = merolua.getUser(zoog)
 if bandd.first_name then
 neews = "["..bandd.first_name.."](tg://user?id="..bandd.id..")"
 else
-neews = " لا يوجد"
+neews = " لا يوجد اسم"
 end
-local ban = bot.getUser(zooga)
+local ban = merolua.getUser(zooga)
 if ban.first_name then
 newws = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
-newws = " لا يوجد"
+newws = " لا يوجد اسم"
 end
 Redis:srem(TheMERON.."roogg1", msg.sender_id.user_id)
 Redis:srem(TheMERON.."roogga1", msg.sender_id.user_id)
@@ -30866,37 +31524,42 @@ Redis:del(TheMERON.."roog1"..zooga)
 Redis:del(TheMERON.."rooga1"..zooga)
 Redis:del(TheMERON.."rahr1"..zooga)
 Redis:del(TheMERON.."rahrr1"..zooga)
-return merolua.sendText(msg.chat_id,msg.id, "← ابشر طلقتك من زوجتك "..newws.."","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ابشر طلقتك من زوجتك "..newws.."","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← الطلاق للزوج فقط","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الطلاق للزوج فقط","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← انت اعزب","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ انت اعزب","md",true)
 end
 end
 if text == 'خلع' then
+
 if Redis:sismember(TheMERON.."roogg1",msg.sender_id.user_id) or Redis:sismember(TheMERON.."roogga1",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 local zoog = Redis:get(TheMERON.."roog1"..msg.sender_id.user_id)
 local zooga = Redis:get(TheMERON.."rooga1"..msg.sender_id.user_id)
 if tonumber(zooga) == msg.sender_id.user_id then
 local mahrr = Redis:get(TheMERON.."rahrr1"..msg.sender_id.user_id)
-local bandd = bot.getUser(zoog)
+local bandd = merolua.getUser(zoog)
 if bandd.first_name then
 neews = "["..bandd.first_name.."](tg://user?id="..bandd.id..")"
 else
-neews = " لا يوجد"
+neews = " لا يوجد اسم"
 end
-local ban = bot.getUser(zooga)
+local ban = merolua.getUser(zooga)
 if ban.first_name then
 newws = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
-newws = " لا يوجد"
+newws = " لا يوجد اسم"
 end
 ballancee = Redis:get(TheMERON.."boob"..zoog) or 0
 kalea = ballancee + mahrr
 Redis:set(TheMERON.."boob"..zoog , kalea)
 local convert_mony = string.format("%.0f",mahrr)
-return merolua.sendText(msg.chat_id,msg.id, "← خلعت زوجك "..neews.."\n← ورجعت له المهر ( "..convert_mony.." جنيه 💵 )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ خلعت زوجك "..neews.."\n⇜ ورجعت له المهر ( "..convert_mony.." درهم 💵 )","md",true)
 Redis:srem(TheMERON.."roogg1", zoog)
 Redis:srem(TheMERON.."roogga1", zoog)
 Redis:del(TheMERON.."roog1"..zoog)
@@ -30910,273 +31573,29 @@ Redis:del(TheMERON.."rooga1"..msg.sender_id.user_id)
 Redis:del(TheMERON.."rahr1"..msg.sender_id.user_id)
 Redis:del(TheMERON.."rahrr1"..msg.sender_id.user_id)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← الخلع للزوجات فقط","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الخلع للزوجات فقط","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← انت اعزب","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ انت اعزب","md",true)
 end
 end
-if text == 'تفعيل السوق' or text == 'تفعيل سوق' or text == 'فتح سوق' or text == 'فتح السوق' then
-if not msg.Admin then
-return merolua.sendText(msg.chat_id,msg.id,'\n*• هذا الامر يخص الادمن* ',"md",true)  
-end
-Redis:set(TheMERON.."market"..msg.chat_id,true) 
-return merolua.sendText(msg.chat_id,msg.id,"تم فتح السوق","md",true)
-end
-if text == 'تعطيل السوق' or text == 'تعطيل سوق' or text == 'قفل سوق' or text == 'قفل السوق' then
-if not msg.Admin then
-return merolua.sendText(msg.chat_id,msg.id,'\n*• هذا الامر يخص الادمن* ',"md",true)  
-end
-Redis:del(TheMERON.."market"..msg.chat_id) 
-return merolua.sendText(msg.chat_id,msg.id,"قفلنا السوق خلاص","md",true)
-end
-if text == "السوق" or text == "سوق" then
-if not Redis:get(TheMERON.."market"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id," • السوق مقفل من قبل المشرفين","md",true)
-end
-local pricemarket = "← اهلين فيك في سوق كريتف\nلائحة باسعار منتجات كريتف :\n\n1) كشف وثيقة زواج 100 جنيه 💵\n2) رتبه 5000000 جنيه 💵\n3) منشن جماعي 1000000 جنيه 💵\n4) ضع رد 10000000 جنيه 💵\n- تستطيع استخدام ميزة ( استرداد المبلغ )\n- بالنسبة لميزة ضع رد اذا وجد رد مخالف يستطيع مشرفين لقروب مسحه بامر - مسح ضع رد\n〰"
-local reply_markup = bot.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .', url="t.me/JJXXH"},
-},
-}
-}
-return merolua.sendText(msg.chat_id,msg.id,pricemarket,"md",false, false, false, false, reply_markup)
-end
-
-if text and Redis:get(TheMERON.."Rp:content:Textg"..msg.chat_id..":"..text) then
-local Text = Redis:get(TheMERON.."Rp:content:Textg"..msg.chat_id..":"..text)
-local UserInfo = bot.getUser(msg.sender_id.user_id)
-local countMsg = Redis:get(TheMERON..'Num:Message:User'..msg_chat_id..':'..msg.sender_id.user_id) or 0
-local totlmsg = Total_message(countMsg) 
-local getst = msg.Name_Controller
-local countedit = Redis:get(TheMERON..'Num:Message:Edit'..msg_chat_id..msg.sender_id.user_id) or 0
-local Text = Text:gsub('#username',(UserInfo.username or 'لا يوجد')):gsub('#name',UserInfo.first_name):gsub('#id',msg.sender_id.user_id):gsub('#edit',countedit):gsub('#msgs',countMsg):gsub('#stast',getst)
-if Text:match("]") then
-return merolua.sendText(msg.chat_id,msg.id,""..Text.."","md",true)  
-else
-return merolua.sendText(msg.chat_id,msg.id,"["..Text.."]","md",true)  
-end
-end
-if Redis:get(TheMERON..":"..msg.chat_id..":"..msg.sender_id.user_id..":Rp:setg") == "true1" then
-if text then
-test = Redis:get(TheMERON..":"..msg.chat_id..":"..msg.sender_id.user_id..":Rp:Text:rdg")
-if msg.content.text then
-text = text:gsub('"',"")
-text = text:gsub('"',"")
-text = text:gsub("`","")
-text = text:gsub("*","") 
-Redis:set(TheMERON.."Rp:content:Textg"..msg.chat_id..":"..test, text)  
-end 
-Redis:del(TheMERON..":"..msg.chat_id..":"..msg.sender_id.user_id..":Rp:setg")
-Redis:del(TheMERON..":"..msg.chat_id..":"..msg.sender_id.user_id..":Rp:Text:rdg")
-local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-menseb = ballancee - 10000000
-Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(menseb))
-local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-local convert_mony = string.format("%.0f",ballancee)
-numcaree = math.random(000000000001,999999999999);
-Redis:set(TheMERON.."rddd"..msg.sender_id.user_id,numcaree)
-return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ⌯ اشعار دفع :\n\nالمنتج : ضع رد \nالسعر : 10000000 درهم\nرصيدك الان : "..convert_mony.." درهم 💵\nرقم الوصل : `"..numcaree.."`\n\nاحتفظ برقم الايصال لاسترداد المبلغ\n✦","md",true)  
-return false
-end
-end
-if text and text:match("^(.*)$") and Redis:get(TheMERON..":"..msg.chat_id..":"..msg.sender_id.user_id..":Rp:setg") == "true" then
-Redis:set(TheMERON..":"..msg.chat_id..":"..msg.sender_id.user_id..":Rp:setg","true1")
-Redis:set(TheMERON..":"..msg.chat_id..":"..msg.sender_id.user_id..":Rp:Text:rdg",text)
-Redis:del(TheMERON.."Rp:content:Textg"..msg.chat_id..":"..text)   
-Redis:set(TheMERON.."rdddtex"..msg.sender_id.user_id,text)
-Redis:sadd(TheMERON.."List:Rp:contentg"..msg.chat_id, text)
-return merolua.sendText(msg.chat_id,msg.id,[[
-︙ ارسل لي الرد
-︙ يمكنك اضافة الى النص •
-━━━━━━━━━━━
- `#username` ↬ معرف المستخدم
- `#msgs` ↬ عدد الرسائل
- `#name` ↬ اسم المستخدم
- `#id` ↬ ايدي المستخدم
- `#stast` ↬ رتبة المستخدم
- `#edit` ↬ عدد التعديلات
-
-]],"md",true)  
-return false
-end
-if text == "ضع رد" then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
-if not Redis:get(TheMERON.."market"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id," • السوق مقفل من قبل المشرفين","md",true)
-end
-ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-if tonumber(ballancee) < 10000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
-end
-if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-Redis:set(TheMERON.."rdddgr"..msg.sender_id.user_id,msg.chat_id)
-Redis:set(TheMERON.."rdddid"..msg.sender_id.user_id,msg.sender_id.user_id)
-Redis:set(TheMERON..":"..msg.chat_id..":"..msg.sender_id.user_id..":Rp:setg",true)
-return merolua.sendText(msg.chat_id,msg.id, "← ارسل الان الكلمه لاضافتها في الردود\n\nملاحظة : الرد نص فقط لاتباع سياسة الاستخدام العادل","md",true)
-else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
-end
-end
-if text == 'مسح ضع رد' then
-if not msg.Admin then
-return merolua.sendText(msg.chat_id,msg.id,'\n*• هذا الامر يخص المنشئ ومافوق* ',"md",true)  
-end
-ext = "*← تم مسح جميع ردود القروب المدفوعة\nاصحاب الردود تستطيعون استرداد المبلغ*"
-local list = Redis:smembers(TheMERON.."List:Rp:contentg"..msg.chat_id)
-for k,v in pairs(list) do
-if Redis:get(TheMERON.."Rp:content:Textg"..msg.chat_id..":"..v) then
-Redis:del(TheMERON.."Rp:content:Textg"..msg.chat_id..":"..v)
-end
-end
-Redis:del(TheMERON.."List:Rp:contentg"..msg.chat_id)
-if #list == 0 then
-ext = "*← مافيه ردود مدفوعة*"
-end
-return merolua.sendText(msg.chat_id,msg.id,ext,"md",true)  
-end
-if text == "منشن جماعي" then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
-if not Redis:get(TheMERON.."market"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id," • السوق مقفل من قبل المشرفين","md",true)
-end
-ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-if tonumber(ballancee) < 1000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
-end
-if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-local Info = bot.searchChatMembers(msg.chat_id, "*", 200)
-local members = Info.members
-local bandd = bot.getUser(msg.sender_id.user_id)
-if bandd.first_name then
-neews = "["..bandd.first_name.."](tg://user?id="..bandd.id..")"
-else
-neews = " لا يوجد"
-end
-ls = '\n• منشن مدفوع من قبل '..neews..' \n  ━━━━━━━━━━━ \n'
-for k, v in pairs(members) do
-local UserInfo = bot.getUser(v.member_id.user_id)
-if UserInfo.username and UserInfo.username ~= "" then
-ls = ls..'*'..k..' - *@['..UserInfo.username..']\n'
-else
-ls = ls..'*'..k..' - *['..UserInfo.first_name..'](tg://user?id='..v.member_id.user_id..')\n'
-end
-end
-return merolua.sendText(msg.chat_id,msg.id,ls,"md",true)
-mensen = ballancee - 1000000
-Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(mensen))
-local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,"\n• اشعار دفع :\n\nالمنتج : منشن جماعي\nالسعر : 1000000 جنيه\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)  
-else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
-end
-end
-if text == 'رتبه' or text == 'رتبة' then
-if not Redis:get(TheMERON.."market"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id," • السوق مقفل من قبل المشرفين","md",true)
-end
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`رتبه` مع اسمها\nمثال : رتبه جنرال","md",true)
-end
-if text and text:match("^رتبه (.*)$") then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
-if not Redis:get(TheMERON.."market"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id," • السوق مقفل من قبل المشرفين","md",true)
-end
-ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-if tonumber(ballancee) < 5000000 then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
-end
-if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-if text:match("مطور اساسي") or text:match("المطور الاساسي") or text:match("مطور الاساسي") or text:match("ثانوي") or text:match("مطور") then
-return merolua.sendText(msg.chat_id,msg.id,"← خطأ ، اختر رتبة اخرى ","md",true)
-end
-numcare = math.random(000000000001,999999999999);
-Redis:set(TheMERON.."rotpa"..msg.sender_id.user_id,numcare)
-Redis:set(TheMERON.."rotpagrid"..msg.sender_id.user_id,msg.chat_id)
-Redis:set(TheMERON.."rotpaid"..msg.sender_id.user_id,msg.sender_id.user_id)
-Redis:set(TheMERON..':SetRt'..msg.chat_id..':'..msg.sender_id.user_id,text:match('^رتبه (.*)$'))
-mensenn = ballancee - 5000000
-Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(mensenn))
-local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,"\n• اشعار دفع :\n\nالمنتج : رتبه "..text:match('^رتبه (.*)$').."\nالسعر : 5000000 جنيه\nرصيدك الان : "..convert_mony.." جنيه 💵\nرقم الوصل : `"..numcare.."`\n\nاحتفظ برقم الايصال لاسترداد المبلغ\n〰","md",true)  
-else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
-end
-end
-if text == 'استرداد مبلغ' or text == 'استرداد المبلغ' then
-if not Redis:get(TheMERON.."market"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id," • السوق مقفل من قبل المشرفين","md",true)
-end
-Redis:setex(TheMERON.."recoballanc" .. msg.chat_id .. ":" .. msg.sender_id.user_id,60, true)
-return merolua.sendText(msg.chat_id,msg.id,[[
-← ارسل الحين رقم ايصال الدفع
-
-– معاك دقيقة وحدة والغي طلب الاسترداد .
-〰
-]],"md",true)  
-return false
-end
-if Redis:get(TheMERON.."recoballanc" .. msg.chat_id .. ":" .. msg.sender_id.user_id) then
-numcare = tonumber(Redis:get(TheMERON.."rotpa"..msg.sender_id.user_id))
-gridrtp = Redis:get(TheMERON.."rotpagrid"..msg.sender_id.user_id)
-usridrtp = Redis:get(TheMERON.."rotpaid"..msg.sender_id.user_id)
-numrd = tonumber(Redis:get(TheMERON.."rddd"..msg.sender_id.user_id))
-gridrd = Redis:get(TheMERON.."rdddgr"..msg.sender_id.user_id)
-usridrd = Redis:get(TheMERON.."rdddid"..msg.sender_id.user_id)
-texrd = Redis:get(TheMERON.."rdddtex"..msg.sender_id.user_id)
-if tonumber(text) == numcare then
-Redis:del(TheMERON.."recoballanc" .. msg.chat_id .. ":" .. msg.sender_id.user_id)
-Redis:del(TheMERON..':SetRt'..gridrtp..':'..usridrtp)
-local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-mensep = ballancee + 2500000
-Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(mensep))
-local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,"\n← تم استرداد نصف المبلغ :\n\nالمنتج : ضع رتبه\nالمبلغ : 2500000 جنيه\nرصيدك الان : "..convert_mony.." جنيه 💵\nرقم الوصل : `"..numcare.."`\n\nشكراً لاستخدامك سوق كريتف\n〰","md",true)
-Redis:del(TheMERON.."rotpa"..msg.sender_id.user_id)
-Redis:del(TheMERON.."rotpagrid"..msg.sender_id.user_id)
-Redis:del(TheMERON.."rotpaid"..msg.sender_id.user_id)
-elseif tonumber(text) == numrd then
-Redis:del(TheMERON.."recoballanc" .. msg.chat_id .. ":" .. msg.sender_id.user_id)
-Redis:del(TheMERON.."Rp:content:Textg"..gridrd..":"..texrd)
-local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-mensepp = ballancee + 5000000
-Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(mensepp))
-local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,"\n← تم استرداد نصف المبلغ :\n\nالمنتج : ضع رد\nالمبلغ : 5000000 جنيه\nرصيدك الان : "..convert_mony.." جنيه 💵\nرقم الوصل : "..numrd.."\n\nشكراً لاستخدامك سوق كريتف\n〰","md",true)
-Redis:del(TheMERON.."rddd"..msg.sender_id.user_id)
-Redis:del(TheMERON.."rdddgr"..msg.sender_id.user_id)
-Redis:del(TheMERON.."rdddid"..msg.sender_id.user_id)
-Redis:del(TheMERON.."rdddtex"..msg.sender_id.user_id)
-else
-Redis:del(TheMERON.."recoballanc" .. msg.chat_id .. ":" .. msg.sender_id.user_id)
-return merolua.sendText(msg.chat_id,msg.id,"\n← لا يوجد وصل دفع بهذا الرقم\n〰","md",true)
-end
-Redis:del(TheMERON.."recoballanc" .. msg.chat_id .. ":" .. msg.sender_id.user_id)
-end
---------------------------------------------------------------------------------------------------------------
 if text == 'مراهنه' or text == 'مراهنة' then
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`مراهنه` المبلغ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `مراهنه` المبلغ","md",true)
 end
 if text and text:match('^مراهنه (.*)$') or text and text:match('^مراهنة (.*)$') then
-local UserName = text:match('^مراهنه (.*)$') or text:match('^مراهنة (.*)$')
 
+local UserName = text:match('^مراهنه (.*)$') or text:match('^مراهنة (.*)$')
 local coniss = coin(UserName)
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if tonumber(coniss) < 999 then
-return merolua.sendText(msg.chat_id,msg.id, "← الحد الادنى المسموح هو 1000 جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح هو 1000 درهم 💵\n✧","md",true)
 end
 if tonumber(ballancee) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✧","md",true)
+end
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
 end
 Redis:del(TheMERON..'List_rhan'..msg.chat_id)  
 Redis:set(TheMERON.."playerrhan"..msg.chat_id,msg.sender_id.user_id)
@@ -31188,44 +31607,17 @@ Redis:set(TheMERON.."allrhan"..msg.chat_id..12345 , coniss)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 rehan = tonumber(ballancee) - tonumber(coniss)
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , rehan)
-return merolua.sendText(msg.chat_id,msg.id,"• تم بدء المراهنة وتم تسجيلك \n• اللي بده يشارك يرسل ( انا والمبلغ ) .","md",true)
-end
-if Redis:get(TheMERON.."Start_rhan"..msg.chat_id) then
-if text and text:match('^انا (.*)$') then
-local UserName = text:match('^انا (.*)$')
-local coniss = coin(UserName)
-ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-if tonumber(coniss) < 999 then
-return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح هو 1000 درهم 💵\n✦","md",true)
-end
-if tonumber(ballancee) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✦","md",true)
-end
-if Redis:sismember(TheMERON..'List_rhan'..msg.chat_id,msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id,'• انت مضاف من قبل .',"md",true)
-end
-Redis:set(TheMERON.."playerrhan"..msg.chat_id,msg.sender_id.user_id)
-Redis:set(TheMERON.."playercoins"..msg.chat_id..msg.sender_id.user_id,coniss)
-Redis:sadd(TheMERON..'List_rhan'..msg.chat_id,msg.sender_id.user_id)
-Redis:setex(TheMERON.."Witting_Startrhan"..msg.chat_id,1400,true)
-benrahan = Redis:get(TheMERON.."allrhan"..msg.chat_id..12345) or 0
-rehan = tonumber(benrahan) + tonumber(coniss)
-Redis:set(TheMERON.."allrhan"..msg.chat_id..12345 , rehan)
-local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-rehan = tonumber(ballancee) - tonumber(coniss)
-Redis:set(TheMERON.."boob"..msg.sender_id.user_id , rehan)
-return merolua.sendText(msg.chat_id,msg.id,'• تم ضفتك للرهان \n• للانتهاء يرسل ( نعم ) اللي بدء الرهان .',"md",true)
-end
+return merolua.sendText(msg.chat_id,msg.id,"⇜ بدينا المراهنة وسجلت اسمك \n⇜ اللي بده يشارك يرسل ( انا والمبلغ ) .","md",true)
 end
 if text == 'نعم' and Redis:get(TheMERON.."Witting_Startrhan"..msg.chat_id) then
 rarahkam = Redis:get(TheMERON.."raeahkam"..msg.chat_id)
 if tonumber(rarahkam) == msg.sender_id.user_id then
 local list = Redis:smembers(TheMERON..'List_rhan'..msg.chat_id) 
 if #list == 1 then 
-return merolua.sendText(msg.chat_id,msg.id,"← عذراً لم يشارك احد بالرهان","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"⇜ عذراً لم يشارك احد بالرهان","md",true)  
 end 
 local UserName = list[math.random(#list)]
-local UserId_Info = bot.getUser(UserName)
+local UserId_Info = merolua.getUser(UserName)
 if UserId_Info.username and UserId_Info.username ~= "" then
 ls = '['..UserId_Info.first_name..'](tg://user?id='..UserName..')'
 else
@@ -31249,31 +31641,28 @@ Redis:del(TheMERON.."Start_rhan"..msg.chat_id)
 local ballancee = Redis:get(TheMERON.."boob"..UserName) or 0
 local convert_mony = string.format("%.0f",rehane)
 local convert_monyy = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,'• فاز '..ls..' بالرهان 🎊\n← المبلغ : '..convert_mony..' جنيه 💵\n← خصمت 25% ضريبة \n← رصيدك الان : '..convert_monyy..' جنيه 💵\n〰',"md",true)
+return merolua.sendText(msg.chat_id,msg.id,'⌯ فاز '..ls..' بالرهان 🎊\n⇜ المبلغ : '..convert_mony..' درهم 💵\n⇜ خصمت 25% ضريبة \n⇜ رصيدك الان : '..convert_monyy..' درهم 💵\n✧',"md",true)
 end
 end
 --------------------------------------------------------------------------------------------------------------
-if text == "توب شركات" then 
-local companys = Redis:smembers(TheMERON.."companys:")
-if #companys == 0 then
-return merolua.sendText(msg.chat_id,msg.id,"← لا يوجد شركات","md",true)
+if text == 'الكره' or text == 'كرة' or text == 'نادي' or text == 'النادي' or text == 'لعبه الكره' or text == 'لعبه الكرة' then
+return merolua.sendText(msg.chat_id,msg.id, "☆ اوامر لعبه الكره\n\n⌯ انشاء نادي + الاسم ↢ تسوي نادي وتقدر تلعب مباريات مع اصحابك\n\n⌯ مسح ناديي ↢ تمسح ناديك\n\n⌯ ناديي ↢ يطلع لك اسم ناديك ومعلومات عنه\n\n⌯ تدريب ↢ يعطيك طاقه كل 20 دقيقة\n\n⌯ مباره وديه ↢ تلعب مباره وديه مع نادي في فوز ، خساره او تعادل؜\n\n⌯ مباره ↢ بالرد تلعب مع شخص مباره في فوز ، تعادل او خساره الاقوى راح يفوز\n\n⌯ شراء لاعب ↢ تشتري لاعب لناديك\n\n⌯ بيع لاعب ↢ تبيع لاعب من ناديك\n\n⌯ تغيير لقب النادي ↢ يغير لقب ناديك\n\n⌯ توب النوادي ↢ اعلى 10 نوادي باللعبة\n✧","md",true)
 end
-local top_company = {}
-for A,N in pairs(companys) do
-local Cmony = 0
-for k,v in pairs(Redis:smembers(TheMERON.."company:mem:"..N)) do
-local mem_mony = tonumber(Redis:get(TheMERON.."boob"..v)) or 0
-Cmony = Cmony + mem_mony
+if text == "توب نادي" or text == "توب النادي" or text == "توب النوادي" or text == "توب نوادي" then
+
+local bank_users = Redis:smembers(TheMERON.."ownernade")
+if #bank_users == 0 then
+return merolua.sendText(msg.chat_id,msg.id,"⇜ لا يوجد نوادي","md",true)
 end
-local owner_id = Redis:get(TheMERON.."companys_owner:"..N)
-local Cid = Redis:get(TheMERON.."companys_id:"..N)
-if Redis:sismember(TheMERON.."booob", owner_id) then
-table.insert(top_company, {tonumber(Cmony) , owner_id , N , Cid})
+top_monyd = "⇜ توب اعلى 10 نوادي :\n\n"
+mony_listd = {}
+for k,v in pairs(bank_users) do
+local mony = Redis:get(TheMERON.."nokatnade"..v) or 0
+table.insert(mony_listd, {tonumber(mony) , v})
 end
-end
-table.sort(top_company, function(a, b) return a[1] > b[1] end)
-local num = 1
-local emoji ={ 
+table.sort(mony_listd, function(a, b) return a[1] > b[1] end)
+num = 1
+emoji ={ 
 "🥇" ,
 "🥈",
 "🥉",
@@ -31283,272 +31672,3191 @@ local emoji ={
 "7)",
 "8)",
 "9)",
-"10)",
-"11)",
-"12)",
-"13)",
-"14)",
-"15)",
-"16)",
-"17)",
-"18)",
-"19)",
-"20)"
+"10)"
 }
-local msg_text = "توب اعلى 20 شركة : \n"
-for k,v in pairs(top_company) do
-if num <= 20 then
-local user_name = bot.getUser(v[2]).first_name or "لا يوجد اسم"
-local Cname = v[3]
-local Cid = v[4]
+for k,v in pairs(mony_listd) do
+if num <= 10 then
+local user_name = merolua.getUser(v[2]).first_name or "لا يوجد اسم"
+tt =  "["..user_name.."]("..user_name..")"
+tt = tt:gsub("🇾🇪️",'')
+tt = tt:gsub("🇹🇳",'')
+tt = tt:gsub("🇸🇾",'')
+tt = tt:gsub("🇸🇩",'')
+tt = tt:gsub("🇸🇦",'')
+tt = tt:gsub("🇶🇦",'')
+tt = tt:gsub("🇵🇸",'')
+tt = tt:gsub("🇴🇲",'')
+tt = tt:gsub("🇲🇦",'')
+tt = tt:gsub("🇱🇾",'')
+tt = tt:gsub("🇱🇧",'')
+tt = tt:gsub("🇰🇼️",'')
+tt = tt:gsub("🇯🇴",'')
+tt = tt:gsub("🇮🇶",'')
+tt = tt:gsub("🇪🇬",'')
+tt = tt:gsub("🇧🇭",'')
+tt = tt:gsub("🇩🇿️",'')
+tt = tt:gsub("🇦🇪",'')
+tt = tt:gsub("@[%a%d_]+",'')
+tt = tt:gsub("#[%a%d_]+",'')
+local kk = Redis:get(TheMERON.."lkbnade"..v[2])
+kk = kk:gsub("🇾🇪️",'')
+kk = kk:gsub("🇹🇳",'')
+kk = kk:gsub("🇸🇾",'')
+kk = kk:gsub("🇸🇩",'')
+kk = kk:gsub("🇸🇦",'')
+kk = kk:gsub("🇶🇦",'')
+kk = kk:gsub("🇵🇸",'')
+kk = kk:gsub("🇴🇲",'')
+kk = kk:gsub("🇲🇦",'')
+kk = kk:gsub("🇱🇾",'')
+kk = kk:gsub("🇱🇧",'')
+kk = kk:gsub("🇰🇼️",'')
+kk = kk:gsub("🇯🇴",'')
+kk = kk:gsub("🇮🇶",'')
+kk = kk:gsub("🇪🇬",'')
+kk = kk:gsub("🇧🇭",'')
+kk = kk:gsub("🇩🇿️",'')
+kk = kk:gsub("🇦🇪",'')
+kk = kk:gsub("@[%a%d_]+",'')
+kk = kk:gsub("#[%a%d_]+",'')
+local doltebank = Redis:get(TheMERON.."doltebank"..v[2]) or " "
 local mony = v[1]
-gflous = string.format("%.0f", mony):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
-local emoo = emoji[k]
+local convert_mony = string.format("%.0f",mony)
+local emo = emoji[k]
 num = num + 1
-msg_text = msg_text..emoo.." "..gflous.."  💵 l "..Cname.."\n"
+gflos = string.format("%.0f", mony):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
+top_monyd = top_monyd..emo.." "..gflos.."  l "..kk.." ( "..tt.." "..doltebank.." ) \n"
+gg = " ━━━━━━━━━\n\n⇜ ملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
 end
 end
-return merolua.sendText(msg.chat_id,msg.id, msg_text ,"html",true)
-end
-if text == "حذف شركتي" or text == "مسح شركتي" then
-if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-if Redis:sismember(TheMERON.."company_owners:",msg.sender_id.user_id) then
-local Cname = Redis:get(TheMERON.."companys_name:"..msg.sender_id.user_id)
-for k,v in pairs(Redis:smembers(TheMERON.."company:mem:"..Cname)) do
-Redis:srem(TheMERON.."in_company:", v)
-end
-Redis:srem(TheMERON.."company_owners:", msg.sender_id.user_id)
-Redis:srem(TheMERON.."companys:", Cname)
-Redis:del(TheMERON.."companys_name:"..msg.sender_id.user_id)
-Redis:del(TheMERON.."companys_owner:"..Cname)
-Redis:del(TheMERON.."companys_id:"..Cname)
-Redis:del(TheMERON.."company:mem:"..Cname)
-return merolua.sendText(msg.chat_id,msg.id, "← تم حذف شركتك بنجاح","md",true)  
-else
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك شركة","md",true)  
-end
-else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
-end
-end
-if text and text:match('انشاء شركه (.*)') or text and text:match('انشاء شركة (.*)') then
-local Cnamed = text:match('انشاء شركه (.*)') or text:match('انشاء شركة (.*)')
-if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
-if Redis:sismember(TheMERON.."in_company:" , msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← لديك شركة حاليا\n← تستطيع استخدام الامر ( `استقاله` )\n〰","md",true)
-end
-if Redis:sismember(TheMERON.."company_owners:",msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← لديك شركة مسبقاً","md",true)
-end
-local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-if tonumber(ballancee) < 1000 then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه \n〰","md",true)
-end
-if Redis:sismember(TheMERON.."companys:", Cnamed) then
-return merolua.sendText(msg.chat_id,msg.id, "← الاسم مأخوذ جرب اسم ثاني \n〰","md",true)
-end
-local shrkcoi = tonumber(ballancee) - 1000
-Redis:set(TheMERON.."boob"..msg.sender_id.user_id , shrkcoi)
-Redis:sadd(TheMERON.."company_owners:", msg.sender_id.user_id)
-local rand = math.random(1,99999999999999)
-Redis:sadd(TheMERON.."companys:", Cnamed)
-Redis:set(TheMERON.."companys_name:"..msg.sender_id.user_id, Cnamed)
-Redis:set(TheMERON.."companys_owner:"..Cnamed, msg.sender_id.user_id)
-Redis:set(TheMERON.."companys_id:"..rand, Cnamed)
-Redis:set(TheMERON.."companys_id:"..Cnamed, rand)
-Redis:sadd(TheMERON.."company:mem:"..Cnamed, msg.sender_id.user_id)
-Redis:sadd(TheMERON.."in_company:", msg.sender_id.user_id)
-local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,"• تم انشاء شركتك\n← اسم الشركة : "..Cnamed.."\n← رصيد الشركة : "..convert_mony.." جنيه 💵\n← تستطيع اضافة اعضاء معك بالشركة\n← ارسل الامر ( اضافه ) بالرد\n〰","md",true)
-else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
-end
-end
-if text and text:match('كشف شركه (.*)') or text and text:match('كشف شركة (.*)') then
-local Cname = text:match('كشف شركه (.*)') or text:match('كشف شركة (.*)')
-if not Redis:sismember(TheMERON.."companys:", Cname) then return merolua.sendText(msg.chat_id,msg.id,"← لا يوجد شركه بهذا الاسم","md",true) end
-local owner_id = Redis:get(TheMERON.."companys_owner:"..Cname)
-local Cowner_tag = "["..bot.getUser(owner_id).first_name.."](tg://user?id="..owner_id..")"
-local Cid = Redis:get(TheMERON.."companys_id:"..Cname)
-local Cmem = Redis:smembers(TheMERON.."company:mem:"..Cname)
-local Cmony = 0
-if #Cmem > 1 then 
-mem_txt = "← اعضاء شركه "..Cname.." :\n"
-else
-mem_txt = "← اعضاء شركه "..Cname.." :\n← لا يوجد اعضاء بالشركه\n"
-end
-for k,v in pairs(Cmem) do
-local mem_mony = tonumber(Redis:get(TheMERON.."boob"..v)) or 0
-local mem_tag = "["..bot.getUser(v).first_name.."](tg://user?id="..v..")"
-if tonumber(v) ~= tonumber(owner_id) then
-mem_txt = mem_txt.."- "..mem_tag.."\nفلوسه : "..mem_mony.." جنيه 💵\n\n"
-end
-Cmony = Cmony + mem_mony
-end
-local convert_mony = string.format("%.0f",Cmony)
-return merolua.sendText(msg.chat_id,msg.id,"← تم ايجاد الشركه بنجاح\n\n← صاحب الشركه : "..Cowner_tag.."\n← ايدي الشركه : "..Cid.."\n← فلوس الشركه : "..convert_mony.." جنيه 💵\n"..mem_txt.."\n〰","md",true)
-end
-if text == "شركتي" then
-if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-if not Redis:sismember(TheMERON.."in_company:", msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← انت غير موظف في اي شركة","md",true)  
-end
-local Cname = Redis:get(TheMERON.."companys_name:"..msg.sender_id.user_id) or Redis:get(TheMERON.."in_company:name:"..msg.sender_id.user_id)
-local owner_id = Redis:get(TheMERON.."companys_owner:"..Cname)
-local Cid = Redis:get(TheMERON.."companys_id:"..Cname)
-local Cmem = Redis:smembers(TheMERON.."company:mem:"..Cname)
-local Cmony = 0
-if #Cmem > 1 then
-mem_txt = "← اعضاء شركه "..Cname.." :\n"
-else
-mem_txt = "← اعضاء شركه "..Cname.." :\n← لا يوجد اعضاء بالشركه\n"
-end
-for k,v in pairs(Cmem) do
-local mem_mony = tonumber(Redis:get(TheMERON.."boob"..v))
-if mem_mony then
-if tonumber(v) ~= tonumber(owner_id) then
-local mem_tag = "["..bot.getUser(v).first_name.."](tg://user?id="..v..")"
-mem_txt = mem_txt.."- "..mem_tag.."\nفلوسه : "..mem_mony.." جنيه 💵\n"
-end
-Cmony = Cmony + mem_mony
-end
-end
-local convert_mony = string.format("%.0f",Cmony)
-return merolua.sendText(msg.chat_id,msg.id,"← اهلا بك عزيزي في شركتك\n\n← ايدي الشركه : "..Cid.."\n← فلوس الشركه : "..convert_mony.." جنيه 💵\n← صاحب الشركه : ".."["..bot.getUser(owner_id).first_name.."](tg://user?id="..owner_id..")\n"..mem_txt.."\n〰","md",true)
-else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
-end
-end
---
-if (text == 'اضافه' or text == 'اضافة') and msg.reply_to_message_id == 0 then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`اضافه` بالرد","md",true)
-end
-if (text == 'طرد من الشركه' or text == 'رفد') and msg.reply_to_message_id == 0 then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`طرد` بالرد","md",true)
-end
-
-if (text == 'اضافه' or text == 'اضافة' or text == "توظيف") and msg.reply_to_message_id ~= 0 then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
-if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
-if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف معندهوش حساب بالبنك 🤣*","md",true)
-return false
-end
-if Remsg.sender_id.user_id == msg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← عاوز تضيف نفسك 🤡*","md",true)  
-return false
-end
-if not Redis:sismember(TheMERON.."company_owners:", msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك شركه","md",true)  
-end
-if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
-if Redis:sismember(TheMERON.."in_company:" , Remsg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← لديه شركة مسبقاً","md",true)
-end
-local Cname = Redis:get(TheMERON.."companys_name:"..msg.sender_id.user_id)
-local Cmem = Redis:smembers(TheMERON.."company:mem:"..Cname)
-if #Cmem == 5 then
-return merolua.sendText(msg.chat_id,msg.id, "← لقد وصلت شركتك لاقصى عدد من الموظفين\n← تستطيع طرد الموظفين\n〰","md",true)
-end
-if Redis:get(TheMERON.."company_request:"..Remsg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← اللاعب لديه طلب توظيف استنى يخلص مدته","md",true)
-end
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = 'موافق', data = Remsg.sender_id.user_id.."/company_yes/"..msg.sender_id.user_id},{text = 'غير موافق', data = Remsg.sender_id.user_id.."/company_no/"..msg.sender_id.user_id},
+{text = '🧚🏻‍♀️', url="t.me/Tepthon"},
 },
 }
 }
-Redis:setex(TheMERON.."company_request:"..Remsg.sender_id.user_id,60,true)
-return merolua.sendText(msg.chat_id, msg.reply_to_message_id ,"← صاحب الشركة : "..Cname.."\n← طلب منك العمل معه بالشركة ؟","md",false, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id,msg.id,top_monyd..gg,"md",false, false, false, false, reply_markup)
+end
+if text == 'انشاء نادي' or text == 'بناء نادي' then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ارسل انشاء نادي + الاسم\n⇜ مثال : انشاء نادي الفتوة\n✧","md",true)
+end
+if text and text:match('انشاء نادي (.*)') or text and text:match('بناء نادي (.*)') then
+
+local Cnamed = text:match('انشاء نادي (.*)') or text:match('بناء نادي (.*)')
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if Redis:get(TheMERON.."namenade"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لديك نادي مسبقاً ","md",true)
+end
+if Redis:sismember(TheMERON.."lkbnadesadd", Cnamed) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الاسم موجود مسبقاً\n⇜ اختر اسم اخر\n✧","md",true)
+end
+Redis:set(TheMERON.."lkbnade"..msg.sender_id.user_id, Cnamed)
+msgnade = '⇜ اختر النادي : ⚽️\n✧'
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'ريال مدريد', data = msg.sender_id.user_id..'/realm'},{text = 'برشلونة', data = msg.sender_id.user_id..'/barca'},{text = 'تشيلسي', data = msg.sender_id.user_id..'/chels'},
+},
+{
+{text = 'مانشستر يونايتد', data = msg.sender_id.user_id..'/manun'},{text = 'ليفربول', data = msg.sender_id.user_id..'/livb'},{text = 'انتر ميلان', data = msg.sender_id.user_id..'/intmi'},
+},
+{
+{text = 'مانشستر سيتي', data = msg.sender_id.user_id..'/manci'},{text = 'يوفنتس', data = msg.sender_id.user_id..'/juvin'},{text = 'ارسنال', data = msg.sender_id.user_id..'/arsi'}, 
+},
+{
+{text = '🧚🏻‍♀️',url="t.me/Tepthon"}, 
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgnade,"md",false, false, false, false, reply_markup)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'مسح نادي' or text == 'مسح النادي' or text == 'مسح ناديي' or text == 'مسح فريقي' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if not Redis:get(TheMERON.."namenade" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك نادي اصلاً\n⇜ قم بانشاء النادي الخاص بك عن طريق الامر \n( `انشاء نادي` ) والاسم","md",true)
+end
+namfra = Redis:get(TheMERON.."lkbnade"..msg.sender_id.user_id)
+Redis:del(TheMERON.."namenade"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nokatnade"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energynade"..msg.sender_id.user_id)
+Redis:del(TheMERON.."traningnade"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."nameplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."5"..msg.sender_id.user_id)
+Redis:srem(TheMERON.."lkbnadesadd", namfra)
+Redis:srem(TheMERON.."ownernade",msg.sender_id.user_id)
+Redis:del(TheMERON.."lkbnade"..msg.sender_id.user_id)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم مسح النادي الخاص بك","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'تدريب' or text == 'التدريب' or text == 'تدريب نادي' or text == 'تدريب ناديي' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if not Redis:get(TheMERON.."namenade" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك نادي اصلاً\n⇜ قم بانشاء النادي الخاص بك عن طريق الامر \n( `انشاء نادي` ) والاسم","md",true)
+end
+if Redis:ttl(TheMERON.."traningnade" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."traningnade" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ تستطيع تدريب النادي الخاص بك بعد "..time.." ","md",true)
+end
+local ban = merolua.getUser(msg.sender_id.user_id)
+if ban.first_name then
+news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+else
+news = " لا يوجد اسم"
+end
+namenade = Redis:get(TheMERON.."namenade"..msg.sender_id.user_id)
+energynade = Redis:get(TheMERON.."energynade"..msg.sender_id.user_id)
+lkbnade = Redis:get(TheMERON.."lkbnade"..msg.sender_id.user_id)
+namenade = Redis:get(TheMERON.."namenade"..msg.sender_id.user_id)
+energyplayer1 = Redis:get(TheMERON.."energyplayer".."1"..msg.sender_id.user_id)
+energyplayer2 = Redis:get(TheMERON.."energyplayer".."2"..msg.sender_id.user_id)
+energyplayer3 = Redis:get(TheMERON.."energyplayer".."3"..msg.sender_id.user_id)
+energyplayer4 = Redis:get(TheMERON.."energyplayer".."4"..msg.sender_id.user_id)
+energyplayer5 = Redis:get(TheMERON.."energyplayer".."5"..msg.sender_id.user_id)
+if tonumber(energynade) < 151 then
+Redis:incrby(TheMERON.."energynade"..msg.sender_id.user_id,1)
+end
+if energyplayer1 then
+if tonumber(energyplayer1) < 151 then
+Redis:incrby(TheMERON.."energyplayer".."1"..msg.sender_id.user_id,1)
+end
+end
+if energyplayer2 then
+if tonumber(energyplayer2) < 151 then
+Redis:incrby(TheMERON.."energyplayer".."2"..msg.sender_id.user_id,1)
+end
+end
+if energyplayer3 then
+if tonumber(energyplayer3) < 151 then
+Redis:incrby(TheMERON.."energyplayer".."3"..msg.sender_id.user_id,1)
+end
+end
+if energyplayer4 then
+if tonumber(energyplayer4) < 151 then
+Redis:incrby(TheMERON.."energyplayer".."4"..msg.sender_id.user_id,1)
+end
+end
+if energyplayer5 then
+if tonumber(energyplayer5) < 151 then
+Redis:incrby(TheMERON.."energyplayer".."5"..msg.sender_id.user_id,1)
+end
+end
+energynade = Redis:get(TheMERON.."energynade"..msg.sender_id.user_id)
+Redis:setex(TheMERON.."traningnade" .. msg.sender_id.user_id,1800, true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ تم تدريب النادي الخاص بك "..news.."\n⇜ اسم النادي : "..namenade.."\n⇜ لقب النادي : "..lkbnade.."\n⇜ طاقة النادي : "..energynade.."\n⇜ اكتب ( `ناديي` ) لمعرفة طاقات لاعبينك  ","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'تغير لقب النادي' or text == 'تغيير لقب النادي' or text == 'تغيير لقب نادي' or text == 'تغير لقب نادي' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if not Redis:get(TheMERON.."namenade" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك نادي اصلاً\n⇜ قم بانشاء النادي الخاص بك عن طريق الامر \n( `انشاء نادي` ) والاسم","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+if tonumber(ballance) < tonumber(25000) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تغيير اللقب فلوسك ماتكفي","md",true)
+end
+Redis:setex(TheMERON.."changlkbnade" .. msg.chat_id .. ":" .. msg.sender_id.user_id,60, true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ ارسل اللقب الجديد\n⇜ للالغاء ارسل ( `الغاء الامر` )\n✧","md",true)  
+return false
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if Redis:get(TheMERON.."changlkbnade" .. msg.chat_id .. ":" .. msg.sender_id.user_id) then
+Redis:del(TheMERON.."changlkbnade" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
+if text == "الغاء" or text == "الغاء الامر" then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم الغاء امر تغيير لقب النادي","md",true)
+end
+if Redis:sismember(TheMERON.."lkbnadesadd", text) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الاسم موجود مسبقاً\n⇜ اختر اسم اخر\n✧","md",true)
+end
+namfra = Redis:get(TheMERON.."lkbnade"..msg.sender_id.user_id)
+Redis:srem(TheMERON.."lkbnadesadd", namfra)
+Redis:del(TheMERON.."lkbnade"..msg.sender_id.user_id)
+Redis:set(TheMERON.."lkbnade"..msg.sender_id.user_id, text)
+Redis:sadd(TheMERON.."lkbnadesadd", text)
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+cccallcc = tonumber(ballance) - 25000
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id,cccallcc)
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+local convert_mony = string.format("%.0f",ballance)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم تغيير لقب ناديك\n\n⇜ اللقب الجديد : "..text.."\n⇜ سعر تغيير اللقب : 25000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
+end
+if text == 'عرض لاعب' or text == 'بيع لاعب' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if not Redis:get(TheMERON.."namenade" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك نادي اصلاً\n⇜ قم بانشاء النادي الخاص بك عن طريق الامر \n( `انشاء نادي` ) والاسم","md",true)
+end
+nameplayer1 = Redis:get(TheMERON.."nameplayer".."1"..msg.sender_id.user_id)
+nameplayer2 = Redis:get(TheMERON.."nameplayer".."2"..msg.sender_id.user_id)
+nameplayer3 = Redis:get(TheMERON.."nameplayer".."3"..msg.sender_id.user_id)
+nameplayer4 = Redis:get(TheMERON.."nameplayer".."4"..msg.sender_id.user_id)
+nameplayer5 = Redis:get(TheMERON.."nameplayer".."5"..msg.sender_id.user_id)
+if nameplayer1 then
+mrkzplayer1 = Redis:get(TheMERON.."mrkzplayer".."1"..msg.sender_id.user_id)
+cityplayer1 = Redis:get(TheMERON.."cityplayer".."1"..msg.sender_id.user_id)
+energyplayer1 = Redis:get(TheMERON.."energyplayer".."1"..msg.sender_id.user_id)
+priceplayer1 = Redis:get(TheMERON.."priceplayer".."1"..msg.sender_id.user_id)
+nameplayer1done = "⌯ اسم اللاعب : `"..nameplayer1.."`\n- مركزه : "..mrkzplayer1.."\n- طاقة اللاعب : "..energyplayer1.."\n- الجنسية : "..cityplayer1.."\n- السعر : "..priceplayer1.."\n\n"
+else
+nameplayer1done = ""
+end
+if nameplayer2 then
+mrkzplayer2 = Redis:get(TheMERON.."mrkzplayer".."2"..msg.sender_id.user_id)
+cityplayer2 = Redis:get(TheMERON.."cityplayer".."2"..msg.sender_id.user_id)
+energyplayer2 = Redis:get(TheMERON.."energyplayer".."2"..msg.sender_id.user_id)
+priceplayer2 = Redis:get(TheMERON.."priceplayer".."2"..msg.sender_id.user_id)
+nameplayer2done = "⌯ اسم اللاعب : `"..nameplayer2.."`\n- مركزه : "..mrkzplayer2.."\n- طاقة اللاعب : "..energyplayer2.."\n- الجنسية : "..cityplayer2.."\n- السعر : "..priceplayer2.."\n\n"
+else
+nameplayer2done = ""
+end
+if nameplayer3 then
+mrkzplayer3 = Redis:get(TheMERON.."mrkzplayer".."3"..msg.sender_id.user_id)
+cityplayer3 = Redis:get(TheMERON.."cityplayer".."3"..msg.sender_id.user_id)
+energyplayer3 = Redis:get(TheMERON.."energyplayer".."3"..msg.sender_id.user_id)
+priceplayer3 = Redis:get(TheMERON.."priceplayer".."3"..msg.sender_id.user_id)
+nameplayer3done = "⌯ اسم اللاعب : `"..nameplayer3.."`\n- مركزه : "..mrkzplayer3.."\n- طاقة اللاعب : "..energyplayer3.."\n- الجنسية : "..cityplayer3.."\n- السعر : "..priceplayer3.."\n\n"
+else
+nameplayer3done = ""
+end
+if nameplayer4 then
+mrkzplayer4 = Redis:get(TheMERON.."mrkzplayer".."4"..msg.sender_id.user_id)
+cityplayer4 = Redis:get(TheMERON.."cityplayer".."4"..msg.sender_id.user_id)
+energyplayer4 = Redis:get(TheMERON.."energyplayer".."4"..msg.sender_id.user_id)
+priceplayer4 = Redis:get(TheMERON.."priceplayer".."4"..msg.sender_id.user_id)
+nameplayer4done = "⌯ اسم اللاعب : `"..nameplayer4.."`\n- مركزه : "..mrkzplayer4.."\n- طاقة اللاعب : "..energyplayer4.."\n- الجنسية : "..cityplayer4.."\n- السعر : "..priceplayer4.."\n\n"
+else
+nameplayer4done = ""
+end
+if nameplayer5 then
+mrkzplayer5 = Redis:get(TheMERON.."mrkzplayer".."5"..msg.sender_id.user_id)
+cityplayer5 = Redis:get(TheMERON.."cityplayer".."5"..msg.sender_id.user_id)
+energyplayer5 = Redis:get(TheMERON.."energyplayer".."5"..msg.sender_id.user_id)
+priceplayer5 = Redis:get(TheMERON.."priceplayer".."5"..msg.sender_id.user_id)
+nameplayer5done = "⌯ اسم اللاعب : `"..nameplayer5.."`\n- مركزه : "..mrkzplayer5.."\n- طاقة اللاعب : "..energyplayer5.."\n- الجنسية : "..cityplayer5.."\n- السعر : "..priceplayer5.."\n\n"
+else
+nameplayer5done = ""
+end
+if not nameplayer1 and not nameplayer2 and not nameplayer3 and not nameplayer4 and not nameplayer5 then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لا يوجد لديك لاعبين\n⇜ تستطيع شراء لاعب بالامر ( `شراء لاعب` )","md",true)
+end
+Redis:setex(TheMERON.."shoplyname" .. msg.chat_id .. ":" .. msg.sender_id.user_id,60, true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ ارسل اسم اللاعب فقط\n\n"..nameplayer1done..""..nameplayer2done..""..nameplayer3done..""..nameplayer4done..""..nameplayer5done.."\n\n⇜ اضغط لنسخ الاسم\n⇜ للالغاء ارسل ( `الغاء الامر` )\n✧","md",true)  
+return false
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if Redis:get(TheMERON.."shoplyname" .. msg.chat_id .. ":" .. msg.sender_id.user_id) then
+Redis:del(TheMERON.."shoplyname" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
+if text == "الغاء" or text == "الغاء الامر" then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم الغاء امر بيع اللاعب","md",true)
+end
+nameplayer1 = Redis:get(TheMERON.."nameplayer".."1"..msg.sender_id.user_id)
+nameplayer2 = Redis:get(TheMERON.."nameplayer".."2"..msg.sender_id.user_id)
+nameplayer3 = Redis:get(TheMERON.."nameplayer".."3"..msg.sender_id.user_id)
+nameplayer4 = Redis:get(TheMERON.."nameplayer".."4"..msg.sender_id.user_id)
+nameplayer5 = Redis:get(TheMERON.."nameplayer".."5"..msg.sender_id.user_id)
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+if text == nameplayer1 then
+priceplayer1 = Redis:get(TheMERON.."priceplayer".."1"..msg.sender_id.user_id)
+pricetotaly = ballance + tonumber(priceplayer1)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id,pricetotaly)
+Redis:del(TheMERON.."nameplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."1"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."1"..msg.sender_id.user_id)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم بيع اللاعب","md",true)
+elseif text == nameplayer2 then
+priceplayer2 = Redis:get(TheMERON.."priceplayer".."2"..msg.sender_id.user_id)
+pricetotaly = ballance + tonumber(priceplayer2)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id,pricetotaly)
+Redis:del(TheMERON.."nameplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."2"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."2"..msg.sender_id.user_id)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم بيع اللاعب","md",true)
+elseif text == nameplayer3 then
+priceplayer3 = Redis:get(TheMERON.."priceplayer".."3"..msg.sender_id.user_id)
+pricetotaly = ballance + tonumber(priceplayer3)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id,pricetotaly)
+Redis:del(TheMERON.."nameplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."3"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."3"..msg.sender_id.user_id)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم بيع اللاعب","md",true)
+elseif text == nameplayer4 then
+priceplayer4 = Redis:get(TheMERON.."priceplayer".."4"..msg.sender_id.user_id)
+pricetotaly = ballance + tonumber(priceplayer4)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id,pricetotaly)
+Redis:del(TheMERON.."nameplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."4"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."4"..msg.sender_id.user_id)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم بيع اللاعب","md",true)
+elseif text == nameplayer5 then
+priceplayer5 = Redis:get(TheMERON.."priceplayer".."5"..msg.sender_id.user_id)
+pricetotaly = ballance + tonumber(priceplayer5)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id,pricetotaly)
+Redis:del(TheMERON.."nameplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."energyplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mrkzplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."cityplayer".."5"..msg.sender_id.user_id)
+Redis:del(TheMERON.."priceplayer".."5"..msg.sender_id.user_id)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم بيع اللاعب","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ اسم اللاعب خطأ !!","md",true)
+end
+end
+if text == 'ناديي' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if not Redis:get(TheMERON.."namenade" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك نادي اصلاً\n⇜ قم بانشاء النادي الخاص بك عن طريق الامر \n⇜ ( `انشاء نادي` ) والاسم","md",true)
+end
+local ban = merolua.getUser(msg.sender_id.user_id)
+if ban.first_name then
+news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+else
+news = " لا يوجد اسم"
+end
+namenade = Redis:get(TheMERON.."namenade"..msg.sender_id.user_id)
+energynade = Redis:get(TheMERON.."energynade"..msg.sender_id.user_id)
+lkbnade = Redis:get(TheMERON.."lkbnade"..msg.sender_id.user_id)
+nokatnade = Redis:get(TheMERON.."nokatnade"..msg.sender_id.user_id) or 0
+nameplayer1 = Redis:get(TheMERON.."nameplayer".."1"..msg.sender_id.user_id)
+nameplayer2 = Redis:get(TheMERON.."nameplayer".."2"..msg.sender_id.user_id)
+nameplayer3 = Redis:get(TheMERON.."nameplayer".."3"..msg.sender_id.user_id)
+nameplayer4 = Redis:get(TheMERON.."nameplayer".."4"..msg.sender_id.user_id)
+nameplayer5 = Redis:get(TheMERON.."nameplayer".."5"..msg.sender_id.user_id)
+if nameplayer1 then
+mrkzplayer1 = Redis:get(TheMERON.."mrkzplayer".."1"..msg.sender_id.user_id)
+cityplayer1 = Redis:get(TheMERON.."cityplayer".."1"..msg.sender_id.user_id)
+energyplayer1 = Redis:get(TheMERON.."energyplayer".."1"..msg.sender_id.user_id)
+nameplayer1done = "⌯ اسم اللاعب : "..nameplayer1.."\n- مركزه : "..mrkzplayer1.."\n- طاقة اللاعب : "..energyplayer1.."\n- الجنسية : "..cityplayer1.."\n\n"
+else
+nameplayer1done = ""
+end
+if nameplayer2 then
+mrkzplayer2 = Redis:get(TheMERON.."mrkzplayer".."2"..msg.sender_id.user_id)
+cityplayer2 = Redis:get(TheMERON.."cityplayer".."2"..msg.sender_id.user_id)
+energyplayer2 = Redis:get(TheMERON.."energyplayer".."2"..msg.sender_id.user_id)
+nameplayer2done = "⌯ اسم اللاعب : "..nameplayer2.."\n- مركزه : "..mrkzplayer2.."\n- طاقة اللاعب : "..energyplayer2.."\n- الجنسية : "..cityplayer2.."\n\n"
+else
+nameplayer2done = ""
+end
+if nameplayer3 then
+mrkzplayer3 = Redis:get(TheMERON.."mrkzplayer".."3"..msg.sender_id.user_id)
+cityplayer3 = Redis:get(TheMERON.."cityplayer".."3"..msg.sender_id.user_id)
+energyplayer3 = Redis:get(TheMERON.."energyplayer".."3"..msg.sender_id.user_id)
+nameplayer3done = "⌯ اسم اللاعب : "..nameplayer3.."\n- مركزه : "..mrkzplayer3.."\n- طاقة اللاعب : "..energyplayer3.."\n- الجنسية : "..cityplayer3.."\n\n"
+else
+nameplayer3done = ""
+end
+if nameplayer4 then
+mrkzplayer4 = Redis:get(TheMERON.."mrkzplayer".."4"..msg.sender_id.user_id)
+cityplayer4 = Redis:get(TheMERON.."cityplayer".."4"..msg.sender_id.user_id)
+energyplayer4 = Redis:get(TheMERON.."energyplayer".."4"..msg.sender_id.user_id)
+nameplayer4done = "⌯ اسم اللاعب : "..nameplayer4.."\n- مركزه : "..mrkzplayer4.."\n- طاقة اللاعب : "..energyplayer4.."\n- الجنسية : "..cityplayer4.."\n\n"
+else
+nameplayer4done = ""
+end
+if nameplayer5 then
+mrkzplayer5 = Redis:get(TheMERON.."mrkzplayer".."5"..msg.sender_id.user_id)
+cityplayer5 = Redis:get(TheMERON.."cityplayer".."5"..msg.sender_id.user_id)
+energyplayer5 = Redis:get(TheMERON.."energyplayer".."5"..msg.sender_id.user_id)
+nameplayer5done = "⌯ اسم اللاعب : "..nameplayer5.."\n- مركزه : "..mrkzplayer5.."\n- طاقة اللاعب : "..energyplayer5.."\n- الجنسية : "..cityplayer5.."\n\n"
+else
+nameplayer5done = ""
+end
+if not nameplayer1 and not nameplayer2 and not nameplayer3 and not nameplayer4 and not nameplayer5 then
+return merolua.sendText(msg.chat_id,msg.id, "⌯ صاحب النادي "..news.."\n⇜ اسم النادي : "..namenade.."\n⇜ لقب النادي : "..lkbnade.."\n⇜ طاقة النادي : "..energynade.."\n⇜ نقاط النادي : "..nokatnade.."\n\n⇜ لا يوجد لديك لاعبين\n━━━━━━━━━\n\n⇜ شراء لاعب بالامر ( `شراء لاعب` )\n⇜ `بيع لاعب` \n⇜ تدريب ناديك بالامر ( `تدريب` )\n⇜ مباره وديه بالامر ( `مباره وديه` )\n⇜ مباره ضد لاعب بالامر ( `مباره` بالرد )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⌯ صاحب النادي "..news.."\n⇜ اسم النادي : "..namenade.."\n⇜ لقب النادي : "..lkbnade.."\n⇜ طاقة النادي : "..energynade.."\n⇜ نقاط النادي : "..nokatnade.."\n\n⇜ لاعبين النادي :\n\n"..nameplayer1done..""..nameplayer2done..""..nameplayer3done..""..nameplayer4done..""..nameplayer5done.."\n━━━━━━━━━\n\n⇜ شراء لاعب بالامر ( `شراء لاعب` )\n⇜ تدريب ناديك بالامر ( `تدريب` )\n⇜ مباره وديه بالامر ( `مباره وديه` )\n⇜ مباره عادية بالامر ( `مباره` )\n ✧","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
-if (text == 'طرد من الشركه' or text == 'رفد') and msg.reply_to_message_id ~= 0 then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+
+if text == 'ناديه' and tonumber(msg.reply_to_message_id) ~= 0 then
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف معندهوش حساب بالبنك 🤣*","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها نادي ","md",true)
+return false
+end
+if not Redis:get(TheMERON.."namenade" .. Remsg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده نادي","md",true)
+end
+local ban = merolua.getUser(Remsg.sender_id.user_id)
+if ban.first_name then
+news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+else
+news = " لا يوجد اسم"
+end
+namenade = Redis:get(TheMERON.."namenade"..Remsg.sender_id.user_id)
+energynade = Redis:get(TheMERON.."energynade"..Remsg.sender_id.user_id)
+lkbnade = Redis:get(TheMERON.."lkbnade"..Remsg.sender_id.user_id)
+nokatnade = Redis:get(TheMERON.."nokatnade"..Remsg.sender_id.user_id) or 0
+nameplayer1 = Redis:get(TheMERON.."nameplayer".."1"..Remsg.sender_id.user_id)
+nameplayer2 = Redis:get(TheMERON.."nameplayer".."2"..Remsg.sender_id.user_id)
+nameplayer3 = Redis:get(TheMERON.."nameplayer".."3"..Remsg.sender_id.user_id)
+nameplayer4 = Redis:get(TheMERON.."nameplayer".."4"..Remsg.sender_id.user_id)
+nameplayer5 = Redis:get(TheMERON.."nameplayer".."5"..Remsg.sender_id.user_id)
+if nameplayer1 then
+mrkzplayer1 = Redis:get(TheMERON.."mrkzplayer".."1"..Remsg.sender_id.user_id)
+cityplayer1 = Redis:get(TheMERON.."cityplayer".."1"..Remsg.sender_id.user_id)
+energyplayer1 = Redis:get(TheMERON.."energyplayer".."1"..Remsg.sender_id.user_id)
+nameplayer1done = "⌯ اسم اللاعب : "..nameplayer1.."\n- مركزه : "..mrkzplayer1.."\n- طاقة اللاعب : "..energyplayer1.."\n- الجنسية : "..cityplayer1.."\n\n"
+else
+nameplayer1done = ""
+end
+if nameplayer2 then
+mrkzplayer2 = Redis:get(TheMERON.."mrkzplayer".."2"..Remsg.sender_id.user_id)
+cityplayer2 = Redis:get(TheMERON.."cityplayer".."2"..Remsg.sender_id.user_id)
+energyplayer2 = Redis:get(TheMERON.."energyplayer".."2"..Remsg.sender_id.user_id)
+nameplayer2done = "⌯ اسم اللاعب : "..nameplayer2.."\n- مركزه : "..mrkzplayer2.."\n- طاقة اللاعب : "..energyplayer2.."\n- الجنسية : "..cityplayer2.."\n\n"
+else
+nameplayer2done = ""
+end
+if nameplayer3 then
+mrkzplayer3 = Redis:get(TheMERON.."mrkzplayer".."3"..Remsg.sender_id.user_id)
+cityplayer3 = Redis:get(TheMERON.."cityplayer".."3"..Remsg.sender_id.user_id)
+energyplayer3 = Redis:get(TheMERON.."energyplayer".."3"..Remsg.sender_id.user_id)
+nameplayer3done = "⌯ اسم اللاعب : "..nameplayer3.."\n- مركزه : "..mrkzplayer3.."\n- طاقة اللاعب : "..energyplayer3.."\n- الجنسية : "..cityplayer3.."\n\n"
+else
+nameplayer3done = ""
+end
+if nameplayer4 then
+mrkzplayer4 = Redis:get(TheMERON.."mrkzplayer".."4"..Remsg.sender_id.user_id)
+cityplayer4 = Redis:get(TheMERON.."cityplayer".."4"..Remsg.sender_id.user_id)
+energyplayer4 = Redis:get(TheMERON.."energyplayer".."4"..Remsg.sender_id.user_id)
+nameplayer4done = "⌯ اسم اللاعب : "..nameplayer4.."\n- مركزه : "..mrkzplayer4.."\n- طاقة اللاعب : "..energyplayer4.."\n- الجنسية : "..cityplayer4.."\n\n"
+else
+nameplayer4done = ""
+end
+if nameplayer5 then
+mrkzplayer5 = Redis:get(TheMERON.."mrkzplayer".."5"..Remsg.sender_id.user_id)
+cityplayer5 = Redis:get(TheMERON.."cityplayer".."5"..Remsg.sender_id.user_id)
+energyplayer5 = Redis:get(TheMERON.."energyplayer".."5"..Remsg.sender_id.user_id)
+nameplayer5done = "⌯ اسم اللاعب : "..nameplayer5.."\n- مركزه : "..mrkzplayer5.."\n- طاقة اللاعب : "..energyplayer5.."\n- الجنسية : "..cityplayer5.."\n\n"
+else
+nameplayer5done = ""
+end
+if not nameplayer1 and not nameplayer2 and not nameplayer3 and not nameplayer4 and not nameplayer5 then
+return merolua.sendText(msg.chat_id,msg.id, "⌯ صاحب النادي "..news.."\n⇜ اسم النادي : "..namenade.."\n⇜ لقب النادي : "..lkbnade.."\n⇜ طاقة النادي : "..energynade.."\n⇜ نقاط النادي : "..nokatnade.."\n\n⇜ لا يوجد لديه لاعبين\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⌯ صاحب النادي "..news.."\n⇜ اسم النادي : "..namenade.."\n⇜ لقب النادي : "..lkbnade.."\n⇜ طاقة النادي : "..energynade.."\n⇜ نقاط النادي : "..nokatnade.."\n\n⇜ لاعبين النادي :\n\n"..nameplayer1done..""..nameplayer2done..""..nameplayer3done..""..nameplayer4done..""..nameplayer5done.."\n✧","md",true)
+end
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'مباره وديه' or text == 'مبارة ودية' or text == 'مباره ودية' or text == 'مبارة وديه' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if not Redis:get(TheMERON.."namenade" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك نادي اصلاً\n⇜ قم بانشاء النادي الخاص بك عن طريق الامر \n( `انشاء نادي` ) والاسم","md",true)
+end
+if Redis:ttl(TheMERON.."matchode" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."matchode" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ تستطيع لعب مبارة وديه بعد "..time.." ","md",true)
+end
+local ban = merolua.getUser(msg.sender_id.user_id)
+if ban.first_name then
+news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+else
+news = " لا يوجد اسم"
+end
+namenade = Redis:get(TheMERON.."namenade"..msg.sender_id.user_id)
+energynade = Redis:get(TheMERON.."energynade"..msg.sender_id.user_id)
+energyplayer1 = Redis:get(TheMERON.."energyplayer".."1"..msg.sender_id.user_id) or 0
+energyplayer2 = Redis:get(TheMERON.."energyplayer".."2"..msg.sender_id.user_id) or 0
+energyplayer3 = Redis:get(TheMERON.."energyplayer".."3"..msg.sender_id.user_id) or 0
+energyplayer4 = Redis:get(TheMERON.."energyplayer".."4"..msg.sender_id.user_id) or 0
+energyplayer5 = Redis:get(TheMERON.."energyplayer".."5"..msg.sender_id.user_id) or 0
+energymynade = tonumber(energynade) + tonumber(energyplayer1) + tonumber(energyplayer2) + tonumber(energyplayer3) + tonumber(energyplayer4) + tonumber(energyplayer5)
+local energybott = {"50", "100", "150", "200", "250", "300", "350", "400", "450", "0", "25", "70", "125",}
+local energybot = energybott[math.random(#energybott)]
+local resultt = {"0 - 1", "0 - 2", "0 - 3", "0 - 4", "0 - 5", "1 - 2", "1 - 3", "1 - 4", "1 - 5", "2 - 3", "2 - 4", "2 - 5", "3 - 4", "3 - 5", "4 - 5", "5 - 6",}
+local result = resultt[math.random(#resultt)]
+local tadoll = {"0 - 0", "1 - 1", "2 - 2", "3 - 3", "4 - 4", "5 - 5",}
+local tadol = tadoll[math.random(#tadoll)]
+local nadebott = {"اشبيلية", "ريفر بلايت", "ريفر بلايت", "بوروسيا", "أياكس الهولندي", "ليون", "شاختار دونيتسك", "روما", "فياريال", "بوكا جونيورز", "نابولي", "بنفيكا", "فلامنجو", "ليستر سيتي", "بالمرسي", "ليل", "ريال سوسيداد", "ايندهوفن", "الأهلي المصري", "الهلال السعودي", "الاتحاد السعودي",}
+local nadebot = nadebott[math.random(#nadebott)]
+if energymynade > tonumber(energybot) then
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+cccallcc = tonumber(ballance) + 500000
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id,cccallcc)
+Redis:incrby(TheMERON.."energynade"..msg.sender_id.user_id,1)
+Redis:incrby(TheMERON.."nokatnade"..msg.sender_id.user_id,1)
+Redis:setex(TheMERON.."matchode" .. msg.sender_id.user_id,1200, true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ لقد فزت بالمبارة "..news.." ⚽️\n⇜ اسم النادي : "..namenade.."\n⇜ نادي الخصم : "..nadebot.."\n⇜ النتيجة : "..result.."\n⇜ تم زيادة نقطة لطاقة ناديك\n✧","md",true)
+elseif energymynade < tonumber(energybot) then
+Redis:decrby(TheMERON.."energynade"..msg.sender_id.user_id,1)
+energynade = Redis:get(TheMERON.."energynade"..msg.sender_id.user_id)
+if tonumber(energynade) < 0 then
+Redis:set(TheMERON.."energynade"..msg.sender_id.user_id,0)
+end
+Redis:decrby(TheMERON.."nokatnade"..msg.sender_id.user_id,1)
+nokatnade = Redis:get(TheMERON.."nokatnade"..msg.sender_id.user_id)
+if tonumber(nokatnade) < 0 then
+Redis:set(TheMERON.."nokatnade"..msg.sender_id.user_id,0)
+end
+Redis:setex(TheMERON.."matchode" .. msg.sender_id.user_id,1200, true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ لقد خسرت بالمبارة "..news.." ⚽️\n⇜ اسم النادي : "..namenade.."\n⇜ نادي الخصم : "..nadebot.."\n⇜ النتيجة : "..result.."\n⇜ خسرت نقطة من طاقة ناديك\n✧","md",true)
+else
+Redis:setex(TheMERON.."matchode" .. msg.sender_id.user_id,1200, true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ لقد تعادلت بالمبارة "..news.." ⚽️\n⇜ اسم النادي : "..namenade.."\n⇜ نادي الخصم : "..nadebot.."\n⇜ النتيجة : "..tadol.."\n✧","md",true)
+end
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'مباره' or text == 'مبارة' or text == 'لعب مبارة' or text == 'لعب مباره' and tonumber(msg.reply_to_message_id) ~= 0 then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if not Redis:get(TheMERON.."namenade" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك نادي اصلاً\n⇜ قم بانشاء النادي الخاص بك عن طريق الامر \n( `انشاء نادي` ) والاسم","md",true)
+end
+local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
+if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها نادي ","md",true)
 return false
 end
 if Remsg.sender_id.user_id == msg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← عاوز تطرد نفسك 🤡*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ بدك تلعب مبارة مع نفسك 🤡","md",true)  
 return false
 end
-if not Redis:sismember(TheMERON.."company_owners:", msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك شركه","md",true)  
+if not Redis:get(TheMERON.."namenade" .. Remsg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ خصمك ماعنده نادي ","md",true)
 end
-if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
-local Cname = Redis:get(TheMERON.."companys_name:"..msg.sender_id.user_id)
-if not Redis:sismember(TheMERON.."company:mem:"..Cname, Remsg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك في الشركة مشان تطرده","md",true)  
+if Redis:ttl(TheMERON.."matchplayer" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."matchplayer" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ تستطيع لعب مبارة بعد "..time.." ","md",true)
 end
-Redis:srem(TheMERON.."company:mem:"..Cname, Remsg.sender_id.user_id)
-Redis:srem(TheMERON.."in_company:", Remsg.sender_id.user_id)
-Redis:del(TheMERON.."in_company:name:"..Remsg.sender_id.user_id, Cname)
-return merolua.sendText(msg.chat_id,msg.id, "← تم طرده من الشركه ","md",true)
+local ban = merolua.getUser(msg.sender_id.user_id)
+if ban.first_name then
+news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+news = " لا يوجد اسم"
+end
+namenade = Redis:get(TheMERON.."namenade"..msg.sender_id.user_id)
+energynade = Redis:get(TheMERON.."energynade"..msg.sender_id.user_id)
+energyplayer1 = Redis:get(TheMERON.."energyplayer".."1"..msg.sender_id.user_id) or 0
+energyplayer2 = Redis:get(TheMERON.."energyplayer".."2"..msg.sender_id.user_id) or 0
+energyplayer3 = Redis:get(TheMERON.."energyplayer".."3"..msg.sender_id.user_id) or 0
+energyplayer4 = Redis:get(TheMERON.."energyplayer".."4"..msg.sender_id.user_id) or 0
+energyplayer5 = Redis:get(TheMERON.."energyplayer".."5"..msg.sender_id.user_id) or 0
+energymynade = tonumber(energynade) + tonumber(energyplayer1) + tonumber(energyplayer2) + tonumber(energyplayer3) + tonumber(energyplayer4) + tonumber(energyplayer5)
+
+namenadevs = Redis:get(TheMERON.."namenade"..Remsg.sender_id.user_id)
+energynadevs = Redis:get(TheMERON.."energynade"..Remsg.sender_id.user_id)
+energyplayer1vs = Redis:get(TheMERON.."energyplayer".."1"..Remsg.sender_id.user_id) or 0
+energyplayer2vs = Redis:get(TheMERON.."energyplayer".."2"..Remsg.sender_id.user_id) or 0
+energyplayer3vs = Redis:get(TheMERON.."energyplayer".."3"..Remsg.sender_id.user_id) or 0
+energyplayer4vs = Redis:get(TheMERON.."energyplayer".."4"..Remsg.sender_id.user_id) or 0
+energyplayer5vs = Redis:get(TheMERON.."energyplayer".."5"..Remsg.sender_id.user_id) or 0
+energymynadevs = tonumber(energynadevs) + tonumber(energyplayer1vs) + tonumber(energyplayer2vs) + tonumber(energyplayer3vs) + tonumber(energyplayer4vs) + tonumber(energyplayer5vs)
+local resultt = {"0 - 1", "0 - 2", "0 - 3", "0 - 4", "0 - 5", "1 - 2", "1 - 3", "1 - 4", "1 - 5", "2 - 3", "2 - 4", "2 - 5", "3 - 4", "3 - 5", "4 - 5", "5 - 6",}
+local result = resultt[math.random(#resultt)]
+local tadoll = {"0 - 0", "1 - 1", "2 - 2", "3 - 3", "4 - 4", "5 - 5",}
+local tadol = tadoll[math.random(#tadoll)]
+if energymynade > energymynadevs then
+Redis:incrby(TheMERON.."energynade"..msg.sender_id.user_id,1)
+Redis:incrby(TheMERON.."nokatnade"..msg.sender_id.user_id,1)
+if energyplayer1 then
+Redis:incrby(TheMERON.."energyplayer".."1"..msg.sender_id.user_id,1)
+end
+if energyplayer2 then
+Redis:incrby(TheMERON.."energyplayer".."2"..msg.sender_id.user_id,1)
+end
+if energyplayer3 then
+Redis:incrby(TheMERON.."energyplayer".."3"..msg.sender_id.user_id,1)
+end
+if energyplayer4 then
+Redis:incrby(TheMERON.."energyplayer".."4"..msg.sender_id.user_id,1)
+end
+if energyplayer5 then
+Redis:incrby(TheMERON.."energyplayer".."5"..msg.sender_id.user_id,1)
+end
+Redis:decrby(TheMERON.."energynade"..Remsg.sender_id.user_id,1)
+energynadevs = Redis:get(TheMERON.."energynade"..Remsg.sender_id.user_id)
+if tonumber(energynadevs) < 0 then
+Redis:set(TheMERON.."energynade"..Remsg.sender_id.user_id,0)
+end
+if energyplayer1vs then
+Redis:decrby(TheMERON.."energyplayer".."1"..Remsg.sender_id.user_id,1)
+end
+energyplayer1vs = Redis:get(TheMERON.."energyplayer".."1"..Remsg.sender_id.user_id)
+if tonumber(energyplayer1vs) < 0 then
+Redis:set(TheMERON.."energyplayer".."1"..Remsg.sender_id.user_id,0)
+end
+if energyplayer2vs then
+Redis:decrby(TheMERON.."energyplayer".."2"..Remsg.sender_id.user_id,1)
+end
+energyplayer2vs = Redis:get(TheMERON.."energyplayer".."2"..Remsg.sender_id.user_id)
+if tonumber(energyplayer2vs) < 0 then
+Redis:set(TheMERON.."energyplayer".."2"..Remsg.sender_id.user_id,0)
+end
+if energyplayer3vs then
+Redis:decrby(TheMERON.."energyplayer".."3"..Remsg.sender_id.user_id,1)
+end
+energyplayer3vs = Redis:get(TheMERON.."energyplayer".."3"..Remsg.sender_id.user_id)
+if tonumber(energyplayer3vs) < 0 then
+Redis:set(TheMERON.."energyplayer".."3"..Remsg.sender_id.user_id,0)
+end
+if energyplayer4vs then
+Redis:decrby(TheMERON.."energyplayer".."4"..Remsg.sender_id.user_id,1)
+end
+energyplayer4vs = Redis:get(TheMERON.."energyplayer".."4"..Remsg.sender_id.user_id)
+if tonumber(energyplayer4vs) < 0 then
+Redis:set(TheMERON.."energyplayer".."4"..Remsg.sender_id.user_id,0)
+end
+if energyplayer5vs then
+Redis:decrby(TheMERON.."energyplayer".."5"..Remsg.sender_id.user_id,1)
+end
+energyplayer5vs = Redis:get(TheMERON.."energyplayer".."5"..Remsg.sender_id.user_id)
+if tonumber(energyplayer5vs) < 0 then
+Redis:set(TheMERON.."energyplayer".."5"..Remsg.sender_id.user_id,0)
+end
+Redis:decrby(TheMERON.."nokatnade"..Remsg.sender_id.user_id,1)
+nokatnadevs = Redis:get(TheMERON.."nokatnade"..Remsg.sender_id.user_id)
+if tonumber(nokatnadevs) < 0 then
+Redis:set(TheMERON.."nokatnade"..Remsg.sender_id.user_id,0)
+end
+Redis:setex(TheMERON.."matchplayer" .. msg.sender_id.user_id,1200, true)
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+cccallcc = tonumber(ballance) + 1000000
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id,cccallcc)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ لقد فزت بالمبارة "..news.." ⚽️\n⇜ اسم النادي : "..namenade.."\n⇜ نادي الخصم : "..namenadevs.."\n⇜ النتيجة : "..result.."\n⇜ الجائزة : 1000000 درهم 💵\n⇜ تم زيادة طاقة ناديك ولاعبينك وانقاصها من الخصم\n✧","md",true)
+elseif energymynade < energymynadevs then
+Redis:incrby(TheMERON.."energynade"..Remsg.sender_id.user_id,1)
+Redis:incrby(TheMERON.."nokatnade"..Remsg.sender_id.user_id,1)
+if energyplayer1vs then
+Redis:incrby(TheMERON.."energyplayer".."1"..Remsg.sender_id.user_id,1)
+end
+if energyplayer2vs then
+Redis:incrby(TheMERON.."energyplayer".."2"..Remsg.sender_id.user_id,1)
+end
+if energyplayer3vs then
+Redis:incrby(TheMERON.."energyplayer".."3"..Remsg.sender_id.user_id,1)
+end
+if energyplayer4vs then
+Redis:incrby(TheMERON.."energyplayer".."4"..Remsg.sender_id.user_id,1)
+end
+if energyplayer5vs then
+Redis:incrby(TheMERON.."energyplayer".."5"..Remsg.sender_id.user_id,1)
+end
+Redis:decrby(TheMERON.."energynade"..msg.sender_id.user_id,1)
+energynade = Redis:get(TheMERON.."energynade"..msg.sender_id.user_id)
+if tonumber(energynade) < 0 then
+Redis:set(TheMERON.."energynade"..msg.sender_id.user_id,0)
+end
+if energyplayer1 then
+Redis:decrby(TheMERON.."energyplayer".."1"..msg.sender_id.user_id,1)
+end
+energyplayer1 = Redis:get(TheMERON.."energyplayer".."1"..msg.sender_id.user_id)
+if tonumber(energyplayer1) < 0 then
+Redis:set(TheMERON.."energyplayer".."1"..msg.sender_id.user_id,0)
+end
+if energyplayer2 then
+Redis:decrby(TheMERON.."energyplayer".."2"..msg.sender_id.user_id,1)
+end
+energyplayer2 = Redis:get(TheMERON.."energyplayer".."2"..msg.sender_id.user_id)
+if tonumber(energyplayer2) < 0 then
+Redis:set(TheMERON.."energyplayer".."2"..msg.sender_id.user_id,0)
+end
+if energyplayer3 then
+Redis:decrby(TheMERON.."energyplayer".."3"..msg.sender_id.user_id,1)
+end
+energyplayer3 = Redis:get(TheMERON.."energyplayer".."3"..msg.sender_id.user_id)
+if tonumber(energyplayer3) < 0 then
+Redis:set(TheMERON.."energyplayer".."3"..msg.sender_id.user_id,0)
+end
+if energyplayer4 then
+Redis:decrby(TheMERON.."energyplayer".."4"..msg.sender_id.user_id,1)
+end
+energyplayer4 = Redis:get(TheMERON.."energyplayer".."4"..msg.sender_id.user_id)
+if tonumber(energyplayer4) < 0 then
+Redis:set(TheMERON.."energyplayer".."4"..msg.sender_id.user_id,0)
+end
+if energyplayer5 then
+Redis:decrby(TheMERON.."energyplayer".."5"..msg.sender_id.user_id,1)
+end
+energyplayer5 = Redis:get(TheMERON.."energyplayer".."5"..msg.sender_id.user_id)
+if tonumber(energyplayer5) < 0 then
+Redis:set(TheMERON.."energyplayer".."5"..msg.sender_id.user_id,0)
+end
+Redis:decrby(TheMERON.."nokatnade"..msg.sender_id.user_id,1)
+nokatnade = Redis:get(TheMERON.."nokatnade"..msg.sender_id.user_id)
+if tonumber(nokatnade) < 0 then
+Redis:set(TheMERON.."nokatnade"..msg.sender_id.user_id,0)
+end
+Redis:setex(TheMERON.."matchplayer" .. msg.sender_id.user_id,1200, true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ لقد خسرت بالمبارة "..news.." ⚽️\n⇜ اسم النادي : "..namenade.."\n⇜ نادي الخصم : "..namenadevs.."\n⇜ النتيجة : "..result.."\n⇜ تم انقاص طاقة ناديك ولاعبينك وزيادتها لدى الخصم\n✧","md",true)
+else
+Redis:setex(TheMERON.."matchplayer" .. msg.sender_id.user_id,1200, true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ لقد تعادلت بالمبارة "..news.." ⚽️\n⇜ اسم النادي : "..namenade.."\n⇜ نادي الخصم : "..namenadevs.."\n⇜ النتيجة : "..tadol.."\n✧","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
-if text == "استقاله" or text == "استقالة" then
+if text == 'شراء لاعب' then
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-if not Redis:sismember(TheMERON.."in_company:" , msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← ليس لديك شركة","md",true)
+if Redis:get(TheMERON.."mrkzplayer".."1"..msg.sender_id.user_id) and Redis:get(TheMERON.."mrkzplayer".."2"..msg.sender_id.user_id) and Redis:get(TheMERON.."mrkzplayer".."3"..msg.sender_id.user_id) and Redis:get(TheMERON.."mrkzplayer".."4"..msg.sender_id.user_id) and Redis:get(TheMERON.."mrkzplayer".."5"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ النادي الخاص بك مكتمل\n⇜ تستطيع بيع لاعب عن طريق الامر ( بيع لاعب )  ","md",true)
 end
-if Redis:sismember(TheMERON.."company_owners:", msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← انت صاحب الشركه ما يمديك تستقيل\n← اكتب ( `مسح شركتي` )","md",true)  
+if Redis:ttl(TheMERON.."buyplayer" .. msg.sender_id.user_id) >=60 then
+local time = ctime(Redis:ttl(TheMERON.."buyplayer" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ تستطيع شراء لاعب بعد "..time.." ","md",true)
 end
-local Cname = Redis:get(TheMERON.."in_company:name:"..msg.sender_id.user_id)
-Redis:srem(TheMERON.."company:mem:"..Cname, msg.sender_id.user_id)
-Redis:srem(TheMERON.."in_company:", msg.sender_id.user_id)
-Redis:del(TheMERON.."in_company:name:"..msg.sender_id.user_id, Cname)
-local owner_id = Redis:get(TheMERON.."companys_owner:"..Cname)
-local mem_tag = "["..bot.getUser(msg.sender_id.user_id).first_name.."](tg://user?id="..msg.sender_id.user_id..")"
-return merolua.sendText(owner_id,0, "← اللاعب "..mem_tag.." استقال من شركتك" ,"md",true)
-return merolua.sendText(msg.chat_id,msg.id, "← انت الان لست موظف في شركه "..Cname ,"md",true)
+Redis:setex(TheMERON.."buyplayer" .. msg.sender_id.user_id,900, true)
+local Textinggt = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50",}
+local Descriptioont = Textinggt[math.random(#Textinggt)]
+if Descriptioont == "1" then
+msgplayer = "⇜ الاسم : ريما سواريز\n⇜ مركزه : مهاجم ايمن\n⇜ طاقة اللاعب : 83\n⇜ الجنسية : اوكرانيا 🇺🇦\n⇜ سعر اللاعب : 39000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/luisyes'},{text = 'لا', data = msg.sender_id.user_id..'/luisno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "2" then
+msgplayer = "⇜ الاسم : داني الفيش \n⇜ مركزه : مدافع\n⇜ طاقة اللاعب : 83\n⇜ الجنسية : البرازيل 🇧🇷 \n⇜ سعر اللاعب : 50000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/danyes'},{text = 'لا', data = msg.sender_id.user_id..'/danno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "3" then
+msgplayer = "⇜ الاسم : فيل فودن\n⇜ مركزه : وسط\n⇜ طاقة اللاعب : 87\n⇜ الجنسية : إنجلترا 🏴󠁧󠁢󠁥󠁮󠁧󠁿\n⇜ سعر اللاعب : 70000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/fdnyes'},{text = 'لا', data = msg.sender_id.user_id..'/fdnno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "4" then
+msgplayer = "⇜ الاسم : رافيل فاران\n⇜ مركزه : مدافع\n⇜ طاقة اللاعب : 84\n⇜ الجنسية : فرنسا 🇫🇷\n⇜ سعر اللاعب : 40000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/rafyes'},{text = 'لا', data = msg.sender_id.user_id..'/rafno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "5" then
+msgplayer = "⇜ الاسم : خوان ماتا\n⇜ مركزه : وسط\n⇜ طاقة اللاعب : 81\n⇜ الجنسية : إسبانيا 🇪🇸\n⇜ سعر اللاعب : 20000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/kuanyes'},{text = 'لا', data = msg.sender_id.user_id..'/kuanno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "6" then
+msgplayer = "⇜ الاسم : هاري ماجواير\n⇜ مركزه : مدافع\n⇜ طاقة اللاعب : 80\n⇜ الجنسية : إنجلترا 🏴󠁧󠁢󠁥󠁮󠁧󠁿\n⇜ سعر اللاعب : 15000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/hariyes'},{text = 'لا', data = msg.sender_id.user_id..'/harino'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "7" then
+msgplayer = "⇜ الاسم : روميلو لوكاكو\n⇜ مركزه : مهاجم\n⇜ طاقة اللاعب : 90\n⇜ الجنسية : بلجيكا 🇧🇪 󠁧󠁢󠁥󠁮󠁧󠁿\n⇜ سعر اللاعب : 100000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/romoyes'},{text = 'لا', data = msg.sender_id.user_id..'/romono'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "8" then
+msgplayer = "⇜ الاسم : تياجو سيلفا \n⇜ مركزه : مدافع\n⇜ طاقة اللاعب : 81\n⇜ الجنسية : البرازيل 🇧🇷 \n⇜ سعر اللاعب : 20000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/tiagoyes'},{text = 'لا', data = msg.sender_id.user_id..'/tiagono'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "9" then
+msgplayer = "⇜ الاسم : جيرارد بيكيه\n⇜ مركزه : مدافع\n⇜ طاقة اللاعب : 83\n⇜ الجنسية : إسبانيا 🇪🇸\n⇜ سعر اللاعب : 30000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/gerardyes'},{text = 'لا', data = msg.sender_id.user_id..'/gerardno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "10" then
+msgplayer = "⇜ الاسم : تير شتيجن\n⇜ مركزه : حارس\n⇜ طاقة اللاعب : 91\n⇜ الجنسية :ألمانيا 🇩🇪\n⇜ سعر اللاعب : 110000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/tyryes'},{text = 'لا', data = msg.sender_id.user_id..'/tyrno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "11" then
+msgplayer = "⇜ الاسم : عثمان ديمبلي\n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 84\n⇜ الجنسية : فرنسا 🇫🇷\n⇜ سعر اللاعب : 45000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/osmanyes'},{text = 'لا', data = msg.sender_id.user_id..'/osmanno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "12" then
+msgplayer = "⇜ الاسم : رودريغو \n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 87\n⇜ الجنسية : البرازيل 🇧🇷\n⇜ سعر اللاعب : 78000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/rodrigoyes'},{text = 'لا', data = msg.sender_id.user_id..'/rodrigono'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "13" then
+msgplayer = "⇜ الاسم : ميليتاو \n⇜ مركزه : وسط\n⇜ طاقة اللاعب : 87\n⇜ الجنسية : البرازيل 🇧🇷\n⇜ سعر اللاعب : 65000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/milyes'},{text = 'لا', data = msg.sender_id.user_id..'/milno'},
+
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "14" then
+msgplayer = "⇜ الاسم : ألابا\n⇜ مركزه : مدافع\n⇜ طاقة اللاعب : 86\n⇜ الجنسيه : النمسا 🇦🇹\n⇜ سعر اللاعب : 73000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/albayes'},{text = 'لا', data = msg.sender_id.user_id..'/albano'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "15" then
+msgplayer = "⇜ الاسم : فينيسيوس\n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 94\n⇜ الجنسية : البرازيل 🇧🇷 \n⇜ سعر اللاعب : 180000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/fenesyes'},{text = 'لا', data = msg.sender_id.user_id..'/fenesno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "16" then
+msgplayer = "⇜ الاسم : دي ماريا\n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 85\n⇜ الجنسية : الأرجنتين 🇦🇷 \n⇜ سعر اللاعب : 55000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/demayes'},{text = 'لا', data = msg.sender_id.user_id..'/demano'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "17" then
+msgplayer = "⇜ الاسم : دانيلو\n⇜ مركزه : مدافع\n⇜ طاقة اللاعب : 82\n⇜ الجنسية : البرازيل 🇧🇷 \n⇜ سعر اللاعب : 20000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/danilyes'},{text = 'لا', data = msg.sender_id.user_id..'/danilno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "18" then
+msgplayer = "⇜ الاسم :  دانييلي\n⇜ مركزه : مدافع\n⇜ طاقة اللاعب : 82\n⇜ الجنسية : إيطاليا 🇮🇹 \n⇜ سعر اللاعب : 38000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/daneleyes'},{text = 'لا', data = msg.sender_id.user_id..'/daneleno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "19" then
+msgplayer = "⇜ الاسم :  إبراهيموفتش \n⇜ مركزه : مهاجم\n⇜ طاقة اللاعب : 85\n⇜ الجنسيه : السويد 🇸🇪 \n⇜ سعر اللاعب : 55000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/ibrahyes'},{text = 'لا', data = msg.sender_id.user_id..'/ibrahno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "20" then
+msgplayer = "⇜ الاسم :  دوناروما \n⇜ مركزه : حارس\n⇜ طاقة اللاعب : 89\n⇜ الجنسيه : إيطاليا 🇮🇹\n⇜ سعر اللاعب : 99000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/donaryes'},{text = 'لا', data = msg.sender_id.user_id..'/donarno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "21" then
+msgplayer = "⇜ الاسم :  أشرف حكيمي \n⇜ مركزه : مدافع\n⇜ طاقة اللاعب : 85\n⇜ الجنسيه : المغرب 🇲🇦 \n⇜ سعر اللاعب : 55000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/ashrfyes'},{text = 'لا', data = msg.sender_id.user_id..'/ashrfno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "22" then
+msgplayer = "⇜ الاسم :  ايدن ازارد \n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 86\n⇜ بلجيكا 🇧🇪 : الجنسيه \n⇜ سعر اللاعب : 59000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/idenyes'},{text = 'لا', data = msg.sender_id.user_id..'/idenno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "23" then
+msgplayer = "⇜ الاسم :  سيرجو راموس \n⇜ مركزه : مدافع\n⇜ طاقة اللاعب : 93\n⇜ اسبانيا 🇪🇸 : الجنسيه \n⇜ سعر اللاعب : 170000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/sergyes'},{text = 'لا', data = msg.sender_id.user_id..'/sergno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "24" then
+msgplayer = "⇜ الاسم : فرمينو\n⇜ مركزه : مهاجم\n⇜ طاقة اللاعب : 86\n⇜ الجنسية : البرازيل 🇧🇷\n⇜ سعر اللاعب : 60000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/fermyes'},{text = 'لا', data = msg.sender_id.user_id..'/fermno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "25" then
+msgplayer = "⇜ الاسم : جاك كلارك\n⇜ مركزه : مهاجم\n⇜ طاقة اللاعب : 81\n⇜ الجنسية : إنجلترا 🏴󠁧󠁢󠁥󠁮󠁧󠁿\n⇜ سعر اللاعب : 19000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/jackyes'},{text = 'لا', data = msg.sender_id.user_id..'/jackno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "26" then
+msgplayer = "⇜ الاسم : انسلو فاتي\n⇜ مركزه : مهاجم\n⇜ طاقة اللاعب : 84\n⇜ الجنسية : اسبانيا 🇪🇸\n⇜ سعر اللاعب : 53000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/ansloyes'},{text = 'لا', data = msg.sender_id.user_id..'/anslono'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "27" then
+msgplayer = "⇜ الاسم : توريس\n⇜ مركزه : مهاجم\n⇜ طاقة اللاعب : 84\n⇜ الجنسية : اسبانيا 🇪🇸\n⇜ سعر اللاعب : 41000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/toresyes'},{text = 'لا', data = msg.sender_id.user_id..'/toresno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "28" then
+msgplayer = "⇜ الاسم : توماس مولر\n⇜ مركزه : وسط\n⇜ طاقة اللاعب : 87\n⇜ الجنسية : ألمانيا 🇩🇪\n⇜ سعر اللاعب : 80000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/muleryes'},{text = 'لا', data = msg.sender_id.user_id..'/mulerno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "29" then
+msgplayer = "⇜ الاسم : برونو فيرنانديز\n⇜ مركزه : وسط\n⇜ طاقة اللاعب : 86\n⇜ الجنسية : البرتغال 🇵🇹\n⇜ سعر اللاعب : 74000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/brunoyes'},{text = 'لا', data = msg.sender_id.user_id..'/brunono'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "30" then
+msgplayer = "⇜ الاسم : بول بوجبا\n⇜ مركزه : وسط\n⇜ طاقة اللاعب : 88\n⇜ الجنسية : فرنسا 🇫🇷\n⇜ سعر اللاعب : 78000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/paulyes'},{text = 'لا', data = msg.sender_id.user_id..'/paulno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "31" then
+msgplayer = "⇜ الاسم : لوكا مودريتش\n⇜ مركزه : وسط\n⇜ طاقة اللاعب : 90\n⇜ الجنسية : كرواتيا 🇭🇷\n⇜ سعر اللاعب : 90000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/modricyes'},{text = 'لا', data = msg.sender_id.user_id..'/modricno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "32" then
+msgplayer = "⇜ الاسم : إيسكو\n⇜ مركزه : وسط\n⇜ طاقة اللاعب : 84\n⇜ الجنسية : اسبانيا 🇪🇸\n⇜ سعر اللاعب : 41000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/iscoyes'},{text = 'لا', data = msg.sender_id.user_id..'/iscnono'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "33" then
+msgplayer = "⇜ الاسم : فابينهو\n⇜ مركزه : وسط\n⇜ طاقة اللاعب : 81\n⇜ الجنسية : البرازيل 🇧🇷\n⇜ سعر اللاعب : 20000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/fabinyes'},{text = 'لا', data = msg.sender_id.user_id..'/fabinno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "34" then
+msgplayer = "⇜ الاسم : هيندرسون\n⇜ مركزه : وسط\n⇜ طاقة اللاعب : 86\n⇜ الجنسية : إنجلترا 🏴󠁧󠁢󠁥󠁮󠁧󠁿\n⇜ سعر اللاعب : 70000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/hinsonyes'},{text = 'لا', data = msg.sender_id.user_id..'/hinsonno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "35" then
+msgplayer = "⇜ الاسم : جان اوبلاك\n⇜ مركزه : حارس\n⇜ طاقة اللاعب : 88\n⇜ الجنسية : رومانيا 🇹🇩\n⇜ سعر اللاعب : 80000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/janyes'},{text = 'لا', data = msg.sender_id.user_id..'/janno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "36" then
+msgplayer = "⇜ الاسم : كيلور نافاس\n⇜ مركزه : حارس\n⇜ طاقة اللاعب : 87\n⇜ الجنسية : كوستا ريكا🇨🇷\n⇜ سعر اللاعب : 70000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/kayloryes'},{text = 'لا', data = msg.sender_id.user_id..'/kaylorno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "37" then
+msgplayer = "⇜ الاسم : يان سومر\n⇜ مركزه : حارس\n⇜ طاقة اللاعب : 87\n⇜ الجنسية : سويسرا 🇨🇭\n⇜ سعر اللاعب : 70000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/sommeryes'},{text = 'لا', data = msg.sender_id.user_id..'/sommerno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "38" then
+msgplayer = "⇜ الاسم : بيرند لينو\n⇜ مركزه : حارس\n⇜ طاقة اللاعب : 85\n⇜ الجنسية : المانيا🇩🇪\n⇜ سعر اللاعب : 52000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/brendyes'},{text = 'لا', data = msg.sender_id.user_id..'/brendyes'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "39" then
+msgplayer = "⇜ الاسم : ميندي\n⇜ مركزه : حاسر\n⇜ طاقة اللاعب : 88\n⇜ الجنسية : غانا 🇬🇭\n⇜ سعر اللاعب : 80000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/mendyyes'},{text = 'لا', data = msg.sender_id.user_id..'/mendyno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "40" then
+msgplayer = "⇜ الاسم : اندريه اونانا\n⇜ مركزه : حارس\n⇜ طاقة اللاعب : 83\n⇜ الجنسية : غانا 🇬🇭\n⇜ سعر اللاعب : 20000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/onanayes'},{text = 'لا', data = msg.sender_id.user_id..'/onanano'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "41" then
+msgplayer = "⇜ الاسم : روي باتريكو\n⇜ مركزه : حارس\n⇜ طاقة اللاعب : 84\n⇜ الجنسية : البرتغال 🇵🇹\n⇜ سعر اللاعب : 40000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/royyes'},{text = 'لا', data = msg.sender_id.user_id..'/royno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "42" then
+msgplayer = "⇜ الاسم : كاسبر \n⇜ مركزه : حارس\n⇜ طاقة اللاعب : 84\n⇜ الجنسية : الدنمارك 🇩🇰\n⇜ سعر اللاعب : 40000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/kasperyes'},{text = 'لا', data = msg.sender_id.user_id..'/kasperno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "43" then
+msgplayer = "⇜ الاسم : دافيد \n⇜ مركزه : حارس\n⇜ طاقة اللاعب : 88\n⇜ الجنسية : اسبانيا 🇪🇸\n⇜ سعر اللاعب : 80000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/geayes'},{text = 'لا', data = msg.sender_id.user_id..'/geano'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "44" then
+msgplayer = "⇜ الاسم : جواو فليكس\n⇜ مركزه : مهاجم\n⇜ طاقة اللاعب : 82\n⇜ الجنسية : البرتغال 🇵🇹\n⇜ سعر اللاعب : 20000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/felixyes'},{text = 'لا', data = msg.sender_id.user_id..'/felixno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "45" then
+msgplayer = "⇜ الاسم : محمد صلاح\n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 91\n⇜ الجنسية : مصر 🇪🇬\n⇜ سعر اللاعب : 100000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/salahyes'},{text = 'لا', data = msg.sender_id.user_id..'/salahno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "46" then
+msgplayer = "⇜ الاسم : نيمار \n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 91\n⇜ الجنسية : البرازيل 🇧🇷\n⇜ سعر اللاعب : 100000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/neymaryes'},{text = 'لا', data = msg.sender_id.user_id..'/neymarno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "47" then
+msgplayer = "⇜ الاسم : ساديو ماني \n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 90\n⇜ الجنسية : السنغال 🇸🇳\n⇜ سعر اللاعب : 90000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/sadioyes'},{text = 'لا', data = msg.sender_id.user_id..'/sadiono'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "48" then
+msgplayer = "⇜ الاسم : رحيم ستيرليج \n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 88\n⇜ الجنسية : إنجلترا 🏴󠁧󠁢󠁥󠁮󠁧󠁿\n⇜ سعر اللاعب : 80000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/rehimyes'},{text = 'لا', data = msg.sender_id.user_id..'/rehimno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "49" then
+msgplayer = "⇜ الاسم : يادون سانشو \n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 88\n⇜ الجنسية : إنجلترا 🏴󠁧󠁢󠁥󠁮󠁧󠁿\n⇜ سعر اللاعب : 80000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/sanchoyes'},{text = 'لا', data = msg.sender_id.user_id..'/sanchono'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+elseif Descriptioont == "50" then
+msgplayer = "⇜ الاسم : سون  \n⇜ مركزه : جناح\n⇜ طاقة اللاعب : 88\n⇜ الجنسية : كوريه الجنوبيه 🇰🇷\n⇜ سعر اللاعب : 80000 درهم 💵\n هل ترغب بشراء اللاعب ؟\n✧"
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'نعم', data = msg.sender_id.user_id..'/sonyes'},{text = 'لا', data = msg.sender_id.user_id..'/sonno'},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,msgplayer,"md",false, false, false, false, reply_markup)
+end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 --------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------
-if text == 'كنز' then
+if text and text:match('انشاء مزرعه (.*)') or text and text:match('انشاء مزرعة (.*)') or text and text:match('بناء مزرعة (.*)') or text and text:match('بناء مزرعه (.*)') then
+ 
+local Cnamed = text:match('انشاء مزرعه (.*)') or text:match('انشاء مزرعة (.*)') or text:match('بناء مزرعة (.*)') or text:match('بناء مزرعه (.*)')
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+namefram = Redis:get(TheMERON.."namefram"..msg.sender_id.user_id)
+if Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لديك مزرعه مسبقاً ","md",true)
+end
+if Redis:sismember(TheMERON.."farmarname", Cnamed) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ اسم المزرعه موجود مسبقاً\n⇜ اختر اسم اخر\n✧","md",true)
+end
+Redis:set(TheMERON.."namefram"..msg.sender_id.user_id, Cnamed)
+ttshakse = '⇜ اختر مساحة المزرعة : 🛣\n✧'
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = '4×4', data = msg.sender_id.user_id..'/4×4'},{text = '6×6', data = msg.sender_id.user_id..'/6×6'},{text = '8×8', data = msg.sender_id.user_id..'/8×8'},
+},
+{
+{text = '12×12', data = msg.sender_id.user_id..'/12×12'},{text = '16×16', data = msg.sender_id.user_id..'/16×16'},{text = '32×32', data = msg.sender_id.user_id..'/32×32'},
+},
+{
+{text = '🧚🏻‍♀️',url="t.me/Tepthon"}, 
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,ttshakse,"md",false, false, false, false, reply_markup)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == "توب مزارع" or text == "توب المزارع" then
+
+local bank_users = Redis:smembers(TheMERON.."ownerfram")
+if #bank_users == 0 then
+return merolua.sendText(msg.chat_id,msg.id,"⇜ لا يوجد مزارع","md",true)
+end
+top_monyd = "⇜ توب اعلى 10 مزارع :\n\n"
+mony_listd = {}
+for k,v in pairs(bank_users) do
+local mony = Redis:get(TheMERON.."toplvfarm"..v) or 0
+table.insert(mony_listd, {tonumber(mony) , v})
+end
+table.sort(mony_listd, function(a, b) return a[1] > b[1] end)
+num = 1
+emoji ={ 
+"🥇" ,
+"🥈",
+"🥉",
+"4)",
+"5)",
+"6)",
+"7)",
+"8)",
+"9)",
+"10)"
+}
+for k,v in pairs(mony_listd) do
+if num <= 10 then
+local user_name = merolua.getUser(v[2]).first_name or "لا يوجد اسم"
+tt =  "["..user_name.."]("..user_name..")"
+tt = tt:gsub("🇾🇪️",'')
+tt = tt:gsub("🇹🇳",'')
+tt = tt:gsub("🇸🇾",'')
+tt = tt:gsub("🇸🇩",'')
+tt = tt:gsub("🇸🇦",'')
+tt = tt:gsub("🇶🇦",'')
+tt = tt:gsub("🇵🇸",'')
+tt = tt:gsub("🇴🇲",'')
+tt = tt:gsub("🇲🇦",'')
+tt = tt:gsub("🇱🇾",'')
+tt = tt:gsub("🇱🇧",'')
+tt = tt:gsub("🇰🇼️",'')
+tt = tt:gsub("🇯🇴",'')
+tt = tt:gsub("🇮🇶",'')
+tt = tt:gsub("🇪🇬",'')
+tt = tt:gsub("🇧🇭",'')
+tt = tt:gsub("🇩🇿️",'')
+tt = tt:gsub("🇦🇪",'')
+tt = tt:gsub("@[%a%d_]+",'')
+tt = tt:gsub("#[%a%d_]+",'')
+local kk = Redis:get(TheMERON.."namefram"..v[2])
+kk = kk:gsub("🇾🇪️",'')
+kk = kk:gsub("🇹🇳",'')
+kk = kk:gsub("🇸🇾",'')
+kk = kk:gsub("🇸🇩",'')
+kk = kk:gsub("🇸🇦",'')
+kk = kk:gsub("🇶🇦",'')
+kk = kk:gsub("🇵🇸",'')
+kk = kk:gsub("🇴🇲",'')
+kk = kk:gsub("🇲🇦",'')
+kk = kk:gsub("🇱🇾",'')
+kk = kk:gsub("🇱🇧",'')
+kk = kk:gsub("🇰🇼️",'')
+kk = kk:gsub("🇯🇴",'')
+kk = kk:gsub("🇮🇶",'')
+kk = kk:gsub("🇪🇬",'')
+kk = kk:gsub("🇧🇭",'')
+kk = kk:gsub("🇩🇿️",'')
+kk = kk:gsub("🇦🇪",'')
+kk = kk:gsub("@[%a%d_]+",'')
+kk = kk:gsub("#[%a%d_]+",'')
+local doltebank = Redis:get(TheMERON.."doltebank"..v[2]) or " "
+local mony = v[1]
+local convert_mony = string.format("%.0f",mony)
+local emo = emoji[k]
+num = num + 1
+gflos = string.format("%.0f", mony):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
+top_monyd = top_monyd..emo.." "..gflos.."  l "..kk.." ( "..tt.." "..doltebank.." ) \n"
+gg = " ━━━━━━━━━\n\n⇜ ملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
+end
+end
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = '🧚🏻‍♀️', url="t.me/Tepthon"},
+},
+}
+}
+return merolua.sendText(msg.chat_id,msg.id,top_monyd..gg,"md",false, false, false, false, reply_markup)
+end
+if text == 'مزرعه' or text == 'مزرعة' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⌯ اهلا فيك بمزرعة ريما :\n\n⇜ المزروعات واسعارها :\n- بطاطا : 75 درهم 💵\n- بندوره : 100 درهم 💵\n- خس : 125 درهم 💵\n- خيار : 150 درهم 💵\n- جزر : 175 درهم 💵\n- فليفله : 200 درهم 💵\n- فريز : 300 درهم 💵\n- ذره : 400 درهم 💵\n- ثوم : 500 درهم 💵\n- فطر : 800 درهم 💵\n- شجره تفاح : 1000 درهم 💵\n- شجره عنب : 1250 درهم 💵\n-شجره زيتون : 1500 درهم 💵\n- شجره موز : 2000 درهم 💵\n- شجره مانجا : 3000 درهم 💵\n\n⇜ مثال طريقة الزراعه : \n- زراعه بطاطا 10\n- زراعه شجر موز 15\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه' or text == 'زراعة' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n- زراعه بندوره والعدد\n- زراعه خيار والعدد\n- زراعه فريز والعدد\n- زراعه فليفله والعدد\n- زراعه خس والعدد\n- زراعه جزر والعدد\n- زراعه بطاطا والعدد\n- زراعه شجر تفاح والعدد\n- زراعه شجر موز والعدد\n- زراعه شجر زيتون والعدد\n- زراعه شجر عنب والعدد\n\n⇜ مثال طريقة الزراعه : \n- زراعه بطاطا 10\n- زراعه شجر موز 15\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه بطاطا' or text == 'زراعة بطاطا' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه بطاطا` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه بندوره' or text == 'زراعة بندوره' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه بندوره` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه خس' or text == 'زراعة خس' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه خس` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه خيار' or text == 'زراعة خيار' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه خيار` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه جزر' or text == 'زراعة جزر' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه جزر` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه فليفله' or text == 'زراعة فليفله' or text == 'زراعه فليفلة' or text == 'زراعة فليفلة' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه فليفله` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه فريز' or text == 'زراعة فريز' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه فريز` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه ذره' or text == 'زراعة ذرة' or text == 'زراعة ذره' or text == 'زراعه ذرة' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه ذره` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه ثوم' or text == 'زراعة ثوم' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه ثوم` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه فطر' or text == 'زراعة فطر' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه فطر` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه شجر تفاح' or text == 'زراعة شجر تفاح' or text == 'زراعه شجره تفاح' or text == 'زراعة شجرة تفاح' or text == 'زراعه تفاح' or text == 'زراعة تفاح' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه شجر تفاح` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه شجر عنب' or text == 'زراعة شجر عنب' or text == 'زراعه شجره عنب' or text == 'زراعة شجرة عنب' or text == 'زراعه عنب' or text == 'زراعة عنب' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه شجر عنب` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه شجر زيتون' or text == 'زراعة شجر زيتون' or text == 'زراعه شجره زيتون' or text == 'زراعة شجرة زيتون' or text == 'زراعه زيتون' or text == 'زراعة زيتون' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه شجر زيتون` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه شجر موز' or text == 'زراعة شجر موز' or text == 'زراعه شجره موز' or text == 'زراعة شجرة موز' or text == 'زراعه موز' or text == 'زراعة موز' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه شجر موز` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'زراعه شجر مانجا' or text == 'زراعة شجر مانجا' or text == 'زراعه شجره مانجا' or text == 'زراعة شجرة مانجا' or text == 'زراعه مانجا' or text == 'زراعة مانجا' then
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `زراعه شجر مانجا` والعدد","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'مسح مزرعه' or text == 'مسح مزرعة' or text == 'مسح المزرعه' or text == 'مسح المزرعة' or text == 'مسح مزرعتي' then
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه اصلاً\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` ) والاسم","md",true)
+end
+namfra = Redis:get(TheMERON.."namefram"..msg.sender_id.user_id)
+Redis:del(TheMERON.."toplvfarm"..msg.sender_id.user_id)
+Redis:del(TheMERON.."btatatime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."btatanum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."btataname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."lemontime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."lemonnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."lemonname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."khesstime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."khessnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."khessname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."kheartime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."khearnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."khearname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."jzartime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."jzarnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."jzarname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."fleflatime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."fleflanum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."fleflaname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."freaztime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."freaznum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."freazname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."doratime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."doranum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."doraname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tomtime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tomnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tomname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."ftrtime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."ftrnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."ftrname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tfahtime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tfahnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tfahname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."enabtime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."enabnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."enabname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."zetontime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."zetonnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."zetonname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mozztime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mozznum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mozzname"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mangatime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."manganum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."manganame"..msg.sender_id.user_id)
+Redis:del(TheMERON.."sizefram"..msg.sender_id.user_id)
+Redis:del(TheMERON.."namefram"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mzroatsize"..msg.sender_id.user_id)
+Redis:srem(TheMERON.."farmarname", namfra)
+Redis:srem(TheMERON.."ownerfram",msg.sender_id.user_id)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم مسح مزرعتك","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == "مزرعتي" then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` ) والاسم","md",true)
+end
+local namefram = Redis:get(TheMERON.."namefram"..msg.sender_id.user_id)
+local sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+local mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+local mazofxbh = tonumber(sizefram) - tonumber(mzroatsize)
+local btatahours = Redis:ttl(TheMERON.."btatatime" .. msg.sender_id.user_id) / 60
+local btatatime = Redis:get(TheMERON.."btatatime" .. msg.sender_id.user_id)
+local btataname = Redis:get(TheMERON.."btataname"..msg.sender_id.user_id)
+local btatanum = Redis:get(TheMERON.."btatanum"..msg.sender_id.user_id) or 0
+if btataname and btatatime then
+btatanamee = "🥔 "..btataname.." : ( `"..math.floor(btatanum).."` ) الوقت المتبقي "..math.floor(btatahours).." دقيقة\n"
+elseif btataname then
+btatanamee = "🥔 "..btataname.." : ( `"..math.floor(btatanum).."` ) جاهزة للحصد\n"
+else
+btatanamee = ""
+end
+local lemonhours = Redis:ttl(TheMERON.."lemontime" .. msg.sender_id.user_id) / 60
+local lemontime = Redis:get(TheMERON.."lemontime" .. msg.sender_id.user_id)
+local lemonname = Redis:get(TheMERON.."lemonname"..msg.sender_id.user_id)
+local lemonnum = Redis:get(TheMERON.."lemonnum"..msg.sender_id.user_id) or 0
+if lemonname and lemontime then
+lemonnamee = "🍅 "..lemonname.." : ( `"..math.floor(lemonnum).."` ) الوقت المتبقي "..math.floor(lemonhours).." دقيقة\n"
+elseif lemonname then
+lemonnamee = "🍅 "..lemonname.." : ( `"..math.floor(lemonnum).."` ) جاهزة للحصد\n"
+else
+lemonnamee = ""
+end
+local khesshours = Redis:ttl(TheMERON.."khesstime" .. msg.sender_id.user_id) / 60
+local khesstime = Redis:get(TheMERON.."khesstime" .. msg.sender_id.user_id)
+local khessname = Redis:get(TheMERON.."khessname"..msg.sender_id.user_id)
+local khessnum = Redis:get(TheMERON.."khessnum"..msg.sender_id.user_id) or 0
+if khessname and khesstime then
+khessnamee = "🥬 "..khessname.." : ( `"..math.floor(khessnum).."` ) الوقت المتبقي "..math.floor(khesshours).." دقيقة\n"
+elseif khessname then
+khessnamee = "🥬 "..khessname.." : ( `"..math.floor(khessnum).."` ) جاهز للحصد\n"
+else
+khessnamee = ""
+end
+local khearhours = Redis:ttl(TheMERON.."kheartime" .. msg.sender_id.user_id) / 60
+local kheartime = Redis:get(TheMERON.."kheartime" .. msg.sender_id.user_id)
+local khearname = Redis:get(TheMERON.."khearname"..msg.sender_id.user_id)
+local khearnum = Redis:get(TheMERON.."khearnum"..msg.sender_id.user_id) or 0
+if khearname and kheartime then
+khearnamee = "🥒 "..khearname.." : ( `"..math.floor(khearnum).."` ) الوقت المتبقي "..math.floor(khearhours).." دقيقة\n"
+elseif khearname then
+khearnamee = "🥒 "..khearname.." : ( `"..math.floor(khearnum).."` ) جاهز للحصد\n"
+else
+khearnamee = ""
+end
+local jzarhours = Redis:ttl(TheMERON.."jzartime" .. msg.sender_id.user_id) / 60
+local jzartime = Redis:get(TheMERON.."jzartime" .. msg.sender_id.user_id)
+local jzarname = Redis:get(TheMERON.."jzarname"..msg.sender_id.user_id)
+local jzarnum = Redis:get(TheMERON.."jzarnum"..msg.sender_id.user_id) or 0
+if jzarname and jzartime then
+jzarnamee = "🥕 "..jzarname.." : ( `"..math.floor(jzarnum).."` ) الوقت المتبقي "..math.floor(jzarhours).." دقيقة\n"
+elseif jzarname then
+jzarnamee = "🥕 "..jzarname.." : ( `"..math.floor(jzarnum).."` ) جاهز للحصد\n"
+else
+jzarnamee = ""
+end
+local fleflahours = Redis:ttl(TheMERON.."fleflatime" .. msg.sender_id.user_id) / 60
+local fleflatime = Redis:get(TheMERON.."fleflatime" .. msg.sender_id.user_id)
+local fleflaname = Redis:get(TheMERON.."fleflaname"..msg.sender_id.user_id)
+local fleflanum = Redis:get(TheMERON.."fleflanum"..msg.sender_id.user_id) or 0
+if fleflaname and fleflatime then
+fleflanamee = "🫑 "..fleflaname.." : ( `"..math.floor(fleflanum).."` ) الوقت المتبقي "..math.floor(fleflahours).." دقيقة\n"
+elseif fleflaname then
+fleflanamee = "🫑 "..fleflaname.." : ( `"..math.floor(fleflanum).."` ) جاهزة للحصد\n"
+else
+fleflanamee = ""
+end
+local freazhours = Redis:ttl(TheMERON.."freaztime" .. msg.sender_id.user_id) / 60
+local freaztime = Redis:get(TheMERON.."freaztime" .. msg.sender_id.user_id)
+local freazname = Redis:get(TheMERON.."freazname"..msg.sender_id.user_id)
+local freaznum = Redis:get(TheMERON.."freaznum"..msg.sender_id.user_id) or 0
+if freazname and freaztime then
+freaznamee = "🍓 "..freazname.." : ( `"..math.floor(freaznum).."` ) الوقت المتبقي "..math.floor(freazhours).." دقيقة\n"
+elseif freazname then
+freaznamee = "🍓 "..freazname.." : ( `"..math.floor(freaznum).."` ) جاهز للحصد\n"
+else
+freaznamee = ""
+end
+local dorahours = Redis:ttl(TheMERON.."doratime" .. msg.sender_id.user_id) / 60
+local doratime = Redis:get(TheMERON.."doratime" .. msg.sender_id.user_id)
+local doraname = Redis:get(TheMERON.."doraname"..msg.sender_id.user_id)
+local doranum = Redis:get(TheMERON.."doranum"..msg.sender_id.user_id) or 0
+if doraname and doratime then
+doranamee = "🌽 "..doraname.." : ( `"..math.floor(doranum).."` ) الوقت المتبقي "..math.floor(dorahours).." دقيقة\n"
+elseif doraname then
+doranamee = "🌽 "..doraname.." : ( `"..math.floor(doranum).."` ) جاهز للحصد\n"
+else
+doranamee = ""
+end
+local tomhours = Redis:ttl(TheMERON.."tomtime" .. msg.sender_id.user_id) / 60
+local tomtime = Redis:get(TheMERON.."tomtime" .. msg.sender_id.user_id)
+local tomname = Redis:get(TheMERON.."tomname"..msg.sender_id.user_id)
+local tomnum = Redis:get(TheMERON.."tomnum"..msg.sender_id.user_id) or 0
+if tomname and tomtime then
+tomnamee = "🧄 "..tomname.." : ( `"..math.floor(tomnum).."` ) الوقت المتبقي "..math.floor(tomhours).." دقيقة\n"
+elseif tomname then
+tomnamee = "🧄 "..tomname.." : ( `"..math.floor(tomnum).."` ) جاهز للحصد\n"
+else
+tomnamee = ""
+end
+local ftrhours = Redis:ttl(TheMERON.."ftrtime" .. msg.sender_id.user_id) / 60
+local ftrtime = Redis:get(TheMERON.."ftrtime" .. msg.sender_id.user_id)
+local ftrname = Redis:get(TheMERON.."ftrname"..msg.sender_id.user_id)
+local ftrnum = Redis:get(TheMERON.."ftrnum"..msg.sender_id.user_id) or 0
+if ftrname and ftrtime then
+ftrnamee = "🍄 "..ftrname.." : ( `"..math.floor(ftrnum).."` ) الوقت المتبقي "..math.floor(ftrhours).." دقيقة\n"
+elseif ftrname then
+ftrnamee = "🍄 "..ftrname.." : ( `"..math.floor(ftrnum).."` ) جاهز للحصد\n"
+else
+ftrnamee = ""
+end
+local tfahhours = Redis:ttl(TheMERON.."tfahtime" .. msg.sender_id.user_id) / 60
+local tfahtime = Redis:get(TheMERON.."tfahtime" .. msg.sender_id.user_id)
+local tfahname = Redis:get(TheMERON.."tfahname"..msg.sender_id.user_id)
+local tfahnum = Redis:get(TheMERON.."tfahnum"..msg.sender_id.user_id) or 0
+if tfahname and tfahtime then
+tfahnamee = "🍏 "..tfahname.." : ( `"..math.floor(tfahnum).."` ) الوقت المتبقي "..math.floor(tfahhours).." دقيقة\n"
+elseif tfahname then
+tfahnamee = "🍏 "..tfahname.." : ( `"..math.floor(tfahnum).."` ) جاهز للحصد\n"
+else
+tfahnamee = ""
+end
+local enabhours = Redis:ttl(TheMERON.."enabtime" .. msg.sender_id.user_id) / 60
+local enabtime = Redis:get(TheMERON.."enabtime" .. msg.sender_id.user_id)
+local enabname = Redis:get(TheMERON.."enabname"..msg.sender_id.user_id)
+local enabnum = Redis:get(TheMERON.."enabnum"..msg.sender_id.user_id) or 0
+if enabname and enabtime then
+enabnamee = "🍇 "..enabname.." : ( `"..math.floor(enabnum).."` ) الوقت المتبقي "..math.floor(enabhours).." دقيقة\n"
+elseif enabname then
+enabnamee = "🍇 "..enabname.." : ( `"..math.floor(enabnum).."` ) جاهز للحصد\n"
+else
+enabnamee = ""
+end
+local zetonhours = Redis:ttl(TheMERON.."zetontime" .. msg.sender_id.user_id) / 60
+local zetontime = Redis:get(TheMERON.."zetontime" .. msg.sender_id.user_id)
+local zetonname = Redis:get(TheMERON.."zetonname"..msg.sender_id.user_id)
+local zetonnum = Redis:get(TheMERON.."zetonnum"..msg.sender_id.user_id) or 0
+if zetonname and zetontime then
+zetonnamee = "🫒 "..zetonname.." : ( `"..math.floor(zetonnum).."` ) الوقت المتبقي "..math.floor(zetonhours).." دقيقة\n"
+elseif zetonname then
+zetonnamee = "🫒 "..zetonname.." : ( `"..math.floor(zetonnum).."` ) جاهز للحصد\n"
+else
+zetonnamee = ""
+end
+local mozzhours = Redis:ttl(TheMERON.."mozztime" .. msg.sender_id.user_id) / 60
+local mozztime = Redis:get(TheMERON.."mozztime" .. msg.sender_id.user_id)
+local mozzname = Redis:get(TheMERON.."mozzname"..msg.sender_id.user_id)
+local mozznum = Redis:get(TheMERON.."mozznum"..msg.sender_id.user_id) or 0
+if mozzname and mozztime then
+mozznamee = "🍌 "..mozzname.." : ( `"..math.floor(mozznum).."` ) الوقت المتبقي "..math.floor(mozzhours).." دقيقة\n"
+elseif mozzname then
+mozznamee = "🍌 "..mozzname.." : ( `"..math.floor(mozznum).."` ) جاهز للحصد\n"
+else
+mozznamee = ""
+end
+local mangahours = Redis:ttl(TheMERON.."mangatime" .. msg.sender_id.user_id) / 60
+local mangatime = Redis:get(TheMERON.."mangatime" .. msg.sender_id.user_id)
+local manganame = Redis:get(TheMERON.."manganame"..msg.sender_id.user_id)
+local manganum = Redis:get(TheMERON.."manganum"..msg.sender_id.user_id) or 0
+if manganame and mangatime then
+manganamee = "🥭 "..manganame.." : ( `"..math.floor(manganum).."` ) الوقت المتبقي "..math.floor(mangahours).." دقيقة\n"
+elseif manganame then
+manganamee = "🥭 "..manganame.." : ( `"..math.floor(manganum).."` ) جاهز للحصد\n"
+else
+manganamee = ""
+end
+if btatanum == 0 and lemonnum == 0 and khessnum == 0 and khearnum == 0 and jzarnum == 0 and fleflanum == 0 and freaznum == 0 and doranum == 0 and tomnum == 0 and ftrnum == 0 and tfahnum == 0 and enabnum == 0 and zetonnum == 0 and mozznum == 0 and manganum == 0 then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ اسم مزرعتك 🏕 : "..namefram.."\n⇜ مساحة المزرعة المتبقية : "..mazofxbh.." متر\n\n⇜ لا يوجد مزروعات\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ اسم مزرعتك 🏕 : "..namefram.."\n⇜ مساحة المزرعة المتبقية : "..mazofxbh.." متر\n\n⇜ مزروعاتك :\n"..btatanamee..""..lemonnamee..""..khessnamee..""..khearnamee..""..jzarnamee..""..fleflanamee..""..freaznamee..""..doranamee..""..tomnamee..""..ftrnamee..""..tfahnamee..""..enabnamee..""..zetonnamee..""..mozznamee..""..manganamee.."\n✧","md",true)
+end
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه بطاطا (.*)$') or text and text:match('^زراعة بطاطا (.*)$') then
+
+local UserName = text:match('^زراعه بطاطا (.*)$') or text:match('^زراعة بطاطا (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."btatatime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."btatatime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة بطاطا قبل 🥔\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصادها\n- طريقة الحصاد بالامر : `حصد بطاطا`","md",true)
+end
+if Redis:get(TheMERON.."btatanum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة بطاطا قبل 🥔\n⇜ قم بحصادها اولاً\n- طريقة الحصاد بالامر : `حصد بطاطا`","md",true)
+end
+kajwha = tonumber(coniss) * 0.7
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+btata = tonumber(coniss) * 75
+if tonumber(ballance) < tonumber(btata) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."btatanum"..msg.sender_id.user_id , coniss)
+btataname = "بطاطا"
+Redis:set(TheMERON.."btataname"..msg.sender_id.user_id , btataname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+btatasize = tonumber(coniss) * 0.7
+btatasizee = btatasize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(btatasizee))
+totalypalice = tonumber(ballance) - tonumber(btata)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."btatatime"..msg.sender_id.user_id,1220, true)
+local convert_mony = string.format("%.0f",math.floor(btata))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة بطاطا 🥔\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 20 دقيقة ⏳️ ثم قم بحصادها\n- الامر ( `حصد بطاطا` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه بندوره (.*)$') or text and text:match('^زراعة بندوره (.*)$') then
+
+local UserName = text:match('^زراعه بندوره (.*)$') or text:match('^زراعة بندوره (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."lemontime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."lemontime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة بندوره قبل 🍅\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد بندوره`","md",true)
+end
+if Redis:get(TheMERON.."lemonnum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة بندوره قبل 🍅\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد بندوره`","md",true)
+end
+kajwha = tonumber(coniss) * 1
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+lemon = tonumber(coniss) * 100
+if tonumber(ballance) < tonumber(lemon) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."lemonnum"..msg.sender_id.user_id , coniss)
+lemonname = "بندوره"
+Redis:set(TheMERON.."lemonname"..msg.sender_id.user_id , lemonname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+lemonsize = tonumber(coniss) * 1
+lemonsizee = lemonsize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(lemonsizee))
+totalypalice = tonumber(ballance) - tonumber(lemon)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."lemontime"..msg.sender_id.user_id,1520, true)
+local convert_mony = string.format("%.0f",math.floor(lemon))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة بندوره 🍅\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 25 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد بندوره` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه خس (.*)$') or text and text:match('^زراعة خس (.*)$') then
+
+local UserName = text:match('^زراعه خس (.*)$') or text:match('^زراعة خس (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."khesstime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."khesstime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة خس قبل 🥬\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصادها\n- طريقة الحصاد بالامر : `حصد خس`","md",true)
+end
+if Redis:get(TheMERON.."khessnum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة خس قبل 🥬\n⇜ قم بحصادها اولاً\n- طريقة الحصاد بالامر : `حصد خس`","md",true)
+end
+kajwha = tonumber(coniss) * 1.2
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+khess = tonumber(coniss) * 125
+if tonumber(ballance) < tonumber(khess) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."khessnum"..msg.sender_id.user_id , coniss)
+khessname = "خس"
+Redis:set(TheMERON.."khessname"..msg.sender_id.user_id , khessname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+khesssize = tonumber(coniss) * 1.2
+khesssizee = khesssize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(khesssizee))
+totalypalice = tonumber(ballance) - tonumber(khess)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."khesstime"..msg.sender_id.user_id,1800, true)
+local convert_mony = string.format("%.0f",math.floor(khess))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة خس 🥬\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 30 دقيقة ⏳️ ثم قم بحصادها\n- الامر ( `حصد خس` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه خيار (.*)$') or text and text:match('^زراعة خيار (.*)$') then
+
+local UserName = text:match('^زراعه خيار (.*)$') or text:match('^زراعة خيار (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."kheartime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."kheartime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة خيار قبل 🥒\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد خيار`","md",true)
+end
+if Redis:get(TheMERON.."khearnum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة خيار قبل 🥒\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد خيار`","md",true)
+end
+kajwha = tonumber(coniss) * 1.5
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+khear = tonumber(coniss) * 150
+if tonumber(ballance) < tonumber(khear) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."khearnum"..msg.sender_id.user_id , coniss)
+khearname = "خيار"
+Redis:set(TheMERON.."khearname"..msg.sender_id.user_id , khearname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+khearsize = tonumber(coniss) * 1.5
+khearsizee = khearsize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(khearsizee))
+totalypalice = tonumber(ballance) - tonumber(khear)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."kheartime"..msg.sender_id.user_id,2120, true)
+local convert_mony = string.format("%.0f",math.floor(khear))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة خيار 🥒\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 35 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد خيار` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه جزر (.*)$') or text and text:match('^زراعة جزر (.*)$') then
+
+local UserName = text:match('^زراعه جزر (.*)$') or text:match('^زراعة جزر (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."jzartime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."jzartime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة جزر قبل 🥕\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد جزر`","md",true)
+end
+if Redis:get(TheMERON.."jzarnum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة جزر قبل 🥕\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد جزر`","md",true)
+end
+kajwha = tonumber(coniss) * 1.7
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+jzar = tonumber(coniss) * 175
+if tonumber(ballance) < tonumber(jzar) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."jzarnum"..msg.sender_id.user_id , coniss)
+jzarname = "جزر"
+Redis:set(TheMERON.."jzarname"..msg.sender_id.user_id , jzarname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+jzarsize = tonumber(coniss) * 1.7
+jzarsizee = jzarsize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(jzarsizee))
+totalypalice = tonumber(ballance) - tonumber(jzar)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."jzartime"..msg.sender_id.user_id,2420, true)
+local convert_mony = string.format("%.0f",math.floor(jzar))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة جزر 🥕\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 40 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد جزر` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه فليفله (.*)$') or text and text:match('^زراعة فليفله (.*)$') then
+
+local UserName = text:match('^زراعه فليفله (.*)$') or text:match('^زراعة فليفله (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."fleflatime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."fleflatime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة فليفله قبل 🫑\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصادها\n- طريقة الحصاد بالامر : `حصد فليفله`","md",true)
+end
+if Redis:get(TheMERON.."fleflanum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة فليفله قبل 🫑\n⇜ قم بحصادها اولاً\n- طريقة الحصاد بالامر : `حصد فليفله`","md",true)
+end
+kajwha = tonumber(coniss) * 2
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+flefla = tonumber(coniss) * 200
+if tonumber(ballance) < tonumber(flefla) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."fleflanum"..msg.sender_id.user_id , coniss)
+fleflaname = "فليفله"
+Redis:set(TheMERON.."fleflaname"..msg.sender_id.user_id , fleflaname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+fleflasize = tonumber(coniss) * 2
+fleflasizee = fleflasize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(fleflasizee))
+totalypalice = tonumber(ballance) - tonumber(flefla)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."fleflatime"..msg.sender_id.user_id,2720, true)
+local convert_mony = string.format("%.0f",math.floor(flefla))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة فليفله 🫑\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 45 دقيقة ⏳️ ثم قم بحصادها\n- الامر ( `حصد فليفله` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه فريز (.*)$') or text and text:match('^زراعة فريز (.*)$') then
+
+local UserName = text:match('^زراعه فريز (.*)$') or text:match('^زراعة فريز (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."freaztime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."freaztime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة فريز قبل 🍓\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد فريز`","md",true)
+end
+if Redis:get(TheMERON.."freaznum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة فريز قبل 🍓\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد فريز`","md",true)
+end
+kajwha = tonumber(coniss) * 3
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+freaz = tonumber(coniss) * 300
+if tonumber(ballance) < tonumber(freaz) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."freaznum"..msg.sender_id.user_id , coniss)
+freazname = "فريز"
+Redis:set(TheMERON.."freazname"..msg.sender_id.user_id , freazname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+freazsize = tonumber(coniss) * 3
+freazsizee = freazsize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(freazsizee))
+totalypalice = tonumber(ballance) - tonumber(freaz)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."freaztime"..msg.sender_id.user_id,3020, true)
+local convert_mony = string.format("%.0f",math.floor(freaz))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة فريز 🍓\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 50 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد فريز` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه ذره (.*)$') or text and text:match('^زراعة ذره (.*)$') or text and text:match('^زراعه ذرة (.*)$') or text and text:match('^زراعة ذرة (.*)$') then
+
+local UserName = text:match('^زراعه ذره (.*)$') or text:match('^زراعة ذره (.*)$') or text:match('^زراعه ذرة (.*)$') or text:match('^زراعة ذرة (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."doratime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."doratime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة ذره قبل 🌽\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد ذره`","md",true)
+end
+if Redis:get(TheMERON.."doranum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة ذره قبل 🌽\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد ذره`","md",true)
+end
+kajwha = tonumber(coniss) * 4
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+dora = tonumber(coniss) * 400
+if tonumber(ballance) < tonumber(dora) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."doranum"..msg.sender_id.user_id , coniss)
+doraname = "ذره"
+Redis:set(TheMERON.."doraname"..msg.sender_id.user_id , doraname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+dorasize = tonumber(coniss) * 4
+dorasizee = dorasize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(dorasizee))
+totalypalice = tonumber(ballance) - tonumber(dora)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."doratime"..msg.sender_id.user_id,3320, true)
+local convert_mony = string.format("%.0f",math.floor(dora))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة ذره 🌽\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 55 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد ذره` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه ثوم (.*)$') or text and text:match('^زراعة ثوم (.*)$') then
+
+local UserName = text:match('^زراعه ثوم (.*)$') or text:match('^زراعة ثوم (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."tomtime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."tomtime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة ثوم قبل 🧄\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد ثوم`","md",true)
+end
+if Redis:get(TheMERON.."tomnum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة ثوم قبل 🧄\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد ثوم`","md",true)
+end
+kajwha = tonumber(coniss) * 5
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+tom = tonumber(coniss) * 500
+if tonumber(ballance) < tonumber(tom) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."tomnum"..msg.sender_id.user_id , coniss)
+tomname = "ثوم"
+Redis:set(TheMERON.."tomname"..msg.sender_id.user_id , tomname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+tomsize = tonumber(coniss) * 5
+tomsizee = tomsize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(tomsizee))
+totalypalice = tonumber(ballance) - tonumber(tom)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."tomtime"..msg.sender_id.user_id,3620, true)
+local convert_mony = string.format("%.0f",math.floor(tom))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة ثوم 🧄\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 60 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد ثوم` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه فطر (.*)$') or text and text:match('^زراعة فطر (.*)$') then
+
+local UserName = text:match('^زراعه فطر (.*)$') or text:match('^زراعة فطر (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."ftrtime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."ftrtime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة فطر قبل 🍄\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد فطر`","md",true)
+end
+if Redis:get(TheMERON.."ftrnum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة فطر قبل 🍄\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد فطر`","md",true)
+end
+kajwha = tonumber(coniss) * 6
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+ftr = tonumber(coniss) * 600
+if tonumber(ballance) < tonumber(ftr) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."ftrnum"..msg.sender_id.user_id , coniss)
+ftrname = "فطر"
+Redis:set(TheMERON.."ftrname"..msg.sender_id.user_id , ftrname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+ftrsize = tonumber(coniss) * 6
+ftrsizee = ftrsize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(ftrsizee))
+totalypalice = tonumber(ballance) - tonumber(ftr)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."ftrtime"..msg.sender_id.user_id,4220, true)
+local convert_mony = string.format("%.0f",math.floor(ftr))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة فطر 🍄\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 70 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد فطر` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه شجر تفاح (.*)$') or text and text:match('^زراعة شجر تفاح (.*)$') then
+
+local UserName = text:match('^زراعه شجر تفاح (.*)$') or text:match('^زراعة شجر تفاح (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."tfahtime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."tfahtime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر تفاح قبل 🍏\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد شجر تفاح`","md",true)
+end
+if Redis:get(TheMERON.."tfahnum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر تفاح قبل 🍏\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد شجر تفاح`","md",true)
+end
+kajwha = tonumber(coniss) * 10
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+tfah = tonumber(coniss) * 1000
+if tonumber(ballance) < tonumber(tfah) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."tfahnum"..msg.sender_id.user_id , coniss)
+tfahname = "تفاح"
+Redis:set(TheMERON.."tfahname"..msg.sender_id.user_id , tfahname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+tfahsize = tonumber(coniss) * 10
+tfahsizee = tfahsize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(tfahsizee))
+totalypalice = tonumber(ballance) - tonumber(tfah)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."tfahtime"..msg.sender_id.user_id,5420, true)
+local convert_mony = string.format("%.0f",math.floor(tfah))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر تفاح 🍏\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 90 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد شجر تفاح` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه شجر عنب (.*)$') or text and text:match('^زراعة شجر عنب (.*)$') then
+
+local UserName = text:match('^زراعه شجر عنب (.*)$') or text:match('^زراعة شجر عنب (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."enabtime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."enabtime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر عنب قبل 🍇\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد شجر عنب`","md",true)
+end
+if Redis:get(TheMERON.."enabnum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر عنب قبل 🍇\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد شجر عنب`","md",true)
+end
+kajwha = tonumber(coniss) * 12.5
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+enab = tonumber(coniss) * 1250
+if tonumber(ballance) < tonumber(enab) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."enabnum"..msg.sender_id.user_id , coniss)
+enabname = "عنب"
+Redis:set(TheMERON.."enabname"..msg.sender_id.user_id , enabname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+enabsize = tonumber(coniss) * 12.5
+enabsizee = enabsize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(enabsizee))
+totalypalice = tonumber(ballance) - tonumber(enab)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."enabtime"..msg.sender_id.user_id,6020, true)
+local convert_mony = string.format("%.0f",math.floor(enab))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر عنب 🍇\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 100 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد شجر عنب` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه شجر زيتون (.*)$') or text and text:match('^زراعة شجر زيتون (.*)$') then
+
+local UserName = text:match('^زراعه شجر زيتون (.*)$') or text:match('^زراعة شجر زيتون (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."zetontime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."zetontime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر زيتون قبل 🫒\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد شجر زيتون`","md",true)
+end
+if Redis:get(TheMERON.."zetonnum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر زيتون قبل 🫒\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد شجر زيتون`","md",true)
+end
+kajwha = tonumber(coniss) * 15
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+zeton = tonumber(coniss) * 1500
+if tonumber(ballance) < tonumber(zeton) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."zetonnum"..msg.sender_id.user_id , coniss)
+zetonname = "زيتون"
+Redis:set(TheMERON.."zetonname"..msg.sender_id.user_id , zetonname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+zetonsize = tonumber(coniss) * 15
+zetonsizee = zetonsize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(zetonsizee))
+totalypalice = tonumber(ballance) - tonumber(zeton)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."zetontime"..msg.sender_id.user_id,7220, true)
+local convert_mony = string.format("%.0f",math.floor(zeton))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر زيتون 🫒\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 120 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد شجر زيتون` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه شجر موز (.*)$') or text and text:match('^زراعة شجر موز (.*)$') then
+
+local UserName = text:match('^زراعه شجر موز (.*)$') or text:match('^زراعة شجر موز (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."mozztime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."mozztime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر موز قبل 🍌\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد شجر موز`","md",true)
+end
+if Redis:get(TheMERON.."mozznum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر موز قبل 🍌\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد شجر موز`","md",true)
+end
+kajwha = tonumber(coniss) * 20
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+mozz = tonumber(coniss) * 2000
+if tonumber(ballance) < tonumber(mozz) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."mozznum"..msg.sender_id.user_id , coniss)
+mozzname = "موز"
+Redis:set(TheMERON.."mozzname"..msg.sender_id.user_id , mozzname)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mozzsize = tonumber(coniss) * 20
+mozzsizee = mozzsize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(mozzsizee))
+totalypalice = tonumber(ballance) - tonumber(mozz)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."mozztime"..msg.sender_id.user_id,8420, true)
+local convert_mony = string.format("%.0f",math.floor(mozz))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر موز 🍌\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 140 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد شجر موز` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text and text:match('^زراعه شجر مانجا (.*)$') or text and text:match('^زراعة شجر مانجا (.*)$') then
+
+local UserName = text:match('^زراعه شجر مانجا (.*)$') or text:match('^زراعة شجر مانجا (.*)$')
+local coniss = coin(UserName)
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if Redis:get(TheMERON.."mangatime" .. msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."mangatime" .. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر مانجا قبل 🥭\n⇜ استنى "..math.floor(hours).." دقيقة ⏳️ ثم قم بحصاده\n- طريقة الحصاد بالامر : `حصد شجر مانجا`","md",true)
+end
+if Redis:get(TheMERON.."manganum" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر مانجا قبل 🥭\n⇜ قم بحصاده اولاً\n- طريقة الحصاد بالامر : `حصد شجر مانجا`","md",true)
+end
+kajwha = tonumber(coniss) * 30
+sizefram = Redis:get(TheMERON.."sizefram"..msg.sender_id.user_id)
+if tonumber(kajwha) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mzroatsizee = tonumber(mzroatsize) + tonumber(kajwha)
+if tonumber(mzroatsizee) > tonumber(sizefram) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري مساحة ارضك ماتكفي","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+manga = tonumber(coniss) * 3000
+if tonumber(ballance) < tonumber(manga) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ مايمديك تشتري فلوسك ماتكفي","md",true)
+end
+Redis:set(TheMERON.."manganum"..msg.sender_id.user_id , coniss)
+manganame = "مانجا"
+Redis:set(TheMERON.."manganame"..msg.sender_id.user_id , manganame)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mangasize = tonumber(coniss) * 30
+mangasizee = mangasize + mzroatsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(mangasizee))
+totalypalice = tonumber(ballance) - tonumber(manga)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(totalypalice))
+Redis:setex(TheMERON.."mangatime"..msg.sender_id.user_id,10220, true)
+local convert_mony = string.format("%.0f",math.floor(manga))
+toplvfarm = Redis:get(TheMERON.."toplvfarm"..msg.sender_id.user_id) or 0
+toplvfarmm = tonumber(toplvfarm) + tonumber(coniss)
+Redis:set(TheMERON.."toplvfarm"..msg.sender_id.user_id , toplvfarmm)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ زرعة شجر مانجا 🥭\n⇜ العدد : "..math.floor(coniss).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ استنى 180 دقيقة ⏳️ ثم قم بحصاده\n- الامر ( `حصد شجر مانجا` )\n✧","md",true)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+
+if text == 'حصد بطاطا' or text == 'حصاد بطاطا' or text == 'حصد البطاطا' or text == 'حصاد البطاطا' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."btatanum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك مزروعات بطاطا 🥔\n⇜ تستطيع زراعتها بالامر ( `زراعه بطاطا` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."btatatime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."btatatime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم تنضج البطاطا بمزرعتك 🥔\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+btatanum = Redis:get(TheMERON.."btatanum"..msg.sender_id.user_id)
+btata = tonumber(btatanum) * 100
+btataa = tonumber(ballance) + tonumber(btata)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(btataa))
+local convert_mony = string.format("%.0f",math.floor(btata))
+local convert_monyy = string.format("%.0f",math.floor(btataa))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد البطاطا 🥔\n⇜ العدد : "..math.floor(btatanum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+btatasize = tonumber(btatanum) * 0.7
+btatasizee = mzroatsize - btatasize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(btatasizee))
+Redis:del(TheMERON.."btatatime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."btatanum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."btataname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد بندوره' or text == 'حصاد بندوره' or text == 'حصد البندوره' or text == 'حصاد البندوره' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."lemonnum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك مزروعات بندوره 🍅\n⇜ تستطيع زراعتها بالامر ( `زراعه بندوره` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."lemontime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."lemontime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج البندوره بمزرعتك 🍅\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+lemonnum = Redis:get(TheMERON.."lemonnum"..msg.sender_id.user_id)
+lemon = tonumber(lemonnum) * 150
+lemona = tonumber(ballance) + tonumber(lemon)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(lemona))
+local convert_mony = string.format("%.0f",math.floor(lemon))
+local convert_monyy = string.format("%.0f",math.floor(lemona))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد البندوره 🍅\n⇜ العدد : "..math.floor(lemonnum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+lemonsize = tonumber(lemonnum) * 1
+lemonsizee = mzroatsize - lemonsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(lemonsizee))
+Redis:del(TheMERON.."lemontime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."lemonnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."lemonname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد خس' or text == 'حصاد خس' or text == 'حصد الخس' or text == 'حصاد الخس' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."khessnum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك مزروعات خس 🥬\n⇜ تستطيع زراعتها بالامر ( `زراعه خس` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."khesstime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."khesstime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج الخس بمزرعتك 🥬\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+khessnum = Redis:get(TheMERON.."khessnum"..msg.sender_id.user_id)
+khess = tonumber(khessnum) * 200
+khessa = tonumber(ballance) + tonumber(khess)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(khessa))
+local convert_mony = string.format("%.0f",math.floor(khess))
+local convert_monyy = string.format("%.0f",math.floor(khessa))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد الخس 🥬\n⇜ العدد : "..math.floor(khessnum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+khesssize = tonumber(khessnum) * 1.2
+khesssizee = mzroatsize - khesssize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(khesssizee))
+Redis:del(TheMERON.."khesstime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."khessnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."khessname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد خيار' or text == 'حصاد خيار' or text == 'حصد الخيار' or text == 'حصاد الخيار' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."khearnum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك مزروعات خيار 🥒\n⇜ تستطيع زراعتها بالامر ( `زراعه خيار` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."kheartime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."kheartime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج الخيار بمزرعتك 🥒\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+khearnum = Redis:get(TheMERON.."khearnum"..msg.sender_id.user_id)
+khear = tonumber(khearnum) * 250
+kheara = tonumber(ballance) + tonumber(khear)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(kheara))
+local convert_mony = string.format("%.0f",math.floor(khear))
+local convert_monyy = string.format("%.0f",math.floor(kheara))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد الخيار 🥒\n⇜ العدد : "..math.floor(khearnum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+khearsize = tonumber(khearnum) * 1.5
+khearsizee = mzroatsize - khearsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(khearsizee))
+Redis:del(TheMERON.."kheartime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."khearnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."khearname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد جزر' or text == 'حصاد جزر' or text == 'حصد الجزر' or text == 'حصاد الجزر' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."jzarnum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك مزروعات جزر 🥕\n⇜ تستطيع زراعتها بالامر ( `زراعه جزر` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."jzartime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."jzartime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج الجزر بمزرعتك 🥕\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+jzarnum = Redis:get(TheMERON.."jzarnum"..msg.sender_id.user_id)
+jzar = tonumber(jzarnum) * 300
+jzara = tonumber(ballance) + tonumber(jzar)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(jzara))
+local convert_mony = string.format("%.0f",math.floor(jzar))
+local convert_monyy = string.format("%.0f",math.floor(jzara))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد الجزر 🥕\n⇜ العدد : "..math.floor(jzarnum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+jzarsize = tonumber(jzarnum) * 1.7
+jzarsizee = mzroatsize - jzarsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(jzarsizee))
+Redis:del(TheMERON.."jzartime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."jzarnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."jzarname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد فليفله' or text == 'حصاد فليفله' or text == 'حصد الفليفله' or text == 'حصاد الفليفله' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."fleflanum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك مزروعات فليفله 🫑\n⇜ تستطيع زراعتها بالامر ( `زراعه فليفله` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."fleflatime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."fleflatime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم تنضج الفليفله بمزرعتك 🫑\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+fleflanum = Redis:get(TheMERON.."fleflanum"..msg.sender_id.user_id)
+flefla = tonumber(fleflanum) * 350
+fleflaa = tonumber(ballance) + tonumber(flefla)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(fleflaa))
+local convert_mony = string.format("%.0f",math.floor(flefla))
+local convert_monyy = string.format("%.0f",math.floor(fleflaa))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد الفليفله 🫑\n⇜ العدد : "..math.floor(fleflanum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+fleflasize = tonumber(fleflanum) * 2
+fleflasizee = mzroatsize - fleflasize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(fleflasizee))
+Redis:del(TheMERON.."fleflatime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."fleflanum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."fleflaname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد فريز' or text == 'حصاد فريز' or text == 'حصد الفريز' or text == 'حصاد الفريز' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."freaznum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك مزروعات فريز 🍓\n⇜ تستطيع زراعتها بالامر ( `زراعه فريز` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."freaztime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."freaztime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج الفريز بمزرعتك 🍓\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+freaznum = Redis:get(TheMERON.."freaznum"..msg.sender_id.user_id)
+freaz = tonumber(freaznum) * 475
+freaza = tonumber(ballance) + tonumber(freaz)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(freaza))
+local convert_mony = string.format("%.0f",math.floor(freaz))
+local convert_monyy = string.format("%.0f",math.floor(freaza))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد الفريز 🍓\n⇜ العدد : "..math.floor(freaznum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+freazsize = tonumber(freaznum) * 3
+freazsizee = mzroatsize - freazsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(freazsizee))
+Redis:del(TheMERON.."freaztime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."freaznum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."freazname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد ذره' or text == 'حصاد ذره' or text == 'حصد ذرة' or text == 'حصاد ذرة' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."doranum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك مزروعات ذره 🌽\n⇜ تستطيع زراعتها بالامر ( `زراعه ذره` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."doratime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."doratime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج الذره بمزرعتك 🌽\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+doranum = Redis:get(TheMERON.."doranum"..msg.sender_id.user_id)
+dora = tonumber(doranum) * 600
+doraa = tonumber(ballance) + tonumber(dora)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(doraa))
+local convert_mony = string.format("%.0f",math.floor(dora))
+local convert_monyy = string.format("%.0f",math.floor(doraa))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد الذره 🌽\n⇜ العدد : "..math.floor(doranum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+dorasize = tonumber(doranum) * 4
+dorasizee = mzroatsize - dorasize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(dorasizee))
+Redis:del(TheMERON.."doratime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."doranum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."doraname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد ثوم' or text == 'حصاد ثوم' or text == 'حصد الثوم' or text == 'حصاد الثوم' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."tomnum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك مزروعات ثوم 🧄\n⇜ تستطيع زراعتها بالامر ( `زراعه ثوم` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."tomtime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."tomtime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج الثوم بمزرعتك 🧄\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+tomnum = Redis:get(TheMERON.."tomnum"..msg.sender_id.user_id)
+tom = tonumber(tomnum) * 725
+toma = tonumber(ballance) + tonumber(tom)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(toma))
+local convert_mony = string.format("%.0f",math.floor(tom))
+local convert_monyy = string.format("%.0f",math.floor(toma))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد الثوم 🧄\n⇜ العدد : "..math.floor(tomnum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+tomsize = tonumber(tomnum) * 5
+tomsizee = mzroatsize - tomsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(tomsizee))
+Redis:del(TheMERON.."tomtime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tomnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tomname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد فطر' or text == 'حصاد فطر' or text == 'حصد الفطر' or text == 'حصاد الفطر' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."ftrnum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك مزروعات فطر 🍄\n⇜ تستطيع زراعتها بالامر ( `زراعه فطر` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."ftrtime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."ftrtime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج الفطر بمزرعتك 🍄\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+ftrnum = Redis:get(TheMERON.."ftrnum"..msg.sender_id.user_id)
+ftr = tonumber(ftrnum) * 800
+ftra = tonumber(ballance) + tonumber(ftr)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ftra))
+local convert_mony = string.format("%.0f",math.floor(ftr))
+local convert_monyy = string.format("%.0f",math.floor(ftra))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد الفطر 🍄\n⇜ العدد : "..math.floor(ftrnum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+ftrsize = tonumber(ftrnum) * 6
+ftrsizee = mzroatsize - ftrsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(ftrsizee))
+Redis:del(TheMERON.."ftrtime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."ftrnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."ftrname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد شجر تفاح' or text == 'حصد شجر التفاح' or text == 'حصد شجره تفاح' or text == 'حصد شجره التفاح' or text == 'حصد شجرة التفاح' or text == 'حصد شجرة تفاح' or text == 'حصاد شجر تفاح' or text == 'حصاد شجر التفاح' or text == 'حصاد شجره تفاح' or text == 'حصاد شجره التفاح' or text == 'حصاد شجرة التفاح' or text == 'حصاد شجرة تفاح' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."tfahnum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك شجر تفاح 🍏\n⇜ تستطيع زراعتها بالامر ( `زراعه شجر تفاح` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."tfahtime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."tfahtime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج التفاح بمزرعتك 🍏\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+tfahnum = Redis:get(TheMERON.."tfahnum"..msg.sender_id.user_id)
+tfah = tonumber(tfahnum) * 1200
+tfaha = tonumber(ballance) + tonumber(tfah)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(tfaha))
+local convert_mony = string.format("%.0f",math.floor(tfah))
+local convert_monyy = string.format("%.0f",math.floor(tfaha))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد شجر التفاح 🍏\n⇜ العدد : "..math.floor(tfahnum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+tfahsize = tonumber(tfahnum) * 10
+tfahsizee = mzroatsize - tfahsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(tfahsizee))
+Redis:del(TheMERON.."tfahtime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tfahnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."tfahname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد شجر عنب' or text == 'حصد شجر العنب' or text == 'حصد شجره عنب' or text == 'حصد شجره العنب' or text == 'حصد شجرة العنب' or text == 'حصد شجرة عنب' or text == 'حصاد شجر عنب' or text == 'حصاد شجر العنب' or text == 'حصاد شجره عنب' or text == 'حصاد شجره العنب' or text == 'حصاد شجرة العنب' or text == 'حصاد شجرة عنب' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."enabnum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك شجر عنب 🍇\n⇜ تستطيع زراعتها بالامر ( `زراعه شجر عنب` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."enabtime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."enabtime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج العنب بمزرعتك 🍇\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+enabnum = Redis:get(TheMERON.."enabnum"..msg.sender_id.user_id)
+enab = tonumber(enabnum) * 1500
+enaba = tonumber(ballance) + tonumber(enab)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(enaba))
+local convert_mony = string.format("%.0f",math.floor(enab))
+local convert_monyy = string.format("%.0f",math.floor(enaba))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد شجر العنب 🍇\n⇜ العدد : "..math.floor(enabnum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+enabsize = tonumber(enabnum) * 12.5
+enabsizee = mzroatsize - enabsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(enabsizee))
+Redis:del(TheMERON.."enabtime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."enabnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."enabname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد شجر زيتون' or text == 'حصد شجر الزيتون' or text == 'حصد شجره زيتون' or text == 'حصد شجره الزيتون' or text == 'حصد شجرة الزيتون' or text == 'حصد شجرة زيتون' or text == 'حصاد شجر زيتون' or text == 'حصاد شجر الزيتون' or text == 'حصاد شجره زيتون' or text == 'حصاد شجره الزيتون' or text == 'حصاد شجرة الزيتون' or text == 'حصاد شجرة زيتون' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."zetonnum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك شجر زيتون 🫒\n⇜ تستطيع زراعتها بالامر ( `زراعه شجر زيتون` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."zetontime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."zetontime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج الزيتون بمزرعتك 🫒\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+zetonnum = Redis:get(TheMERON.."zetonnum"..msg.sender_id.user_id)
+zeton = tonumber(zetonnum) * 1800
+zetona = tonumber(ballance) + tonumber(zeton)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(zetona))
+local convert_mony = string.format("%.0f",math.floor(zeton))
+local convert_monyy = string.format("%.0f",math.floor(zetona))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد شجر الزيتون 🫒\n⇜ العدد : "..math.floor(zetonnum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+zetonsize = tonumber(zetonnum) * 15
+zetonsizee = mzroatsize - zetonsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(zetonsizee))
+Redis:del(TheMERON.."zetontime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."zetonnum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."zetonname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد شجر موز' or text == 'حصد شجر الموز' or text == 'حصد شجره موز' or text == 'حصد شجره الموز' or text == 'حصد شجرة الموز' or text == 'حصد شجرة موز' or text == 'حصاد شجر موز' or text == 'حصاد شجر الموز' or text == 'حصاد شجره موز' or text == 'حصاد شجره الموز' or text == 'حصاد شجرة الموز' or text == 'حصاد شجرة موز' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."mozznum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك شجر موز 🍌\n⇜ تستطيع زراعتها بالامر ( `زراعه شجر موز` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."mozztime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."mozztime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج الموز بمزرعتك 🍌\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+mozznum = Redis:get(TheMERON.."mozznum"..msg.sender_id.user_id)
+mozz = tonumber(mozznum) * 2500
+mozza = tonumber(ballance) + tonumber(mozz)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(mozza))
+local convert_mony = string.format("%.0f",math.floor(mozz))
+local convert_monyy = string.format("%.0f",math.floor(mozza))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد شجر الموز 🍌\n⇜ العدد : "..math.floor(mozznum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mozzsize = tonumber(mozznum) * 20
+mozzsizee = mzroatsize - mozzsize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(mozzsizee))
+Redis:del(TheMERON.."mozztime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mozznum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."mozzname"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+if text == 'حصد شجر مانجا' or text == 'حصد شجر المانجا' or text == 'حصد شجره مانجا' or text == 'حصد شجره المانجا' or text == 'حصد شجرة المانجا' or text == 'حصد شجرة مانجا' or text == 'حصاد شجر مانجا' or text == 'حصاد شجر المانجا' or text == 'حصاد شجره مانجا' or text == 'حصاد شجره المانجا' or text == 'حصاد شجرة المانجا' or text == 'حصاد شجرة مانجا' then
+
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
+if not Redis:get(TheMERON.."sizefram" .. msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك مزرعه\n⇜ قم ببناء مزرعتك عن طريق الامر \n( `بناء مزرعه` )","md",true)
+end
+if not Redis:get(TheMERON.."manganum"..msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ليس لديك شجر مانجا 🥭\n⇜ تستطيع زراعتها بالامر ( `زراعه شجر مانجا` )\n✧","md",true)
+end
+if Redis:get(TheMERON.."mangatime"..msg.sender_id.user_id) then
+local hours = Redis:ttl(TheMERON.."mangatime".. msg.sender_id.user_id) / 60
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لم ينضج المانجا بمزرعتك 🥭\n⇜ انتظر "..math.floor(hours).." دقيقة ⏳\n✧️","md",true)
+end
+ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+manganum = Redis:get(TheMERON.."manganum"..msg.sender_id.user_id)
+manga = tonumber(manganum) * 3500
+mangaa = tonumber(ballance) + tonumber(manga)
+Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(mangaa))
+local convert_mony = string.format("%.0f",math.floor(manga))
+local convert_monyy = string.format("%.0f",math.floor(mangaa))
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حصاد شجر المانجا 🥭\n⇜ العدد : "..math.floor(manganum).."\n⇜ السعر : "..convert_mony.." درهم 💵\n⇜ رصيدك الان : "..convert_monyy.." درهم 💵\n✧","md",true)
+mzroatsize = Redis:get(TheMERON.."mzroatsize"..msg.sender_id.user_id) or 0
+mangasize = tonumber(manganum) * 30
+mangasizee = mzroatsize - mangasize
+Redis:set(TheMERON.."mzroatsize"..msg.sender_id.user_id , math.floor(mangasizee))
+Redis:del(TheMERON.."mangatime"..msg.sender_id.user_id)
+Redis:del(TheMERON.."manganum"..msg.sender_id.user_id)
+Redis:del(TheMERON.."manganame"..msg.sender_id.user_id)
+else
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
+
+if text == 'كنز' then
+ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:ttl(TheMERON.."yiioooo" .. msg.sender_id.user_id) >=60 then
 local hours = Redis:ttl(TheMERON.."yiioooo" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← فرصة ايجاد كنز آخر بعد "..math.floor(hours).." دقيقة","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ فرصة ايجاد كنز آخر بعد "..math.floor(hours).." دقيقة","md",true)
 end
 local Textinggt = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22","23",}
 local Descriptioont = Textinggt[math.random(#Textinggt)]
-local ban = bot.getUser(msg.sender_id.user_id)
+local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
 neews = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
-neews = " لا يوجد "
+neews = " لا يوجد اسم"
 end
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 shkse = Redis:get(TheMERON.."shkse"..msg.sender_id.user_id)
@@ -31558,154 +34866,154 @@ local knez = ballancee + 40000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : قطعة اثرية 🗳\nسعره : 40000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : قطعة اثرية 🗳\n⇜ سعره : 40000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "2" then
 local knez = ballancee + 35000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : حجر الماسي 💎\nسعره : 35000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : حجر الماسي 💎\n⇜ سعره : 35000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "3" then
 local knez = ballancee + 10000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : لباس قديم 🥻\nسعره : 10000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : لباس قديم 🥻\n⇜ سعره : 10000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "4" then
 local knez = ballancee + 23000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : عصى سحرية 🪄\nسعره : 23000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : عصى سحرية 🪄\n⇜ سعره : 23000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "5" then
 local knez = ballancee + 8000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : جوال نوكيا 📱\nسعره : 8000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : جوال نوكيا 📱\n⇜ سعره : 8000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "6" then
 local knez = ballancee + 27000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : صدف 🏝\nسعره : 27000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : صدف 🏝\n⇜ سعره : 27000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "7" then
 local knez = ballancee + 18000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : ابريق صدئ ⚗️\nسعره : 18000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : ابريق صدئ ⚗️\n⇜ سعره : 18000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "8" then
 local knez = ballancee + 100000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : قناع فرعوني 🗿\nسعره : 100000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : قناع فرعوني 🗿\n⇜ سعره : 100000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "9" then
 local knez = ballancee + 50000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : جرة ذهب 💰\nسعره : 50000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : جرة ذهب 💰\n⇜ سعره : 50000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "10" then
 local knez = ballancee + 36000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : مصباح فضي 🔦\nسعره : 36000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : مصباح فضي 🔦\n⇜ سعره : 36000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "11" then
 local knez = ballancee + 29000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : لوحة نحاسية 🌇\nسعره : 29000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : لوحة نحاسية 🌇\n⇜ سعره : 29000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "12" then
 local knez = ballancee + 1000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : جوارب قديمة 🧦\nسعره : 1000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : جوارب قديمة 🧦\n⇜ سعره : 1000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "13" then
 local knez = ballancee + 16000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : اناء فخاري ⚱️\nسعره : 16000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : اناء فخاري ⚱️\n⇜ سعره : 16000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "14" then
 local knez = ballancee + 12000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : خوذة محارب 🪖\nسعره : 12000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : خوذة محارب 🪖\n⇜ سعره : 12000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "15" then
 local knez = ballancee + 19000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : سيف جدي مرزوق 🗡\nسعره : 19000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : سيف جدي مرزوق 🗡\n⇜ سعره : 19000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "16" then
 local knez = ballancee + 14000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : مكنسة جدتي رقية 🧹\nسعره : 14000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : مكنسة جدتي رقية 🧹\n⇜ سعره : 14000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "17" then
 local knez = ballancee + 26000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : فأس ارطغرل 🪓\nسعره : 26000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : فأس ارطغرل 🪓\n⇜ سعره : 26000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "18" then
 local knez = ballancee + 22000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : بندقية 🔫\nسعره : 22000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : بندقية 🔫\n⇜ سعره : 22000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "19" then
 local knez = ballancee + 11000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : كبريت ناري 🪔\nسعره : 11000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : كبريت ناري 🪔\n⇜ سعره : 11000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "20" then
 local knez = ballancee + 33000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : فرو ثعلب 🦊\nسعره : 33000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : فرو ثعلب 🦊\n⇜ سعره : 33000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "21" then
 local knez = ballancee + 40000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : جلد تمساح 🐊\nسعره : 40000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : جلد تمساح 🐊\n⇜ سعره : 40000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "22" then
 local knez = ballancee + 17000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : باقة ورود 💐\nسعره : 17000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : باقة ورود 💐\n⇜ سعره : 17000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "23" then
 local Textinggtt = {"1", "2",}
@@ -31715,7 +35023,7 @@ local knez = ballancee + 17000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : باقة ورود 💐\nسعره : 17000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : باقة ورود 💐\n⇜ سعره : 17000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioontt == "2" then
 local Textinggttt = {"1", "2",}
@@ -31725,14 +35033,14 @@ local knez = ballancee + 40000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : جلد تمساح 🐊\nسعره : 40000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : جلد تمساح 🐊\n⇜ سعره : 40000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioonttt == "2" then
 local knez = ballancee + 10000000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : حقيبة محاسب البنك 💼\nسعره : 10000000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : حقيبة محاسب البنك 💼\n⇜ سعره : 10000000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 end
 end
@@ -31743,174 +35051,174 @@ local knez = ballancee + 40000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : كتاب سحر 📕\nسعره : 40000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : كتاب سحر 📕\n⇜ سعره : 40000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "2" then
 local knez = ballancee + 35000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : حقيبة ممنوعات 🎒\nسعره : 35000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : حقيبة ممنوعات 🎒\n⇜ سعره : 35000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "3" then
 local knez = ballancee + 60000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : زئبق احمر 🩸\nسعره : 60000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : زئبق احمر 🩸\n⇜ سعره : 60000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "4" then
 local knez = ballancee + 23000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : فيزا مسروقة 💳\nسعره : 23000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : فيزا مسروقة 💳\n⇜ سعره : 23000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "5" then
 local knez = ballancee + 20000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : ماريجوانا 🚬\nسعره : 20000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : ماريجوانا 🚬\n⇜ سعره : 20000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "6" then
 local knez = ballancee + 27000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : قطعة اثرية 🪨\nسعره : 27000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : قطعة اثرية 🪨\n⇜ سعره : 27000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "7" then
 local knez = ballancee + 18000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : سلا.ح ناري 🔫\nسعره : 18000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : سلا.ح ناري 🔫\n⇜ سعره : 18000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "8" then
 local knez = ballancee + 40000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : قطع فضة 🔗\nسعره : 40000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه ??\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : قطع فضة 🔗\n⇜ سعره : 40000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "9" then
 local knez = ballancee + 20000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : سكين 🗡\nسعره : 20000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : سكين 🗡\n⇜ سعره : 20000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "10" then
 local knez = ballancee + 36000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : مخطط عملية سطو 🧾\nسعره : 36000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : مخطط عملية سطو 🧾\n⇜ سعره : 36000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "11" then
 local knez = ballancee + 29000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : عملات مزورة 💴\nسعره : 29000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : عملات مزورة 💴\n⇜ سعره : 29000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "12" then
 local knez = ballancee + 200000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : سيارة مسروقة 🚙\nسعره : 200000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : سيارة مسروقة 🚙\n⇜ سعره : 200000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "13" then
 local knez = ballancee + 80000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : سبيكة ذهب 🪙\nسعره : 80000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : سبيكة ذهب 🪙\n⇜ سعره : 80000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "14" then
 local knez = ballancee + 75000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : الماس 💎\nسعره : 75000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : الماس 💎\n⇜ سعره : 75000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "15" then
 local knez = ballancee + 19000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : رشوة من تاجر 👥️️\nسعره : 19000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : رشوة من تاجر 👥️️\n⇜ سعره : 19000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "16" then
 local knez = ballancee + 14000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : علبة كبريت 🪔\nسعره : 14000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : علبة كبريت 🪔\n⇜ سعره : 14000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "17" then
 local knez = ballancee + 26000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : قفل 🔒\nسعره : 26000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : قفل 🔒\n⇜ سعره : 26000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "18" then
 local knez = ballancee + 26000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : قفل 🔒 \nسعره : 26000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : قفل 🔒 \n⇜ سعره : 26000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "19" then
 local knez = ballancee + 14000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : علبة كبريت 🪔\nسعره : 14000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : علبة كبريت 🪔\n⇜ سعره : 14000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "20" then
 local knez = ballancee + 14000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : علبة كبريت 🪔\nسعره : 14000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : علبة كبريت 🪔\n⇜ سعره : 14000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "21" then
 local knez = ballancee + 26000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : قفل 🔒 \nسعره : 26000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : قفل 🔒 \n⇜ سعره : 26000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "22" then
 local knez = ballancee + 17000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : صبار 🌵\nسعره : 17000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : صبار 🌵\n⇜ سعره : 17000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 elseif Descriptioont == "23" then
 local knez = ballancee + 40000
 Redis:set(TheMERON.."boob"..msg.sender_id.user_id , knez)
 local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\nالكنز : جلد تمساح 🐊\nسعره : 40000 جنيه 💵\nرصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id,""..neews.." لقد وجدت كنز\n⇜ الكنز : جلد تمساح 🐊\n⇜ سعره : 40000 درهم 💵\n⇜ رصيدك الان : "..convert_mony.." درهم 💵\n✧","md",true)
 Redis:setex(TheMERON.."yiioooo" .. msg.sender_id.user_id,1800, true)
 end
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
---------------------------------------------------------------------------------------------------------------
 if text == 'كم فلوسي' and tonumber(msg.reply_to_message_id) == 0 then
+
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
 ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if tonumber(ballancee) < 1 then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش فلوس ارسل الالعاب وابدأ بجمع الفلوس \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك فلوس \n✧","md",true)
 end
 local convert_mony = string.format("%.0f",ballancee)
 local inoi = tostring(convert_mony)
@@ -31918,28 +35226,29 @@ local intk = inoi:gsub(" ","-")
 lan = "ar"
 local rand = math.random(1,999)
 os.execute("gtts-cli "..intk.." -l '"..lan.."' -o 'intk"..rand..".mp3'")
-bot.sendAudio(msg.chat_id,msg.id,'./intk'..rand..'.mp3',tostring(inoi),"html",nil,tostring(inoi),"@JJXXH")
+bot.sendAudio(msg.chat_id,msg.id,'./intk'..rand..'.mp3',tostring(inoi),"html",nil,tostring(inoi),"@Tepthon")
 sleep(1)
 os.remove("intk"..rand..".mp3")
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
+
 ---------------
 if text == "الغشاشين زرف" then
-if msg.Asasy then
-local ban = bot.getUser(msg.sender_id.user_id)
+if msg.ControllerBot then
+local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
 news = "["..ban.first_name.."]("..ban.first_name..")"
 else
-news = " لا يوجد"
+news = " لا يوجد اسم"
 end
 zrfee = Redis:get(TheMERON.."rrfff"..msg.sender_id.user_id) or 0
 local ty_users = Redis:smembers(TheMERON.."rrfffid")
 if #ty_users == 0 then
-return merolua.sendText(chat_id,msg_id,"← لا يوجد احد","md",true)
+return merolua.sendText(chat_id,msg_id,"⇜ لا يوجد احد","md",true)
 end
-ty_anubis = "توب 20 شخص زرفوا فلوس :\n\n"
+ty_anubis = "⇜ توب اعلى 20 شخص زرفوا فلوس :\n\n"
 ty_list = {}
 for k,v in pairs(ty_users) do
 local mony = Redis:get(TheMERON.."rrfff"..v)
@@ -31971,7 +35280,7 @@ emojii ={
 }
 for k,v in pairs(ty_list) do
 if num_ty <= 20 then
-local user_name = bot.getUser(v[2]).first_name or "لا يوجد اسم"
+local user_name = merolua.getUser(v[2]).first_name or "لا يوجد اسم"
 tt =  "["..user_name.."]("..user_name..")"
 local mony = v[1]
 local convert_mony = string.format("%.0f",mony)
@@ -31980,14 +35289,14 @@ num_ty = num_ty + 1
 gflos = string.format("%.0f", mony):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
 ty_anubis = ty_anubis..emoo.." "..gflos.." 💵 l "..tt.." >> "..v[2].." \n"
 gflous = string.format("%.0f", zrfee):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
-gg = " ━━━━━━━━━\n• you) "..gflous.." 💵 l "..news.." \n\nملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
+gg = " ━━━━━━━━━\n• you) "..gflous.." 💵 l "..news.." \n\n⇜ ملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
 end
 end
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .', url="t.me/JJXXH"},
+{text = '🧚🏻‍♀️', url="t.me/Tepthon"},
 },
 }
 }
@@ -31995,12 +35304,12 @@ return merolua.sendText(msg.chat_id,msg.id,ty_anubis..gg,"md",false, false, fals
 end
 end
 if text == "توب الغش" or text == "توب الغشاشين" then
-if msg.Asasy then
+if msg.ControllerBot then
 local bank_users = Redis:smembers(TheMERON.."booob")
 if #bank_users == 0 then
-return merolua.sendText(msg.chat_id,msg.id,"← لا يوجد حسابات في البنك","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ لا يوجد حسابات في البنك","md",true)
 end
-top_mony = "توب اغنى 30 شخص :\n\n"
+top_mony = "⇜ توب اغنى 20 شخص :\n\n"
 mony_list = {}
 for k,v in pairs(bank_users) do
 local mony = Redis:get(TheMERON.."boob"..v)
@@ -32028,35 +35337,26 @@ emoji ={
 "17)",
 "18)",
 "19)",
-"20)",
-"21)",
-"22)",
-"23)",
-"24)",
-"25)",
-"26)",
-"27)",
-"28)",
-"29)",
-"30)"
+"20)"
 }
 for k,v in pairs(mony_list) do
-if num <= 30 then
-local user_name = bot.getUser(v[2]).first_name or "لا يوجد اسم"
+if num <= 20 then
+local user_name = merolua.getUser(v[2]).first_name or "لا يوجد اسم"
+tt =  "["..user_name.."]("..user_name..")"
 local user_tag = '['..user_name..'](tg://user?id='..v[2]..')'
 local mony = v[1]
 local convert_mony = string.format("%.0f",mony)
 local emo = emoji[k]
 num = num + 1
-top_mony = top_mony..emo.." "..convert_mony.." 💵 ꗝ "..user_name.." >> "..v[2].."\n"
+top_mony = top_mony..emo.." "..convert_mony.." 💵 ꗝ "..tt.." >> `"..v[2].."`\n"
 end
 end
-top_monyy = top_mony.."\n\nاي اسم مخالف او غش باللعب راح يتصفر وينحظر اللاعب"
-local reply_markup = bot.replyMarkup{
+top_monyy = top_mony.."\n\n⇜ اي اسم مخالف او غش باللعب راح يتصفر وينحظر اللاعب"
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .', url="t.me/JJXXH"},
+{text = '🧚🏻‍♀️', url="t.me/Tepthon"},
 },
 }
 }
@@ -32067,37 +35367,70 @@ end
 if text and text:match('^حظر حساب (.*)$') then
 local UserName = text:match('^حظر حساب (.*)$')
 local coniss = coin(UserName)
-if msg.Asasy then
+if msg.ControllerBot then
 Redis:set(TheMERON.."bandid"..coniss,coniss)
-return merolua.sendText(msg.chat_id,msg.id, "← تم حظر الحساب "..coniss.." من لعبة البنك\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم حظر الحساب "..coniss.." من لعبة البنك\n✧","md",true)
 end
 end
 if text and text:match('^الغاء حظر حساب (.*)$') then
 local UserName = text:match('^الغاء حظر حساب (.*)$')
 local coniss = coin(UserName)
-if msg.Asasy then
+if msg.ControllerBot then
 Redis:del(TheMERON.."bandid"..coniss)
-return merolua.sendText(msg.chat_id,msg.id, "← تم الغاء حظر الحساب "..coniss.." من لعبة البنك\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تم الغاء حظر الحساب "..coniss.." من لعبة البنك\n✧","md",true)
+end
+end
+if text and text:match('^مراقبه (.*)$') or text and text:match('^مراقبة (.*)$') then
+local UserName = text:match('^مراقبه (.*)$') or text:match('^مراقبة (.*)$')
+local coniss = coin(UserName)
+if msg.ControllerBot then
+Redis:set(TheMERON.."morakba"..coniss,coniss)
+local ban = merolua.getUser(coniss)
+if ban.first_name then
+news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+else
+news = " لا يوجد اسم"
+end
+return merolua.sendText(msg.chat_id,msg.id, "⌯ تم تشغيل وضع المراقبة \n\n⇜ اللاعب : "..news.."\n✧","md",true)
+end
+end
+if text and text:match('^الغاء مراقبه (.*)$') or text and text:match('^الغاء مراقبة (.*)$') then
+local UserName = text:match('^الغاء مراقبه (.*)$') or text:match('^الغاء مراقبة (.*)$')
+local coniss = coin(UserName)
+if msg.ControllerBot then
+Redis:del(TheMERON.."morakba"..coniss)
+local ban = merolua.getUser(coniss)
+if ban.first_name then
+news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+else
+news = " لا يوجد اسم"
+end
+return merolua.sendText(msg.chat_id,msg.id, "⌯ تم تعطيل وضع المراقبة \n\n⇜ اللاعب : "..news.."\n✧","md",true)
 end
 end
 if text and text:match('^اضف كوبون (.*)$') then
 local UserName = text:match('^اضف كوبون (.*)$')
 local coniss = coin(UserName)
-if msg.Asasy then
+if msg.ControllerBot then
 numcobo = math.random(1000000000000,9999999999999);
 local convert_mony = string.format("%.0f",coniss)
 Redis:set(TheMERON.."cobonum"..numcobo,numcobo)
 Redis:set(TheMERON.."cobon"..numcobo,coniss)
-return merolua.sendText(msg.chat_id,msg.id, "• وصل كوبون \n\n← المبلغ : "..convert_mony.." جنيه 💵\n← رقم الكوبون : `"..numcobo.."`\n\n← طريقة استخدام الكوبون :\n← تكتب ( كوبون + رقمه )\n← مثال : كوبون 4593875\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل كوبون \n\n⇜ المبلغ : "..convert_mony.." درهم 💵\n⇜ رقم الكوبون : `"..numcobo.."`\n\n⇜ طريقة استخدام الكوبون :\n⇜ تكتب ( كوبون + رقمه )\n⇜ مثال : كوبون 4593875\n✧","md",true)
 end
 end
 if text == "كوبون" or text == "الكوبون" then
-return merolua.sendText(msg.chat_id,msg.id, "← طريقة استخدام الكوبون :\nتكتب ( كوبون + رقمه )\nمثال : كوبون 4593875\n\n- ملاحظة : الكوبون يستخدم لمرة واحدة ولشخص واحد\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ طريقة استخدام الكوبون :\n⇜ تكتب ( كوبون + رقمه )\n⇜ مثال : كوبون 4593875\n\n⇜ ملاحظة : الكوبون يستخدم لمرة واحدة ولشخص واحد\n✧","md",true)
 end
 if text and text:match('^كوبون (.*)$') then
+
 local UserName = text:match('^كوبون (.*)$')
 local coniss = coin(UserName)
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001737102093",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 cobnum = Redis:get(TheMERON.."cobonum"..coniss)
 if coniss == tonumber(cobnum) then
 cobblc = Redis:get(TheMERON.."cobon"..coniss)
@@ -32108,26 +35441,25 @@ local ballancee = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballancee)
 Redis:del(TheMERON.."cobon"..coniss)
 Redis:del(TheMERON.."cobonum"..coniss)
-return merolua.sendText(msg.chat_id,msg.id, "• وصل كوبون \n\n← المبلغ : "..cobblc.." جنيه 💵\n← رقم الكوبون : `"..coniss.."`\n← رصيدك الان : "..convert_mony.." جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⌯ وصل كوبون \n\n⇜ المبلغ : "..cobblc.." درهم 💵\n⇜ رقم الكوبون : `"..coniss.."`\n⇜ رصيدك الان : `"..convert_mony.."` درهم 💵\n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← لا يوجد كوبون بهذا الرقم `"..coniss.."`\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ لا يوجد كوبون بهذا الرقم `"..coniss.."`\n✧","md",true)
 end
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ","md",true)
 end
 end
----------------
 if text and text:match("^اضف فلوس (.*)$") and msg.reply_to_message_id ~= 0 then
 local UserName = text:match('^اضف فلوس (.*)$')
 local coniss = coin(UserName)
-if msg.Asasy then
+if msg.ControllerBot then
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف معندهوش حساب بالبنك 🤣*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها حساب بالبنك 🤣","md",true)  
 return false
 end
-local ban = bot.getUser(Remsg.sender_id.user_id)
+local ban = merolua.getUser(Remsg.sender_id.user_id)
 if ban.first_name then
 news = ""..ban.first_name..""
 else
@@ -32142,53 +35474,61 @@ uuuuu = Redis:get(TheMERON.."bbobb"..Remsg.sender_id.user_id)
 ppppp = Redis:get(TheMERON.."rrfff"..Remsg.sender_id.user_id) or 0
 ballanceed = Redis:get(TheMERON.."boob"..Remsg.sender_id.user_id) or 0
 local convert_mony = string.format("%.0f",ballanceed)
-return merolua.sendText(msg.chat_id,msg.id, "← الاسم ↢ "..news.."\n← الحساب ↢ "..ccccc.."\n← بنك ↢ ( كريتف )\n← نوع ↢ ( "..uuuuu.." )\n← الزرف ↢ ( "..ppppp.." جنيه 💵 )\n← صار رصيده ↢ ( "..convert_mony.." جنيه 💵 )\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الاسم ↢ "..news.."\n⇜ الحساب ↢ "..ccccc.."\n⇜ بنك ↢ ( ريما )\n⇜ نوع ↢ ( "..uuuuu.." )\n⇜ الزرف ↢ ( "..ppppp.." دولار 💵 )\n⇜ صار رصيده ↢ ( "..convert_mony.." درهم 💵 )\n✧","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 end
 end
 
 if text and text:match('^اسحب (.*)$') or text and text:match('^سحب (.*)$') then
+
 local UserName = text:match('^اسحب (.*)$') or text:match('^سحب (.*)$')
 local coniss = coin(UserName)
 cobnum = tonumber(Redis:get(TheMERON.."bandid"..msg.sender_id.user_id))
 if cobnum == msg.sender_id.user_id then
-return merolua.sendText(msg.chat_id,msg.id, "← حسابك محظور من لعبة البنك","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ حسابك محظور من لعبة البنك","md",true)
 end
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001549614999",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
+end
 if Redis:ttl(TheMERON.."iioood" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."iioood" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← من شوي عملت سحب استنى "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."iioood" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ من شوي عملت سحب استنى "..time.." ","md",true)
 end
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
+if tonumber(coniss) > 1000000001 then
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الاعلى المسموح هو مليار درهم 💵\n✧","md",true)
+end
 if tonumber(coniss) < 999 then
-return merolua.sendText(msg.chat_id,msg.id, "← الحد الادنى المسموح هو 1000 جنيه 💵\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح هو 1000 درهم 💵\n✧","md",true)
 end
 if tonumber(ballanceed) < tonumber(coniss) then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي","md",true)
 end
 Redis:set(TheMERON.."tdbelballance"..msg.sender_id.user_id , coniss)
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
 {text = '🤑', data = msg.sender_id.user_id.."/sahb"},{text = '🤑', data = msg.sender_id.user_id.."/sahb"},{text = '🤑', data = msg.sender_id.user_id.."/sahb"},
 },
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .',url="t.me/JJXXH"}, 
+{text = '🧚🏻‍♀️',url="t.me/Tepthon"}, 
 }
 }
-return merolua.sendText(msg.chat_id,msg.id,"← اختر الان :\n〰","md",false, false, false, false, reply_markup)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ اختر الان :\n✧","md",false, false, false, false, reply_markup)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 -----
 if text == 'كم فلوسه' and tonumber(msg.reply_to_message_id) ~= 0 then
 local Remsg = bot.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = bot.getUser(Remsg.sender_id.user_id)
+local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-return merolua.sendText(msg.chat_id,msg.id,"\n*← كريتف معندهوش حساب بالبنك 🤣*","md",true)  
+return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعنده حساب بالبنك ","md",true)  
 return false
 end
 if Redis:sismember(TheMERON.."booob",Remsg.sender_id.user_id) then
@@ -32199,15 +35539,15 @@ local intk = inoi:gsub(" ","-")
 lan = "ar"
 local rand = math.random(1,999)
 os.execute("gtts-cli "..intk.." -l '"..lan.."' -o 'intk"..rand..".mp3'")
-bot.sendAudio(msg.chat_id,msg.id,'./intk'..rand..'.mp3',tostring(inoi),"html",nil,tostring(inoi),"@JJXXH")
+bot.sendAudio(msg.chat_id,msg.id,'./intk'..rand..'.mp3',tostring(inoi),"html",nil,tostring(inoi),"@Tepthon")
 sleep(1)
 os.remove("intk"..rand..".mp3")
 else
-return merolua.sendText(msg.chat_id,msg.id, "← ماعنده حساب بنكي ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعنده حساب بنكي ","md",true)
 end
 end
-if text and text:match("^ثفقثفقثصغ (.*)$") or text and text:match("^عفغفغعغعغعه (.*)$") then
-local inoi = text:match("^ثفقثفقثصغ (.*)$") or text:match("^عفغفغعغعغعه (.*)$")
+if text and text:match("^انطق (.*)$") or text and text:match("^انطقي (.*)$") then
+local inoi = text:match("^انطق (.*)$") or text:match("^انطقي (.*)$")
 local intk = inoi:gsub(" ","-")
 if intk:match("%a") then
 lan = "en"
@@ -32216,69 +35556,41 @@ lan = "ar"
 end
 local rand = math.random(1,999)
 os.execute("gtts-cli "..intk.." -l '"..lan.."' -o 'intk"..rand..".mp3'")
-bot.sendAudio(msg.chat_id,msg.id,'./intk'..rand..'.mp3',tostring(inoi),"html",nil,tostring(inoi),"@JJXXH")
-sleep(1)
+bot.sendAudio(msg.chat_id,msg.id,'./intk'..rand..'.mp3',tostring(inoi),"html",nil,tostring(inoi),"@Tepthon")
 os.remove("intk"..rand..".mp3")
-end
-
-if text == "عجله الحظ" or text == "عجلة الحظ" or text == "عجله" or text == "عجلة" then
-ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-
-if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-if Redis:ttl(TheMERON.."aglahd" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."aglahd" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← يمديك تلعب عجله الحظ بعد "..math.floor(hours).." دقيقة","md",true)
-end
-    local mony = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-    if tonumber(mony) < 1000 then
-    return merolua.sendText(msg.chat_id,msg.id, "← الحد الادنى المسموح به هو 1000 جنيه 💵\n〰","md",true)
-    end
-ballance = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
-ballanceek = ballance - 1000
-Redis:set(TheMERON.."boob"..msg.sender_id.user_id , math.floor(ballanceek))
-Redis:setex(TheMERON.."aglahd" .. msg.sender_id.user_id,1800, true)
-    local msg_text = ""
-    local photo = "t.me/bottestanubis/54"
-    local msg_reply = msg.id/2097152/0.5
-    local keyboard = {}
-    keyboard.inline_keyboard = {
-      {
-      {text = '• العب الان •', callback_data=msg.sender_id.user_id.."/happywheel"},
-      },
-      }
-    return https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&reply_to_message_id="..msg_reply.."&photo="..photo.."&caption="..URL.escape(msg_text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-    else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ","md",true)
-end
 end
 if text == 'تبرع' then
 if Redis:ttl(TheMERON.."tabrotime" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."tabrotime" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← يمديك تتبرع بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."tabrotime" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ يمديك تتبرع بعد "..time.." ","md",true)
 end
-return merolua.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`تبرع` المبلغ","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ استعمل الامر كذا :\n\n⇜ `تبرع` المبلغ","md",true)
 end
 if text and text:match('^تبرع (.*)$') then
 local UserName = text:match('^تبرع (.*)$')
 local coniss = coin(UserName)
 if not Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+morakba = tonumber(Redis:get(TheMERON.."morakba"..msg.sender_id.user_id))
+if morakba == msg.sender_id.user_id then
+send("-1001549614999",0,"⇜ الايدي : "..msg.sender_id.user_id.."\n⇜ القروب : "..msg.chat_id.."\n⇜ الرسالة : "..text.."\n✧","md",true)
 end
 if tonumber(coniss) > 10001 then
-return merolua.sendText(msg.chat_id,msg.id, "← الحد الاعلى المسموح به هو 10000 جنيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الاعلى المسموح به هو 10000 درهم \n✧","md",true)
 end
 if tonumber(coniss) < 999 then
-return merolua.sendText(msg.chat_id,msg.id, "← الحد الادنى المسموح به هو 1000 جنيه \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح به هو 1000 درهم \n✧","md",true)
 end
 if Redis:ttl(TheMERON.."tabrotime" .. msg.sender_id.user_id) >=60 then
-local hours = Redis:ttl(TheMERON.."tabrotime" .. msg.sender_id.user_id) / 60
-return merolua.sendText(msg.chat_id,msg.id,"← يمديك تتبرع بعد "..math.floor(hours).." دقيقة","md",true)
+local time = ctime(Redis:ttl(TheMERON.."tabrotime" .. msg.sender_id.user_id))
+return merolua.sendText(msg.chat_id,msg.id,"⇜ يمديك تتبرع بعد "..time.." ","md",true)
 end
 ballanceed = Redis:get(TheMERON.."boob"..msg.sender_id.user_id) or 0
 if tonumber(coniss) > tonumber(ballanceed) then
-return merolua.sendText(msg.chat_id,msg.id, "← فلوسك مش مكفيه\n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي\n✧","md",true)
 end
-local ban = bot.getUser(msg.sender_id.user_id)
+local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
 news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
 else
@@ -32291,9 +35603,9 @@ local mony = Redis:get(TheMERON.."boob"..v)
 table.insert(monyyy_list, {tonumber(mony) , v})
 end
 table.sort(monyyy_list, function(a, b) return a[1] < b[1] end)
-tabr = math.random(1,10)
+tabr = math.random(1,200)
 winner_id = monyyy_list[tabr][2]
-local user_name = bot.getUser(winner_id).first_name or Redis:get(TheMERON..winner_id.."first_name:") or "لا يوجد اسم"
+local user_name = merolua.getUser(winner_id).first_name or Redis:get(TheMERON..winner_id.."first_name:") or "لا يوجد اسم"
 tt =  "["..user_name.."]("..user_name..")"
 winner_mony = monyyy_list[tabr][1]
 local convert_mony = string.format("%.0f",tonumber(coniss))
@@ -32307,37 +35619,57 @@ tekash = tonumber(ballanceeed) + tonumber(coniss)
 Redis:set(TheMERON.."boob"..winner_id , tonumber(tekash))
 ballanceeed = Redis:get(TheMERON.."boob"..winner_id) or 0
 Redis:sadd(TheMERON.."taza",msg.sender_id.user_id)
-Redis:setex(TheMERON.."tabrotime" .. msg.sender_id.user_id,620, true)
+Redis:setex(TheMERON.."tabrotime" .. msg.sender_id.user_id,600, true)
 local convert_monyy = string.format("%.0f",tonumber(ballanceeed))
-tttt = "• وصل تبرع 📄\n\n← من : "..news.."\n← المستفيد : "..user_name.."\n← المبلغ : "..convert_mony.." جنيه 💵 \n← فلوس المستفيد الان : "..convert_monyy.." جنيه 💵\n〰"
+tttt = "⌯ وصل تبرع 📄\n\n⇜ من : "..news.."\n⇜ المستفيد : "..user_name.."\n⇜ المبلغ : "..convert_mony.." درهم 💵 \n⇜ فلوس المستفيد الان : "..convert_monyy.." درهم 💵\n✧"
 return merolua.sendText(msg.chat_id,msg.id, tttt,"md",true)  
-return merolua.sendText(winner_id,0, "• وصلك تبرعات من : "..news.."\n← المبلغ : "..convert_mony.." جنيه 💵","md",true)
+send(winner_id,0, "⌯ وصلك تبرعات من : "..news.."\n⇜ المبلغ : "..convert_mony.." درهم 💵","md",true)
 end
 if text == 'تبرعاتي' and tonumber(msg.reply_to_message_id) == 0 then
+
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
 ballancee = Redis:get(TheMERON.."tabbroat"..msg.sender_id.user_id) or 0
 if tonumber(ballancee) < 1 then
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش تبرعات \n〰","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك تبرعات \n✧","md",true)
 end
 local convert_mony = string.format("%.0f",ballancee)
-return merolua.sendText(msg.chat_id,msg.id, "← تبرعاتك : `"..convert_mony.."` جنيه 💵","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ تبرعاتك : `"..convert_mony.."` درهم 💵","md",true)
 else
-return merolua.sendText(msg.chat_id,msg.id, "← معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+return merolua.sendText(msg.chat_id,msg.id, "⇜ ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
 if text == "توب التبرعات" or text == "توب المتبرعين" or text == "توب متبرعين" or text == "المتبرعين" or text == "متبرعين" then
-local ban = bot.getUser(msg.sender_id.user_id)
+
+local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
 news = "["..ban.first_name.."]("..ban.first_name..")"
+news = news:gsub("🇾🇪️",'')
+news = news:gsub("🇹🇳",'')
+news = news:gsub("🇸🇾",'')
+news = news:gsub("🇸🇩",'')
+news = news:gsub("🇸🇦",'')
+news = news:gsub("🇶🇦",'')
+news = news:gsub("🇵🇸",'')
+news = news:gsub("🇴🇲",'')
+news = news:gsub("🇲🇦",'')
+news = news:gsub("🇱🇾",'')
+news = news:gsub("🇱🇧",'')
+news = news:gsub("🇰🇼️",'')
+news = news:gsub("🇯🇴",'')
+news = news:gsub("🇮🇶",'')
+news = news:gsub("🇪🇬",'')
+news = news:gsub("🇧🇭",'')
+news = news:gsub("🇩🇿️",'')
+news = news:gsub("🇦🇪",'')
 else
-news = " لا يوجد"
+news = " لا يوجد اسم"
 end
 ballancee = Redis:get(TheMERON.."tabbroat"..msg.sender_id.user_id) or 0
 local bank_users = Redis:smembers(TheMERON.."taza")
 if #bank_users == 0 then
-return merolua.sendText(msg.chat_id,msg.id,"← لا يوجد حسابات في البنك","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"⇜ لا يوجد حسابات في البنك","md",true)
 end
-top_mony = "توب اعلى 20 شخص بالتبرعات :\n\n"
+top_mony = "⇜ توب اعلى 20 شخص بالتبرعات :\n\n"
 tabr_list = {}
 for k,v in pairs(bank_users) do
 local mony = Redis:get(TheMERON.."tabbroat"..v)
@@ -32369,29 +35701,49 @@ emoji ={
 }
 for k,v in pairs(tabr_list) do
 if num <= 20 then
-local user_name = bot.getUser(v[2]).first_name or "لا يوجد اسم"
+local user_name = merolua.getUser(v[2]).first_name or "لا يوجد اسم"
 tt =  "["..user_name.."]("..user_name..")"
+tt = tt:gsub("🇾🇪️",'')
+tt = tt:gsub("🇹🇳",'')
+tt = tt:gsub("🇸🇾",'')
+tt = tt:gsub("🇸🇩",'')
+tt = tt:gsub("🇸🇦",'')
+tt = tt:gsub("🇶🇦",'')
+tt = tt:gsub("🇵🇸",'')
+tt = tt:gsub("🇴🇲",'')
+tt = tt:gsub("🇲🇦",'')
+tt = tt:gsub("🇱🇾",'')
+tt = tt:gsub("🇱🇧",'')
+tt = tt:gsub("🇰🇼️",'')
+tt = tt:gsub("🇯🇴",'')
+tt = tt:gsub("🇮🇶",'')
+tt = tt:gsub("🇪🇬",'')
+tt = tt:gsub("🇧🇭",'')
+tt = tt:gsub("🇩🇿️",'')
+tt = tt:gsub("🇦🇪",'')
+tt = tt:gsub("@[%a%d_]+",'')
+tt = tt:gsub("#[%a%d_]+",'')
+local doltebank = Redis:get(TheMERON.."doltebank"..v[2]) or " "
 local mony = v[1]
 local convert_mony = string.format("%.0f",mony)
 local emo = emoji[k]
 num = num + 1
 gflos = string.format("%.0f", mony):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
-top_mony = top_mony..emo.." "..gflos.." 💵 l "..tt.." \n"
+top_mony = top_mony..emo.." "..gflos.." 💵 l "..tt.." "..doltebank.." \n"
 gflous = string.format("%.0f", ballancee):reverse():gsub( "(%d%d%d)" , "%1," ):reverse():gsub("^,","")
-gg = " ━━━━━━━━━\n• you) "..gflous.." 💵 l "..news.." \n\nملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
+gg = " ━━━━━━━━━\n• you) "..gflous.." 💵 l "..news.." \n\n⇜ ملاحظة : اي شخص مخالف للعبة بالغش او حاط يوزر بينحظر من اللعبه وتتصفر فلوسه"
 end
 end
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '• 𝘼𝘽𝘼𝙕𝘼¹ま .', url="t.me/JJXXH"},
+{text = '🧚🏻‍♀️', url="t.me/Tepthon"},
 },
 }
 }
 return merolua.sendText(msg.chat_id,msg.id,top_mony..gg,"md",false, false, false, false, reply_markup)
 end
-
 end
 
 end -- end bank
