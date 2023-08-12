@@ -8232,7 +8232,7 @@ end
 if not Redis:get(TheMERON..msg.chat_id..'chat_lock:lock') then
 if Redis:get(TheMERON..msg.chat_id..'time:chat:lock') then
 local current_time = ("https://dev-revor.tk/Apis/Auto/Auto.php?a=h")
-if tonumber(Redis:get(TheMERON..msg.chat_id..'time:chat:lock')) - tonumber(current_time) == tonumber(0) then
+if tonumber(current_time) == tonumber(Redis:get(TheMERON..msg.chat_id..'time:chat:on')) then
 Redis:set(TheMERON.."MERON:Lock:text"..msg.chat_id,true)
 Redis:del(TheMERON..msg.chat_id..'time:chat:lock')
 send(msg.chat_id,0,"• تم قفل الدردشه تلقائيا")
@@ -21489,7 +21489,7 @@ local List = {
 ]], 
 [[ 
 ☆•𝐮𝐬𝐞𝐫 : #username 𖣬   
-☆•𝐦𝐬𝐠  : #msgs 𖣬  
+☆•𝐦𝐬??  : #msgs 𖣬  
 ☆•𝐬𝐭𝐚 : #stast 𖣬  
 ☆•𝐢𝐝  : #id 𖣬 
 ]], 
