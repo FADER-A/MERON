@@ -27275,6 +27275,7 @@ return merolua.sendText(msg.chat_id,msg.id,[[
 ]],"md",true)  
 return false
 end
+end
 if text == "سيارات" and Redis:get(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id) then
 Redis:del(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
 return merolua.sendText(msg.chat_id,msg.id,[[
