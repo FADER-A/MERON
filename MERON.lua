@@ -7454,72 +7454,6 @@ return merolua.sendText(msg_chat_id,msg_id,'\n• لا استطيع تحميل �
 end
 end
 -----------------------------------------------------------------@SELVER7
-if text and text:match("^ساوند (.*)$") or text and text:match("^(.*) [Ss]$") then
-local search = text:match("^ساوند (.*)$") or text:match("^(.*) [Ss]$")
-if Redis:get(TheMERON.."soshle"..msg.chat_id) then
-return false
-end
-if not msg.Distinguished and Redis:get(TheMERON.."sochal"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id,"⇜ عذراً عزيزي الساوند للمميزين ومافوق فقط","md",true)
-end
-local se = http.request("http://cccomvc.ml/api/Lua/sawand.php?search="..URL.escape(search))
-local js = JSON.decode(se)
-Redis:del(TheMERON.."soundidche"..msg.chat_id..msg.sender_id.user_id)
-Redis:set(TheMERON.."soundidche"..msg.chat_id..msg.sender_id.user_id,search)
-local datar = {data = {{text = "𝚂𝙴𝙻𝚅𝙴𝚁 - 𝙳𝙴𝚅", url = 'https://t.me/S0BMI'}}}
-for i = 1,5 do
-titlee = js.ok[i].title
-link = js.ok[i].url
-link = tostring(link)
-link = link:gsub("https://soundcloud.com/",'') 
-datar[i] = {{text = titlee , data = search..":socl:"..link}}
-end
-local reply_markup = merolua.replyMarkup{
-type = 'inline',
-data = datar
-}
-return merolua.sendText(msg.chat_id,msg.id,' نتائج بحثك على الساوند ل ( *'..search..'* )',"md",false, false, false, false, reply_markup)
-end
-if msg.content.text then
-if string.find(text,'tiktok') then
-local m = math.random(1,1000)
-os.execute("yt-dlp "..text.." -o '"..m.."tiktok.mp4'")
-return merolua.sendVideo(msg_chat_id,msg_id,'./'..m..'tiktok.mp4',"• تم التحميل من بنجاح \n") 
-end
-sleep(1)
-os.remove(""..m.."tiktok.mp4")
-end
-if text and text:match("^بحث (.*)$") then
-local search = text:match("^بحث (.*)$")
-if Redis:get(TheMERON.."youtubee"..msg.chat_id) then
-return false
-end
-if not msg.Distinguished and Redis:get(TheMERON.."sochal"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id,"⇜ عذراً عزيزي اليوتيوب للمميزين ومافوق فقط","md",true)
-end
-local se = http.request("http://cccomvc.ml/api/ttedtyyyt.php?search="..URL.escape(search))
-local jsonyou = JSON.decode(se)
-if jsonyou.results and jsonyou.results[1] then
-Redis:del(TheMERON.."youtidche"..msg.chat_id..msg.sender_id.user_id)
-Redis:set(TheMERON.."youtidche"..msg.chat_id..msg.sender_id.user_id,search)
-local datar = {data = {{text = "𝚂𝙴𝙻𝚅𝙴𝚁 - 𝙳𝙴𝚅", url = 'https://t.me/M_GO_17q'}}}
-for i = 1,5 do
-titlee = jsonyou.results[i].title
-link = jsonyou.results[i].id
-local musi = jsonyou.results[i].up
-link = tostring(link)
-link = link:gsub("https://youtu.be/",'') 
-datar[i] = {{text = titlee , data = search..":yout:"..link}}
-end
-local reply_markup = merolua.replyMarkup{
-type = 'inline',
-data = datar
-}
-return merolua.sendText(msg.chat_id,msg.id,' ⇜ البحث ~ ( *'..search..'* )',"md",false, false, false, false, reply_markup)
-else
-send(msg_chat_id,msg_id,'لم يتم العثور على نتائج بحث.',"md",true)  
-end
-end
 ---------------------------------------------------------------------------------
 if text and text:match('^ضع تفاعل (%d+) (.*)$') or text and text:match('^وضع تفاعل (%d+) (.*)$') then
 if not msg.MalekAsase then
@@ -13617,7 +13551,7 @@ end
 else
 if photo and photo.total_count and photo.total_count > 0 then
 local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑??𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TestText, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
 local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
