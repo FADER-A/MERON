@@ -27278,12 +27278,8 @@ local Remsg = merolua.getMessage(msg.chat_id, msg.reply_to_message_id)
 local UserInfo = merolua.getUser(Remsg.sender_id.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
 return merolua.sendText(msg.chat_id,msg.id,"\n⇜ ريما ماعندها حساب بالبنك 🤣","md",true)  
-return false
-end
 if Remsg.sender_id.user_id == msg.sender_id.user_id then
 return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تهاجم نفسك 🤡","md",true)  
-return false
-end
 if Redis:ttl(TheMERON.."attack" .. msg.sender_id.user_id) >=60 then
 local time = ctime(Redis:ttl(TheMERON.."attack" .. msg.sender_id.user_id))
 return merolua.sendText(msg.chat_id,msg.id,"⇜ خسرت بأخر معركة استنى "..time.." ","md",true)
@@ -31528,7 +31524,7 @@ data = {
 {text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 ??𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
