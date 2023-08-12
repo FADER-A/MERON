@@ -35744,12 +35744,9 @@ data = {
 }
 return merolua.sendText(msg.chat_id,msg.id,top_mony..gg,"md",false, false, false, false, reply_markup)
 end
-end
-
-end -- end bank
-
 
 end
+return {TheMERON = bank}
 
 
 File_Bot_Run(data.message,data.message)
