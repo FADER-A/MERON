@@ -12753,7 +12753,7 @@ Redis:setex(TheMERON.."ThnaeeDay:ex"..msg.chat_id,86400,true)
 return merolua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
 end
 if Redis:get(TheMERON.."MERON:Althnaee:Chat"..msg.chat_id) and tonumber(Redis:ttl(TheMERON.."ThnaeeDay:ex"..msg.chat_id)) <= 1 then
-local Info_Members = bot.searchChatMembers(msg.chat_id, "*", 200)
+local Info_Members = merolua.searchChatMembers(msg.chat_id, "*", 200)
 local List_Members = Info_Members.members
 local NumRand1 = math.random(1, #List_Members); 
 local NumRand2 = math.random(1, #List_Members); 
@@ -21489,7 +21489,7 @@ local List = {
 ]], 
 [[ 
 ☆•𝐮𝐬𝐞𝐫 : #username 𖣬   
-☆•𝐦𝐬??  : #msgs 𖣬  
+☆•??𝐬??  : #msgs 𖣬  
 ☆•𝐬𝐭𝐚 : #stast 𖣬  
 ☆•𝐢𝐝  : #id 𖣬 
 ]], 
