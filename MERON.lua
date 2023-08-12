@@ -27257,94 +27257,6 @@ else
 merolua.sendText(msg.chat_id,msg.id, "• ماعنده حساب بنكي ","md",true)
 end
 end
-if text == "المعرض" or text == "معرض" then
-
-Redis:setex(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id,60, true)
-return merolua.sendText(msg.chat_id,msg.id,[[
-– اهلين فيك بمعرض ريما
-- يتوفر لدينا حالياً :
-
-⇠ `سيارات`  🚗
-⇠ `طيارات`  ✈️
-⇠ `عقارات`  🏘
-⇠ `مجوهرات`  💎
-
-- اضغط للنسخ
-
-✧
-]],"md",true)  
-return false
-end
-end
-if text == "سيارات" and Redis:get(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id) then
-Redis:del(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
-return merolua.sendText(msg.chat_id,msg.id,[[
-– السيارات المتوفرة لدينا حالياً :
-
-⇠ `فيلار` - السعر : 10000000 💵
-⇠ `اكسنت` - السعر : 9000000 💵
-⇠ `كامري` - السعر : 8000000 💵
-⇠ `النترا` - السعر : 7000000 💵
-⇠ `هايلكس` - السعر : 6000000 💵
-⇠ `سوناتا` - السعر : 5000000 💵
-⇠ `كورولا` - السعر : 4000000 💵
-
-- ارسل اسم السيارة والعدد
-مثال : شراء سياره فيلار 2
-
-✧
-]],"md",true)  
-return false
-end
-if text == "طيارات" and Redis:get(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id) then
-Redis:del(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
-return merolua.sendText(msg.chat_id,msg.id,[[
-– الطيارات المتوفرة لدينا حالياً :
-
-⇠ `شبح` - السعر : 1000000000 💵
-⇠ `سفر` - السعر : 500000000 💵
-⇠ `خاصه` - السعر : 200000000 💵
-
-- ارسل اسم الطائرة والعدد
-مثال : شراء طياره سفر 2
-
-✧
-]],"md",true)  
-return false
-end
-if text == "عقارات" and Redis:get(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id) then
-Redis:del(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
-return merolua.sendText(msg.chat_id,msg.id,[[
-– العقارات المتوفرة لدينا حالياً :
-
-⇠ `قصر` - السعر : 1000000 💵
-⇠ `فيلا` - السعر : 500000 💵
-⇠ `منزل` - السعر : 100000 💵
-
-- ارسل اسم العقار والعدد
-مثال : شراء قصر 2
-
-✧
-]],"md",true)  
-return false
-end
-if text == "مجوهرات" and Redis:get(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id) then
-Redis:del(TheMERON.."marad" .. msg.chat_id .. ":" .. msg.sender_id.user_id) 
-return merolua.sendText(msg.chat_id,msg.id,[[
-– المجوهرات المتوفرة لدينا حالياً :
-
-⇠ `ماسه` - السعر : 1000000 💵
-⇠ `قلاده` - السعر : 500000 💵
-⇠ `سوار` - السعر : 200000 💵
-⇠ `خاتم` - السعر : 50000 💵
-
-- ارسل الاسم والعدد
-مثال : شراء سوار 2
-
-✧
-]],"md",true)  
-return false
-end
 if text and text:match('^شراء ماسه (.*)$') or text and text:match('^شراء ماسة (.*)$') then
 
 local UserName = text:match('^شراء ماسه (.*)$') or text:match('^شراء ماسة (.*)$')
@@ -29574,7 +29486,7 @@ local teex = "اشعار ايداع "..neews.."\nالمبلغ : "..F.." دينا
 merolua.sendText(msg.chat_id,msg.id,teex,"md",true)
 Redis:setex(TheGHYM.."innoo" .. msg.sender_id.user_id,600, true)
 elseif sender == 2 then
-    K = ' ممرض 🧑🏻‍⚕' 
+    K = ' ممرض ??🏻‍⚕' 
     F = '2500'
 Redis:incrby(TheGHYM.."nool:flotysb"..msg.sender_id.user_id , F)
 local ballancee = Redis:get(TheGHYM.."nool:flotysb"..msg.sender_id.user_id) or 0
