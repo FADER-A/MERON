@@ -7484,7 +7484,7 @@ if msg.content.text then
 if string.find(text,'tiktok') then
 local m = math.random(1,1000)
 os.execute("yt-dlp "..text.." -o '"..m.."tiktok.mp4'")
-return merolua.sendVideo(msg_chat_id,msg_id,'./'..m..'tiktok.mp4',"• تم التحميل من بنجاح \n @LuaProjects,"md") 
+return merolua.sendVideo(msg_chat_id,msg_id,'./'..m..'tiktok.mp4',"• تم التحميل من بنجاح \n") 
 sleep(1)
 os.remove(""..m.."tiktok.mp4")
 end
