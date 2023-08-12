@@ -8170,7 +8170,7 @@ else
 on_time = 00
 end
 local current_time = ("https://dev-revor.tk/Apis/Auto/Auto.php?a=hi")
-local txx = "• القفل التلقائي : "\n• وقت بداية القفل » "..lock_time.."\n• وقت نهاية القفل » "..on_time
+local txx = "• القفل التلقائي : "..state.." \n• الوقت الان : "..current_time.."\n\n• وقت بداية القفل » "..lock_time.."\n• وقت نهاية القفل » "..on_time
 return merolua.sendText(msg.chat_id,msg.id,txx)
 end
 
