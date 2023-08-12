@@ -7809,7 +7809,7 @@ checkmyrde = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id.."
 if Redis:get(TheMERON.."MERON:Add:myrdid"..checkmyrde..msg_chat_id) then
 myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
 local UserInfo = merolua.getUser(msg.sender_id.user_id)
-local Bio = FlterBio(getbio(msg.sender_id.user_id))
+local Bio = FlterBio((msg.sender_id.user_id))
 local photo = merolua.getUserProfilePhotos(msg.sender_id.user_id)
 local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
@@ -8169,7 +8169,7 @@ on_time = Redis:get(TheMERON..msg.chat_id..'time:chat:on')
 else
 on_time = 00
 end
-local current_time = request("https://dev-revor.tk/Apis/Auto/Auto.php?a=hi")
+local current_time = ("https://dev-revor.tk/Apis/Auto/Auto.php?a=hi")
 local txx = "• القفل التلقائي : "..state.." \n• الوقت الان : "..current_time.."\n\n• وقت بداية القفل » "..lock_time.."\n• وقت نهاية القفل » "..on_time
 return merolua.sendText(msg.chat_id,msg.id,txx)
 end
@@ -8231,7 +8231,7 @@ return merolua.sendText(msg.chat_id,msg.id,"• ارسل الان الوقت ب�
 end
 if not Redis:get(TheMERON..msg.chat_id..'chat_lock:lock') then
 if Redis:get(TheMERON..msg.chat_id..'time:chat:lock') then
-local current_time = request("https://dev-revor.tk/Apis/Auto/Auto.php?a=h")
+local current_time = ("https://dev-revor.tk/Apis/Auto/Auto.php?a=h")
 if tonumber(Redis:get(TheMERON..msg.chat_id..'time:chat:lock')) - tonumber(current_time) == tonumber(0) then
 Redis:set(TheMERON.."MERON:Lock:text"..msg.chat_id,true)
 Redis:del(TheMERON..msg.chat_id..'time:chat:lock')
