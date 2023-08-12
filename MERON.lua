@@ -26690,7 +26690,17 @@ data = {
 }
 return merolua.sendText(msg.chat_id,msg.id,ttshakse,"md",false, false, false, false, reply_markup)
 end
-if text == 'مسح حساب بنكي' or text == 'مسح حساب البنكي' or text =='مسح الحساب بنكي' or text =='مسح الحساب البنكي' or text == "مسح حسابي البنكي" or text == "مسح حسابي بنكي" or text == "مسح حسابي" then
+if text == 'مسح حساب بنكي' and ChCheck(msg) or text == 'مسح حسابي' and ChCheck(msg) or text == 'حذف حسابي' and ChCheck(msg) or text == 'مسح حساب البنكي' and ChCheck(msg) or text =='مسح الحساب بنكي' and ChCheck(msg) or text =='مسح الحساب البنكي' and ChCheck(msg) or text == "مسح حسابي البنكي" and ChCheck(msg) or text == "مسح حسابي بنكي" and ChCheck(msg) then
+if Redis:sismember(TheMERON.."noooybgy",msg.sender_id.user_id) then
+Redis:srem(TheMERON.."noooybgy", msg.sender_id.user_id)
+Redis:del(TheMERON.."noolb"..msg.sender_id.user_id)
+Redis:del(TheMERON.."zrffdcf"..msg.sender_id.user_id)
+Redis:srem(TheMERON.."zrfffidtf", msg.sender_id.user_id)
+merolua.sendText(msg.chat_id,msg.id, "• مسحت حسابك البنكي ","md",true)
+else
+merolua.sendText(msg.chat_id,msg.id, "• ماعندك حساب بنكي دز ↢ ( `انشاء حساب بنكي` )","md",true)
+end
+end
 
 if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
 return merolua.sendText(msg.chat_id,msg.id, "⇜ مسحت حسابك البنكي 🏦","md",true)
@@ -27961,7 +27971,7 @@ tt = tt:gsub("🇹🇳",'')
 tt = tt:gsub("🇸🇾",'')
 tt = tt:gsub("🇸🇩",'')
 tt = tt:gsub("🇸🇦",'')
-tt = tt:gsub("🇶??",'')
+tt = tt:gsub("🇶🇦",'')
 tt = tt:gsub("🇵🇸",'')
 tt = tt:gsub("🇴🇲",'')
 tt = tt:gsub("🇲🇦",'')
