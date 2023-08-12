@@ -7831,7 +7831,7 @@ data = {
 },
 }
 }
-return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
+return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
 '\n• Name 𖦹 '..news..
 '\n• 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𖦹 ['..UserInfousername..
 ']\n• 𝖡𝗂𝗈 𖦹 ['..Bio..
@@ -7962,7 +7962,7 @@ Redis:sadd(TheMERON.."MERON:List:myrd"..msg_chat_id, text)
 Redis:set(TheMERON.."MERON:Add:myrdtext"..text..msg_chat_id, text)
 Redis:set(TheMERON.."MERON:Add:myrdid"..text..msg_chat_id, msg.sender_id.user_id)
 Redis:del(TheMERON.."MERON:Set:myrd"..msg.sender_id.user_id..":"..msg_chat_id)
-send(msg.chat_id, msg.id,"• واضفنا ردك ياحلو\n• اكتب ( "..text.." ) لتجربته", 'md')
+return merolua.sendText(msg.chat_id, msg.id,"• واضفنا ردك ياحلو\n• اكتب ( "..text.." ) لتجربته", 'md')
 end
 end
 if text and text:match('^ايدي (%d+)$') then
@@ -8141,7 +8141,7 @@ if not msg.Managers then
 return merolua.sendText(msg.chat_id,msg.id,"• يا شاطر هذا الأمر لـ المدير")
 end
 Redis:del(TheMERON..msg.chat_id..'chat_lock:lock')
-send(msg.chat_id,msg.id,"• تم تفعيل قفل الدردشه التلقائي \n• استخدم الامر : تعيين وقت قفل الدردشه ")
+return merolua.sendText(msg.chat_id,msg.id,"• تم تفعيل قفل الدردشه التلقائي \n• استخدم الامر : تعيين وقت قفل الدردشه ")
 end
 if text == "تعطيل القفل التلقائي" then
 if not msg.Managers then
@@ -8227,7 +8227,7 @@ if not msg.Managers then
 return merolua.sendText(msg.chat_id,msg.id,"• يا شاطر هذا الأمر لـ المدير")
 end
 Redis:set(TheMERON..msg.sender_id.user_id..'set:time:chat',true)
-send(msg.chat_id,msg.id,"• ارسل الان الوقت بنظام 24 ساعه")
+return merolua.sendText(msg.chat_id,msg.id,"• ارسل الان الوقت بنظام 24 ساعه")
 end
 if not Redis:get(TheMERON..msg.chat_id..'chat_lock:lock') then
 if Redis:get(TheMERON..msg.chat_id..'time:chat:lock') then
@@ -8243,7 +8243,7 @@ local current_time = request("https://dev-revor.tk/Apis/Auto/Auto.php?a=h")
 if tonumber(current_time) == tonumber(Redis:get(TheMERON..msg.chat_id..'time:chat:on')) then
 Redis:del(TheMERON.."MERON:Lock:text"..msg.chat_id) 
 Redis:del(TheMERON..msg.chat_id..'time:chat:on')
-send(msg.chat_id,0,"• تم فتح الدردشه تلقائيا")
+return merolua.sendText(msg.chat_id,0,"• تم فتح الدردشه تلقائيا")
 end
 end
 end
@@ -8302,7 +8302,7 @@ Redis:srem(TheMERON.."meza:names:", text)
 send(msg.chat_id, msg.id,"• تم مسح الميزة", 'md')
 else
 Redis:del(TheMERON.."add_meza:rem:"..msg.chat_id..":"..msg.sender_id.user_id)
-send(msg.chat_id, msg.id,"• لا يوجد ميزة بهذا الاسم", 'md')
+return merolua.sendText(msg.chat_id, msg.id,"• لا يوجد ميزة بهذا الاسم", 'md')
 end
 end
 if text and Redis:get(TheMERON.."add_meza:send:"..msg.chat_id..":"..msg.sender_id.user_id) == "true" then
@@ -8429,7 +8429,7 @@ return merolua.sendText(msg_chat_id,msg_id,'\n• يا شاطر هذا الأم�
 end
 local Numbardel = text:match("^تعيين عدد الاحرف (%d+)$") or text:match("^تعين عدد الاحروف (%d+)$")
 Redis:set(TheMERON.."NUM_CH_MAX"..msg_chat_id, Numbardel)
-send(msg_chat_id,msg_id, 'تم تعيين عدد الاحرف : '..Numbardel)
+return merolua.sendText(msg_chat_id,msg_id, 'تم تعيين عدد الاحرف : '..Numbardel)
 end
 if text == "تعطيل ثنائي اليوم" and ChCheck(msg) then
 
@@ -30039,7 +30039,7 @@ end
 if Text and Text:match('(%d+)/NoNextSeting') then
 local UserId = Text:match('(%d+)/NoNextSeting')
 if tonumber(IdUser) == tonumber(UserId) then
-local Text = "*\n◉︙اعدادات المجموعه ".."\n??︙علامة ال (✓) تعني مقفول".."\n◉︙علامة ال (✗) تعني مفتوح*"
+local Text = "*\n◉︙اعدادات المجموعه ".."\n🔏︙علامة ال (✓) تعني مقفول".."\n◉︙علامة ال (✗) تعني مفتوح*"
 local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
