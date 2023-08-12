@@ -26701,9 +26701,6 @@ else
 merolua.sendText(msg.chat_id,msg.id, "• ماعندك حساب بنكي دز ↢ ( `انشاء حساب بنكي` )","md",true)
 end
 end
-
-if Redis:sismember(TheMERON.."booob",msg.sender_id.user_id) then
-return merolua.sendText(msg.chat_id,msg.id, "⇜ مسحت حسابك البنكي 🏦","md",true)
 Redis:srem(TheMERON.."booob", msg.sender_id.user_id)
 Redis:srem(TheMERON.."taza", msg.sender_id.user_id)
 Redis:del(TheMERON.."boob"..msg.sender_id.user_id)
@@ -28128,7 +28125,7 @@ Redis:set(TheMERON.."hrameid"..msg.chat_id..Remsg.sender_id.user_id,msg.sender_i
 Redis:set(TheMERON.."balcmsrok"..msg.chat_id..Remsg.sender_id.user_id,hrame)
 Redis:setex(TheMERON.."timehrame"..msg.chat_id..msg.sender_id.user_id,30, true)
 bot.deleteMessages(msg.chat_id,{[1]= msg.id})
-return merolua.sendText(msg.chat_id,0, "⇜ "..news.." في حرامي زرفك "..hrame.." درهم 💵\n⇜ رد عليه بكلمة ( شرطه )\n⇜ معك 30 ثانية\n✧","md",true)
+return merolua.sendText(msg.chat_id,0, "⇜ "..news.." في حرامي زرفك "..hrame.." درهم ??\n⇜ رد عليه بكلمة ( شرطه )\n⇜ معك 30 ثانية\n✧","md",true)
 else
 local hrame = math.floor(math.random() * 200) + 1;
 local ballanceed = Redis:get(TheMERON.."boob"..Remsg.sender_id.user_id) or 0
