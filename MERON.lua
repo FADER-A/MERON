@@ -7845,7 +7845,7 @@ data = {
 },
 }
 }
-return bot.sendText(msg_chat_id,msg_id,
+return merolua.sendText(msg_chat_id,msg_id,
 '\n• Name 𖦹 '..news..
 '\n• 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𖦹 ['..UserInfousername..
 ']\n• 𝖡𝗂𝗈 𖦹 ['..Bio..
@@ -7937,7 +7937,7 @@ data = {
 },
 }
 }
-return bot.sendText(msg_chat_id,msg_id,
+return merolua.sendText(msg_chat_id,msg_id,
 '\n• Name 𖦹 '..news..
 '\n• 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𖦹 ['..UserInfousername..
 ']\n• 𝖡𝗂𝗈 𖦹 ['..Bio..
@@ -8031,7 +8031,7 @@ data = {
 },
 }
 }
-return bot.sendText(msg.chat_id, msg.id,
+return merolua.sendText(msg.chat_id, msg.id,
 'لا يمكنني عرض الصورة رقم '..numberid..' لان عدد صورك '..photo.total_count..
 '\n• 𝖭𝖺𝗆𝖾 𖦹 '..UserInfo.first_name..
 '\n• 𝖨𝖣 𖦹 '..UserId..
@@ -8055,7 +8055,7 @@ data = {
 },
 }
 }
-return bot.sendAnimation(msg.chat_id, msg.id, Name_File,
+return merolua.sendAnimation(msg.chat_id, msg.id, Name_File,
 '\n• 𝖭𝖺𝗆𝖾 𖦹 '..UserInfo.first_name..
 '\n• 𝖨𝖣 𖦹 '..UserId..
 '\n• 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𖦹 ['..UserInfousername..
@@ -8073,7 +8073,7 @@ data = {
 },
 }
 }
-return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[numberid].sizes[#photo.photos[1].sizes].photo.remote.id,
+return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[numberid].sizes[#photo.photos[1].sizes].photo.remote.id,
 '\n• 𝖭𝖺𝗆𝖾 𖦹 '..UserInfo.first_name..
 '\n• 𝖨𝖣 𖦹 '..UserId..
 '\n• 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𖦹 ['..UserInfousername..
@@ -8092,7 +8092,7 @@ data = {
 },
 }
 }
-return bot.sendText(msg.chat_id, msg.id,
+return merolua.sendText(msg.chat_id, msg.id,
 '\n• 𝖭𝖺𝗆𝖾 𖦹 '..UserInfo.first_name..
 '\n• 𝖨𝖣 𖦹 '..UserId..
 '\n• 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𖦹 ['..UserInfousername..
@@ -8132,7 +8132,7 @@ data = {
 },
 }
 }
-bot.sendText(msg.chat_id,msg.id," الالة الحاسبة\n༄","md",false, false, false, false, start_mrkup)
+return merolua.sendText(msg.chat_id,msg.id," الالة الحاسبة\n༄","md",false, false, false, false, start_mrkup)
 return false 
 end
 -------------
@@ -21144,7 +21144,7 @@ local List = {
 -𝐌𝐬𝐠𝐒☤🇮🇶 - #msgs
 ]],
 [[ 
-- 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 ➢ #username .💗
+- 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 ➢ #username .??
 - 𝒎𝒔𝒈𝒔 ➢ #msgs .💗
 - 𝒓??𝒏𝒌 ➢ #stast .💗
 - ??𝒅 𝒔𝒕𝒂 ➢ #id .  💗
@@ -23773,7 +23773,7 @@ Maany_Rand = {"قرد","دجاجه","بطريق","ضفدع","بومه","نحله
 name = Maany_Rand[math.random(#Maany_Rand)]
 Redis:set(TheMERON.."MERON:Game:Meaningof"..msg.chat_id,name)
 name = string.gsub(name,"قرد","🐒")
-name = string.gsub(name,"دجاجه","🐔")
+name = string.gsub(name,"دجاجه","??")
 name = string.gsub(name,"بطريق","🐧")
 name = string.gsub(name,"ضفدع","🐸")
 name = string.gsub(name,"بومه","🦉")
@@ -31588,7 +31588,7 @@ local list = {
 
 "• ﭑڪتفائي بنفسي حاجـهہ عـضيـٰمهہ .👼🏻💗",
 
-"قۆي وﺟميݪ ۆبڕيئ  🚶‍♀ᝰ",
+"قۆي وﺟميݪ ۆبڕيئ  ??‍♀ᝰ",
 
 "سيٰئ جـٰداً ﻻ اطيٰق وﻻ اطـﺂﺂق "
 }
