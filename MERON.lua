@@ -7313,61 +7313,72 @@ Redis:set(TheMERON.."MERON:biousers"..msg.chat_id,true)
 end
 if text == "تعطيل اليوتيوب" or text == "تعطيل يوتيوب" then
 if not msg.Addictive then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
+return send(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
 end
 if Redis:get(TheMERON.."youtubee"..msg.chat_id)  then
-return merolua(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تعطيل اليوتيوب مسبقاً","md",true )
+return send(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تعطيل اليوتيوب مسبقاً","md",true )
 else
 Redis:set(TheMERON.."youtubee"..msg.chat_id,"true")
-return merolua(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تعطيل اليوتيوب","md",true )
+return send(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تعطيل اليوتيوب","md",true )
+end
+end
+if text == "تعطيل اليوتيوب" or text == "تعطيل يوتيوب" then
+if not msg.Addictive then
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
+end
+if Redis:get(TheMERON.."youtubee"..msg.chat_id)  then
+(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تعطيل اليوتيوب مسبقاً","md",true )
+else
+Redis:set(TheMERON.."youtubee"..msg.chat_id,"true")
+(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تعطيل اليوتيوب","md",true )
 end
 end
 if text == "تفعيل اليوتيوب" or text == "تفعيل يوتيوب" then
 if not msg.Addictive then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
 end
 if not Redis:get(TheMERON.."youtubee"..msg.chat_id)  then
-return merolua(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تفعيل اليوتيوب مسبقاً","md",true )
+(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تفعيل اليوتيوب مسبقاً","md",true )
 else
 Redis:del(TheMERON.."youtubee"..msg.chat_id)
-return merolua(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تفعيل اليوتيوب","md",true )
+(msg_chat_id,msg_id,GetByName(msg).."⇜ تم تفعيل اليوتيوب","md",true )
 end
 end
 if text == "تعطيل التحميل" or text == "تعطيل تحميل" or text == "تعطيل السوشل" or text == "تعطيل سوشل" then
 if not msg.Addictive then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
 end
 if Redis:get(TheMERON.."soshle"..msg.chat_id)  then
-return merolua(msg_chat_id,msg_id,GetByName(msg).."⇜ تم "..text.." مسبقاً","md",true )
+(msg_chat_id,msg_id,GetByName(msg).."⇜ تم "..text.." مسبقاً","md",true )
 else
 Redis:set(TheMERON.."soshle"..msg.chat_id,"true")
-return merolua(msg_chat_id,msg_id,GetByName(msg).."⇜ تم "..text.." ","md",true )
+(msg_chat_id,msg_id,GetByName(msg).."⇜ تم "..text.." ","md",true )
 end
 end
 if text == "تفعيل التحميل" or text == "تفعيل تحميل" or text == "تفعيل السوشل" or text == "تفعيل سوشل" then
 if not msg.Addictive then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
 end
 if not Redis:get(TheMERON.."soshle"..msg.chat_id)  then
-return merolua(msg_chat_id,msg_id,GetByName(msg).."⇜ تم "..text.." مسبقاً","md",true )
+(msg_chat_id,msg_id,GetByName(msg).."⇜ تم "..text.." مسبقاً","md",true )
 else
 Redis:del(TheMERON.."soshle"..msg.chat_id)
-return merolua(msg_chat_id,msg_id,GetByName(msg).."⇜ تم "..text.." ","md",true )
+(msg_chat_id,msg_id,GetByName(msg).."⇜ تم "..text.." ","md",true )
 end
 end
 if text == "اليوتيوب للمميزين" or text == "يوتيوب للمميزين" or text == "التحميل للمميزين" or text == "السوشل للمميزين" or text == "سوشل للمميزين" then
 if not msg.TheBasicsQ then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
 end
 Redis:set(TheMERON.."sochal"..msg.chat_id,"true")
-return merolua(msg.chat_id,msg.id,"⇜ تم تعيين "..text.." ومافوق ","md",true)
+(msg.chat_id,msg.id,"⇜ تم تعيين "..text.." ومافوق ","md",true)
 end
 if text == "اليوتيوب للاعضاء" or text == "يوتيوب للاعضاء" or text == "التحميل للاعضاء" or text == "السوشل للاعضاء" or text == "سوشل للاعضاء" then
 if not msg.TheBasicsQ then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true)
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true)
 end
 Redis:del(TheMERON.."sochal"..msg.chat_id)
-return merolua(msg.chat_id,msg.id,"⇜ تم تعيين السوشل لجميع الاعضاء ","md",true)
+(msg.chat_id,msg.id,"⇜ تم تعيين السوشل لجميع الاعضاء ","md",true)
 end
 if text and text:match("^فيس (.*)$") or text and text:match("^(.*) فيس$") then
 local facelink = text:match("^فيس (.*)$") or text:match("^(.*) فيس$")
@@ -7375,7 +7386,7 @@ if Redis:get(TheMERON.."soshle"..msg.chat_id) then
 return false
 end
 if not msg.Distinguished and Redis:get(TheMERON.."sochal"..msg.chat_id) then
-return merolua(msg.chat_id,msg.id,"⇜ عذراً عزيزي الفيسبوك للمميزين ومافوق فقط","md",true)
+(msg.chat_id,msg.id,"⇜ عذراً عزيزي الفيسبوك للمميزين ومافوق فقط","md",true)
 end
 local nameuser = merolua.getUser(msg.sender_id.user_id)
 if nameuser.first_name then
@@ -7390,7 +7401,7 @@ bot.sendVideo(msg_chat_id,msg_id,'./face.mkv',"- من قبل : "..nameuser.."️
 sleep(1)
 os.remove("face.mkv")
 else
-return merolua(msg_chat_id,msg_id,'\n⇜ لا استطيع تحميل اكثر من 50 ميغا',"md",true)
+(msg_chat_id,msg_id,'\n⇜ لا استطيع تحميل اكثر من 50 ميغا',"md",true)
 end
 end
 
@@ -7400,7 +7411,7 @@ if Redis:get(TheMERON.."soshle"..msg.chat_id) then
 return false
 end
 if not msg.Distinguished and Redis:get(TheMERON.."sochal"..msg.chat_id) then
-return merolua(msg.chat_id,msg.id,"⇜ عذراً عزيزي التيك توك للمميزين ومافوق فقط","md",true)
+(msg.chat_id,msg.id,"⇜ عذراً عزيزي التيك توك للمميزين ومافوق فقط","md",true)
 end
 local nameuser = merolua.getUser(msg.sender_id.user_id)
 if nameuser.first_name then
@@ -7415,7 +7426,7 @@ bot.sendVideo(msg_chat_id,msg_id,'./tik.mp4',"- من قبل : "..nameuser.."️"
 sleep(1)
 os.remove("tik.mp4")
 else
-return merolua(msg_chat_id,msg_id,'\n⇜ لا استطيع تحميل اكثر من 50 ميغا',"md",true)
+(msg_chat_id,msg_id,'\n⇜ لا استطيع تحميل اكثر من 50 ميغا',"md",true)
 end
 end
 
@@ -7425,7 +7436,7 @@ if Redis:get(TheMERON.."soshle"..msg.chat_id) then
 return false
 end
 if not msg.Distinguished and Redis:get(TheMERON.."sochal"..msg.chat_id) then
-return merolua(msg.chat_id,msg.id,"⇜ عذراً عزيزي الساوند للمميزين ومافوق فقط","md",true)
+(msg.chat_id,msg.id,"⇜ عذراً عزيزي الساوند للمميزين ومافوق فقط","md",true)
 end
 local nameuser = merolua.getUser(msg.sender_id.user_id)
 if nameuser.first_name then
@@ -7440,7 +7451,7 @@ bot.sendAudio(msg_chat_id,msg_id,'./soundc.mp3',"- من قبل : "..nameuser.."�
 sleep(1)
 os.remove("soundc.mp3")
 else
-return merolua(msg_chat_id,msg_id,'\n⇜ لا استطيع تحميل اكثر من 25 ميغا',"md",true)
+(msg_chat_id,msg_id,'\n⇜ لا استطيع تحميل اكثر من 25 ميغا',"md",true)
 end
 end
 if text and text:match("^ساوند (.*)$") or text and text:match("^(.*) [Ss]$") then
@@ -7449,7 +7460,7 @@ if Redis:get(TheMERON.."soshle"..msg.chat_id) then
 return false
 end
 if not msg.Distinguished and Redis:get(TheMERON.."sochal"..msg.chat_id) then
-return merolua(msg.chat_id,msg.id,"⇜ عذراً عزيزي الساوند للمميزين ومافوق فقط","md",true)
+(msg.chat_id,msg.id,"⇜ عذراً عزيزي الساوند للمميزين ومافوق فقط","md",true)
 end
 local jsonson = JSON.decode(request("https://anubis.fun/api/sound_search.php?q="..URL.escape(search)..""))
 Redis:del(TheMERON.."soundidche"..msg.chat_id..msg.sender_id.user_id)
@@ -7474,7 +7485,7 @@ if Redis:get(TheMERON.."youtubee"..msg.chat_id) then
 return false
 end
 if not msg.Distinguished and Redis:get(TheMERON.."sochal"..msg.chat_id) then
-return merolua(msg.chat_id,msg.id,"⇜ عذراً عزيزي اليوتيوب للمميزين ومافوق فقط","md",true)
+(msg.chat_id,msg.id,"⇜ عذراً عزيزي اليوتيوب للمميزين ومافوق فقط","md",true)
 end
 local jsonyou = JSON.decode(request("https://youtube-scrape.herokuapp.com/api/search?q="..URL.escape(search)..""))
 Redis:del(TheMERON.."youtidche"..msg.chat_id..msg.sender_id.user_id)
@@ -7496,11 +7507,11 @@ end
 ---------------------------------------------------------------------------------
 if text and text:match('^ضع تفاعل (%d+) (.*)$') or text and text:match('^وضع تفاعل (%d+) (.*)$') then
 if not msg.MalekAsase then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك الاساسي ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك الاساسي ',"md",true)  
 end
 local msgcountneed = {text:match('^ضع تفاعل (%d+) (.*)$') } or {text:match('^وضع تفاعل (%d+) (.*)$') }
 if tonumber(msgcountneed[1]:match('(%d+)')) <= 999 then
-return merolua(msg_chat_id,msg_id,'\n• عذراً يجب ان تكون عدد الرسائل اكثر من 1000 ',"md",true)
+(msg_chat_id,msg_id,'\n• عذراً يجب ان تكون عدد الرسائل اكثر من 1000 ',"md",true)
 end
 if tonumber(msgcountneed[1]:match('(%d+)')) == tonumber(Redis:get(TheMERON.."rtpamalekassmsg"..msg.chat_id)) then
 Redis:del(TheMERON.."rtpamalekass"..msg.chat_id)
@@ -7532,7 +7543,7 @@ else
 statusvar = false
 end
 if statusvar == false then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص صاحب القروب فقط ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص صاحب القروب فقط ',"md",true)  
 end
 Redis:set(TheMERON.."rtpamalekass"..msg.chat_id,msgcountneed[2])
 Redis:set(TheMERON.."rtpamalekassmsg"..msg.chat_id,tonumber(msgcountneed[1]:match('(%d+)')))
@@ -7562,12 +7573,12 @@ Redis:set(TheMERON.."rtpaspecial"..msg.chat_id,msgcountneed[2])
 Redis:set(TheMERON.."rtpaspecialmsg"..msg.chat_id,tonumber(msgcountneed[1]:match('(%d+)')))
 send(msg_chat_id,msg_id,'\n⇜ تم وضع التفاعل بنجاح\n⇜ عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n⇜ الرتبه : مميز\n\n- سيتم رفع الرتبه تلقائي\n✧',"md")
 else
-return merolua(msg_chat_id,msg_id,'\n⇜ مافي رتبة بالاسم هذا ',"md")
+(msg_chat_id,msg_id,'\n⇜ مافي رتبة بالاسم هذا ',"md")
 end
 end
 if text == "حذف تفاعل الرتب" or text == "مسح تفاعل الرتب" then
 if not msg.MalekAsase then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك الاساسي ',"md",true) 
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك الاساسي ',"md",true) 
 end
 Redis:del(TheMERON.."rtpamalekass"..msg.chat_id)
 Redis:del(TheMERON.."rtpamalekassmsg"..msg.chat_id)
@@ -7583,11 +7594,11 @@ Redis:del(TheMERON.."rtpaadmin"..msg.chat_id)
 Redis:del(TheMERON.."rtpaadminmsg"..msg.chat_id)
 Redis:del(TheMERON.."rtpaspecial"..msg.chat_id)
 Redis:del(TheMERON.."rtpaspecialmsg"..msg.chat_id)
-return merolua(msg_chat_id,msg_id,'\n⇜ تم حذف وتعطيل توزيع رتب المتفاعلين',"md",true)
+(msg_chat_id,msg_id,'\n⇜ تم حذف وتعطيل توزيع رتب المتفاعلين',"md",true)
 end
 if text and text:match('^حذف تفاعل (.*)$') or text and text:match('^مسح تفاعل (.*)$') or text and text:match('^مسح التفاعل (.*)$') or text and text:match('^حذف التفاعل (.*)$') then
 if not msg.MalekAsase then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك الاساسي ',"md",true) 
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك الاساسي ',"md",true) 
 end
 local msgcountdel = text:match('^حذف تفاعل (.*)$') or text:match('^مسح تفاعل (.*)$')  or text:match('^مسح التفاعل (.*)$') or text:match('^حذف التفاعل (.*)$')
 if msgcountdel == "مالك اساسي" or msgcountdel == "مالك الاساسي" or msgcountdel == "المالك الاساسي" then
@@ -7598,7 +7609,7 @@ else
 statusvar = false
 end
 if statusvar == false then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص صاحب القروب فقط ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص صاحب القروب فقط ',"md",true)  
 end
 Redis:del(TheMERON.."rtpamalekass"..msg.chat_id)
 Redis:del(TheMERON.."rtpamalekassmsg"..msg.chat_id)
@@ -7628,7 +7639,7 @@ Redis:del(TheMERON.."rtpaspecial"..msg.chat_id)
 Redis:del(TheMERON.."rtpaspecialmsg"..msg.chat_id)
 send(msg_chat_id,msg_id,'\n⇜ تم مسح رتبة المميز من التفاعل',"md")
 else
-return merolua(msg_chat_id,msg_id,'\n⇜ مافي رتبة بالاسم هذا ',"md")
+(msg_chat_id,msg_id,'\n⇜ مافي رتبة بالاسم هذا ',"md")
 end
 end
 if text == "تفاعل الرتب" or text == "تفاعل رتب" then
@@ -7647,7 +7658,7 @@ rtpaadminmsg = Redis:get(TheMERON.."rtpaadminmsg"..msg.chat_id)
 rtpaspecial = Redis:get(TheMERON.."rtpaspecial"..msg.chat_id)
 rtpaspecialmsg = Redis:get(TheMERON.."rtpaspecialmsg"..msg.chat_id)
 if not rtpamalekass and not rtpamalek and not rtpamonsheass and not rtpamonsge and not rtpamanager and not rtpaadmin and not rtpaspecial then
-return merolua(msg_chat_id,msg_id,"\n⇜ عذراً عزيزي لا توجد رتب للتفاعل هنا ","md",true)  
+(msg_chat_id,msg_id,"\n⇜ عذراً عزيزي لا توجد رتب للتفاعل هنا ","md",true)  
 end
 if rtpamalekass then
 rtpamalekassres = '▪︎ '..rtpamalekass..' ↤︎ '..rtpamalekassmsg..' رسالة\n'
@@ -7719,49 +7730,49 @@ end
 end
 if text == "ضع الردود للمميزين" or text == "وضع الردود للمميزين" then
 if not msg.TheBasicsQ then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
 end
 Redis:set(TheMERON.."myrdspecial"..msg.chat_id,"true")
-return merolua(msg.chat_id,msg.id,"⇜ تم وضع اضافة ردي للمميزين ومافوق ","md",true)
+(msg.chat_id,msg.id,"⇜ تم وضع اضافة ردي للمميزين ومافوق ","md",true)
 end
 if text == "ضع الردود للاعضاء" or text == "وضع الردود للاعضاء" then
 if not msg.TheBasicsQ then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true)
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true)
 end
 Redis:del(TheMERON.."myrdspecial"..msg.chat_id)
-return merolua(msg.chat_id,msg.id,"⇜ تم وضع اضافة ردي لجميع الاعضاء ","md",true)
+(msg.chat_id,msg.id,"⇜ تم وضع اضافة ردي لجميع الاعضاء ","md",true)
 end
 if text == "تفعيل اضف ردي" or text == "تفعيل ردي" or text == "تفعيل ردود الاعضاء" then
 if not msg.TheBasicsQ then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
 end
 if Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-return merolua(msg.chat_id,msg.id,"⇜ تم تفعيل ردود الاعضاء مسبقاً ","md",true)
+(msg.chat_id,msg.id,"⇜ تم تفعيل ردود الاعضاء مسبقاً ","md",true)
 else
 Redis:set(TheMERON.."onmyrd"..msg.chat_id,"true")
-return merolua(msg.chat_id,msg.id,"⇜ ابشر فعلت ردود الاعضاء ","md",true)
+(msg.chat_id,msg.id,"⇜ ابشر فعلت ردود الاعضاء ","md",true)
 end
 end
 if text == "تعطيل اضف ردي" or text == "تعطيل ردي" or text == "تعطيل ردود الاعضاء" then
 if not msg.TheBasicsQ then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true) 
 end
 if Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
 Redis:del(TheMERON.."onmyrd"..msg.chat_id)
-return merolua(msg.chat_id,msg.id,"⇜ ابشر عطلت ردود الاعضاء ","md",true)
+(msg.chat_id,msg.id,"⇜ ابشر عطلت ردود الاعضاء ","md",true)
 else
-return merolua(msg.chat_id,msg.id,"⇜ تم تعطيل ردود الاعضاء مسبقاً ","md",true)
+(msg.chat_id,msg.id,"⇜ تم تعطيل ردود الاعضاء مسبقاً ","md",true)
 end
 end
 if text == "اضف ردي" then
 if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-return merolua(msg.chat_id,msg.id,"⇜ اضافة الردود للاعضاء معطلة\n⇜ لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
+(msg.chat_id,msg.id,"⇜ اضافة الردود للاعضاء معطلة\n⇜ لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
 end
 if not msg.Distinguished and Redis:get(TheMERON.."myrdspecial"..msg.chat_id) then
-return merolua(msg.chat_id,msg.id,"⇜ عذراً عزيزي اضافة ردي للمميزين ومافوق فقط","md",true)
+(msg.chat_id,msg.id,"⇜ عذراً عزيزي اضافة ردي للمميزين ومافوق فقط","md",true)
 end
 if Redis:sismember(TheMERON.."MERON:List:myrdmyid"..msg_chat_id,msg.sender_id.user_id) then
-return merolua(msg_chat_id,msg_id,"\n⇜ عذراً عزيزي انت ضايف ردك من قبل\n⇜ لحذف ردك ( حذف ردي )","md",true)
+(msg_chat_id,msg_id,"\n⇜ عذراً عزيزي انت ضايف ردك من قبل\n⇜ لحذف ردك ( حذف ردي )","md",true)
 end
 Redis:set(TheMERON.."MERON:Set:myrd"..msg.sender_id.user_id..":"..msg_chat_id,true)
 local reply_markup = merolua.replyMarkup{
@@ -7772,7 +7783,7 @@ data = {
 },
 }
 }
-return merolua(msg_chat_id,msg_id,"⇜ حسناً عزيزي ارسل اسمك الان", 'md', false, false, false, false, reply_markup)
+(msg_chat_id,msg_id,"⇜ حسناً عزيزي ارسل اسمك الان", 'md', false, false, false, false, reply_markup)
 end
 if text == "حذف ردي" or text == "مسح ردي" then
 myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
@@ -7785,7 +7796,7 @@ Redis:del(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_
 end
 if text == "ردي" then
 if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-return merolua(msg.chat_id,msg.id,"⇜ اضافة الردود للاعضاء معطلة\n⇜ لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
+(msg.chat_id,msg.id,"⇜ اضافة الردود للاعضاء معطلة\n⇜ لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
 end
 checkmyrde = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
 if Redis:get(TheMERON.."MERON:Add:myrdid"..checkmyrde..msg_chat_id) then
@@ -7840,10 +7851,10 @@ end
 
 if text == "ردود الاعضاء" or text == "ردود اعضاء" then
 if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-return merolua(msg.chat_id,msg.id,"⇜ اضافة الردود للاعضاء معطلة\n⇜ لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
+(msg.chat_id,msg.id,"⇜ اضافة الردود للاعضاء معطلة\n⇜ لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
 end
 if not msg.Addictive then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(7)..' ) ',"md",true)  
 end
 local list = Redis:smembers(TheMERON.."MERON:List:myrd"..msg_chat_id.."")
 text = "⇜ قائمة ردود الاعضاء \n━━━━━━━━━\n"
@@ -7863,11 +7874,11 @@ end
 if #list == 0 then
 text = "⇜ مافيه ردود اعضاء مضافة ! "
 end
-return merolua(msg_chat_id,msg_id,text,"md",true)  
+(msg_chat_id,msg_id,text,"md",true)  
 end
 if text == "مسح ردود الاعضاء" or text == "حذف ردود الاعضاء" then
 if not msg.Managers then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(6)..' ) ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(6)..' ) ',"md",true)  
 end
 local list = Redis:smembers(TheMERON.."MERON:List:myrd"..msg_chat_id)
 for k,v in pairs(list) do   
@@ -7876,7 +7887,7 @@ Redis:del(TheMERON.."MERON:Add:myrdid"..v..msg_chat_id)
 Redis:del(TheMERON.."MERON:List:myrd"..msg_chat_id)
 Redis:del(TheMERON.."MERON:List:myrdmyid"..msg_chat_id)
 end
-return merolua(msg_chat_id,msg_id,"⇜ تم مسح جميع ردود الاعضاء","md",true)
+(msg_chat_id,msg_id,"⇜ تم مسح جميع ردود الاعضاء","md",true)
 end
 if text and Redis:get(TheMERON.."onmyrd"..msg_chat_id) then
 local Texingt = Redis:get(TheMERON.."MERON:Add:myrdtext"..text..msg_chat_id)
@@ -7932,11 +7943,11 @@ if text and text:match("^(.*)$") then
 if Redis:get(TheMERON.."MERON:Set:myrd"..msg.sender_id.user_id..":"..msg_chat_id) == "true" then
 if text and #text:match("^(.*)$") >= 30 then
 Redis:del(TheMERON.."MERON:Set:myrd"..msg.sender_id.user_id..":"..msg_chat_id)
-return merolua(msg.chat_id, msg.id,"⇜ قلل من عدد الاحرف", 'md')
+(msg.chat_id, msg.id,"⇜ قلل من عدد الاحرف", 'md')
 end
 local Texingt = Redis:get(TheMERON.."MERON:Add:myrdtext"..text..msg_chat_id)
 if Texingt == text then
-return merolua(msg_chat_id,msg_id,"\n⇜ عذراً عزيزي الرد ( "..text.." ) مضاف مسبقاً ","md",true)  
+(msg_chat_id,msg_id,"\n⇜ عذراً عزيزي الرد ( "..text.." ) مضاف مسبقاً ","md",true)  
 end
 Redis:set(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id, text)
 Redis:sadd(TheMERON.."MERON:List:myrdmyid"..msg_chat_id, msg.sender_id.user_id)
@@ -7954,7 +7965,7 @@ if not Redis:get(TheMERON.."MERON:Status:Id"..msg_chat_id) then
 return false
 end
 if not msg.Distinguished and Redis:get(TheMERON..'idnotmem'..msg.chat_id)  then
-return merolua(msg.chat_id,msg.id,'\n⇜ عذراً ايدي العضو معطل',"md")
+(msg.chat_id,msg.id,'\n⇜ عذراً ايدي العضو معطل',"md")
 end
 local UserInfo = merolua.getUser(msg.sender_id.user_id)
 local InfoUser = merolua.getUserFullInfo(msg.sender_id.user_id)
@@ -7976,13 +7987,13 @@ else
 news = " لا يوجد اسم"
 end
 if msg.can_be_deleted_for_all_users == false then
-return merolua(msg_chat_id,msg_id,"\n⇜ عذراً البوت ليس مشرف في القروب يرجى رفعه واعطائه الصلاحيات ","md",true)  
+(msg_chat_id,msg_id,"\n⇜ عذراً البوت ليس مشرف في القروب يرجى رفعه واعطائه الصلاحيات ","md",true)  
 end
 if GetInfoBot(msg).BanUser == false then
-return merolua(msg_chat_id,msg_id,'\n⇜ البوت ليس لديه صلاحيه حظر المستخدمين ',"md",true)
+(msg_chat_id,msg_id,'\n⇜ البوت ليس لديه صلاحيه حظر المستخدمين ',"md",true)
 end
 bot.setChatMemberStatus(msg.chat_id,msg.sender_id.user_id,'restricted',{1,0,0,0,0,0,0,0,0})
-return merolua(msg_chat_id, msg_id , "「 "..news.." 」\n⇜ قام بارسال ايدي يحتوي على صورة اباحية\n⇜ تم تقييده ومسح رسالته\n✧")
+(msg_chat_id, msg_id , "「 "..news.." 」\n⇜ قام بارسال ايدي يحتوي على صورة اباحية\n⇜ تم تقييده ومسح رسالته\n✧")
 end
 end
 end
@@ -8120,21 +8131,21 @@ end
 -------------
 if text == "تفعيل القفل التلقائي" then
 if not msg.Managers then
-return merolua(msg.chat_id,msg.id,"⇜ هذا الامر يخص المدير")
+(msg.chat_id,msg.id,"⇜ هذا الامر يخص المدير")
 end
 Redis:del(TheMERON..msg.chat_id..'chat_lock:lock')
 send(msg.chat_id,msg.id,"⇜ تم تفعيل قفل الدردشه التلقائي \n⇜ استخدم الامر : تعيين وقت قفل الدردشه ")
 end
 if text == "تعطيل القفل التلقائي" then
 if not msg.Managers then
-return merolua(msg.chat_id,msg.id,"⇜ هذا الامر يخص المدير")
+(msg.chat_id,msg.id,"⇜ هذا الامر يخص المدير")
 end
 Redis:set(TheMERON..msg.chat_id..'chat_lock:lock',true)
 send(msg.chat_id,msg.id,"⇜ تم تعطيل قفل الدردشه التلقائي")
 end
 if text == "القفل التلقائي" then
 if not msg.Managers then
-return merolua(msg.chat_id,msg.id,"⇜ هذا الامر يخص المدير")
+(msg.chat_id,msg.id,"⇜ هذا الامر يخص المدير")
 end
 if Redis:get(TheMERON..msg.chat_id..'chat_lock:lock') then
 state = "معطل"
@@ -8153,14 +8164,14 @@ on_time = 00
 end
 local current_time = request("https://dev-revor.tk/Apis/Auto/Auto.php?a=hi")
 local txx = "⇜ القفل التلقائي : "..state.." \n⇜ الوقت الان : "..current_time.."\n\n⇜ وقت بداية القفل » "..lock_time.."\n⇜ وقت نهاية القفل » "..on_time
-return merolua(msg.chat_id,msg.id,txx)
+(msg.chat_id,msg.id,txx)
 end
 
 if text then
 if Redis:get(TheMERON..msg.sender_id.user_id..'set:time:chat') then
 if text == "الغاء" then
 Redis:del(TheMERON..msg.sender_id.user_id..'set:time:chat')
-return merolua(msg.chat_id,msg.id,"⇜ تم الغاء الامر")
+(msg.chat_id,msg.id,"⇜ تم الغاء الامر")
 end
 if text:match("(%d+)") then
 if tonumber(text) <= 24 then
@@ -8173,17 +8184,17 @@ Redis:del(TheMERON..msg.sender_id.user_id..'set:time:chat')
 Redis:set(TheMERON..msg.sender_id.user_id..'set:time:chat:on',true)
 Redis:del(TheMERON..msg.chat_id..'time:chat:lock')
 Redis:set(TheMERON..msg.chat_id..'time:chat:lock',math.floor(tonumber(lock_time)))
-return merolua(msg.chat_id,msg.id,"⇜ تم حفظ وقت القفل الساعه "..text.."\n ارسل الان وقت التفعيل ")
+(msg.chat_id,msg.id,"⇜ تم حفظ وقت القفل الساعه "..text.."\n ارسل الان وقت التفعيل ")
 else
-return merolua(msg.chat_id,msg.id,"⇜ لقد ارسلت وقت خاطئ")
+(msg.chat_id,msg.id,"⇜ لقد ارسلت وقت خاطئ")
 end
 else
-return merolua(msg.chat_id,msg.id,"⇜ لقد ارسلت وقت خاطئ")
+(msg.chat_id,msg.id,"⇜ لقد ارسلت وقت خاطئ")
 end
 elseif Redis:get(TheMERON..msg.sender_id.user_id..'set:time:chat:on') then
 if text == "الغاء" then
 Redis:del(TheMERON..msg.sender_id.user_id..'set:time:chat:on')
-return merolua(msg.chat_id,msg.id,"⇜ تم الغاء الامر")
+(msg.chat_id,msg.id,"⇜ تم الغاء الامر")
 end
 if text:match("(%d+)") then
 if tonumber(text) <= 24 then
@@ -8195,18 +8206,18 @@ end
 Redis:del(TheMERON..msg.sender_id.user_id..'set:time:chat:on')
 Redis:del(TheMERON..msg.chat_id..'time:chat:on')
 Redis:set(TheMERON..msg.chat_id..'time:chat:on',math.floor(tonumber(lock_time)))
-return merolua(msg.chat_id,msg.id,"⇜ تم حفظ وقت الفتح الساعه "..lock_time.."\n")
+(msg.chat_id,msg.id,"⇜ تم حفظ وقت الفتح الساعه "..lock_time.."\n")
 else
-return merolua(msg.chat_id,msg.id,"⇜ لقد ارسلت وقت خاطئ")
+(msg.chat_id,msg.id,"⇜ لقد ارسلت وقت خاطئ")
 end
 else
-return merolua(msg.chat_id,msg.id,"⇜ لقد ارسلت وقت خاطئ")
+(msg.chat_id,msg.id,"⇜ لقد ارسلت وقت خاطئ")
 end
 end
 end
 if text == "ضع وقت قفل الدردشه" or text == "وضع وقت قفل الدردشه" or text == "تعيين وقت قفل الدردشه" then
 if not msg.Managers then
-return merolua(msg.chat_id,msg.id,"⇜ هذا الامر يخص المدير")
+(msg.chat_id,msg.id,"⇜ هذا الامر يخص المدير")
 end
 Redis:set(TheMERON..msg.sender_id.user_id..'set:time:chat',true)
 send(msg.chat_id,msg.id,"⇜ ارسل الان الوقت بنظام 24 ساعه")
@@ -8232,11 +8243,11 @@ end
 -------------
 if text == "المميزات" or text == "مميزات" or text == "الميزات" or text == "ميزات" then 
 if not msg.TheBasicsQ then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true)  
 end
 local list = Redis:smembers(TheMERON.."meza:names:")
 if #list == 0 then
-return merolua(msg.chat_id, msg.id,"⇜ لا يوجد ميزات", 'md')
+(msg.chat_id, msg.id,"⇜ لا يوجد ميزات", 'md')
 end
 local Text_Msg = "المميزات :\n\n"
 for k,v in pairs(list) do
@@ -8244,36 +8255,36 @@ local link = Redis:get(TheMERON.."meza:link"..v)
 local type = Redis:get(TheMERON.."meza:type"..v)
 Text_Msg = Text_Msg..k.." - "..v.." :\n○ : "..link.." ( "..type.." )\n\n" 
 end
-return merolua(msg.chat_id, msg.id,Text_Msg, 'md', true)
+(msg.chat_id, msg.id,Text_Msg, 'md', true)
 end
 if text == "حذف المميزات" or text == "حذف مميزات" or text == "حذف ميزات" or text == "حذف الميزات" or text == "مسح المميزات" or text == "مسح مميزات" or text == "مسح ميزات" or text == "مسح الميزات" then 
 if not msg.TheBasicsQ then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true)  
 end
 local list = Redis:smembers(TheMERON.."meza:names:")
 if #list == 0 then
-return merolua(msg.chat_id, msg.id,"⇜ لا يوجد ميزات", 'md')
+(msg.chat_id, msg.id,"⇜ لا يوجد ميزات", 'md')
 end
 for k,v in pairs(list) do
 Redis:del(TheMERON.."meza:type"..v)
 Redis:del(TheMERON.."meza:link"..v)
 end
 Redis:del(TheMERON.."meza:names:")
-return merolua(msg.chat_id, msg.id,"⇜ تم مسح الميزات جميعها", 'md')
+(msg.chat_id, msg.id,"⇜ تم مسح الميزات جميعها", 'md')
 end
 if text == "اضف ميزه" or text == "اضف ميزة" then 
 if not msg.TheBasicsQ then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك ',"md",true)  
 end
 Redis:set(TheMERON.."add_meza:send:"..msg.chat_id..":"..msg.sender_id.user_id, true)
-return merolua(msg.chat_id, msg.id,"⇜ ارسل اسم الميزة", 'md')
+(msg.chat_id, msg.id,"⇜ ارسل اسم الميزة", 'md')
 end
 if text == "حذف ميزه" or text == "مسح ميزه" or text == "حذف ميزة" or text == "مسح ميزة" then 
 if not msg.TheBasicsQ then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك  ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص المالك  ',"md",true)  
 end
 Redis:set(TheMERON.."add_meza:rem:"..msg.chat_id..":"..msg.sender_id.user_id, true)
-return merolua(msg.chat_id, msg.id,"⇜ ارسل اسم الميزة", 'md')
+(msg.chat_id, msg.id,"⇜ ارسل اسم الميزة", 'md')
 end
 if text and Redis:get(TheMERON.."add_meza:rem:"..msg.chat_id..":"..msg.sender_id.user_id) == "true" then
 if Redis:get(TheMERON.."meza:type"..text) then
@@ -8290,12 +8301,12 @@ end
 if text and Redis:get(TheMERON.."add_meza:send:"..msg.chat_id..":"..msg.sender_id.user_id) == "true" then
 Redis:set(TheMERON.."add_meza:send:"..msg.chat_id..":"..msg.sender_id.user_id, "link")
 Redis:set(TheMERON.."add_meza:name:"..msg.chat_id..":"..msg.sender_id.user_id, text)
-return merolua(msg.chat_id, msg.id,"⇜ تم حفظ الاسم \n⇜ ارسل رابط القناة", 'md')
+(msg.chat_id, msg.id,"⇜ تم حفظ الاسم \n⇜ ارسل رابط القناة", 'md')
 end
 
 if text and Redis:get(TheMERON.."add_meza:send:"..msg.chat_id..":"..msg.sender_id.user_id) == "link" then
 if not text:match('https://t.me/(.*)') then
-return merolua(msg.chat_id, msg.id,"⇜ الرابط خطأ \n⇜ ارسل الرابط مثل : https://t.me/Tepthon ", 'md', true)
+(msg.chat_id, msg.id,"⇜ الرابط خطأ \n⇜ ارسل الرابط مثل : https://t.me/Tepthon ", 'md', true)
 end
 Redis:del(TheMERON.."add_meza:send:"..msg.chat_id..":"..msg.sender_id.user_id)
 local meza_name = Redis:get(TheMERON.."add_meza:name:"..msg.chat_id..":"..msg.sender_id.user_id)
@@ -8320,7 +8331,7 @@ data = {
 },
 }
 }
-return merolua(msg.chat_id, msg.id,"⇜ تم حفظ الرابط \n⇜ اختر نوع الميديا :\n✧", 'md',true, false, false, false, reply_markup)
+(msg.chat_id, msg.id,"⇜ تم حفظ الرابط \n⇜ اختر نوع الميديا :\n✧", 'md',true, false, false, false, reply_markup)
 end
 if text and Redis:get(TheMERON.."meza:type"..text) then
 local meza_link = Redis:get(TheMERON.."meza:link"..text)
@@ -8355,7 +8366,7 @@ return false
 end
 if Redis:get(TheMERON.."hzergametime"..msg.chat_id) then
 local time = ctime(Redis:ttl(TheMERON.."hzergametime"..msg.chat_id))
-return merolua(msg.chat_id,msg.id,"⇜ في لعبة حزر قبل\n⇜ تنتهي بعد "..time.." \n✧","md",true)
+(msg.chat_id,msg.id,"⇜ في لعبة حزر قبل\n⇜ تنتهي بعد "..time.." \n✧","md",true)
 end
 Redis:set(TheMERON.."hazrgroupid"..msg.sender_id.user_id, msg_chat_id)
 Redis:set(TheMERON.."hazrmalek"..msg_chat_id, msg.sender_id.user_id)
@@ -8383,7 +8394,7 @@ data = {
 },
 }
 }
-return merolua(msg.chat_id, msg.id,"⇜ تم بدء لعبة احزر الكلمة\n- الفائز بالجولة الاخيرة : "..nameuser.."\n✧", 'md',true, false, false, false, reply_markup)
+(msg.chat_id, msg.id,"⇜ تم بدء لعبة احزر الكلمة\n- الفائز بالجولة الاخيرة : "..nameuser.."\n✧", 'md',true, false, false, false, reply_markup)
 end
 if Redis:get(TheMERON.."hazranswer"..msg.chat_id) then
 if text == Redis:get(TheMERON.."hazranswer"..msg.chat_id) and Redis:sismember(TheMERON.."listhzerid"..msg.chat_id, msg.sender_id.user_id) then
@@ -8398,22 +8409,21 @@ Redis:set(TheMERON.."hazrwinerid"..msg.chat_id, msg.sender_id.user_id)
 local starttime = Redis:get(TheMERON..'Mira:Game:Time'..msg.chat_id) or 0
 local a = os.time() - starttime
 Redis:del(TheMERON.."listhzerid"..msg.chat_id)
-return merolua(msg_chat_id,msg_id,"\n⇜ كفو عليك جبت الجواب الصح \n⇜ الوقت : "..math.floor(a).."\n ⇜ سيتم تثبيت اسمك كفائز بالجولة\n✧","md",true)  
+(msg_chat_id,msg_id,"\n⇜ كفو عليك جبت الجواب الصح \n⇜ الوقت : "..math.floor(a).."\n ⇜ سيتم تثبيت اسمك كفائز بالجولة\n✧","md",true)  
 end
 end
 if text == "تستي" then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..msg_id..' ) ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..msg_id..' ) ',"md",true)  
 end
 ----------------------------------------------------------------------------------------
 if text and text:match("^تعيين عدد الاحرف (%d+)$") or text and text:match("^تعين عدد الاحرف (%d+)$") then  
 if not msg.Originators then
-return merolua(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(5)..' ) ',"md",true)  
+(msg_chat_id,msg_id,'\n⇜ هذا الامر يخص ( '..Controller_Num(5)..' ) ',"md",true)  
 end
 local Numbardel = text:match("^تعيين عدد الاحرف (%d+)$") or text:match("^تعين عدد الاحروف (%d+)$")
 Redis:set(TheMERON.."NUM_CH_MAX"..msg_chat_id, Numbardel)
 send(msg_chat_id,msg_id, 'تم تعيين عدد الاحرف : '..Numbardel)
 end
-
 if text == "تعطيل ثنائي اليوم" and ChCheck(msg) then
 
 
@@ -9582,7 +9592,7 @@ name = string.gsub(name,"كوريا الشمالية","🇰🇵")
 name = string.gsub(name,"الإمارات","🇦🇪")
 name = string.gsub(name,"السعودية","🇸🇦")
 name = string.gsub(name,"فلسطين","🇵🇸")
-name = string.gsub(name,"قطر","🇶🇦")
+name = string.gsub(name,"قطر","??🇦")
 name = string.gsub(name,"البحرين","🇧🇭")
 name = string.gsub(name,"بولندا","🇵🇱")
 name = string.gsub(name,"باكستان","🇵🇰")
