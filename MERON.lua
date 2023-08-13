@@ -7741,18 +7741,18 @@ return merolua.sendText(msg.chat_id, msg.id,"• تم مسح ردك بنجاح\n
 Redis:srem(TheMERON.."MERON:List:myrd"..msg_chat_id, myrd)
 Redis:srem(TheMERON.."MERON:List:myrdmyid"..msg_chat_id, msg.sender_id.user_id)
 Redis:del(TheMERON.."MERON:Add:myrdtext"..myrd..msg_chat_id)
-Redis:del(TheMero.."MERON:Add:myrdid"..myrd..msg_chat_id)
+Redis:del(TheMERON.."MERON:Add:myrdid"..myrd..msg_chat_id)
 Redis:del(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
 end
-if text == "يردي" then
+if text == "رييدي" then
 if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-return return merolua.sendText(msg.chat_id,msg.id,"• اضافة الردود للاعضاء معطلة\n• لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
+return merolua.sendText(msg.chat_id,msg.id,"• اضافة الردود للاعضاء معطلة\n• لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
 end
 checkmyrde = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
 if Redis:get(TheMERON.."MERON:Add:myrdid"..checkmyrde..msg_chat_id) then
-myrd = Redis:get(TheMero.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
+myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
 local UserInfo = merolua.getUser(msg.sender_id.user_id)
-local Bio = FlterBio(getbio(msg.sender_id.user_id))
+local Bio = FlterBio((msg.sender_id.user_id))
 local photo = merolua.getUserProfilePhotos(msg.sender_id.user_id)
 local ban = merolua.getUser(msg.sender_id.user_id)
 if ban.first_name then
@@ -7766,7 +7766,7 @@ else
 UserInfousername = 'لا يوجد يوزر'
 end
 if photo.total_count > 0 then
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
@@ -7780,7 +7780,7 @@ return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photo
 ']\n• 𝖡𝗂𝗈 𖦹 ['..Bio..
 ']', "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
@@ -7788,7 +7788,7 @@ data = {
 },
 }
 }
-return bot.sendText(msg_chat_id,msg_id,
+return merolua.sendText(msg_chat_id,msg_id,
 '\n• Name 𖦹 '..news..
 '\n• 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𖦹 ['..UserInfousername..
 ']\n• 𝖡𝗂𝗈 𖦹 ['..Bio..
@@ -13519,7 +13519,7 @@ data = {
 },
 }
 }
-return merolua.sendText(Sudo_Id,0,'\n⇜ مرحباً عزيزي المطور \nشخص ما يحتاج مساعدتك\n━━━━━━━━\n⇜ اسمه : '..klajq..' \n⇜ ايديه : '..msg.sender.user_id..'\n⇜ يوزره : @'..basgk..'\n⇜ الوقت : '..os.date("%I:%M %p")..'\n⇜ التاريخ : '..os.date("%Y/%m/%d")..'',"md",false, false, false, false, reply_markup)
+send(Sudo_Id,0,'\n⇜ مرحباً عزيزي المطور \nشخص ما يحتاج مساعدتك\n━━━━━━━━\n⇜ اسمه : '..klajq..' \n⇜ ايديه : '..msg.sender.user_id..'\n⇜ يوزره : @'..basgk..'\n⇜ الوقت : '..os.date("%I:%M %p")..'\n⇜ التاريخ : '..os.date("%Y/%m/%d")..'',"md",false, false, false, false, reply_markup)
 end
 
 if text == 'المطور' and ChCheck(msg) or text == 'مطور البوت' and ChCheck(msg) or text == 'مطور' and ChCheck(msg) then   
