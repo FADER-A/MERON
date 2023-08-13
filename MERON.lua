@@ -7455,11 +7455,11 @@ end
 end
 -----------------------------------------------------------------@SELVER7
 ---------------------------------------------------------------------------------
-if text and text:match('^وضع تفاعل (%d+) (.*)$') or text and text:match('^وضع تفاعل (%d+) (.*)$') then
+if text and text:match('^ضع تفاعل (%d+) (.*)$') or text and text:match('^وضع تفاعل (%d+) (.*)$') then
 if not msg.MalekAsase then
 return merolua.sendText(msg_chat_id,msg_id,'\n• يا شاطر هذا الأمر لـ المالك الاساسي بس ',"md",true)  
 end
-local msgcountneed = {text:match('^وضع تفاعل (%d+) (.*)$') } or {text:match('^وضع تفاعل (%d+) (.*)$') }
+local msgcountneed = {text:match('^ضع تفاعل (%d+) (.*)$') } or {text:match('^وضع تفاعل (%d+) (.*)$') }
 if tonumber(msgcountneed[1]:match('(%d+)')) <= 999 then
 return merolua.sendText(msg_chat_id,msg_id,'\n• عذرًا يجب ان تكون عدد الرسائل اكثر من 1000 ',"md",true)
 end
@@ -7497,31 +7497,31 @@ return merolua.sendText(msg_chat_id,msg_id,'\n• يا شاطر هذا الأم�
 end
 Redis:set(TheMERON.."rtpamalekass"..msg.chat_id,msgcountneed[2])
 Redis:set(TheMERON.."rtpamalekassmsg"..msg.chat_id,tonumber(msgcountneed[1]:match('(%d+)')))
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : مالك اساسي\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
+send(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : مالك اساسي\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
 elseif msgcountneed[2] == "مالك" or msgcountneed[2] == "المالك" then
 Redis:set(TheMERON.."rtpamalek"..msg.chat_id,msgcountneed[2])
 Redis:set(TheMERON.."rtpamalekmsg"..msg.chat_id,tonumber(msgcountneed[1]:match('(%d+)')))
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : مالك\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
+send(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : مالك\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
 elseif msgcountneed[2] == "منشئ اساسي" or msgcountneed[2] == "منشئ الاساسي" or msgcountneed[2] == "المنشئ الاساسي" then
 Redis:set(TheMERON.."rtpamonsheass"..msg.chat_id,msgcountneed[2])
 Redis:set(TheMERON.."rtpamonsheassmsg"..msg.chat_id,tonumber(msgcountneed[1]:match('(%d+)')))
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : منشئ اساسي\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
+send(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : منشئ اساسي\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
 elseif msgcountneed[2] == "منشئ" or msgcountneed[2] == "المنشئ" then
 Redis:set(TheMERON.."rtpamonsge"..msg.chat_id,msgcountneed[2])
 Redis:set(TheMERON.."rtpamonshemsg"..msg.chat_id,tonumber(msgcountneed[1]:match('(%d+)')))
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : منشئ\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
+send(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : منشئ\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
 elseif msgcountneed[2] == "مدير" or msgcountneed[2] == "المدير" then
 Redis:set(TheMERON.."rtpamanager"..msg.chat_id,msgcountneed[2])
 Redis:set(TheMERON.."rtpamanagermsg"..msg.chat_id,tonumber(msgcountneed[1]:match('(%d+)')))
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : مدير\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
+send(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : مدير\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
 elseif msgcountneed[2] == "ادمن" or msgcountneed[2] == "الادمن" then
 Redis:set(TheMERON.."rtpaadmin"..msg.chat_id,msgcountneed[2])
 Redis:set(TheMERON.."rtpaadminmsg"..msg.chat_id,tonumber(msgcountneed[1]:match('(%d+)')))
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : ادمن\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
+send(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : ادمن\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
 elseif msgcountneed[2] == "مميز" or msgcountneed[2] == "المميز" then
 Redis:set(TheMERON.."rtpaspecial"..msg.chat_id,msgcountneed[2])
 Redis:set(TheMERON.."rtpaspecialmsg"..msg.chat_id,tonumber(msgcountneed[1]:match('(%d+)')))
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : مميز\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
+send(msg_chat_id,msg_id,'\n• تم وضع التفاعل بنجاح\n• عدد الرسائل : '..msgcountneed[1]:match('(%d+)')..'\n• الرتبه : مميز\n\n- سيتم رفع الرتبه تلقائي\n༄',"md")
 else
 return merolua.sendText(msg_chat_id,msg_id,'\n• مافي رتبة بالاسم هذا ',"md")
 end
@@ -7563,31 +7563,31 @@ return merolua.sendText(msg_chat_id,msg_id,'\n• يا شاطر هذا الأم�
 end
 Redis:del(TheMERON.."rtpamalekass"..msg.chat_id)
 Redis:del(TheMERON.."rtpamalekassmsg"..msg.chat_id)
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم مسح رتبة المالك الاساسي من التفاعل',"md")
+send(msg_chat_id,msg_id,'\n• تم مسح رتبة المالك الاساسي من التفاعل',"md")
 elseif msgcountdel == "مالك" or msgcountdel == "المالك" then
 Redis:del(TheMERON.."rtpamalek"..msg.chat_id)
 Redis:del(TheMERON.."rtpamalekmsg"..msg.chat_id)
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم مسح رتبة المالك من التفاعل',"md")
+send(msg_chat_id,msg_id,'\n• تم مسح رتبة المالك من التفاعل',"md")
 elseif msgcountdel == "منشئ اساسي" or msgcountdel == "منشئ الاساسي" or msgcountdel == "المنشئ الاساسي" then
 Redis:del(TheMERON.."rtpamonsheass"..msg.chat_id)
 Redis:del(TheMERON.."rtpamonsheassmsg"..msg.chat_id)
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم مسح رتبة المنشئ الاساسي من التفاعل',"md")
+send(msg_chat_id,msg_id,'\n• تم مسح رتبة المنشئ الاساسي من التفاعل',"md")
 elseif msgcountdel == "منشئ" or msgcountdel == "المنشئ" then
 Redis:del(TheMERON.."rtpamonsge"..msg.chat_id)
 Redis:del(TheMERON.."rtpamonshemsg"..msg.chat_id)
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم مسح رتبة المنشئ من التفاعل',"md")
+send(msg_chat_id,msg_id,'\n• تم مسح رتبة المنشئ من التفاعل',"md")
 elseif msgcountdel == "مدير" or msgcountdel == "المدير" then
 Redis:del(TheMERON.."rtpamanager"..msg.chat_id)
 Redis:del(TheMERON.."rtpamanagermsg"..msg.chat_id)
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم مسح رتبة المدير من التفاعل',"md")
+send(msg_chat_id,msg_id,'\n• تم مسح رتبة المدير من التفاعل',"md")
 elseif msgcountdel == "ادمن" or msgcountdel == "الادمن" then
 Redis:del(TheMERON.."rtpaadmin"..msg.chat_id)
 Redis:del(TheMERON.."rtpaadminmsg"..msg.chat_id)
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم مسح رتبة الادمن من التفاعل',"md")
+send(msg_chat_id,msg_id,'\n• تم مسح رتبة الادمن من التفاعل',"md")
 elseif msgcountdel == "مميز" or msgcountdel == "المميز" then
 Redis:del(TheMERON.."rtpaspecial"..msg.chat_id)
 Redis:del(TheMERON.."rtpaspecialmsg"..msg.chat_id)
-return merolua.sendText(msg_chat_id,msg_id,'\n• تم مسح رتبة المميز من التفاعل',"md")
+send(msg_chat_id,msg_id,'\n• تم مسح رتبة المميز من التفاعل',"md")
 else
 return merolua.sendText(msg_chat_id,msg_id,'\n• مافي رتبة بالاسم هذا ',"md")
 end
@@ -7743,6 +7743,7 @@ Redis:srem(TheMERON.."MERON:List:myrdmyid"..msg_chat_id, msg.sender_id.user_id)
 Redis:del(TheMERON.."MERON:Add:myrdtext"..myrd..msg_chat_id)
 Redis:del(TheMero.."MERON:Add:myrdid"..myrd..msg_chat_id)
 Redis:del(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
+end
 end
 
 if text == "ردود الاعضاء" or text == "ردود اعضاء" then
