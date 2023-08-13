@@ -7738,6 +7738,7 @@ end
 if text == "حذف ردي" or text == "مسح ردي" then
 myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
 return merolua.sendText(msg.chat_id, msg.id,"• تم مسح ردك بنجاح\n• الرد ( "..myrd.." )", 'md')
+end
 Redis:srem(TheMERON.."MERON:List:myrd"..msg_chat_id, myrd)
 Redis:srem(TheMERON.."MERON:List:myrdmyid"..msg_chat_id, msg.sender_id.user_id)
 Redis:del(TheMERON.."MERON:Add:myrdtext"..myrd..msg_chat_id)
