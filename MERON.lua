@@ -7749,7 +7749,7 @@ if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
 return merolua.sendText(msg.chat_id,msg.id,"• اضافة الردود للاعضاء معطلة\n• لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
 end
 checkmyrde = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
-if Redis:get(TheMERON.."MERON:Add:myrdid"..checkmyrde..msg_chat_id) then
+if Redis:get(TheMERON.."MERON:Add:myrdid"..msg_chat_id) then
 myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
 local UserInfo = merolua.getUser(msg.sender_id.user_id)
 local Bio = FlterBio((msg.sender_id.user_id))
