@@ -13489,38 +13489,6 @@ return https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_i
 end
 end
 end
-if text == 'نادي المطور' or text == 'بدي مساعدة' or text == 'بدي مساعده' then  
-return merolua.sendText(msg_chat_id,msg_id,"⇜ تم إرسال طلبك للمطور سيتم الرد عليك قريباً .")
-if not Redis:get(TheMERON.."Status:tagdev") then
-return false
-end
-local Get_Chat = msg_chat_id
-local Info_Chats = msg_chat_id
-local bains = msg.sender.user_id
-if bains.first_name then
-klajq = '['..UserInfo.first_name..'](tg://user?id='..UserInfo.first_name..')'
-else
-klajq = 'لا يوجد'
-end
-if bains.username then
-basgk = ''..bains.username..' '
-else
-basgk = 'لا يوجد'
-end
-local czczh = ''..UserInfo.first_name..''
-local reply_markup = bot.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = czczh, url = "https://t.me/"..UserInfo.first_name..""},
-},
-{
-{text = Get_Chat.title, url = Info_Chats.invite_link.invite_link}, 
-},
-}
-}
-send(Sudo_Id,0,'\n⇜ مرحباً عزيزي المطور \nشخص ما يحتاج مساعدتك\n━━━━━━━━\n⇜ اسمه : '..klajq..' \n⇜ ايديه : '..msg.sender.user_id..'\n⇜ يوزره : @'..basgk..'\n⇜ الوقت : '..os.date("%I:%M %p")..'\n⇜ التاريخ : '..os.date("%Y/%m/%d")..'',"md",false, false, false, false, reply_markup)
-end
 
 if text == 'المطور' and ChCheck(msg) or text == 'مطور البوت' and ChCheck(msg) or text == 'مطور' and ChCheck(msg) then   
 local UserInfo = merolua.getUser(Sudo_Id) 
@@ -30024,7 +29992,7 @@ if Text and Text:match('(%d+)/onlinebott(.*)') then
   local txxt = "◉︙تم مغادره البوت من المجموعة"
   keyboard = {} 
   keyboard.inline_keyboard = {
-    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎?? ❳',url="t.me/l5l5III"}},
   }
   local mm = Msg_id/2097152/0.5
   https.request("https://api.telegram.org/bot"..Token..'/EditMessagecaption?chat_id='..ChatId..'&message_id='..mm..'&caption=' .. URL.escape(txxt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
