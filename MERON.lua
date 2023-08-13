@@ -12963,7 +12963,7 @@ end
 if text and text:match("^قوقل (.*)$") then
 local F = text:match("^قوقل (.*)$") 
 local Text_mira = "⇜ اضغط على بحثك وهو "..F..""
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
@@ -23748,7 +23748,7 @@ return merolua.sendText(msg.chat_id,msg.id,"⇜ الالعاب معطلة من �
 end
 KlamSpeeddd = {"فراوله","غيوم","قط","عشب","بطه","الماس","شمس","حاسبه","فطر","موقد","ساعه","حذاء","مفتاح","كرز","جبن","سلحفاه","شعر","نظاره","حمار وحشي","سلطه","بطيخ","كتاب","طماطم","ديك","كرسي","حجاب","بوصله"};
 name = KlamSpeeddd[math.random(#KlamSpeeddd)]
-Redis:set(TheMero.."mshaherrr"..msg.chat_id,name)
+Redis:set(TheMERON.."mshaherrr"..msg.chat_id,name)
 name = string.gsub(name,"فراوله","https://t.me/zzommm/2")
 name = string.gsub(name,"غيوم","https://t.me/zzommm/3")
 name = string.gsub(name,"قط","https://t.me/zzommm/4")
@@ -23779,7 +23779,7 @@ name = string.gsub(name,"بوصله","https://t.me/zzommm/28")
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&photo="..name.."&caption="..URL.escape("اسرع واحد يعرف الصوره").."&reply_to_message_id="..(msg.id/2097152/0.5))
 end
 if text == 'الالعاب الاحترافيه' or text == 'الالعاب المتطوره' then
-local reply_markup = bot.replyMarkup{
+local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {{text="♟ Chess Game ♟",url='https://t.me/T4TTTTBOT?game=chess'}},
@@ -23803,13 +23803,13 @@ data = {
 return merolua.sendText(msg.chat_id,msg.id,'⇜ قائمة الالعاب المتطورة ',"md", true, false, false, false, reply_markup)
 end
 
-if text == "صور" then
+if text == "صورر" then
 if not Redis:get(TheMERON.."MERON:Status:Games"..msg.chat_id) then
 return merolua.sendText(msg.chat_id,msg.id,"⇜ الالعاب معطلة من قبل المشرفين","md",true)
 end
 KlamSpeeddd = {"ديل","زيتون","بن تن","ون بيس","نمله","توت","دكتور","باونتي","عسل","سابق ولاحق","دماغ","خروف","ميكي ماوس","كرسي","كيا","عين","بي ام دبليو","بشت","لاما","ببجي","سيمبا","سبونج بوب","شاي","طبله","كابتن ماجد","اليابان","بزر","ديك رومي","لاكوست","نوكيا","بطه","غوريلا","باب","كراش","لوتس","فرشه","اسعاف","تركيا","تشيلسي","طرزان","ال جي","نوتيلا","طفايه","عدنان ولينا","فتيات القوه","دمعه","قراند","قطط","سله","فلاش","يد","كبد","الصين","مكسرات","فيمتو","باباي","كاشهد","مسجد","برايه","بطوط","باندا","كيندر","طياره","سنافر","الصين","سالي","بطريق","قرد","شاورما","ثريه","ميداليه","ماعز","سرير","هدى","بطاريه","احلام","نيسان","لابتوب","نسر","مسدس","مسواك","بير","قوقل","ملعب","دبابه","مغسله","سلم","دبور","كودو","بيانو","كهف","مشط","نقار الخشب","تفاح","طاوله","عنكبوت"};
 name = KlamSpeeddd[math.random(#KlamSpeeddd)]
-Redis:set(TheMero.."photohzr"..msg.chat_id,name)
+Redis:set(TheMERON.."photohzr"..msg.chat_id,name)
 name = string.gsub(name,"ديل","https://t.me/hsjwjwhs82819/2")
 name = string.gsub(name,"زيتون","https://t.me/hsjwjwhs82819/3")
 name = string.gsub(name,"بن تن","https://t.me/hsjwjwhs82819/4")
