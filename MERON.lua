@@ -7737,7 +7737,7 @@ return merolua.sendText(msg_chat_id,msg_id,"• حسناً عزيزي ارسل �
 end
 if text == "حذف ردي" or text == "مسح ردي" then
 myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
-return send(msg.chat_id, msg.id,"• تم مسح ردك بنجاح\n• الرد ( "..myrd.." )", 'md')
+send(msg.chat_id, msg.id,"• تم مسح ردك بنجاح\n• الرد ( "..myrd.." )", 'md')
 Redis:srem(TheMERON.."MERON:List:myrd"..msg_chat_id, myrd)
 Redis:srem(TheMERON.."MERON:List:myrdmyid"..msg_chat_id, msg.sender_id.user_id)
 Redis:del(TheMERON.."MERON:Add:myrdtext"..myrd..msg_chat_id)
@@ -10624,7 +10624,7 @@ if text and  text:match("^بوسه$") and ChCheck(msg) and not Redis:get(TheMERO
 
 
 local bos = {
-"امممووااهحح شهلعسل🥺🍯💘",
+"امممووااهحح شهلعسل??🍯💘",
 "مابوس واحد خايس مثلك 😁",
 "يععع تلعب نفسي 😷",
 "مابوس خدك مالح 😹??",
