@@ -7736,67 +7736,13 @@ data = {
 return merolua.sendText(msg_chat_id,msg_id,"• حسناً عزيزي ارسل اسمك الان", 'md', false, false, false, false, reply_markup)
 end
 if text == "حذف ردي" or text == "مسح ردي" then
-myrd = Redis:get(TheMero.."Mero:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
+myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
 send(msg.chat_id, msg.id,"• تم مسح ردك بنجاح\n• الرد ( "..myrd.." )", 'md')
 Redis:srem(TheMERON.."MERON:List:myrd"..msg_chat_id, myrd)
 Redis:srem(TheMERON.."MERON:List:myrdmyid"..msg_chat_id, msg.sender_id.user_id)
 Redis:del(TheMERON.."MERON:Add:myrdtext"..myrd..msg_chat_id)
 Redis:del(TheMero.."MERON:Add:myrdid"..myrd..msg_chat_id)
 Redis:del(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
-end
-if text == "ردي" then
-if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id,"• اضافة الردود للاعضاء معطلة\n• لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
-end
-checkmyrde = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
-if Redis:get(TheMERON.."MERON:Add:myrdid"..msg_chat_id) then
-myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
-local UserInfo = merolua.getUser(msg.sender_id.user_id)
-local Bio = FlterBio((msg.sender_id.user_id))
-local photo = merolua.getUserProfilePhotos(msg.sender_id.user_id)
-local ban = merolua.getUser(msg.sender_id.user_id)
-if ban.first_name then
-news = ban.first_name
-else
-news = " لا يوجد اسم"
-end
-if UserInfo.username then
-UserInfousername = '@'..UserInfo.username..''
-else
-UserInfousername = 'لا يوجد يوزر'
-end
-if photo.total_count > 0 then
-local reply_markup = merolua.replyMarkup{
-type = 'inline',
-data = {
-{
-{text= UserInfo.first_name ,url = "tg://user?id="..UserInfo.id..""},
-},
-}
-}
-return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,
-'\n• Name 𖦹 '..news..
-'\n• 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𖦹 ['..UserInfousername..
-']\n• 𝖡𝗂𝗈 𖦹 ['..Bio..
-']', "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
-else
-local reply_markup = merolua.replyMarkup{
-type = 'inline',
-data = {
-{
-{text= UserInfo.first_name ,url = "tg://user?id="..UserInfo.id..""},
-},
-}
-}
-return merolua.sendText(msg_chat_id,msg_id,
-'\n• Name 𖦹 '..news..
-'\n• 𝖴𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𖦹 ['..UserInfousername..
-']\n• 𝖡𝗂𝗈 𖦹 ['..Bio..
-']', "md",false, false, false, false, reply_markup)
-end
-else
-return merolua.sendText(msg.chat_id, msg.id,"• لا يوجد لديك رد\n• لأضافة ردك ( اضف ردي )", 'md')
-end
 end
 
 if text == "ردود الاعضاء" or text == "ردود اعضاء" then
@@ -18027,7 +17973,7 @@ else
 Bio = ''
 end
 if photo and photo.total_count and photo.total_count > 0 then
-local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 : * ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 :* @["..UserInfo.username.."]\n*✧︙𝙸𝙳 𝙾𝚆𝙽𝙴𝚁 : * "..UserInfo.id.." \n*✧︙𝙱𝙸𝙾 ??𝚆𝙽𝙴𝚁 : * ["..Bio.."]"
+local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 : * ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 :* @["..UserInfo.username.."]\n*✧︙𝙸𝙳 𝙾𝚆𝙽𝙴𝚁 : * "..UserInfo.id.." \n*✧︙𝙱𝙸𝙾 𝙾𝚆𝙽𝙴𝚁 : * ["..Bio.."]"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {
 {text = UserInfo.first_name, url = 't.me/'..UserInfo.username},
