@@ -7795,7 +7795,7 @@ return merolua.sendText(msg_chat_id,msg_id,
 ']', "md",false, false, false, false, reply_markup)
 end
 else
-send(msg.chat_id, msg.id,"• لا يوجد لديك رد\n• لأضافة ردك ( اضف ردي )", 'md')
+return merolua.sendText(msg.chat_id, msg.id,"• لا يوجد لديك رد\n• لأضافة ردك ( اضف ردي )", 'md')
 end
 end
 
@@ -18027,7 +18027,7 @@ else
 Bio = ''
 end
 if photo and photo.total_count and photo.total_count > 0 then
-local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 : * ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 :* @["..UserInfo.username.."]\n*✧︙𝙸𝙳 𝙾𝚆𝙽𝙴𝚁 : * "..UserInfo.id.." \n*✧︙𝙱𝙸𝙾 𝙾𝚆𝙽𝙴𝚁 : * ["..Bio.."]"
+local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 : * ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝙾𝚆𝙽𝙴𝚁 :* @["..UserInfo.username.."]\n*✧︙𝙸𝙳 𝙾𝚆𝙽𝙴𝚁 : * "..UserInfo.id.." \n*✧︙𝙱𝙸𝙾 ??𝚆𝙽𝙴𝚁 : * ["..Bio.."]"
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {
 {text = UserInfo.first_name, url = 't.me/'..UserInfo.username},
