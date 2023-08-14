@@ -1412,7 +1412,7 @@ if UserInfoo.first_name == "" then
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url='t.me/l5l5III'},
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url='t.me/l5l5III'},
 },
 }
 else
@@ -1968,7 +1968,7 @@ TextBot = '\n*◉︙اهلا انآ بوت اسمي '..Bot_Name..''..
 keyboard = {} 
 keyboard.inline_keyboard = {
   {{text="◉ غادر ◉",callback_data="/LeaveBotPic:"..msg.sender_id.user_id},{text = '◉ تفعيل ◉', callback_data = msg.sender_id.user_id..'/onlinebott'..msg_chat_id}},
-	{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+	{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo='..idephoto..'&caption=' .. URL.escape(TextBot).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -1983,7 +1983,7 @@ TextBot = '\n*◉︙اهلا انآ بوت اسمي '..Bot_Name..''..
 keyboard = {} 
 keyboard.inline_keyboard = {
   {{text="◉ غادر ◉",callback_data="/LeaveBotPic:"..msg.sender_id.user_id},{text = '◉ تفعيل ◉', callback_data = msg.sender_id.user_id..'/onlinebott'..msg_chat_id}},
-	{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+	{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&caption=' .. URL.escape(TextBot).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -13471,7 +13471,7 @@ local TestText = "*◉︙𝙳𝙴𝚅 𝙽𝙰𝙼𝙴 : * ["..UserInfo.first_na
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url='https://t.me/l5l5III'},
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url='https://t.me/l5l5III'},
 },
 }
 local msg_id = msg.id/2097152/0.5 
@@ -13481,7 +13481,7 @@ local TestText = "- معلومات مبــرمج السـورس : \n\n*◉︙na
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url='https://t.me/l5l5III'},
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url='https://t.me/l5l5III'},
 },
 }
 local msg_id = msg.id/2097152/0.5 
@@ -13509,21 +13509,21 @@ local TextingDevBot = TextingDevBot:gsub('#biosudo',"["..Bio.."]")
 if photo.total_count > 0 then 
 local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {{text =UserInfo.first_name, url = 't.me/'..UserSudo}},
-{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},
+{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍',url="t.me/l5l5III"}},
 }}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TextingDevBot, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}	
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍',url="t.me/l5l5III"}},}}	
 merolua.sendText(msg_chat_id,msg_id,TextingDevBot,"md", true, false, false, false, reply_markup)
 end
 else
 if photo and photo.total_count and photo.total_count > 0 then
 local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text = UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍',url="t.me/l5l5III"}},}}
 merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id, TestText, "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
 local TestText = "*✧︙𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : * ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..") .\n*✧︙𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 𝚂𝚄𝙳𝙾 : @"..UserSudo.."*\n*✧︙𝙸𝙳 𝚂𝚄𝙳𝙾 : *"..Sudo_Id.." .\n*✧︙𝙱𝙸𝙾 𝚂𝚄𝙳𝙾 : * ["..Bio.."] ."
-local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"}},}}	
+local reply_markup = merolua.replyMarkup{type = 'inline',data = {{{text =UserInfo.first_name, url = 't.me/'..UserSudo}},{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍',url="t.me/l5l5III"}},}}	
 merolua.sendText(msg_chat_id,msg_id,TestText,"md", true, false, false, false, reply_markup)
 end
 end
@@ -14343,7 +14343,7 @@ local UserInfo = merolua.getUser(user1)
 local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/MemzDragon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
@@ -14360,7 +14360,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14379,7 +14379,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14398,7 +14398,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14417,7 +14417,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14436,7 +14436,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14455,7 +14455,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14474,7 +14474,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14493,7 +14493,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14512,7 +14512,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14531,7 +14531,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14550,7 +14550,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14569,7 +14569,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14588,7 +14588,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14607,7 +14607,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14626,7 +14626,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14645,7 +14645,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14664,7 +14664,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14683,7 +14683,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14702,7 +14702,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14721,7 +14721,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14740,7 +14740,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14759,7 +14759,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14778,7 +14778,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14797,7 +14797,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14816,7 +14816,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14835,7 +14835,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14854,7 +14854,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -14872,7 +14872,7 @@ local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg:/
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = "https://t.me/l5l5III"}
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = "https://t.me/l5l5III"}
 },
 }
 local msg_id = msg.id/2097152/0.5
@@ -16871,7 +16871,7 @@ local UserInfo = merolua.getUser(user1)
 local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/Teamsulta/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -16886,7 +16886,7 @@ local UserInfo = merolua.getUser(user1)
 local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -18001,7 +18001,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {text = UserInfo.first_name, url = 't.me/'..UserInfo.username},
 },
 {
-{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"},
+{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍',url="t.me/l5l5III"},
 },
 }
 }
@@ -18013,7 +18013,7 @@ local reply_markup = merolua.replyMarkup{type = 'inline',data = {
 {text = UserInfo.first_name, url = 't.me/'..UserInfo.username},
 },
 {
-{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒',url="t.me/l5l5III"},
+{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍',url="t.me/l5l5III"},
 },
 }
 }
@@ -18346,7 +18346,7 @@ data = {
 {text = '{ نعم }', data = msg.sender_id.user_id..'/Nzlne'},{text = '{ لا }', data = msg.sender_id.user_id..'/noNzlne'},
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -20285,7 +20285,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22274,7 +22274,7 @@ keyboard.inline_keyboard = {
 {{text="🔵 لعبة الالوان 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
 {{text="🚀 لعبة الصاروخ 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 لعبة السهام 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
 {{text="لعبة النينجا",url='https://t.me/gamee?game=GravityNinja21'},{text="لعبة الكرتي",url='https://t.me/gamee?game=KarateKid2'}},
-{{text = '✧ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒.', url="t.me/l5l5III"}},
+{{text = '✧ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍.', url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/l5l5III/3&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -22295,7 +22295,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/l5l5III/3&caption=' .. URL.escape([[
 *⦑ Welcome to Source ⦒
-◉ ⦑ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ⦒
+◉ ⦑ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ⦒
 ◉ Source version : 6.1* 
 — — — — — — — — —
 ]]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -22327,7 +22327,7 @@ data = {
 {text = '{ القفل / الفتح }', data = msg.sender_id.user_id..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = msg.sender_id.user_id..'/listallAddorrem'}, 
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22355,7 +22355,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22482,7 +22482,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22525,7 +22525,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22572,7 +22572,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22617,7 +22617,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22697,7 +22697,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22768,7 +22768,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22823,7 +22823,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22856,7 +22856,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -22909,7 +22909,7 @@ local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -23797,7 +23797,7 @@ data = {
 {{text="🦖 Dragon Game 🦖",url='https://t.me/T4TTTTBOT?game=dragon'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
 {{text="🔵 Color Game 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
 {{text="🚀 Rocket Game 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 Arrow Game 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
-{{text = '🧚🏻‍♀️',url="t.me/Tepthon"}},
+{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍.', url="t.me/l5l5III"}},
 }
 }
 return merolua.sendText(msg.chat_id,msg.id,'⇜ قائمة الالعاب المتطورة ',"md", true, false, false, false, reply_markup)
@@ -25145,7 +25145,7 @@ data = {
 {text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/RASRXVV_BOT'}, 
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
 },
 }
 }
@@ -25240,7 +25240,7 @@ data = {
 },
 }
 }
-return merolua.sendText(msg_chat_id,msg_id,'◉︙اهلا بك عزيزي المطور\n◉︙اليك اوامر الكيبورد الخاصه بك\n◉︙تابع 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 لتصلك اخر المنشورات @l5l5III\n◉︙تابع قناة التحديثات لتصلك اخر المنشورات @l5l5III', 'md', false, false, false, false, reply_markup)
+return merolua.sendText(msg_chat_id,msg_id,'◉︙اهلا بك عزيزي المطور\n◉︙اليك اوامر الكيبورد الخاصه بك\n◉︙تابع 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 لتصلك اخر المنشورات @l5l5III\n◉︙تابع قناة التحديثات لتصلك اخر المنشورات @l5l5III', 'md', false, false, false, false, reply_markup)
 end
 end
 
@@ -28359,7 +28359,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -28420,7 +28420,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -28516,7 +28516,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -28603,7 +28603,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -28674,7 +28674,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -28723,7 +28723,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -28791,7 +28791,7 @@ data = {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -28862,7 +28862,7 @@ data = {
 {text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -28906,7 +28906,7 @@ data = {
 {text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -29049,7 +29049,7 @@ data = {
 {text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -29108,7 +29108,7 @@ data = {
 {text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳', url = 't.me/l5l5III'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'}, 
 },
 }
 }
@@ -29933,7 +29933,7 @@ if Text and Text:match('(%d+)/onlinebott(.*)') then
   keyboard = {} 
   keyboard.inline_keyboard = {
     {{text="◉ غادر ◉",callback_data="/LeaveBotPic:"..IdUser},{text="◉ تعطيل ◉",callback_data= IdUser..'/offlinebotPic'..ChatId}},
-    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
   }
   local mm = Msg_id/2097152/0.5
   https.request("https://api.telegram.org/bot"..Token..'/EditMessagecaption?chat_id='..ChatId..'&message_id='..mm..'&caption=' .. URL.escape(txxt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -29951,7 +29951,7 @@ if Text and Text:match('(%d+)/onlinebott(.*)') then
   keyboard = {} 
   keyboard.inline_keyboard = {
     {{text="◉ غادر ◉",callback_data="/LeaveBotPic:"..IdUser},{text="◉ تفعيل ◉",callback_data= IdUser..'/onlinebott'..ChatId}},
-    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
   }
   local mm = Msg_id/2097152/0.5
   https.request("https://api.telegram.org/bot"..Token..'/EditMessagecaption?chat_id='..ChatId..'&message_id='..mm..'&caption=' .. URL.escape(txxt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -29978,7 +29978,7 @@ if Text and Text:match('(%d+)/onlinebott(.*)') then
   keyboard = {} 
   keyboard.inline_keyboard = {
     {{text="◉ غادر ◉",callback_data="/LeaveBotPic:"..IdUser},{text="◉ تفعيل ◉",callback_data= IdUser..'/onlinebott'..ChatId}},
-    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐂𝐀𝐑𝐋𝐎𝐒 ❳',url="t.me/l5l5III"}},
+    {{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
   }
   local mm = Msg_id/2097152/0.5
   https.request("https://api.telegram.org/bot"..Token..'/EditMessagecaption?chat_id='..ChatId..'&message_id='..mm..'&caption=' .. URL.escape(txxt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
