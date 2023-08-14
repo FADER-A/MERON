@@ -6405,6 +6405,7 @@ return merolua.sendText(msg.chat_id,msg.id,[[
 
 ]])
 end
+
 if text == 'انا' and Redis:get(TheMERON.."Ahkame:gemes:"..msg.chat_id) == "true" then
 if Redis:sismember(TheMERON.."Ahkame:gemes"..msg.chat_id,msg.sender_id.user_id) then
 return merolua.sendText(msg.chat_id,msg.id,"انت موجود في اللعبه سابقا")
@@ -6477,6 +6478,1025 @@ if Rink == 0 then
 Redis:sadd(TheMERON.."MERON:SilentGroup:Group"..msg.chat_id,allgetr) 
 end
 return merolua.sendText(msg.chat_id,msg.id,"\n⇜ تم اختيار ( "..Name.." ) للحكم عليه\n تم كتمك لحين الاجابه على السؤال ("..Quschen..")","md",true)
+end
+if text == "انا" and Redis:get(TheMERON.."Start_Ahkkam"..msg.chat_id) then
+if Redis:sismember(TheMERON..'List_Ahkkam'..msg.chat_id,msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id,'⇜ اسمك موجود من قبل',"md",true)
+end
+Redis:sadd(TheMERON..'List_Ahkkam'..msg.chat_id,msg.sender_id.user_id)
+Redis:setex(TheMERON.."Witting_StartGameh"..msg.chat_id,1400,true)
+local list = Redis:smembers(TheMERON..'List_Ahkkam'..msg.chat_id) 
+if #list == 2 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local zzllzz = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = 'اضغط للانضمام', data = '/joineahkam'},},}}
+return merolua.sendText(msg.chat_id,msg_id,zzllzz, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 3 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = 'اضغط للانضمام', data = '/joineahkam'},},
+{{text = 'بدء اللعبة', data = '/startahkam'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 4 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = 'اضغط للانضمام', data = '/joineahkam'},},
+{{text = 'بدء اللعبة', data = '/startahkam'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 5 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = 'اضغط للانضمام', data = '/joineahkam'},},
+{{text = 'بدء اللعبة', data = '/startahkam'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 6 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == 6 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id5 = "t.me/"..Uname
+name6 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = name6, url = id5},},
+{{text = 'اضغط للانضمام', data = '/joineahkam'},},
+{{text = 'بدء اللعبة', data = '/startahkam'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 7 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == 6 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id5 = "t.me/"..Uname
+name6 = FlterBio(Nname)
+end
+if k == 7 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id6 = "t.me/"..Uname
+name7 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = name6, url = id5},},
+{{text = name7, url = id6},},
+{{text = 'اضغط للانضمام', data = '/joineahkam'},},
+{{text = 'بدء اللعبة', data = '/startahkam'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 8 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == 6 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id5 = "t.me/"..Uname
+name6 = FlterBio(Nname)
+end
+if k == 7 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id6 = "t.me/"..Uname
+name7 = FlterBio(Nname)
+end
+if k == 8 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id7 = "t.me/"..Uname
+name8 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = name6, url = id5},},
+{{text = name7, url = id6},},
+{{text = name8, url = id7},},
+{{text = 'اضغط للانضمام', data = '/joineahkam'},},
+{{text = 'بدء اللعبة', data = '/startahkam'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 9 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == 6 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id5 = "t.me/"..Uname
+name6 = FlterBio(Nname)
+end
+if k == 7 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id6 = "t.me/"..Uname
+name7 = FlterBio(Nname)
+end
+if k == 8 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id7 = "t.me/"..Uname
+name8 = FlterBio(Nname)
+end
+if k == 9 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id8 = "t.me/"..Uname
+name9 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = name6, url = id5},},
+{{text = name7, url = id6},},
+{{text = name8, url = id7},},
+{{text = name9, url = id8},},
+{{text = 'اضغط للانضمام', data = '/joineahkam'},},
+{{text = 'بدء اللعبة', data = '/startahkam'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 10 then
+local message = '⇜ وصل عدد الاعبين للحد الاعلى\nالمشتركين في لعبة الاحكام هم :' 
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == 6 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id5 = "t.me/"..Uname
+name6 = FlterBio(Nname)
+end
+if k == 7 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id6 = "t.me/"..Uname
+name7 = FlterBio(Nname)
+end
+if k == 8 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id7 = "t.me/"..Uname
+name8 = FlterBio(Nname)
+end
+if k == 9 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id8 = "t.me/"..Uname
+name9 = FlterBio(Nname)
+end
+if k == 10 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id9 = "t.me/"..Uname
+name10 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = name6, url = id5},},
+{{text = name7, url = id6},},
+{{text = name8, url = id7},},
+{{text = name9, url = id8},},
+{{text = name10, url = id9},},
+{{text = 'بدء اللعبة', data = '/startahkam'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+end
+end
+---------------------- كرســـي الاعتـــراف ----------------------
+if text == "انا" and Redis:get(TheMERON.."Start_Koorsi"..msg.chat_id) then
+if Redis:sismember(TheMERON..'List_Koorsi'..msg.chat_id,msg.sender_id.user_id) then
+return merolua.sendText(msg.chat_id,msg.id,'⇜ اسمك موجود من قبل',"md",true)
+end
+Redis:sadd(TheMERON..'List_Koorsi'..msg.chat_id,msg.sender_id.user_id)
+Redis:setex(TheMERON.."Witting_StartGameek"..msg.chat_id,1400,true)
+local list = Redis:smembers(TheMERON..'List_Koorsi'..msg.chat_id) 
+if #list == 2 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local zzllzz = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = 'اضغط للانضمام', data = '/Koorsy'},},}}
+return merolua.sendText(msg.chat_id,msg_id,zzllzz, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 3 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = 'اضغط للانضمام', data = '/Koorsy'},},
+{{text = 'بدء اللعبة', data = '/startkoorsi'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 4 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = 'اضغط للانضمام', data = '/Koorsy'},},
+{{text = 'بدء اللعبة', data = '/startkoorsi'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 5 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = 'اضغط للانضمام', data = '/Koorsy'},},
+{{text = 'بدء اللعبة', data = '/startkoorsi'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 6 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == 6 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id5 = "t.me/"..Uname
+name6 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = name6, url = id5},},
+{{text = 'اضغط للانضمام', data = '/Koorsy'},},
+{{text = 'بدء اللعبة', data = '/startkoorsi'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 7 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == 6 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id5 = "t.me/"..Uname
+name6 = FlterBio(Nname)
+end
+if k == 7 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id6 = "t.me/"..Uname
+name7 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = name6, url = id5},},
+{{text = name7, url = id6},},
+{{text = 'اضغط للانضمام', data = '/Koorsy'},},
+{{text = 'بدء اللعبة', data = '/startkoorsi'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 8 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == 6 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id5 = "t.me/"..Uname
+name6 = FlterBio(Nname)
+end
+if k == 7 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id6 = "t.me/"..Uname
+name7 = FlterBio(Nname)
+end
+if k == 8 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id7 = "t.me/"..Uname
+name8 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = name6, url = id5},},
+{{text = name7, url = id6},},
+{{text = name8, url = id7},},
+{{text = 'اضغط للانضمام', data = '/Koorsy'},},
+{{text = 'بدء اللعبة', data = '/startkoorsi'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 9 then
+local UserInfo = merolua.getUser(msg.sender_id.user_id)
+local Teext = '- ['..FlterBio(UserInfo.first_name)..'](tg://user?id='..msg.sender_id.user_id..')'
+local message = '⇜ عدد الاعبين : '..#list..' \n⇜ انضم للعبة \n'..Teext
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == 6 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id5 = "t.me/"..Uname
+name6 = FlterBio(Nname)
+end
+if k == 7 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id6 = "t.me/"..Uname
+name7 = FlterBio(Nname)
+end
+if k == 8 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id7 = "t.me/"..Uname
+name8 = FlterBio(Nname)
+end
+if k == 9 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id8 = "t.me/"..Uname
+name9 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = name6, url = id5},},
+{{text = name7, url = id6},},
+{{text = name8, url = id7},},
+{{text = name9, url = id8},},
+{{text = 'اضغط للانضمام', data = '/Koorsy'},},
+{{text = 'بدء اللعبة', data = '/startkoorsi'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+elseif #list == 10 then
+local message = '⇜ وصل عدد الاعبين للحد الاعلى\n⇜ المشاركين في لعبة كرسي الاعتراف هم :' 
+for k,v in pairs(list) do
+if k == 1 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id = "t.me/"..Uname
+name1 = FlterBio(Nname)
+end
+if k == 2 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id1 = "t.me/"..Uname
+name2 = FlterBio(Nname)
+end
+if k == 3 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id2 = "t.me/"..Uname
+name3 = FlterBio(Nname)
+end
+if k == 4 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id3 = "t.me/"..Uname
+name4 = FlterBio(Nname)
+end
+if k == 5 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id4 = "t.me/"..Uname
+name5 = FlterBio(Nname)
+end
+if k == 6 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id5 = "t.me/"..Uname
+name6 = FlterBio(Nname)
+end
+if k == 7 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id6 = "t.me/"..Uname
+name7 = FlterBio(Nname)
+end
+if k == 8 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id7 = "t.me/"..Uname
+name8 = FlterBio(Nname)
+end
+if k == 9 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id8 = "t.me/"..Uname
+name9 = FlterBio(Nname)
+end
+if k == 10 then
+local Nname = merolua.getUser(v).first_name
+local Uname = merolua.getUser(v).username
+id9 = "t.me/"..Uname
+name10 = FlterBio(Nname)
+end
+if k == #list then
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{{text = name1, url = id},},
+{{text = name2, url = id1},},
+{{text = name3, url = id2},},
+{{text = name4, url = id3},},
+{{text = name5, url = id4},},
+{{text = name6, url = id5},},
+{{text = name7, url = id6},},
+{{text = name8, url = id7},},
+{{text = name9, url = id8},},
+{{text = name10, url = id9},},
+{{text = 'بدء اللعبة', data = '/startkoorsi'},},}}
+return merolua.sendText(msg.chat_id,msg_id,message, 'md', true, false, false, false, reply_markup)
+end
+end
+end
 end
 if text== "اكتموه"  and msg.reply_to_message_id then    
 if Redis:get(TheMERON.."lock_iktmo"..msg.chat_id) then
@@ -9865,6 +10885,56 @@ merolua.sendText(msg_chat_id,msg_id,"◉︙اسرع واحد يكتب الكلم
 Redis:set(TheMERON.."MERON:Game:klmaa"..msg.chat_id,name)
 return false
 end
+end
+if text == 'احكام' then
+if Redis:get(TheMERON.."MERON:Status:Games:malk"..msg.chat_id) then
+return false 
+end
+if not Redis:get(TheMERON.."MERON:Status:Games"..msg.chat_id) then
+return false
+end
+local zzllzz = '⇜ بدينا لعبة احكام واضفت اسمك\n\n⇜ اللي يبي يلعب يضغط الزر بالاسفل'
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'اضغط للانضمام', data = '/joineahkam'},
+},
+}
+}
+Redis:del(TheMERON..'List_Ahkkam'..msg.chat_id)
+Redis:set(TheMERON.."raeahkkam"..msg.chat_id,msg.sender_id.user_id)
+Redis:sadd(TheMERON..'List_Ahkkam'..msg.chat_id,msg.sender_id.user_id)
+Redis:setex(TheMERON.."Start_Ahkkam"..msg.chat_id,3600,true)
+return merolua.sendText(msg_chat_id,msg_id,zzllzz,"md",false, false, false, false, reply_markup)
+end
+-------------------------------------------
+if text == 'كرسي' or text == 'كرسي الاعتراف' then
+if Redis:get(TheMERON.."MERON:Status:Games:malk"..msg.chat_id) then
+return false 
+end
+if not Redis:get(TheMERON.."MERON:Status:Games"..msg.chat_id) then
+return false
+end
+local Quuiz = Redis:get(TheMERON.."Quiz:Add:Koorsy"..msg.chat_id) or 0
+if tonumber(Quuiz) < tonumber(10) and Quuiz ~= 0 then 
+return return merolua.sendText(msg.chat_id,msg.id, "⇜ هنالك لعبة كرسي جارية حاليا\n⇜ ارسل (تصفير كرسي) للبدء من جديد","md",true)  
+end
+local zzllzz = '⇜ بدينا لعبة كرسي الاعتراف واضفت اسمك\n\n⇜ اللي يبي يلعب يرسل كلمة (انا) او يضغط الزر\n⇜ للانتهاء يرسل (نعم) اللي بدأ اللعبة'
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = 'اضغط للانضمام', data = '/Koorsy'},
+},
+}
+}
+Redis:del(TheMERON..'List_Koorsi'..msg.chat_id)
+Redis:del(TheMERON.."Quiz:Add:Koorsy"..msg.chat_id)
+Redis:set(TheMERON.."raekoorsi"..msg.chat_id,msg.sender_id.user_id)
+Redis:sadd(TheMERON..'List_Koorsi'..msg.chat_id,msg.sender_id.user_id)
+Redis:setex(TheMERON.."Start_Koorsi"..msg.chat_id,3600,true)
+return merolua.sendText(msg_chat_id,msg_id,zzllzz,"md",false, false, false, false, reply_markup)
 end
 if text == "اضف سؤال مقالات" and ChCheck(msg) then
 if not msg.ControllerBot then 
@@ -22277,7 +23347,7 @@ keyboard.inline_keyboard = {
 {{text = '✧ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍.', url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/l5l5III/3&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/l5l5III/239&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end end
 if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg) or text == 'ياسورس' and ChCheck(msg) or text == 'يا سورس' and ChCheck(msg) then
