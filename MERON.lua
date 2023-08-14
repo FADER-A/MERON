@@ -10918,7 +10918,7 @@ return false
 end
 local Quuiz = Redis:get(TheMERON.."Quiz:Add:Koorsy"..msg.chat_id) or 0
 if tonumber(Quuiz) < tonumber(10) and Quuiz ~= 0 then 
-return return merolua.sendText(msg.chat_id,msg.id, "⇜ هنالك لعبة كرسي جارية حاليا\n⇜ ارسل (تصفير كرسي) للبدء من جديد","md",true)  
+return merolua.sendText(msg.chat_id,msg.id, "⇜ هنالك لعبة كرسي جارية حاليا\n⇜ ارسل (تصفير كرسي) للبدء من جديد","md",true)  
 end
 local zzllzz = '⇜ بدينا لعبة كرسي الاعتراف واضفت اسمك\n\n⇜ اللي يبي يلعب يرسل كلمة (انا) او يضغط الزر\n⇜ للانتهاء يرسل (نعم) اللي بدأ اللعبة'
 local reply_markup = merolua.replyMarkup{
