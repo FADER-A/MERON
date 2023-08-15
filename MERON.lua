@@ -7736,7 +7736,7 @@ data = {
 }
 return merolua.sendText(msg_chat_id,msg_id,"• حسناً عزيزي ارسل اسمك الان", 'md', false, false, false, false, reply_markup)
 end
-if text == "حذف ردي and ChCheck(msg) then
+if text == "حذف ردي" and ChCheck(msg) then
 if not msg.Managers then
 return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
 end
@@ -16880,7 +16880,7 @@ local UserInfo = merolua.getUser(user1)
 local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
+{{text = '❲ 𝐒𝐎??𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/Teamsulta/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
