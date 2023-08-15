@@ -7736,22 +7736,75 @@ data = {
 }
 return merolua.sendText(msg_chat_id,msg_id,"• حسناً عزيزي ارسل اسمك الان", 'md', false, false, false, false, reply_markup)
 end
-if text == "حذف ردي" and ChCheck(msg) then
-if not msg.Managers then
-return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
+if text and Redis:get(TheMERON..":My_Rd:del:"..msg.sender_id.user_id..":"..msg.chat_id) then
+if not Redis:sismember(TheMERON..":My_Rd:text:"..msg.chat_id, text) then
+return merolua.sendText(msg.chat_id, msg.id, "لايوجد ردود بهذا الاسم", 'md')
+end
+if not tonumber(Redis:get(TheMERON..":My_Rd:"..text..":"..msg.chat_id)) == tonumber(msg.sender_id.user_id) and not msg.Owners then
+return merolua.sendText(msg.chat_id, msg.id, "هذا الرد لايخصك", 'md')
+end
+Redis:del(TheMERON..":My_Rd:"..text..":"..msg.chat_id)
+Redis:srem(TheMERON..":My_Rd:text:"..msg.chat_id, text)
+Redis:decrby(TheMERON..":My_Rd:num"..msg.sender_id.user_id..":"..msg.chat_id, 1)
+Redis:del(TheMERON..":My_Rd:del:"..msg.sender_id.user_id..":"..msg.chat_id)
+return merolua.sendText(msg.chat_id, msg.id, "تم حذف ردك بنجاح", 'md')
 end
 
+if text == "حذف ردودي" and not Redis:get(TheMERON..":My_Rd:lock:"..msg.chat_id) then
+local list = Redis:smembers(TheMERON..":My_Rd:text:"..msg.chat_id)
+for k,v in pairs(list) do
+if tonumber(Redis:get(TheMERON..":My_Rd:"..v)) == tonumber(msg.sender_id.user_id)then
+Redis:del(TheMERON..":My_Rd:"..v..":"..msg.chat_id)
+Redis:srem(TheMERON..":My_Rd:text:"..msg.chat_id, v)
+Redis:decrby(TheMERON..":My_Rd:num"..msg.sender_id.user_id..":"..msg.chat_id, 1)
+end
+end
+return merolua.sendText(msg.chat_id, msg.id, "مسحت الردود", 'md')
+end
 
-Redis:set(TheMERON.."MERON:Set:Manager:rd"..msg.sender_id.user_id..":"..msg_chat_id,"true2")
+if text == "حذف قائمه الردود" and not Redis:get(TheMERON..":My_Rd:lock:"..msg.chat_id) then
+local StatusMember = bot.getChatMember(msg.chat_id, msg.sender_id.user_id).status.TheMERONbots
+if not msg.Creator or not StatusMember == "chatMemberStatusCreator" then
+return merolua.sendText(msg_chat_id,msg_id,'\n*⌯ هذا الامر يخص { مالك المجموعه او رتبه المنشئ }* ',"md",true)
+end
+local list = Redis:smembers(TheMERON..":My_Rd:text:"..msg.chat_id)
+for k,v in pairs(list) do
+Redis:del(TheMERON..":My_Rd:"..v)
+Redis:srem(TheMERON..":My_Rd:text:"..msg.chat_id, v)
+local id = Redis:get(TheMERON..":My_Rd:"..v..":"..msg.chat_id)
+Redis:decrby(TheMERON..":My_Rd:num"..id..":"..msg.chat_id, 1)
+end
+return merolua.sendText(msg.chat_id, msg.id, "مسحت الردود", 'md')
+end
+
+if text == "حذف ردي" and not Redis:get(TheMERON..":My_Rd:lock:"..msg.chat_id) then
+local Num = Redis:get(TheMERON..":My_Rd:num"..msg.sender_id.user_id..":"..msg.chat_id)
+if not Num then 
+return merolua.sendText(msg.chat_id, msg.id, "انت لا تمتلك ردود", 'md')
+end
+Redis:set(TheMERON..":My_Rd:del:"..msg.sender_id.user_id..":"..msg.chat_id, true)
+return merolua.sendText(msg.chat_id, msg.id, "ارسل اسم الرد الان :", 'md')
+end
+
+if text and  Redis:sismember(TheMERON..":My_Rd:text:"..msg.chat_id, text) and not Redis:get(TheMERON..":My_Rd:lock:"..msg.chat_id) then 
+local ID = Redis:get(TheMERON..":My_Rd:"..text..":"..msg.chat_id)
+local UserInfo = merolua.getUser(ID)
+local photo = merolua.getUserProfilePhotos(ID)
+local Bio = FlterBio(getbio(ID))
+local msg_text = "NAME : "..UserInfo.first_name.."\nBIO : "..Bio
 local reply_markup = merolua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '- الغاء الامر ', data =msg.sender_id.user_id..'/cancelamr'}
+{text = UserInfo.first_name , url = "t.me/"..(UserInfo.username or UserBot)},
 },
 }
 }
-return merolua.sendText(msg_chat_id,msg_id,"◉︙ارسل الان اسم الرد لمسحه من الردود", 'md', false, false, false, false, reply_markup)
+if photo.total_count > 0 then
+return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,msg_text,"md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
+else
+return merolua.sendText(msg_chat_id,msg_id,msg_text,"md",true) 
+end
 end
 if text == "ردي" then
 if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
@@ -16880,7 +16933,7 @@ local UserInfo = merolua.getUser(user1)
 local Text = "✺︙تم الاهداء الئ: ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎??𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
+{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/Teamsulta/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
