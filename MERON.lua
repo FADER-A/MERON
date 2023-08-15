@@ -7693,49 +7693,15 @@ end
 Redis:del(TheMERON.."myrdspecial"..msg.chat_id)
 return merolua.sendText(msg.chat_id,msg.id,"• تم وضع اضافة ردي لجميع الاعضاء ","md",true)
 end
-if text == "تفعيل اضف ردي" or text == "تفعيل ردي" or text == "تفعيل ردود الاعضاء" then
-if not msg.TheBasicsQ then
-return merolua.sendText(msg_chat_id,msg_id,'\n• يا شاطر هذا الأمر لـ المالك ',"md",true) 
+if text == "اضف ردي" and not Redis:get(TheMERON..":My_Rd:lock:"..msg.chat_id) then
+local Num = Redis:get(TheMERON..":My_Rd:num"..msg.sender_id.user_id..":"..msg.chat_id)
+if tonumber(Num) == 2 then 
+return merolua.sendText(msg.chat_id, msg.id, "لديك ردين باسمك فعلا ولايمكن الزياده.", 'md')
 end
-if Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id,"• تم تفعيل ردود الاعضاء مسبقاً ","md",true)
-else
-Redis:set(TheMERON.."onmyrd"..msg.chat_id,"true")
-return merolua.sendText(msg.chat_id,msg.id,"• ابشر فعلت ردود الاعضاء ","md",true)
+Redis:set(TheMERON..":My_Rd:set:"..msg.sender_id.user_id..":"..msg.chat_id, true)
+return merolua.sendText(msg.chat_id, msg.id, "ارسل اسم الرد الان :", 'md')
 end
-end
-if text == "تعطيل اضف ردي" or text == "تعطيل ردي" or text == "تعطيل ردود الاعضاء" then
-if not msg.TheBasicsQ then
-return merolua.sendText(msg_chat_id,msg_id,'\n• يا شاطر هذا الأمر لـ المالك ',"md",true) 
-end
-if Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-Redis:del(TheMERON.."onmyrd"..msg.chat_id)
-return merolua.sendText(msg.chat_id,msg.id,"• ابشر عطلت ردود الاعضاء ","md",true)
-else
-return merolua.sendText(msg.chat_id,msg.id,"• تم تعطيل ردود الاعضاء مسبقاً ","md",true)
-end
-end
-if text == "اضف ردي" then
-if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id,"• اضافة الردود للاعضاء معطلة\n• لتفعيلها ( تفعيل ردود الاعضاء )","md",true)
-end
-if not msg.Distinguished and Redis:get(TheMERON.."myrdspecial"..msg.chat_id) then
-return merolua.sendText(msg.chat_id,msg.id,"• عذرًا عزيزي اضافة ردي للمميزين ومافوق فقط","md",true)
-end
-if Redis:sismember(TheMERON.."MERON:List:myrdmyid"..msg_chat_id,msg.sender_id.user_id) then
-return merolua.sendText(msg_chat_id,msg_id,"\n• عذرًا عزيزي انت ضايف ردك من قبل\n• للاسف ( لا يمكنني اضافه رد اخر )","md",true)
-end
-Redis:set(TheMERON.."MERON:Set:myrd"..msg.sender_id.user_id..":"..msg_chat_id,true)
-local reply_markup = merolua.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = '- الغاء الامر ', data =msg.sender_id.user_id..'/cancelamr'}
-},
-}
-}
-return merolua.sendText(msg_chat_id,msg_id,"• حسناً عزيزي ارسل اسمك الان", 'md', false, false, false, false, reply_markup)
-end
+
 if text and Redis:get(TheMERON..":My_Rd:del:"..msg.sender_id.user_id..":"..msg.chat_id) then
 if not Redis:sismember(TheMERON..":My_Rd:text:"..msg.chat_id, text) then
 return merolua.sendText(msg.chat_id, msg.id, "لايوجد ردود بهذا الاسم", 'md')
@@ -7801,10 +7767,27 @@ data = {
 }
 }
 if photo.total_count > 0 then
-return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,msg_text,"md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
+return merolua.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,msg_text,"md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup)
 else
 return merolua.sendText(msg_chat_id,msg_id,msg_text,"md",true) 
 end
+end
+------ Enable & Disable
+if text == "تفعيل ردي" then
+local StatusMember = bot.getChatMember(msg.chat_id, msg.sender_id.user_id).status.TheMERONbots
+if not msg.Creator or not StatusMember == "chatMemberStatusCreator" then
+return merolua.sendText(msg_chat_id,msg_id,'\n*⌯ هذا الامر يخص { مالك المجموعه او رتبه المنشئ }* ',"md",true)
+end
+Redis:del(TheMERON..":My_Rd:lock:"..msg.chat_id)
+return merolua.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"↞ابشر فعلت امر ردي").Lock,"md",true)  
+end
+if text == "تعطيل ردي" then
+local StatusMember = bot.getChatMember(msg.chat_id, msg.sender_id.user_id).status.TheMERONbots
+if not msg.Creator or not StatusMember == "chatMemberStatusCreator" then
+return merolua.sendText(msg_chat_id,msg_id,'\n*⌯ هذا الامر يخص { مالك المجموعه او رتبه المنشئ }* ',"md",true)
+end
+Redis:set(TheMERON..":My_Rd:lock:"..msg.chat_id, true)
+return merolua.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender_id.user_id,"↞ابشر عطلت امر ردي").Lock,"md",true)  
 end
 if text == "ردي" then
 if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
