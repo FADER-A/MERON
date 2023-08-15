@@ -7736,14 +7736,22 @@ data = {
 }
 return merolua.sendText(msg_chat_id,msg_id,"• حسناً عزيزي ارسل اسمك الان", 'md', false, false, false, false, reply_markup)
 end
-if text == "حذف ردي" or text == "مسح ردي" then
-myrd = Redis:get(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
-return merolua.sendText(msg.chat_id, msg.id,"• تم مسح ردك بنجاح\n• الرد ( "..myrd.." )", 'md')
-Redis:srem(TheMERON.."MERON:List:myrd"..msg_chat_id, myrd)
-Redis:srem(TheMERON.."MERON:List:myrdmyid"..msg_chat_id, msg.sender_id.user_id)
-Redis:del(TheMERON.."MERON:Add:myrdtext"..myrd..msg_chat_id)
-Redis:del(TheMERON.."MERON:Add:myrdid"..myrd..msg_chat_id)
-Redis:del(TheMERON.."MERON:List:myrdmyrd"..msg.sender_id.user_id..":"..msg_chat_id)
+if text == "حذف ردي and ChCheck(msg) then
+if not msg.Managers then
+return merolua.sendText(msg_chat_id,msg_id,'\n*◉︙هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
+end
+
+
+Redis:set(TheMERON.."MERON:Set:Manager:rd"..msg.sender_id.user_id..":"..msg_chat_id,"true2")
+local reply_markup = merolua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = '- الغاء الامر ', data =msg.sender_id.user_id..'/cancelamr'}
+},
+}
+}
+return merolua.sendText(msg_chat_id,msg_id,"◉︙ارسل الان اسم الرد لمسحه من الردود", 'md', false, false, false, false, reply_markup)
 end
 if text == "ردي" then
 if not Redis:get(TheMERON.."onmyrd"..msg.chat_id) then
