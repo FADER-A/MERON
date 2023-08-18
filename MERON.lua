@@ -11935,7 +11935,7 @@ if text and text:match("^برج (.*)$") and ChCheck(msg) and Redis:get(TheMERON.
 
 
 local Textbrj = text:match("^برج (.*)$")
-gk = https.request('https://apiabs.ml/brg.php?brg='..URL.escape(Textbrj)..'')
+gk = https.request('https://vvvzvv.ml/amirBrg/Teland.php?brg='..URL.escape(Textbrj)..'')
 br = JSON.decode(gk)
 merolua.sendText(msg_chat_id,msg_id, br.ok.hso)
 end
@@ -12781,6 +12781,8 @@ local input = {text:match('(%d+)/(%d+)/(%d+)')}
 local day = input[1]
 local month = input[2]
 local year = input[3]
+local api = http.request("http://ahmed-yad.ml/Anubis/birth_day_pro.php?day="..day.."&month="..month.."&year="..year)
+local api_decode = JSON.decode(api)
 if not api_decode["العمر الميلادي"] then
 return merolua.sendText(msg.chat_id, msg.id,"⇜ صيغة العمر خطأ\n ⇜ ارسل عمرك بالصيغيه التالية :\n يوم/شهر/سنة\n- مثال : 20/2/2002", 'md')
 end
@@ -12812,6 +12814,9 @@ merolua.sendText(msg_chat_id,msg_id,ramsesj20)
 end
 
 if text == "التاريخ" or text == "التقويم" then
+local url, res = https.request("http://api.aladhan.com/v1/timingsByAddress?address=Mecca&method=8")
+local jdat = JSON.decode(url)
+local year = jdat.data.date.hijri.year
 local months = jdat.data.date.hijri.month.number
 local days = jdat.data.date.hijri.day
 local dayss = days + 1
