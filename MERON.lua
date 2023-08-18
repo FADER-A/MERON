@@ -16838,7 +16838,7 @@ if text and text:match("^برج (.*)$") and ChCheck(msg) and not Redis:get(TheME
 
 
 local Textbrj = text:match("^برج (.*)$")
-gk = io.popen('curl -s "https://apiabs.ml/brg.php?brg='..URL.escape(Textbrj)..'"'):read('*a')
+gk = io.popen('curl -s "https://vvvzvv.ml/amirBrg/Teland.php?brg='..URL.escape(Textbrj)..'"'):read('*a')
 br = JSON.decode(gk)
 merolua.sendText(msg_chat_id,msg_id, br.ok.abs)
 end
