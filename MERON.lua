@@ -12814,8 +12814,6 @@ merolua.sendText(msg_chat_id,msg_id,ramsesj20)
 end
 
 if text == "التاريخ" or text == "التقويم" then
-local url, res = https.request("http://api.aladhan.com/v1/timingsByAddress?address=Mecca&method=8")
-local jdat = JSON.decode(url)
 local year = jdat.data.date.hijri.year
 local months = jdat.data.date.hijri.month.number
 local days = jdat.data.date.hijri.day
