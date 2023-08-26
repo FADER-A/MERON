@@ -5635,7 +5635,7 @@ end
 end   
 Get_Json = Get_Json..'],'
 end
-Get_Json = Get_Json..'"Dev":"M_Y_R_Q"}'
+Get_Json = Get_Json..'"Dev":"CSS_R"}'
 end
 Get_Json = Get_Json..'}}'
 local File = io.open('./'..UserBot..'.json', "w")
@@ -5792,7 +5792,7 @@ end
 end   
 Get_Json = Get_Json..'],'
 end
-Get_Json = Get_Json..'"Dev":"M_Y_R_Q"}'
+Get_Json = Get_Json..'"Dev":"CSS_R"}'
 end
 Get_Json = Get_Json..'}}'
 local File = io.open('./'..UserBot..'.json', "w")
@@ -13433,7 +13433,7 @@ end
 
 
 if text == 'مبرمج السورس' and ChCheck(msg) or text == 'مطور السورس' and ChCheck(msg) then  
-local UserId_Info = merolua.searchPublicChat("M_Y_R_Q")
+local UserId_Info = merolua.searchPublicChat("CSS_R")
 if UserId_Info.id then
 local UserInfo = merolua.getUser(UserId_Info.id)
 local InfoUser = merolua.getUserFullInfo(UserId_Info.id)
@@ -22270,9 +22270,9 @@ keyboard.inline_keyboard = {
 {{text = '❲  𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳',url="t.me/l5l5III"}},
 {{text = '- قناة التحديثات .',url="t.me/l5l5III"}},
 {{text = '- لتنصيب السورس .',url="https://t.me/l5l5III"}},
-{{text = '- مبــرمج السـورس .',url="t.me/M_Y_R_Q"},
-{text = '- تواصل السورس .',url="https://t.me/RASRXVV_BOT"}},
-{{text = '❲ لتنصيب بوت ❳ .',url="https://t.me/M_Y_R_Q"}},
+{{text = '- مبــرمج السـورس .',url="t.me/CSS_R"},
+{text = '- تواصل السورس .',url="https://t.me/SORESATEOIN_BOT"}},
+{{text = '❲ لتنصيب بوت ❳ .',url="https://t.me/CSS_R"}},
 }
 local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/l5l5III/239&caption=' .. URL.escape([[
@@ -25083,10 +25083,10 @@ keyboardd.inline_keyboard = {
 {text = '❲ اضفني لمجموعتك ❳', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/RASRXVV_BOT'}, 
+{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/CSS_R'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/SORESATEOIN_BOT'}, 
 },
 {
-{text = '❲ قناه السورس ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
+{text = '❲ قناه السورس ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/CSS_R'}, 
 },
 }
 local msg_id = msg.id/2097152/0.5 
@@ -25107,10 +25107,10 @@ data = {
 {text = '❲ اضفني لمجموعتك ❳', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/RASRXVV_BOT'}, 
+{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/CSS_R'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/SORESATEOIN_BOT'}, 
 },
 {
-{text = '❲ قناه السورس ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
+{text = '❲ قناه السورس ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/CSS_R'}, 
 },
 }
 }
@@ -25124,10 +25124,10 @@ data = {
 {text = '❲ اضفني لمجموعتك ❳', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/M_Y_R_Q'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/RASRXVV_BOT'}, 
+{text = '❲ لتنصيب بوت ❳', url = 'https://t.me/CSS_R'},{text = '❲تواصل المحضورين ❳', url = 'https://t.me/SORESATEOIN_BOT'}, 
 },
 {
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/M_Y_R_Q'}, 
+{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐓𝐀𝐈𝐖𝐀𝐍 ❳', url = 't.me/l5l5III'},{text = '❲ مبــرمج السـورس ❳', url = 't.me/CSS_R'}, 
 },
 }
 }
